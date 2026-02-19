@@ -1,7 +1,163 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Budget Buddy helps you track expenses, plan budgets, and hit savings goals with confidence.">
+  <title>Budget Buddy | Smart Personal Budgeting</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
 <body>
-<h1>Hello World</h1>
-<p>I'm hosted with GitHub Pages.</p>
+  <div class="bg-orb orb-1"></div>
+  <div class="bg-orb orb-2"></div>
+
+  <header class="site-header">
+    <a class="logo" href="#top" aria-label="Budget Buddy home">
+      <img class="logo-image" src="assets/images/logo.png" alt="Budget Buddy logo">
+      <span>Budget Buddy</span>
+    </a>
+  </header>
+
+  <main id="top">
+    <section class="hero section">
+      <div class="hero-media">
+        <img src="assets/images/featured graphic.png" alt="Budget Buddy featured graphic">
+      </div>
+      <div class="hero-content">
+        <p class="eyebrow">Simple money management for real life</p>
+        <h1>Build better habits, one budget at a time.</h1>
+        <p class="lead">
+          Budget Buddy gives you a clear view of your spending, smart goal tracking,
+          and monthly insights so you always know where your money is going.
+        </p>
+      </div>
+    </section>
+
+    <section id="features" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Everything in one app</p>
+        <h2>Tools designed to keep your finances in control</h2>
+      </div>
+      <div class="features-grid">
+        <article class="card feature">
+          <h3>Expense Tracking</h3>
+          <p>Log purchases in seconds and instantly see where your money goes.</p>
+        </article>
+        <article class="card feature">
+          <h3>Smart Budgeting</h3>
+          <p>Set category limits and stay on track with real-time progress bars.</p>
+        </article>
+        <article class="card feature">
+          <h3>Savings Goals</h3>
+          <p>Create custom goals and watch your progress with motivational milestones.</p>
+        </article>
+        <article class="card feature">
+          <h3>Monthly Insights</h3>
+          <p>Get easy reports that reveal trends and help you make better decisions.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="how" class="section detail-section">
+      <div class="section-head">
+        <p class="eyebrow">How it works</p>
+      </div>
+
+      <article class="detail-row card">
+        <div class="detail-image-wrap">
+          <img src="assets/images/budgets.png" alt="Budget Like a Pro screenshot">
+        </div>
+        <div class="detail-copy">
+          <h3>Budget Like a Pro</h3>
+          <p>Set tailored budgets for each category and track your progress in real time. Stay on target, avoid overspending, and reach your financial goals with ease.</p>
+        </div>
+      </article>
+
+      <article class="detail-row card">
+        <div class="detail-image-wrap">
+          <img src="assets/images/charts.png" alt="See the Big Picture screenshot">
+        </div>
+        <div class="detail-copy">
+          <h3>See the Big Picture</h3>
+          <p>Unlock the power of visuals. Explore intuitive charts and insights that reveal spending trends, highlight saving opportunities, and empower smarter decisions.</p>
+        </div>
+      </article>
+
+      <article class="detail-row card">
+        <div class="detail-image-wrap">
+          <img src="assets/images/transactions.png" alt="Stay on Top of Your Finances screenshot">
+        </div>
+        <div class="detail-copy">
+          <h3>Stay on Top of Your Finances</h3>
+          <p>Easily track your expenses and incomes in just a few taps. See where your money is going and take control of your financial journey effortlessly.</p>
+        </div>
+      </article>
+
+      <article class="detail-row card">
+        <div class="detail-image-wrap">
+          <img src="assets/images/categories.png" alt="Make It Personal screenshot">
+        </div>
+        <div class="detail-copy">
+          <h3>Make It Personal</h3>
+          <p>Categorize your spending your way. Use ready-made categories or create custom ones to reflect your unique lifestyle and priorities.</p>
+        </div>
+      </article>
+    </section>
+
+    <section id="testimonials" class="section">
+      <div class="section-head">
+        <p class="eyebrow">Loved by users</p>
+        <h2>What people say about Budget Buddy</h2>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote class="card quote">
+          "Budget Buddy made budgeting less stressful and way more visual. I finally stick to my plan."
+          <cite>- Alex R.</cite>
+        </blockquote>
+        <blockquote class="card quote">
+          "The monthly insights helped me cut wasteful spending within two weeks."
+          <cite>- Priya K.</cite>
+        </blockquote>
+        <blockquote class="card quote">
+          "Simple, clean, and genuinely useful. My favorite budgeting tool by far."
+          <cite>- Jordan M.</cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <section id="download" class="section cta">
+      <div class="cta-content">
+        <p class="eyebrow">Ready to level up your money habits?</p>
+        <h2>Start using Budget Buddy today</h2>
+        <div class="store-links">
+          <a class="store-link-image" href="https://apps.apple.com/us/app/budget-buddy-expense-manager/id6758464704" aria-label="Download on the App Store placeholder">
+            <img src="assets/images/ios app store.svg" alt="Download on the App Store">
+          </a>
+          <a class="store-link-image" href="https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy" aria-label="Get it on Google Play placeholder">
+            <img src="assets/images/google play store.png" alt="Get it on Google Play">
+          </a>
+        </div>
+      </div>
+      <div class="app-preview-wrap">
+        <img class="app-shot" src="assets/images/homescreen.png" alt="Budget Buddy home screen screenshot">
+        <img class="app-shot" src="assets/images/dark mode.png" alt="Budget Buddy dark mode screenshot">
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; <span id="year"></span> Budget Buddy. All rights reserved.</p>
+    <p>Contact: <a href="mailto:smartlife.utilities@gmail.com">smartlife.utilities@gmail.com</a></p>
+    <p class="footer-links">
+      <a href="https://smartlifeutils.github.io/app-ads.txt" target="_blank" rel="noopener noreferrer">App ads</a>
+      <a href="https://doc-hosting.flycricket.io/budget-buddy-privacy-policy/e64ccf5c-a708-4a70-8a73-b9c2a27b9672/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
+      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms of Use (EULA)</a>
+    </p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>

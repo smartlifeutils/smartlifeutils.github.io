@@ -1,0 +1,16 @@
+<svg width="560" height="760" viewBox="0 0 560 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="560" height="760" rx="40" fill="#EAF4FF"/>
+  <rect x="145" y="30" width="270" height="700" rx="42" fill="#0F172A"/>
+  <rect x="162" y="62" width="236" height="636" rx="30" fill="#F9FCFF"/>
+  <rect x="220" y="84" width="120" height="20" rx="10" fill="#CFE0FF"/>
+  <rect x="190" y="132" width="180" height="30" rx="10" fill="#1E40AF"/>
+  <rect x="190" y="178" width="180" height="12" rx="6" fill="#9ABEFE"/>
+  <rect x="190" y="198" width="130" height="12" rx="6" fill="#B5D1FF"/>
+  <rect x="186" y="240" width="188" height="120" rx="16" fill="#EFF6FF" stroke="#D4E7FF" stroke-width="2"/>
+  <rect x="206" y="267" width="148" height="14" rx="7" fill="#7BA9FF"/>
+  <rect x="206" y="290" width="96" height="12" rx="6" fill="#A6C7FF"/>
+  <rect x="186" y="378" width="188" height="200" rx="16" fill="#EFF6FF" stroke="#D4E7FF" stroke-width="2"/>
+  <path d="M215 530L245 486L277 506L309 460L340 472" stroke="#2563EB" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="340" cy="472" r="7" fill="#06B6D4"/>
+  <text x="280" y="660" fill="#5A6685" font-family="Arial, sans-serif" font-size="18" text-anchor="middle">Replace with app screen</text>
+</svg>

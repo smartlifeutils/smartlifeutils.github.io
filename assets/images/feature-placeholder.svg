@@ -1,0 +1,23 @@
+<svg width="720" height="460" viewBox="0 0 720 460" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="720" y2="460" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F2FBF4"/>
+      <stop offset="1" stop-color="#EEF8EF"/>
+    </linearGradient>
+  </defs>
+  <rect width="720" height="460" rx="26" fill="url(#bg)"/>
+  <rect x="56" y="54" width="608" height="352" rx="22" fill="#FFFFFF" stroke="#D8EEDC" stroke-width="3"/>
+  <rect x="92" y="96" width="210" height="22" rx="11" fill="#2DC071"/>
+  <rect x="92" y="132" width="280" height="14" rx="7" fill="#A6E4C1"/>
+  <rect x="92" y="156" width="180" height="14" rx="7" fill="#C4EDD4"/>
+  <rect x="92" y="198" width="250" height="170" rx="16" fill="#F4FBF6" stroke="#DCEFE2" stroke-width="2"/>
+  <rect x="360" y="198" width="268" height="76" rx="16" fill="#FFF5F1" stroke="#FFE1D8" stroke-width="2"/>
+  <rect x="360" y="292" width="268" height="76" rx="16" fill="#FFF5F1" stroke="#FFE1D8" stroke-width="2"/>
+  <circle cx="160" cy="282" r="38" fill="#2DC071" fill-opacity="0.2"/>
+  <path d="M130 294L151 274L171 291L194 258L219 274" stroke="#2DC071" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  <rect x="384" y="222" width="156" height="14" rx="7" fill="#FFB59F"/>
+  <rect x="384" y="246" width="208" height="12" rx="6" fill="#FFD2C4"/>
+  <rect x="384" y="316" width="132" height="14" rx="7" fill="#FFB59F"/>
+  <rect x="384" y="340" width="190" height="12" rx="6" fill="#FFD2C4"/>
+  <text x="360" y="432" fill="#4C6A56" font-family="Arial, sans-serif" font-size="20" text-anchor="middle">Replace with your feature image</text>
+</svg>
