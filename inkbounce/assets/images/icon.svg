@@ -1,12 +1,12 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" role="img" aria-label="Ink Bounce app icon (placeholder)">
   <defs>
     <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#45EBFF"/>
-      <stop offset="1" stop-color="#C254FF"/>
+      <stop offset="0" stop-color="#08D7FF"/>
+      <stop offset="1" stop-color="#22E6FF"/>
     </linearGradient>
     <radialGradient id="bg" cx="0.5" cy="0.3" r="0.9">
-      <stop offset="0" stop-color="#0C2233"/>
-      <stop offset="1" stop-color="#050B14"/>
+      <stop offset="0" stop-color="#17191E"/>
+      <stop offset="1" stop-color="#080A0D"/>
     </radialGradient>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
       <feGaussianBlur stdDeviation="6" result="b"/>

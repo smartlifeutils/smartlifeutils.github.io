@@ -1,14 +1,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" role="img" aria-label="Gameplay screenshot placeholder — Endless mode">
   <defs>
-    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#45EBFF"/><stop offset="1" stop-color="#C254FF"/></linearGradient>
-    <radialGradient id="bg" cx="0.5" cy="0.3" r="0.95"><stop offset="0" stop-color="#0C2233"/><stop offset="1" stop-color="#050B14"/></radialGradient>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#08D7FF"/><stop offset="1" stop-color="#22E6FF"/></linearGradient>
+    <radialGradient id="bg" cx="0.5" cy="0.3" r="0.95"><stop offset="0" stop-color="#17191E"/><stop offset="1" stop-color="#080A0D"/></radialGradient>
     <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
   <rect width="780" height="360" fill="url(#bg)"/>
-  <text x="390" y="70" text-anchor="middle" font-family="'Bebas Neue','Arial Narrow',sans-serif" font-size="30" letter-spacing="3" fill="#F2FCFF">ENDLESS</text>
+  <text x="390" y="70" text-anchor="middle" font-family="'Bebas Neue','Arial Narrow',sans-serif" font-size="30" letter-spacing="3" fill="#F5F7FA">ENDLESS</text>
   <text x="390" y="140" text-anchor="middle" font-family="'Bebas Neue','Arial Narrow',sans-serif" font-size="64" fill="url(#ink)" filter="url(#glow)">2,480</text>
-  <text x="390" y="166" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="15" letter-spacing="2" fill="#B8E6F2">SCORE</text>
+  <text x="390" y="166" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="15" letter-spacing="2" fill="#B8BFC7">SCORE</text>
   <path d="M150 250 Q360 190 500 270 Q600 330 660 250" fill="none" stroke="url(#ink)" stroke-width="8" stroke-linecap="round" filter="url(#glow)"/>
   <circle cx="150" cy="250" r="16" fill="url(#ink)" filter="url(#glow)"/>
-  <text x="390" y="338" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" fill="#5f7d8c">Placeholder — replace with real screenshot</text>
+  <text x="390" y="338" text-anchor="middle" font-family="'Rajdhani',sans-serif" font-size="14" fill="#8C949E">Placeholder — replace with real screenshot</text>
 </svg>
