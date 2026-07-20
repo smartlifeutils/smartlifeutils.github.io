@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 360" role="img" aria-label="Gameplay screenshot placeholder — Skins">
+  <defs>
+    <linearGradient id="ink" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#45EBFF"/><stop offset="1" stop-color="#C254FF"/></linearGradient>
+    <radialGradient id="bg" cx="0.5" cy="0.3" r="0.95"><stop offset="0" stop-color="#0C2233"/><stop offset="1" stop-color="#050B14"/></radialGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+  <rect width="780" height="360" fill="url(#bg)"/>
+  <text x="390" y="58" text-anchor="middle" font-family="'Bebas Neue','Arial Narrow',sans-serif" font-size="32" letter-spacing="2" fill="#F2FCFF">SKINS &amp; TRAILS</text>
+  <g>
+    <circle cx="210" cy="150" r="30" fill="url(#ink)" filter="url(#glow)"/>
+    <circle cx="330" cy="150" r="30" fill="#FFDB59"/>
+    <circle cx="450" cy="150" r="30" fill="#FF6B42"/>
+    <circle cx="570" cy="150" r="30" fill="#C254FF"/>
+    <circle cx="270" cy="230" r="30" fill="none" stroke="#45EBFF" stroke-width="3" stroke-dasharray="5 5"/>
+    <circle cx="390" cy="230" r="30" fill="none" stroke="#B8E6F2" stroke-opacity="0.4" stroke-width="3"/>
+    <circle cx="510" cy="230" r="30" fill="none" stroke="#B8E6F2" stroke-opacity="0.4" stroke-width="3"/>
+  </g>
+  <rect x="300" y="290" width="180" height="46" rx="23" fill="url(#ink)"/>
+  <text x="390" y="320" text-anchor="middle" font-family="'Bebas Neue','Arial Narrow',sans-serif" font-size="22" letter-spacing="2" fill="#04121a">EQUIP</text>
+</svg>
