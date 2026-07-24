@@ -495,17 +495,84 @@ strong { color: var(--text); font-weight: 600; }
 .world-chip span { color: var(--text-muted); opacity: 0.6; margin-right: 0.5rem; }
 
 /* ---------- Screenshots rail --------------------------------------------- */
+.shots-rail { position: relative; }
 .shots {
   display: grid;
   grid-auto-flow: column;
   grid-auto-columns: min(440px, 86vw);
   gap: 1.25rem;
   overflow-x: auto;
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
+  /* No native scrollbar — the arrows and dots carry the affordance instead.
+     (With "always show scrollbars" on macOS one would otherwise sit under the
+     cards.) Swiping and snapping are untouched. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* Cards dissolve at whichever edge still has content past it. main.js sets
+     these to 0 at the ends, so the first and last card are never dimmed; they
+     stay 0 without JS. */
+  --fade-start: 0px;
+  --fade-end: 0px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent 100%);
 }
+.shots::-webkit-scrollbar { display: none; }
+.shots:focus-visible { outline: 2px solid var(--green); outline-offset: 8px; }
 .shots .phone-frame { width: 100%; scroll-snap-align: center; }
+
+/* Arrows: pointer devices only — touch users swipe. */
+.shots-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: none;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-top: -23px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(8, 10, 13, 0.82);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+@media (hover: hover) and (pointer: fine) {
+  .shots-arrow { display: grid; }
+}
+.shots-arrow:hover { background: var(--elevated); border-color: #3a3f47; }
+.shots-arrow:disabled { opacity: 0; pointer-events: none; }
+.shots-arrow svg { width: 20px; height: 20px; }
+.shots-arrow--prev { left: -10px; }
+.shots-arrow--next { right: -10px; }
+
+/* Dots: 8px mark inside a 26px tap target. */
+.shots-dots { display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem; }
+.shots-dot {
+  width: 26px;
+  height: 26px;
+  padding: 9px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.shots-dot::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3a3f47;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.shots-dot:hover::before { background: #555c66; }
+.shots-dot.is-active::before { background: var(--green); transform: scale(1.35); }
 
 /* ---------- Download banner ---------------------------------------------- */
 .download-cta {
