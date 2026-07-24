@@ -253,7 +253,15 @@ strong { color: var(--text); font-weight: 600; }
 
 /* ---------- Store badges -------------------------------------------------- */
 .store-badges { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
-.store-badges img { height: 54px; width: auto; transition: transform 0.18s ease, filter 0.2s ease; }
+.store-badges img {
+  height: 32px;
+  width: auto;
+  /* The official App Store badge ships on an opaque white background, so its
+     rounded corners would show as white wedges here. Clipping at the badge's own
+     corner radius (~10% of its height) hides them without altering the artwork. */
+  border-radius: 4px;
+  transition: transform 0.18s ease, filter 0.2s ease;
+}
 .store-badge { display: inline-block; }
 .store-badge:hover img { transform: translateY(-2px); }
 .store-note {
