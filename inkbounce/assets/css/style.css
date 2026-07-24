@@ -291,7 +291,7 @@ strong { color: var(--text); font-weight: 600; }
   color: var(--text);
 }
 .nav__brand:hover { color: var(--text); }
-.nav__brand img { height: 30px; width: auto; }
+.nav__brand img { height: 30px; width: auto; border-radius: 7px; }
 .nav__links {
   display: flex;
   align-items: center;
