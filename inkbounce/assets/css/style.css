@@ -414,25 +414,14 @@ strong { color: var(--text); font-weight: 600; }
 .phone-frame {
   position: relative;
   width: min(520px, 90vw);
-  aspect-ratio: 19.5 / 9;
+  /* Matches the 16:9 capture ratio of the in-game screenshots. */
+  aspect-ratio: 16 / 9;
   background: #050506;
   border: 3px solid var(--border);
   border-radius: 18px;
   padding: 8px;
   box-shadow: var(--shadow-card);
   overflow: hidden;
-}
-.phone-frame::after { /* notch (side, for landscape) */
-  content: "";
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  width: 6px;
-  height: 90px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.12);
-  z-index: 2;
 }
 .phone-frame img,
 .phone-frame .phone-screen {
