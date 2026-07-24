@@ -67,19 +67,30 @@ Search the project for each token and swap in the real value:
 - [ ] **Store badges** — point the App Store / Google Play links (`href`) to the live
       listings once published, and swap in official store badge images if desired.
 
-### Replace the placeholder art (in `assets/images/`)
+### Art (in `assets/images/`)
 
-All images are placeholder SVGs. Swap in real assets, keeping the same filenames (or
-update the references):
+Real game art is in place — all sourced from the Unity project
+(`Docs/Branding/Assets` and `build/screenshots/google/phone`):
 
-- [ ] `logo.svg` — game wordmark
-- [ ] `icon.svg` — app icon
-- [ ] `favicon.svg` — browser/tab icon
-- [ ] `og-image.svg` → replace with a **1200×630 PNG/JPG** for reliable social sharing
-      (many platforms don't render SVG OG images). Update the `og:image` paths if you
-      change the extension.
-- [ ] `screenshot-1.svg` … `screenshot-5.svg` — real gameplay screenshots (landscape)
-- [ ] `badge-appstore.svg`, `badge-googleplay.svg` — official store badges (optional)
+- [x] `icon-64.png`, `icon-180.png`, `favicon-32.png` — app icon (brand mark, Apple
+      touch icon, favicon)
+- [x] `og-image.jpg` — 1200×630 social card, built from the Play Store feature graphic
+- [x] `screenshot-1.jpg` … `screenshot-6.jpg` — real gameplay screenshots, 1440×810
+      (16:9, matching the `.phone-frame` aspect ratio)
+- [x] `badge-appstore.png`, `badge-googleplay.png` — official Apple / Google store
+      badges. Both are full-bleed at ~3.37:1, so they line up at a shared CSS height.
+      The Apple badge has an opaque white background, so `.store-badges img` clips it
+      with a `border-radius` — keep that if you ever re-export the badges.
+
+To refresh the screenshots after a new build:
+
+```sh
+cd /path/to/InkBounce/build/screenshots/google/phone
+for i in 1 2 3 4 5 6; do
+  sips -Z 1440 -s format jpeg -s formatOptions 72 "${i}_1920x1080.png" \
+    --out "/path/to/inkbounce/assets/images/screenshot-$i.jpg"
+done
+```
 
 > Tip: for a gameplay clip, add an autoplaying muted looping `<video>` (or a GIF) into
 > the hero's `.phone-frame` in `index.html`.
