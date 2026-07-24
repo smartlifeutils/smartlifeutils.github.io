@@ -522,16 +522,12 @@ strong { color: var(--text); font-weight: 600; }
 .shots:focus-visible { outline: 2px solid var(--green); outline-offset: 8px; }
 .shots .phone-frame { width: 100%; scroll-snap-align: center; }
 
-/* Arrows: pointer devices only — touch users swipe. */
-.shots-arrow {
-  position: absolute;
-  top: 50%;
-  z-index: 3;
-  display: none;
+/* Round icon button — shared by the rail arrows and the lightbox controls. */
+.circle-btn {
+  display: grid;
   place-items: center;
   width: 46px;
   height: 46px;
-  margin-top: -23px;
   padding: 0;
   border: 1px solid var(--border);
   border-radius: 50%;
@@ -542,14 +538,28 @@ strong { color: var(--text); font-weight: 600; }
   cursor: pointer;
   transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
 }
+.circle-btn:hover { background: var(--elevated); border-color: #3a3f47; }
+.circle-btn:disabled { opacity: 0; pointer-events: none; }
+.circle-btn svg { width: 20px; height: 20px; }
+
+/* Arrows: pointer devices only — touch users swipe. */
+.shots-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: none;
+  margin-top: -23px;
+}
 @media (hover: hover) and (pointer: fine) {
   .shots-arrow { display: grid; }
 }
-.shots-arrow:hover { background: var(--elevated); border-color: #3a3f47; }
-.shots-arrow:disabled { opacity: 0; pointer-events: none; }
-.shots-arrow svg { width: 20px; height: 20px; }
 .shots-arrow--prev { left: -10px; }
 .shots-arrow--next { right: -10px; }
+
+/* Clicking a card opens the lightbox. */
+.shots .phone-frame { cursor: zoom-in; transition: transform 0.18s ease; }
+.shots .phone-frame:hover { transform: translateY(-3px); }
+.shots .phone-frame:focus-visible { outline: 2px solid var(--green); outline-offset: 4px; }
 
 /* Dots: 8px mark inside a 26px tap target. */
 .shots-dots { display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem; }
@@ -573,6 +583,82 @@ strong { color: var(--text); font-weight: 600; }
 }
 .shots-dot:hover::before { background: #555c66; }
 .shots-dot.is-active::before { background: var(--green); transform: scale(1.35); }
+
+/* ---------- Screenshot lightbox ------------------------------------------ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: rgba(4, 5, 7, 0.94);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.lightbox[hidden] { display: none; }
+.lightbox.is-open { opacity: 1; }
+/* The page behind must not scroll while the viewer is up. */
+body.has-lightbox { overflow: hidden; }
+
+.lightbox__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(0.9rem, 3vw, 1.6rem);
+}
+.lightbox__count {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  color: var(--text-dim);
+}
+
+/* Clicking the padding around the image closes; clicking the image does not. */
+.lightbox__stage {
+  position: relative;
+  /* Flex, not grid: the image's max-height needs a definite parent height to
+     resolve against, and an auto-sized grid row does not provide one — the
+     image would overflow onto the caption. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0 clamp(0.75rem, 8vw, 5rem);
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #050506;
+  cursor: default;
+}
+.lightbox__nav { position: absolute; top: 50%; margin-top: -23px; }
+.lightbox__nav--prev { left: clamp(0.4rem, 2vw, 1.5rem); }
+.lightbox__nav--next { right: clamp(0.4rem, 2vw, 1.5rem); }
+
+.lightbox__caption {
+  margin: 0;
+  padding: 0.9rem clamp(0.9rem, 3vw, 1.6rem) 1.4rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+@media (max-width: 640px) {
+  /* A 16:9 shot in a portrait viewport is width-bound, so give it nearly the
+     full width and let the chevrons sit over the image edges. */
+  .lightbox__stage { padding: 0 0.5rem; }
+  .lightbox__nav { width: 38px; height: 38px; margin-top: -19px; }
+  .lightbox__caption { font-size: 0.85rem; }
+}
 
 /* ---------- Download banner ---------------------------------------------- */
 .download-cta {

@@ -68,23 +68,30 @@
   var rail = document.querySelector(".shots");
   var railWrap = rail && rail.parentElement;
   var cards = rail ? Array.prototype.slice.call(rail.children) : [];
+  var syncRailTo = null; // set below, so the lightbox can leave the rail in sync
+
+  var CHEVRON_LEFT = "M15 5l-7 7 7 7";
+  var CHEVRON_RIGHT = "M9 5l7 7-7 7";
+  var CROSS = "M6 6l12 12M18 6L6 18";
+
+  // Round icon button, shared by the rail arrows and the lightbox controls.
+  function iconButton(className, label, path) {
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "circle-btn " + className;
+    b.setAttribute("aria-label", label);
+    b.innerHTML =
+      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
+      'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' +
+      path + '"/></svg>';
+    return b;
+  }
 
   if (rail && railWrap && cards.length > 1) {
     var FADE = 72; // px of dissolve at an edge that has more content past it
 
-    var arrow = function (dir, label, path) {
-      var b = document.createElement("button");
-      b.type = "button";
-      b.className = "shots-arrow shots-arrow--" + dir;
-      b.setAttribute("aria-label", label);
-      b.innerHTML =
-        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
-        'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' +
-        path + '"/></svg>';
-      return b;
-    };
-    var prev = arrow("prev", "Previous screenshot", "M15 5l-7 7 7 7");
-    var next = arrow("next", "Next screenshot", "M9 5l7 7-7 7");
+    var prev = iconButton("shots-arrow shots-arrow--prev", "Previous screenshot", CHEVRON_LEFT);
+    var next = iconButton("shots-arrow shots-arrow--next", "Next screenshot", CHEVRON_RIGHT);
     railWrap.appendChild(prev);
     railWrap.appendChild(next);
 
@@ -165,5 +172,150 @@
     }, { passive: true });
     window.addEventListener("resize", update);
     update();
+
+    syncRailTo = scrollToCard;
+  }
+
+  /* ---- Screenshot lightbox ----
+     Click (or Enter/Space on) a card to open it large, then cycle with the
+     chevrons, arrow keys or a swipe. Esc or a click outside the image closes. */
+  var shots = cards.map(function (card) { return card.querySelector("img"); })
+                   .filter(Boolean);
+
+  if (shots.length) {
+    var box = document.createElement("div");
+    box.className = "lightbox";
+    box.hidden = true;
+    box.setAttribute("role", "dialog");
+    box.setAttribute("aria-modal", "true");
+    box.setAttribute("aria-label", "Screenshot viewer");
+
+    var bar = document.createElement("div");
+    bar.className = "lightbox__bar";
+    var count = document.createElement("span");
+    count.className = "lightbox__count";
+    var closeBtn = iconButton("lightbox__close", "Close viewer", CROSS);
+    bar.appendChild(count);
+    bar.appendChild(closeBtn);
+
+    var stage = document.createElement("div");
+    stage.className = "lightbox__stage";
+    var full = document.createElement("img");
+    full.className = "lightbox__img";
+    var lbPrev = iconButton("lightbox__nav lightbox__nav--prev", "Previous screenshot", CHEVRON_LEFT);
+    var lbNext = iconButton("lightbox__nav lightbox__nav--next", "Next screenshot", CHEVRON_RIGHT);
+    stage.appendChild(lbPrev);
+    stage.appendChild(full);
+    stage.appendChild(lbNext);
+
+    var caption = document.createElement("p");
+    caption.className = "lightbox__caption";
+
+    box.appendChild(bar);
+    box.appendChild(stage);
+    box.appendChild(caption);
+    document.body.appendChild(box);
+
+    var at = 0;
+    var opener = null;
+
+    function preload(i) {
+      if (i < 0 || i >= shots.length) return;
+      var img = new Image();
+      img.src = shots[i].src;
+    }
+
+    function render(i) {
+      at = Math.max(0, Math.min(shots.length - 1, i));
+      full.src = shots[at].src;
+      full.alt = shots[at].alt;
+      caption.textContent = shots[at].alt;
+      count.textContent = at + 1 + " / " + shots.length;
+      lbPrev.disabled = at === 0;
+      lbNext.disabled = at === shots.length - 1;
+      // Neighbours, so a click through feels instant.
+      preload(at - 1);
+      preload(at + 1);
+    }
+
+    function openAt(i) {
+      opener = document.activeElement;
+      render(i);
+      box.hidden = false;
+      // Compensate for the scrollbar the lock removes, or the page shifts.
+      var gap = window.innerWidth - document.documentElement.clientWidth;
+      if (gap > 0) document.body.style.paddingRight = gap + "px";
+      document.body.classList.add("has-lightbox");
+      // Next frame, so the opacity transition has a starting value to run from.
+      window.requestAnimationFrame(function () { box.classList.add("is-open"); });
+      closeBtn.focus();
+    }
+
+    function closeBox() {
+      box.hidden = true;
+      box.classList.remove("is-open");
+      document.body.classList.remove("has-lightbox");
+      document.body.style.paddingRight = "";
+      // Leave the rail showing whichever screenshot was last viewed, and put
+      // focus on that card — never on the button we just hid.
+      if (syncRailTo) syncRailTo(at);
+      var landing = cards[at] || opener;
+      if (landing && landing.focus) landing.focus({ preventScroll: true });
+      opener = null;
+    }
+
+    function step(delta) {
+      var to = at + delta;
+      if (to < 0 || to >= shots.length) return;
+      render(to);
+    }
+
+    cards.forEach(function (card, i) {
+      card.setAttribute("role", "button");
+      card.setAttribute("tabindex", "0");
+      card.setAttribute("aria-label", "View screenshot " + (i + 1) + " larger");
+      card.addEventListener("click", function () { openAt(i); });
+      card.addEventListener("keydown", function (e) {
+        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
+          e.preventDefault();
+          openAt(i);
+        }
+      });
+    });
+
+    closeBtn.addEventListener("click", closeBox);
+    lbPrev.addEventListener("click", function () { step(-1); });
+    lbNext.addEventListener("click", function () { step(1); });
+    // Anywhere off the image — including the padding around it — closes.
+    box.addEventListener("click", function (e) {
+      if (e.target === box || e.target === stage || e.target === caption) closeBox();
+    });
+
+    document.addEventListener("keydown", function (e) {
+      if (box.hidden) return;
+      if (e.key === "Escape") { closeBox(); return; }
+      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); return; }
+      if (e.key === "ArrowRight") { e.preventDefault(); step(1); return; }
+      if (e.key !== "Tab") return;
+      // Keep focus inside the dialog while it is open.
+      var focusable = [closeBtn, lbPrev, lbNext].filter(function (b) { return !b.disabled; });
+      var first = focusable[0];
+      var last = focusable[focusable.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+      else if (focusable.indexOf(document.activeElement) === -1) { e.preventDefault(); first.focus(); }
+    });
+
+    // Swipe, for touch devices where the chevrons are a smaller target.
+    var swipeX = null;
+    stage.addEventListener("touchstart", function (e) {
+      swipeX = e.changedTouches[0].clientX;
+    }, { passive: true });
+    stage.addEventListener("touchend", function (e) {
+      if (swipeX === null) return;
+      var dx = e.changedTouches[0].clientX - swipeX;
+      swipeX = null;
+      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
+    }, { passive: true });
   }
 })();
