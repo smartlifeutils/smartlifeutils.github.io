@@ -1,0 +1,1028 @@
+/* ==========================================================================
+   Wave Rider — Website stylesheet
+   Flat, dark, nautical. Deep-ocean navy panels with a single turquoise action
+   accent; gold is reserved for coins/rewards and pure white for foam and spray
+   (the game's own art rule). No gradients or glows on UI chrome.
+   Values from the game's in-product palette (Scripts/UI/UiKit.cs) and the
+   Pacific world definition. Dark theme only.
+   ========================================================================== */
+
+/* ---------- Design tokens ------------------------------------------------- */
+:root {
+  /* Backgrounds (flat ocean-dark) */
+  --bg:          #0A1A2C;   /* deep water, main page bg */
+  --surface:     #12293F;   /* section fill */
+  --panel:       #102436;   /* card fill */
+  --panel-alt:   #16324B;   /* alternating sections */
+  --overlay:     #081524;   /* footer */
+  --elevated:    #1A3A55;   /* elevated/status cards */
+
+  /* Accents */
+  --aqua:        #23A9BE;   /* primary action / links / CTAs — water surface */
+  --aqua-bright: #6FE0DC;   /* action hover/active — wave crest */
+  --deep:        #0A2C57;   /* deep-water detail */
+  --gold:        #FFC93C;   /* coins, rewards, badges */
+  --gold-deep:   #D4A820;   /* gold detail/borders */
+  --pearl:       #D1E6FF;   /* premium currency accent */
+  --positive:    #4FA83D;   /* success only */
+  --danger:      #A6413A;   /* warnings / hazard only */
+
+  /* Text (cool neutral ramp) */
+  --text:        #EAF4FB;   /* headings / key text */
+  --text-muted:  #A9BECF;   /* body */
+  --text-dim:    #7B94A9;   /* captions / muted glyphs */
+
+  /* Hairline borders */
+  --border:       #204058;                 /* the one subtle 1px hairline */
+  --border-lift:  #2C5878;                 /* hover/open state hairline */
+  --border-soft:  rgba(255, 255, 255, 0.06);
+
+  /* Radii (soft, consistent) */
+  --r-sm: 8px;
+  --r-md: 10px;
+  --r-lg: 12px;
+  --r-pill: 999px;   /* small tags/pills only, not buttons */
+
+  /* Spacing scale */
+  --s-1: 0.5rem;
+  --s-2: 1rem;
+  --s-3: 1.5rem;
+  --s-4: 2rem;
+  --s-5: 3rem;
+  --s-6: 4.5rem;
+  --s-7: 6.5rem;
+
+  /* Layout */
+  --container: 1120px;
+
+  /* Fonts */
+  --font-display: "Bebas Neue", "Arial Narrow", sans-serif;
+  --font-body: "Rajdhani", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  /* Effects (neutral dark depth only — no colored glows) */
+  --glow-soft: 0 10px 26px rgba(0, 0, 0, 0.5);
+  --shadow-card: 0 14px 30px rgba(0, 0, 0, 0.45);
+
+  /* Z layers */
+  --z-nav: 100;
+}
+
+/* ---------- Reset / base -------------------------------------------------- */
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: var(--bg);
+  color: var(--text-muted);
+  font-family: var(--font-body);
+  font-size: 1.125rem;      /* 18px */
+  font-weight: 400;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+/* Horizon field: one faint turquoise glow along the top edge over a deep
+   vignette, so the page reads as looking out across water. Rendered as a
+   composited fixed layer (instead of background-attachment:fixed) to avoid
+   repaint flicker on navigation and scroll. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    radial-gradient(1400px 700px at 50% -10%, rgba(35, 169, 190, 0.08), transparent 60%),
+    radial-gradient(1200px 900px at 50% 120%, rgba(2, 10, 20, 0.6), transparent 60%);
+}
+
+img { max-width: 100%; display: block; }
+a { color: var(--aqua); text-decoration: none; transition: color 0.18s ease; }
+a:hover { color: var(--aqua-bright); }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
+
+/* Keyboard focus */
+:focus-visible {
+  outline: 2px solid var(--aqua);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* Skip link */
+.skip-link {
+  position: absolute;
+  left: -999px;
+  top: 0;
+  background: var(--aqua);
+  color: var(--bg);
+  padding: 0.6rem 1rem;
+  font-weight: 600;
+  z-index: 200;
+}
+.skip-link:focus { left: 0.5rem; top: 0.5rem; }
+
+/* ---------- Typography ---------------------------------------------------- */
+h1, h2, h3, h4 { color: var(--text); margin: 0 0 0.5em; line-height: 1.05; }
+
+.display,
+h1.hero-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
+}
+
+h2 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+}
+
+h3 {
+  font-family: var(--font-body);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  font-size: 1.5rem;
+  color: var(--text);
+}
+
+p { margin: 0 0 1rem; }
+strong { color: var(--text); font-weight: 600; }
+
+.eyebrow {
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.28em;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: 0.75;
+  margin: 0 0 0.75rem;
+}
+
+.lead {
+  font-size: clamp(1.15rem, 2.2vw, 1.4rem);
+  color: var(--text-muted);
+}
+
+.muted { color: var(--text-muted); }
+.center { text-align: center; }
+
+/* ---------- Layout helpers ------------------------------------------------ */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: clamp(1.1rem, 4vw, 2rem);
+}
+
+.section { padding-block: clamp(3.5rem, 8vw, var(--s-7)); }
+.section--surface { background: var(--surface); }
+.section--alt { background: var(--panel-alt); }
+.section-head { max-width: 720px; margin: 0 auto clamp(2rem, 5vw, 3.5rem); text-align: center; }
+.section-head.left { margin-inline: 0; text-align: left; }
+
+/* ---------- Buttons ------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.8rem 1.9rem;
+  border-radius: var(--r-md);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.16s ease, background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  line-height: 1;
+  color: var(--text);
+}
+.btn--primary {
+  background: var(--aqua);
+  /* Turquoise is a light accent — dark ink keeps the label readable on it. */
+  color: #06202E;
+}
+.btn--primary:hover {
+  background: var(--aqua-bright);
+  color: #06202E;
+  transform: translateY(-2px);
+}
+.btn--outline {
+  background: var(--elevated);
+  color: var(--text);
+  border-color: var(--border);
+}
+.btn--outline:hover {
+  background: #22496A;
+  border-color: var(--border-lift);
+  transform: translateY(-2px);
+}
+
+/* ---------- Badges / pills ------------------------------------------------ */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  background: var(--elevated);
+  border: 1px solid var(--border);
+  border-radius: var(--r-pill);
+  padding: 0.35rem 0.85rem;
+}
+.pill--gold { color: var(--gold); border-color: rgba(212, 168, 32, 0.5); }
+.pill--aqua { color: var(--aqua-bright); border-color: rgba(35, 169, 190, 0.55); }
+.pill-row { display: flex; flex-wrap: wrap; gap: 0.6rem; }
+
+/* ---------- Store badges -------------------------------------------------- */
+.store-badges { display: flex; flex-wrap: wrap; gap: 0.9rem; align-items: center; }
+.store-badges img {
+  height: 32px;
+  width: auto;
+  /* The official App Store badge ships on an opaque white background, so its
+     rounded corners would show as white wedges here. Clipping at the badge's own
+     corner radius (~10% of its height) hides them without altering the artwork. */
+  border-radius: 4px;
+  transition: transform 0.18s ease, filter 0.2s ease;
+}
+.store-badge { display: inline-block; }
+.store-badge:hover img { transform: translateY(-2px); }
+.store-note {
+  font-size: 0.85rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ---------- Navbar -------------------------------------------------------- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-nav);
+  background: rgba(10, 26, 44, 0.8);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--border-soft);
+}
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  min-height: 66px;
+}
+.nav__brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text);
+}
+.nav__brand:hover { color: var(--text); }
+.nav__brand img { height: 30px; width: auto; border-radius: 7px; }
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav__links a {
+  position: relative;
+  display: inline-block;
+  color: var(--text-muted);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--r-sm);
+  font-size: 1rem;
+}
+.nav__links a:hover { color: var(--text); background: rgba(255, 255, 255, 0.06); }
+.nav__links a.is-active { color: var(--aqua); }
+.nav__links a.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0.85rem;
+  right: 0.85rem;
+  bottom: 0.15rem;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--aqua);
+}
+.nav__toggle {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  padding: 0;
+  color: var(--text);
+}
+.nav__toggle span,
+.nav__toggle span::before,
+.nav__toggle span::after {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  margin-inline: auto;
+  border-radius: 2px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+.nav__toggle span::before { transform: translateY(-6px); }
+.nav__toggle span::after  { transform: translateY(4px); }
+.nav__toggle[aria-expanded="true"] span { background: transparent; }
+.nav__toggle[aria-expanded="true"] span::before { transform: rotate(45deg); }
+.nav__toggle[aria-expanded="true"] span::after  { transform: rotate(-45deg) translateY(-1.5px); }
+
+@media (max-width: 760px) {
+  .nav__toggle { display: inline-flex; align-items: center; justify-content: center; margin-left: auto; }
+  .nav__links {
+    position: absolute;
+    top: 66px;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: rgba(10, 26, 44, 0.98);
+    border-bottom: 1px solid var(--border);
+    padding: 0.5rem 1rem 1rem;
+    display: none;
+  }
+  .nav__links.is-open { display: flex; }
+  .nav__links a { padding: 0.8rem 0.6rem; border-radius: var(--r-sm); }
+  .nav__links a.is-active::after { display: none; }
+}
+
+/* ---------- Hero ---------------------------------------------------------- */
+.hero {
+  position: relative;
+  padding-block: clamp(3.5rem, 9vw, 7rem) clamp(4rem, 10vw, 8rem);
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(720px 460px at 50% -10%, rgba(35, 169, 190, 0.09), transparent 62%);
+  pointer-events: none;
+}
+.hero__grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: clamp(2rem, 5vw, 4rem);
+  align-items: center;
+}
+.hero-title {
+  font-size: clamp(3.2rem, 11vw, 6.5rem);
+  margin: 0.2rem 0 0.6rem;
+  color: var(--text);
+}
+.hero__tagline {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 3.5vw, 2rem);
+  letter-spacing: 0.12em;
+  color: var(--text);
+  text-transform: uppercase;
+  margin-bottom: 0.75rem;
+}
+.hero__pitch { max-width: 46ch; margin-bottom: 1.75rem; }
+.hero__cta { display: flex; flex-direction: column; gap: 1rem; align-items: flex-start; }
+.hero__pills { margin-top: 1.6rem; }
+
+/* Hero media — screenshot showcase */
+.hero__media { display: flex; justify-content: center; }
+.phone-frame {
+  position: relative;
+  width: min(520px, 90vw);
+  /* Matches the 16:9 capture ratio of the in-game screenshots. */
+  aspect-ratio: 16 / 9;
+  background: #05121F;
+  border: 3px solid var(--border);
+  border-radius: 18px;
+  padding: 8px;
+  box-shadow: var(--shadow-card);
+  overflow: hidden;
+}
+.phone-frame img,
+.phone-frame .phone-screen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+@media (max-width: 860px) {
+  .hero__grid { grid-template-columns: 1fr; text-align: center; }
+  .hero__pitch { margin-inline: auto; }
+  .hero__cta { align-items: center; }
+  .hero__pills .pill-row { justify-content: center; }
+  .hero__media { order: -1; }
+}
+
+/* ---------- Wave divider -------------------------------------------------- */
+/* Two offset copies of the same seamless crest scroll at different speeds, so
+   the seam between hero and the next section reads as moving water. Each layer
+   is 200% wide and its tile repeats at 50%, so translating by -50% loops
+   perfectly. Purely decorative — aria-hidden in the markup. */
+.wave-divider {
+  position: relative;
+  height: 90px;
+  margin-top: calc(clamp(4rem, 10vw, 8rem) * -1);
+  pointer-events: none;
+  overflow: hidden;
+}
+.wave-divider__layer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 100%;
+  background-repeat: repeat-x;
+  background-size: 50% 100%;
+  will-change: transform;
+}
+.wave-divider__layer--back {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 90' preserveAspectRatio='none'%3E%3Cpath d='M0 46c100-26 200-26 300 0s200 26 300 0 200-26 300 0 200 26 300 0v44H0Z' fill='%2314507A'/%3E%3C/svg%3E");
+  opacity: 0.85;
+  animation: wave-drift 22s linear infinite;
+}
+.wave-divider__layer--front {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 90' preserveAspectRatio='none'%3E%3Cpath d='M0 60c120-22 180 22 300 22s180-44 300-44 180 44 300 44 180-44 300-22v40H0Z' fill='%2312293F'/%3E%3C/svg%3E");
+  animation: wave-drift 14s linear infinite reverse;
+}
+@keyframes wave-drift {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wave-divider__layer { animation: none; }
+}
+
+/* ---------- Cards / feature grid ----------------------------------------- */
+.grid {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+.card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.6rem;
+  transition: transform 0.18s ease, border-color 0.2s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--border-lift);
+}
+.card h3 { margin-bottom: 0.4rem; }
+.card p { margin: 0; font-size: 1rem; }
+.card__icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: var(--r-md);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+  color: var(--aqua-bright);
+}
+.card__icon svg { width: 24px; height: 24px; display: block; }
+
+/* ---------- Fleet --------------------------------------------------------- */
+.fleet-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.boat-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.3rem 1.4rem 1.4rem;
+  transition: transform 0.18s ease, border-color 0.2s ease;
+}
+.boat-card:hover { transform: translateY(-4px); border-color: var(--border-lift); }
+/* The silhouette sits on its own waterline strip, so every boat in the grid
+   reads at the same scale and floats at the same height. */
+.boat-card__art {
+  height: 92px;
+  margin-bottom: 1rem;
+  border-radius: var(--r-md);
+  background: linear-gradient(180deg, #0C2237 0%, #0C2237 62%, var(--deep) 62%, #071B31 100%);
+  border: 1px solid var(--border-soft);
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+}
+.boat-card__art svg { width: 86%; height: 100%; display: block; }
+.boat-card__class {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 0 0 0.15rem;
+}
+.boat-card h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+.boat-card p { margin: 0; font-size: 0.98rem; }
+
+.fleet-more {
+  margin-top: 1.6rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+  justify-content: center;
+}
+.fleet-more__label {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin: 0 0.3rem 0 0;
+}
+
+/* ---------- Upgrade lanes ------------------------------------------------- */
+.lanes {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+}
+.lane {
+  text-align: center;
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.5rem 1.2rem;
+  transition: transform 0.18s ease, border-color 0.2s ease;
+}
+.lane:hover { transform: translateY(-4px); border-color: var(--border-lift); }
+.lane__icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.9rem;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--gold);
+}
+.lane__icon svg { width: 22px; height: 22px; display: block; }
+.lane__name {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  margin: 0 0 0.1rem;
+  line-height: 1;
+}
+.lane__what {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--aqua);
+  margin: 0 0 0.55rem;
+}
+.lane p { margin: 0; font-size: 0.95rem; }
+
+/* ---------- Waters -------------------------------------------------------- */
+.waters { display: grid; gap: 1rem; }
+.waters-region {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.4rem 1.5rem 1.5rem;
+}
+.waters-region__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+.waters-region__name {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--text);
+  margin: 0;
+  line-height: 1;
+}
+.waters-region__note { margin: 0; font-size: 0.92rem; color: var(--text-dim); }
+.waters-region .worlds { justify-content: flex-start; }
+
+/* ---------- Worlds strip -------------------------------------------------- */
+.worlds { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
+.world-chip {
+  font-family: var(--font-display);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 1.15rem;
+  color: var(--text);
+  padding: 0.55rem 1.15rem;
+  border-radius: var(--r-pill);
+  background: var(--elevated);
+  border: 1px solid var(--border);
+}
+.world-chip span { color: var(--text-muted); opacity: 0.6; margin-right: 0.5rem; }
+/* Worlds the player has to reach the far end of the map for. */
+.world-chip--exotic { border-color: rgba(212, 168, 32, 0.4); color: var(--gold); }
+
+/* ---------- Screenshots rail --------------------------------------------- */
+.shots-rail { position: relative; }
+.shots {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: min(440px, 86vw);
+  gap: 1.25rem;
+  overflow-x: auto;
+  padding-bottom: 0.5rem;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  /* No native scrollbar — the arrows and dots carry the affordance instead.
+     (With "always show scrollbars" on macOS one would otherwise sit under the
+     cards.) Swiping and snapping are untouched. */
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  /* Cards dissolve at whichever edge still has content past it. main.js sets
+     these to 0 at the ends, so the first and last card are never dimmed; they
+     stay 0 without JS. */
+  --fade-start: 0px;
+  --fade-end: 0px;
+  -webkit-mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0, #000 var(--fade-start), #000 calc(100% - var(--fade-end)), transparent 100%);
+}
+.shots::-webkit-scrollbar { display: none; }
+.shots:focus-visible { outline: 2px solid var(--aqua); outline-offset: 8px; }
+.shots .phone-frame { width: 100%; scroll-snap-align: center; }
+
+/* Round icon button — shared by the rail arrows and the lightbox controls. */
+.circle-btn {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  border: 1px solid var(--border);
+  border-radius: 50%;
+  background: rgba(10, 26, 44, 0.85);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  color: var(--text);
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
+}
+.circle-btn:hover { background: var(--elevated); border-color: var(--border-lift); }
+.circle-btn:disabled { opacity: 0; pointer-events: none; }
+.circle-btn svg { width: 20px; height: 20px; }
+
+/* Arrows: pointer devices only — touch users swipe. */
+.shots-arrow {
+  position: absolute;
+  top: 50%;
+  z-index: 3;
+  display: none;
+  margin-top: -23px;
+}
+@media (hover: hover) and (pointer: fine) {
+  .shots-arrow { display: grid; }
+}
+.shots-arrow--prev { left: -10px; }
+.shots-arrow--next { right: -10px; }
+
+/* Clicking a card opens the lightbox. */
+.shots .phone-frame { cursor: zoom-in; transition: transform 0.18s ease; }
+.shots .phone-frame:hover { transform: translateY(-3px); }
+.shots .phone-frame:focus-visible { outline: 2px solid var(--aqua); outline-offset: 4px; }
+
+/* Dots: 8px mark inside a 26px tap target. */
+.shots-dots { display: flex; justify-content: center; gap: 0.25rem; margin-top: 1rem; }
+.shots-dot {
+  width: 26px;
+  height: 26px;
+  padding: 9px;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+}
+.shots-dot::before {
+  content: "";
+  display: block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2C5878;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.shots-dot:hover::before { background: #3E7398; }
+.shots-dot.is-active::before { background: var(--aqua); transform: scale(1.35); }
+
+/* ---------- Screenshot lightbox ------------------------------------------ */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 300;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  background: rgba(4, 12, 22, 0.95);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+.lightbox[hidden] { display: none; }
+.lightbox.is-open { opacity: 1; }
+/* The page behind must not scroll while the viewer is up. */
+body.has-lightbox { overflow: hidden; }
+
+.lightbox__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem clamp(0.9rem, 3vw, 1.6rem);
+}
+.lightbox__count {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  letter-spacing: 0.16em;
+  color: var(--text-dim);
+}
+
+/* Clicking the padding around the image closes; clicking the image does not. */
+.lightbox__stage {
+  position: relative;
+  /* Flex, not grid: the image's max-height needs a definite parent height to
+     resolve against, and an auto-sized grid row does not provide one — the
+     image would overflow onto the caption. */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 0;
+  padding: 0 clamp(0.75rem, 8vw, 5rem);
+}
+.lightbox__img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: #05121F;
+  cursor: default;
+}
+.lightbox__nav { position: absolute; top: 50%; margin-top: -23px; }
+.lightbox__nav--prev { left: clamp(0.4rem, 2vw, 1.5rem); }
+.lightbox__nav--next { right: clamp(0.4rem, 2vw, 1.5rem); }
+
+.lightbox__caption {
+  margin: 0;
+  padding: 0.9rem clamp(0.9rem, 3vw, 1.6rem) 1.4rem;
+  text-align: center;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--text-dim);
+}
+
+@media (max-width: 640px) {
+  /* A 16:9 shot in a portrait viewport is width-bound, so give it nearly the
+     full width and let the chevrons sit over the image edges. */
+  .lightbox__stage { padding: 0 0.5rem; }
+  .lightbox__nav { width: 38px; height: 38px; margin-top: -19px; }
+  .lightbox__caption { font-size: 0.85rem; }
+}
+
+/* ---------- Download banner ---------------------------------------------- */
+.download-cta {
+  text-align: center;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: clamp(2rem, 6vw, 3.5rem);
+}
+.download-cta .store-badges { justify-content: center; margin-top: 1.5rem; }
+
+/* ---------- FAQ / accordion ---------------------------------------------- */
+.faq { display: grid; gap: 0.9rem; max-width: 820px; margin-inline: auto; }
+.faq details {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  overflow: hidden;
+}
+.faq details[open] { border-color: var(--border-lift); }
+.faq summary {
+  cursor: pointer;
+  list-style: none;
+  padding: 1.1rem 1.3rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: var(--text);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: "+";
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  color: var(--text-dim);
+  transition: transform 0.2s ease;
+  line-height: 1;
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq .faq__body { padding: 0 1.3rem 1.2rem; }
+.faq .faq__body p:last-child { margin-bottom: 0; }
+
+/* ---------- Support extras ----------------------------------------------- */
+.contact-card {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  padding: 1.75rem;
+}
+.contact-card__email {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 4vw, 2.1rem);
+  letter-spacing: 0.04em;
+  color: var(--text);
+}
+.contact-card__email:hover { color: var(--aqua); }
+.checklist { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.6rem; }
+.checklist li { position: relative; padding-left: 1.9rem; }
+.checklist li::before {
+  content: "›";
+  position: absolute;
+  left: 0.4rem;
+  color: var(--aqua);
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
+
+/* ---------- Legal pages --------------------------------------------------- */
+.legal { max-width: 820px; margin-inline: auto; }
+.legal h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.6rem, 7vw, 4rem);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.legal h2 {
+  font-size: clamp(1.5rem, 4vw, 2rem);
+  margin-top: 2.4rem;
+  color: var(--text);
+}
+.legal h3 { margin-top: 1.6rem; font-size: 1.2rem; }
+.legal p, .legal li { color: var(--text-muted); }
+.legal ul { padding-left: 1.25rem; }
+.legal li { margin-bottom: 0.4rem; }
+.legal a { text-decoration: underline; text-underline-offset: 3px; }
+.legal .updated {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+.callout {
+  background: rgba(255, 201, 60, 0.08);
+  border: 1px solid rgba(212, 168, 32, 0.4);
+  border-radius: var(--r-md);
+  padding: 1rem 1.2rem;
+  margin: 1.5rem 0;
+  font-size: 0.95rem;
+}
+.callout strong { color: var(--gold); }
+
+/* ---------- Footer -------------------------------------------------------- */
+.footer {
+  background: var(--overlay);
+  border-top: 1px solid var(--border-soft);
+  padding-block: clamp(2.5rem, 6vw, 4rem);
+  margin-top: 2rem;
+}
+.footer__grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 2rem;
+}
+.footer__brand { max-width: 320px; }
+.footer__brand .nav__brand { margin-bottom: 0.6rem; }
+.footer__col h4 {
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-bottom: 0.9rem;
+}
+.footer__col ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.footer__col a { color: var(--text-muted); font-weight: 500; }
+.footer__col a:hover { color: var(--aqua); }
+.footer__bottom {
+  margin-top: 2.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border-soft);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+/* ---------- 404 ----------------------------------------------------------- */
+.notfound {
+  min-height: 68vh;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
+.notfound .code {
+  font-family: var(--font-display);
+  font-size: clamp(6rem, 22vw, 12rem);
+  line-height: 0.9;
+  color: var(--aqua);
+}
+
+/* ---------- Scroll reveal ------------------------------------------------- */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.reveal.is-visible { opacity: 1; transform: none; }
+.reveal.no-anim { transition: none; }
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; }
+}
+
+/* ---------- Utilities ----------------------------------------------------- */
+.stack > * + * { margin-top: 1rem; }
+.mt-2 { margin-top: var(--s-2); }
+.mt-4 { margin-top: var(--s-4); }
+.page-head { padding-block: clamp(3rem, 8vw, 5rem) clamp(1.5rem, 4vw, 2.5rem); text-align: center; }

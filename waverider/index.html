@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wave Rider — Ride the wave. Don't run dry.</title>
+  <meta name="description" content="Wave Rider is a physics arcade game where a boat rides procedurally generated, always-moving waves as far as it can. 17 boats, 23 waters, endless runs. Coming to iOS and Android." />
+  <meta name="theme-color" content="#0A1A2C" />
+  <link rel="canonical" href="https://smartlifeutils.github.io/waverider/" />
+
+  <!-- Open Graph / Twitter -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Wave Rider — Ride the wave. Don't run dry." />
+  <meta property="og:description" content="A physics arcade game on always-moving water. 17 boats, 23 waters, endless runs." />
+  <meta property="og:image" content="https://smartlifeutils.github.io/waverider/assets/images/og-image.png" />
+  <meta property="og:url" content="https://smartlifeutils.github.io/waverider/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
+
+  <!-- Fonts -->
+  <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- ============ NAV ============ -->
+  <header class="nav">
+    <div class="container nav__inner">
+      <a class="nav__brand" href="index.html">
+        <img src="assets/images/icon-64.png" alt="" width="30" height="30" />
+        Wave Rider
+      </a>
+      <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
+      <nav aria-label="Primary">
+        <ul class="nav__links" id="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="privacy.html">Privacy</a></li>
+          <li><a href="terms.html">Terms</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <p class="eyebrow">Physics arcade · 2D</p>
+          <h1 class="hero-title">Wave Rider</h1>
+          <p class="hero__tagline">Ride the wave. Don't run dry.</p>
+          <p class="hero__pitch lead">A physics-driven boat rides procedurally generated, always-moving waves as far as it can — until the fuel runs out or the sea rolls you over. Coins buy upgrades and new boats; new waters change the physics, not just the backdrop.</p>
+
+          <div class="hero__cta">
+            <p class="store-note">Coming soon to iOS &amp; Android</p>
+            <div class="store-badges">
+              <a class="store-badge" href="#download" aria-label="Download on the App Store (coming soon)">
+                <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
+              </a>
+              <a class="store-badge" href="#download" aria-label="Get it on Google Play (coming soon)">
+                <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
+              </a>
+            </div>
+          </div>
+
+          <div class="hero__pills">
+            <div class="pill-row">
+              <span class="pill pill--aqua">Free to play</span>
+              <span class="pill">iOS 15+</span>
+              <span class="pill">Android 7.1+</span>
+              <span class="pill pill--gold">17 boats</span>
+              <span class="pill pill--gold">23 waters</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero__media">
+          <div class="phone-frame">
+            <img src="assets/images/screenshot-1.svg" width="1440" height="810" alt="Wave Rider gameplay: a speedboat rides the face of a swell with the throttle open" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Decorative seam between the hero and the first section. -->
+    <div class="wave-divider" aria-hidden="true">
+      <div class="wave-divider__layer wave-divider__layer--back"></div>
+      <div class="wave-divider__layer wave-divider__layer--front"></div>
+    </div>
+
+    <!-- ============ FEATURES ============ -->
+    <section class="section section--surface" id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Features</p>
+          <h2>The ground never stops moving</h2>
+          <p class="lead">Two thumbs, real buoyancy, and a sea that is generated fresh every run. Easy to start, a long way to master.</p>
+        </div>
+
+        <div class="grid">
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="8" height="11" rx="3"/><rect x="14" y="7" width="8" height="11" rx="3"/><path d="M6 15.5v-5"/><path d="M4.4 12.1 6 10.5l1.6 1.6"/><path d="M18 10.5v5"/><path d="M16.4 13.9 18 15.5l1.6-1.6"/></svg>
+            </div>
+            <h3>Two thumbs, real physics</h3>
+            <p>Right thumb throttle, left thumb brake and reverse. Get airborne and the same two buttons become nose-up and nose-down — that is the whole skill game.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7q2.5-3 5 0t5 0 5 0 5 0"/><path d="M2 13q2.5-3 5 0t5 0 5 0 5 0"/><path d="M2 19q2.5-3 5 0t5 0 5 0 5 0"/></svg>
+            </div>
+            <h3>The water is alive</h3>
+            <p>Every wave is generated on the fly and never stops moving. No two runs give you the same swell, and nothing under you holds still while you decide.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="1.7"/><path d="M12 7.3C11 4.6 12.6 2.5 14.4 3.4c1.6.8 1.2 3.1-.9 4.6"/><path d="M13.6 9.9c2.7-.6 4.2 1.5 3 3-1.1 1.4-3.2.5-4.2-1.6"/><path d="M10.4 9.9c-2.7-.6-4.2 1.5-3 3 1.1 1.4 3.2.5 4.2-1.6"/><path d="M2 18q2.5-2.6 5 0t5 0 5 0 5 0"/></svg>
+            </div>
+            <h3>Prop in the water</h3>
+            <p>The revs climb the instant you touch the throttle, but thrust only arrives when the propeller is actually under the surface. Learn where the bite is and you keep your speed.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="12" height="14" rx="2.5"/><path d="M15 11h3.5a1.5 1.5 0 0 1 1.5 1.5V17a1.5 1.5 0 0 1-3 0v-2"/><path d="M6.5 6V4h5v2"/><path d="M6.5 11h5"/></svg>
+            </div>
+            <h3>Fuel is the clock</h3>
+            <p>Cans ride the surface ahead of you and the gap to the next one grows every time. Runs end themselves — upgrades are how you push that wall further out.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a7 7 0 1 0-2.5 5.4"/><path d="M20 6.5V11h-4.5"/><path d="M3 20q2.5-2.4 5 0t5 0 5 0 5 0"/></svg>
+            </div>
+            <h3>Air, flips and perfect landings</h3>
+            <p>Big Air, Huge Air, chained flips and close calls all pay coins. Land with your hull matched to the water's angle and you keep every bit of speed you left with.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M6 9v6"/><path d="M18 9v6"/></svg>
+            </div>
+            <h3>Made for mobile</h3>
+            <p>Landscape, two thumbs, no account and no connection required. Runs last one to three minutes — pick it up for one, or for twenty.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FLEET ============ -->
+    <section class="section section--alt" id="fleet">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">The fleet</p>
+          <h2>From a rowboat to an aircraft carrier</h2>
+          <p class="lead">Seventeen boats, and none of them are a reskin. Each one is a different set of trade-offs between power, buoyancy, stability and range.</p>
+        </div>
+
+        <div class="fleet-grid">
+          <article class="boat-card reveal">
+            <div class="boat-card__art" aria-hidden="true">
+              <svg viewBox="0 0 220 92" fill="none">
+                <path d="M60 46 h100 l-7 12 q-4 5 -11 5 H78 q-7 0 -11 -5 Z" fill="#12354F"/>
+                <path d="M60 46 h100 l-1.5 4 H61.5 Z" fill="#1B4A70"/>
+                <path d="M104 46 l2 -9 q6 -4 12 0 l2 9 Z" fill="#A6413A"/>
+                <circle cx="112" cy="31" r="7" fill="#E8C48A"/>
+                <path d="M104 28 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
+                <!-- Oars go on last: they pivot at the gunwale and the blades reach
+                     past the hull into the water, so they must sit over the hull. -->
+                <path d="M84 40 L46 60" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/>
+                <path d="M44 56 l9 5 -5 8 -9 -5 Z" fill="#A97B4B"/>
+                <path d="M136 40 L174 60" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/>
+                <path d="M176 56 l-9 5 5 8 9 -5 Z" fill="#A97B4B"/>
+              </svg>
+            </div>
+            <p class="boat-card__class">Paddle</p>
+            <h3>Rowboat</h3>
+            <p>The honest starter. Hull-speed capped, four oars, and absolutely no excuses.</p>
+          </article>
+
+          <article class="boat-card reveal">
+            <div class="boat-card__art" aria-hidden="true">
+              <svg viewBox="0 0 220 92" fill="none">
+                <path d="M58 42 h104 q10 0 10 8 t-10 9 H58 q-10 0 -10 -9 t10 -8 Z" fill="#1B4A70"/>
+                <path d="M58 48 h104 q6 0 6 5 t-6 5 H58 q-6 0 -6 -5 t6 -5 Z" fill="#12354F"/>
+                <rect x="40" y="34" width="12" height="16" rx="3" fill="#153B5C"/>
+                <path d="M44 50 l-4 10 h8 Z" fill="#0D2740"/>
+                <path d="M40 60 q-12 3 -20 9 q14 -2 20 -4 Z" fill="#FFFFFF" opacity=".5"/>
+                <path d="M96 42 l2 -9 q6 -4 12 0 l2 9 Z" fill="#A6413A"/>
+                <circle cx="104" cy="27" r="7" fill="#E8C48A"/>
+                <path d="M96 24 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
+              </svg>
+            </div>
+            <p class="boat-card__class">Light motor</p>
+            <h3>Motor Dinghy</h3>
+            <p>The first engine. The moment the water stops being the only thing pushing you.</p>
+          </article>
+
+          <article class="boat-card reveal">
+            <div class="boat-card__art" aria-hidden="true">
+              <svg viewBox="0 0 220 92" fill="none">
+                <path d="M108 40 l3 -14 q8 -5 16 0 l3 14 Z" fill="#A6413A"/>
+                <circle cx="119" cy="21" r="7" fill="#E8C48A"/>
+                <path d="M111 18 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
+                <path d="M30 42 L188 36 q7 9 0 20 q-4 5 -14 5 H48 q-15 0 -18 -9 Z" fill="#0D2740"/>
+                <path d="M30 42 L188 36 L189 42 L30 48 Z" fill="#1B4A70"/>
+                <path d="M36 46 L182 40 L182 44 L36 50 Z" fill="#FFC93C" opacity=".85"/>
+                <path d="M116 42 L128 21 L162 21 L172 42 Z" fill="#153B5C"/>
+                <path d="M138 38 L146 25 L160 25 L166 38 Z" fill="#6FE0DC" opacity=".75"/>
+                <path d="M30 48 q-16 4 -26 13 q18 -3 26 -6 Z" fill="#FFFFFF" opacity=".5"/>
+              </svg>
+            </div>
+            <p class="boat-card__class">Light motor</p>
+            <h3>Speedboat</h3>
+            <p>The reference boat. Good everywhere, best nowhere — your daily driver for most of the map.</p>
+          </article>
+
+          <article class="boat-card reveal">
+            <div class="boat-card__art" aria-hidden="true">
+              <svg viewBox="0 0 220 92" fill="none">
+                <path d="M104 40 l3 -13 q7 -5 14 0 l3 13 Z" fill="#A6413A"/>
+                <circle cx="114" cy="22" r="7" fill="#E8C48A"/>
+                <path d="M106 19 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
+                <path d="M62 44 q10 -10 30 -10 h34 q18 0 26 10 l6 8 q3 8 -8 8 H70 q-12 0 -14 -8 Z" fill="#0D2740"/>
+                <path d="M78 38 q10 -6 26 -6 h20 q12 0 18 6 Z" fill="#1B4A70"/>
+                <path d="M96 34 h32 v4 H96 Z" fill="#FFC93C" opacity=".8"/>
+                <path d="M148 36 l22 -6 q4 3 0 6 l-20 4 Z" fill="#153B5C"/>
+                <path d="M62 52 q-18 4 -30 12 q20 -3 30 -6 Z" fill="#FFFFFF" opacity=".5"/>
+              </svg>
+            </div>
+            <p class="boat-card__class">Light motor</p>
+            <h3>Jet Ski</h3>
+            <p>The best air control in the game and the worst stability. Every landing is a decision you make in the air.</p>
+          </article>
+
+          <article class="boat-card reveal">
+            <div class="boat-card__art" aria-hidden="true">
+              <svg viewBox="0 0 220 92" fill="none">
+                <circle cx="56" cy="28" r="22" fill="none" stroke="#153B5C" stroke-width="5"/>
+                <path d="M56 12 L56 44 M42 20 L70 36 M42 36 L70 20" stroke="#1B4A70" stroke-width="4" stroke-linecap="round"/>
+                <path d="M110 40 l3 -13 q7 -5 14 0 l3 13 Z" fill="#A6413A"/>
+                <circle cx="120" cy="22" r="7" fill="#E8C48A"/>
+                <path d="M112 19 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
+                <path d="M40 44 h140 q6 6 -2 12 H50 q-12 0 -10 -12 Z" fill="#0D2740"/>
+                <path d="M40 44 h140 l-2 5 H40 Z" fill="#1B4A70"/>
+                <path d="M96 44 h56 v-6 h-56 Z" fill="#153B5C"/>
+                <path d="M40 56 q-16 3 -26 10 q18 -2 26 -4 Z" fill="#FFFFFF" opacity=".45"/>
+              </svg>
+            </div>
+            <p class="boat-card__class">Light motor</p>
+            <h3>Airboat</h3>
+            <p>A caged fan instead of a screw, so it keeps pushing even while it is off the water entirely.</p>
+          </article>
+
+          <article class="boat-card reveal">
+            <div class="boat-card__art" aria-hidden="true">
+              <svg viewBox="0 0 220 92" fill="none">
+                <path d="M104 34 l3 -13 q7 -5 14 0 l3 13 Z" fill="#A6413A"/>
+                <circle cx="114" cy="16" r="7" fill="#E8C48A"/>
+                <path d="M106 13 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
+                <path d="M62 36 h96 l8 8 H54 Z" fill="#153B5C"/>
+                <path d="M88 36 h44 v-8 h-44 Z" fill="#1B4A70"/>
+                <path d="M44 44 h132 q14 0 14 8 t-14 8 H44 q-14 0 -14 -8 t14 -8 Z" fill="#0D2740"/>
+                <path d="M44 44 h132 q10 0 12 5 H32 q2 -5 12 -5 Z" fill="#1B4A70"/>
+                <path d="M30 64 q-10 6 -18 10 q22 -2 34 -6 Z" fill="#FFFFFF" opacity=".45"/>
+                <path d="M190 64 q10 6 18 10 q-22 -2 -34 -6 Z" fill="#FFFFFF" opacity=".45"/>
+              </svg>
+            </div>
+            <p class="boat-card__class">Hover</p>
+            <h3>Hovercraft</h3>
+            <p>Skims at a fixed height and never touches a wave face. A different game on the same sea.</p>
+          </article>
+
+          <article class="boat-card reveal">
+            <div class="boat-card__art" aria-hidden="true">
+              <svg viewBox="0 0 220 92" fill="none">
+                <path d="M110 46 V6" stroke="#8A6A45" stroke-width="5" stroke-linecap="round"/>
+                <path d="M110 10 q26 6 26 14 q0 8 -26 12 Z" fill="#E8DCC4"/>
+                <path d="M110 12 q-24 5 -24 12 q0 7 24 11 Z" fill="#F2E6D8"/>
+                <path d="M110 6 l16 4 -16 4 Z" fill="#A6413A"/>
+                <path d="M52 46 h116 l-6 14 q-5 6 -16 6 H74 q-11 0 -16 -6 Z" fill="#0D2740"/>
+                <path d="M52 46 h116 l-1.5 5 H53.5 Z" fill="#8A6A45"/>
+                <path d="M62 54 h96 v4 H62 Z" fill="#FFC93C" opacity=".7"/>
+                <path d="M168 46 l16 -4 -2 10 -14 2 Z" fill="#153B5C"/>
+              </svg>
+            </div>
+            <p class="boat-card__class">Heavy · sail</p>
+            <h3>Pirate Ship</h3>
+            <p>Wind-driven, so it never runs out of fuel. Distance stops being a range problem and becomes a stability one.</p>
+          </article>
+
+          <article class="boat-card reveal">
+            <div class="boat-card__art" aria-hidden="true">
+              <svg viewBox="0 0 220 92" fill="none">
+                <path d="M16 44 h188 l-8 14 q-6 6 -18 6 H40 q-14 0 -18 -6 Z" fill="#0D2740"/>
+                <path d="M16 44 h188 l-2 5 H18 Z" fill="#1B4A70"/>
+                <path d="M12 38 h196 q4 0 4 6 H8 q0 -6 4 -6 Z" fill="#153B5C"/>
+                <path d="M24 41 h172" stroke="#FFC93C" stroke-width="2" stroke-dasharray="10 8" opacity=".85"/>
+                <rect x="140" y="18" width="26" height="20" rx="3" fill="#1B4A70"/>
+                <path d="M153 18 V6" stroke="#153B5C" stroke-width="3" stroke-linecap="round"/>
+                <path d="M56 34 l14 -6 l16 6 Z" fill="#6FE0DC" opacity=".8"/>
+                <path d="M96 34 l14 -6 l16 6 Z" fill="#6FE0DC" opacity=".55"/>
+              </svg>
+            </div>
+            <p class="boat-card__class">Heavy motor</p>
+            <h3>Aircraft Carrier</h3>
+            <p>A hundred and thirty tonnes, nuclear range, flat as a runway. Nothing the sea does moves it.</p>
+          </article>
+        </div>
+
+        <div class="fleet-more reveal">
+          <p class="fleet-more__label">Also in the fleet</p>
+          <span class="world-chip">Inflatable Raft</span>
+          <span class="world-chip">Rescue RIB</span>
+          <span class="world-chip">Catamaran</span>
+          <span class="world-chip">Hydroplane</span>
+          <span class="world-chip">Fishing Trawler</span>
+          <span class="world-chip">Military Patrol Boat</span>
+          <span class="world-chip">Icebreaker</span>
+          <span class="world-chip">Destroyer</span>
+          <span class="world-chip">Cruise Ship</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ UPGRADES ============ -->
+    <section class="section section--surface" id="upgrades">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">The garage</p>
+          <h2>Five lanes, one honest question</h2>
+          <p class="lead">Every boat tunes along the same five lanes, so you always know what a coin buys. Cards show the effect, not just the level.</p>
+        </div>
+
+        <div class="lanes">
+          <article class="lane reveal">
+            <div class="lane__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
+            </div>
+            <p class="lane__name">Go</p>
+            <p class="lane__what">Engine</p>
+            <p>Raw power. More shove off the mark and a higher top speed once you are up and planing.</p>
+          </article>
+          <article class="lane reveal">
+            <div class="lane__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.4 3 7.7 7 9 4-1.3 7-4.6 7-9V6l-7-3Z"/></svg>
+            </div>
+            <p class="lane__name">Hull</p>
+            <p class="lane__what">Hull</p>
+            <p>Weight, buoyancy and how hard a bad landing hits — the difference between a stumble and a capsize.</p>
+          </article>
+          <article class="lane reveal">
+            <div class="lane__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 10c-1.2-3.2.7-5.7 2.8-4.6 1.9 1 1.4 3.7-1.1 5.4"/><path d="M13.9 13.2c3.2-.7 5 1.8 3.6 3.6-1.3 1.6-3.8.6-5-1.9"/><path d="M10.1 13.2c-3.2-.7-5 1.8-3.6 3.6 1.3 1.6 3.8.6 5-1.9"/></svg>
+            </div>
+            <p class="lane__name">Bite</p>
+            <p class="lane__what">Propeller</p>
+            <p>How much of the engine actually reaches the water, and how fast the screw recovers once it drops back in.</p>
+          </article>
+          <article class="lane reveal">
+            <div class="lane__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M4 19 17 6"/><path d="M11 19a7 7 0 0 1 2-5"/></svg>
+            </div>
+            <p class="lane__name">Angle</p>
+            <p class="lane__what">Trim</p>
+            <p>Authority over your own pitch. Sets how fast you can level out before you touch back down.</p>
+          </article>
+          <article class="lane reveal">
+            <div class="lane__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12 16 8"/><path d="M12 3v2"/><path d="M21 12h-2"/><path d="M5 12H3"/></svg>
+            </div>
+            <p class="lane__name">Range</p>
+            <p class="lane__what">Fuel</p>
+            <p>Tank size. Every level pushes out the gap you can clear before the next can, and a maxed boat goes a long way past a stock one.</p>
+          </article>
+        </div>
+
+        <p class="lead center mt-4 reveal">The lanes rename themselves to fit the boat. The rowboat tunes <strong>Oars</strong> and <strong>Rations</strong>; the jet ski has an <strong>Impeller</strong>; the pirate ship trims <strong>Sails</strong> and <strong>Rigging</strong> — and its fuel lane just reads <strong>Never runs out</strong>.</p>
+      </div>
+    </section>
+
+    <!-- ============ WATERS ============ -->
+    <section class="section section--alt" id="waters">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Twenty-three waters</p>
+          <h2>The sea is not a backdrop</h2>
+          <p class="lead">Each water changes the physics you are riding — density, viscosity, current, wind, even gravity. The Dead Sea floats you high, the Bayou turns everything to glue, and the Southern Ocean simply does not care.</p>
+        </div>
+
+        <div class="waters">
+          <section class="waters-region reveal">
+            <div class="waters-region__head">
+              <h3 class="waters-region__name">Lakes</h3>
+              <p class="waters-region__note">Where you learn. Small swell, forgiving water.</p>
+            </div>
+            <div class="worlds">
+              <span class="world-chip">Calm Lake</span>
+              <span class="world-chip">Loch Ness</span>
+              <span class="world-chip">Dead Sea</span>
+              <span class="world-chip">Lake Superior</span>
+            </div>
+          </section>
+
+          <section class="waters-region reveal">
+            <div class="waters-region__head">
+              <h3 class="waters-region__name">Rivers</h3>
+              <p class="waters-region__note">Currents that push back — and one that pushes hard.</p>
+            </div>
+            <div class="worlds">
+              <span class="world-chip">Nile</span>
+              <span class="world-chip">Amazon</span>
+              <span class="world-chip">Mississippi</span>
+              <span class="world-chip">Bayou</span>
+              <span class="world-chip">Colorado Rapids</span>
+            </div>
+          </section>
+
+          <section class="waters-region reveal">
+            <div class="waters-region__head">
+              <h3 class="waters-region__name">Seas</h3>
+              <p class="waters-region__note">Real swell, real consequences.</p>
+            </div>
+            <div class="worlds">
+              <span class="world-chip">Caribbean</span>
+              <span class="world-chip">Mediterranean</span>
+              <span class="world-chip">Norwegian Fjord</span>
+              <span class="world-chip">North Sea</span>
+              <span class="world-chip">Pirate Sea</span>
+            </div>
+          </section>
+
+          <section class="waters-region reveal">
+            <div class="waters-region__head">
+              <h3 class="waters-region__name">Oceans</h3>
+              <p class="waters-region__note">Beaufort four and up. This is the main event.</p>
+            </div>
+            <div class="worlds">
+              <span class="world-chip">Pacific</span>
+              <span class="world-chip">Atlantic</span>
+              <span class="world-chip">Indian</span>
+              <span class="world-chip">Arctic</span>
+              <span class="world-chip">Southern Ocean</span>
+            </div>
+          </section>
+
+          <section class="waters-region reveal">
+            <div class="waters-region__head">
+              <h3 class="waters-region__name">Exotic</h3>
+              <p class="waters-region__note">Boiling water, flooded skylines, and two oceans with the gravity turned down.</p>
+            </div>
+            <div class="worlds">
+              <span class="world-chip world-chip--exotic">Volcano</span>
+              <span class="world-chip world-chip--exotic">Flooded City</span>
+              <span class="world-chip world-chip--exotic">Alien Ocean</span>
+              <span class="world-chip world-chip--exotic">Space Ocean</span>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCREENSHOTS ============ -->
+    <section class="section section--surface" id="screenshots">
+      <div class="container">
+        <div class="section-head reveal">
+          <p class="eyebrow">Screenshots</p>
+          <h2>See it in motion</h2>
+        </div>
+        <!-- Arrows and dots are added by main.js; without JS this stays a plain
+             swipeable rail. -->
+        <div class="shots-rail reveal">
+          <div class="shots" role="region" aria-label="Screenshots" tabindex="0">
+            <div class="phone-frame"><img src="assets/images/screenshot-1.svg" width="1440" height="810" loading="lazy" alt="Riding the face of a swell with the throttle open, distance and fuel on the HUD" /></div>
+            <div class="phone-frame"><img src="assets/images/screenshot-2.svg" width="1440" height="810" loading="lazy" alt="Launching off a crest for a wave hop, spray trailing off the stern" /></div>
+            <div class="phone-frame"><img src="assets/images/screenshot-3.svg" width="1440" height="810" loading="lazy" alt="Mid-flip high above the water, coins strung out along the arc" /></div>
+            <div class="phone-frame"><img src="assets/images/screenshot-4.svg" width="1440" height="810" loading="lazy" alt="Touching down with the hull matched to the water's angle for a perfect landing" /></div>
+            <div class="phone-frame"><img src="assets/images/screenshot-5.svg" width="1440" height="810" loading="lazy" alt="The garage, tuning the speedboat across its five upgrade lanes" /></div>
+            <div class="phone-frame"><img src="assets/images/screenshot-6.svg" width="1440" height="810" loading="lazy" alt="Choosing a water: Calm Lake and Pacific unlocked, the Arctic still to buy" /></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ DOWNLOAD ============ -->
+    <section class="section section--alt" id="download">
+      <div class="container">
+        <div class="download-cta reveal">
+          <p class="eyebrow">Download</p>
+          <h2>Coming soon to iOS &amp; Android</h2>
+          <p class="lead">Wave Rider is on the way to the App Store and Google Play. Store links will light up here at launch.</p>
+          <div class="store-badges">
+            <a class="store-badge" href="#" aria-label="Download on the App Store (coming soon)">
+              <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
+            </a>
+            <a class="store-badge" href="#" aria-label="Get it on Google Play (coming soon)">
+              <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__grid">
+        <div class="footer__brand">
+          <a class="nav__brand" href="index.html">
+            <img src="assets/images/icon-64.png" alt="" width="30" height="30" />
+            Wave Rider
+          </a>
+          <p class="muted">A physics arcade game where the ground under you is always moving.</p>
+          <p class="muted">By <strong>SmartLifeUtils</strong></p>
+        </div>
+        <div class="footer__col">
+          <h4>Game</h4>
+          <ul>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#fleet">The fleet</a></li>
+            <li><a href="index.html#waters">Waters</a></li>
+            <li><a href="index.html#screenshots">Screenshots</a></li>
+            <li><a href="index.html#download">Download</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Help</h4>
+          <ul>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="mailto:smartlife.utilities@gmail.com">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <span>© <span data-year>2026</span> SmartLifeUtils. All rights reserved.</span>
+        <span>Wave Rider™</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js" defer></script>
+</body>
+</html>
