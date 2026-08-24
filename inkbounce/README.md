@@ -64,8 +64,8 @@ Search the project for each token and swap in the real value:
 - [ ] **Third-party services** in `privacy.html` — confirm they match what the build
       actually ships (currently: Google AdMob, Firebase Analytics, Firebase Crashlytics,
       store billing). Remove/add as needed.
-- [ ] **Store badges** — point the App Store / Google Play links (`href`) to the live
-      listings once published, and swap in official store badge images if desired.
+- [x] **Store badges** — pointed at the live listings: [App Store](https://apps.apple.com/us/app/ink-bounce/id6792821983)
+      and [Google Play](https://play.google.com/store/apps/details?id=com.smartlife.inkbounce).
 
 ### Art (in `assets/images/`)
 
