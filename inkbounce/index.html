@@ -39,10 +39,11 @@
       <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
       <nav aria-label="Primary">
         <ul class="nav__links" id="nav-links">
-          <li><a href="index.html">Home</a></li>
+          <li><a href="#game">The game</a></li>
+          <li><a href="#worlds">Worlds</a></li>
+          <li><a href="#endless">Endless</a></li>
+          <li><a href="#screenshots">Screenshots</a></li>
           <li><a href="support.html">Support</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
         </ul>
       </nav>
     </div>
@@ -53,10 +54,10 @@
     <section class="hero">
       <div class="container hero__grid">
         <div class="hero__copy">
-          <p class="eyebrow">One-thumb arcade · 2D</p>
+          <p class="eyebrow">One thumb · Landscape · Offline</p>
           <h1 class="hero-title">Ink Bounce</h1>
           <p class="hero__tagline">Draw. Bounce. Beat the level.</p>
-          <p class="hero__pitch lead">A one-thumb arcade game where every line you draw is the only thing keeping the ball alive. Draw ink, bounce to the goal — but don't run dry.</p>
+          <p class="hero__pitch lead">You get one line of ink. Spend it well. The orb is already moving when a level starts — draw beneath it and it bounces, draw carelessly and the portal is still out of reach with nothing left to draw with.</p>
 
           <div class="hero__cta">
             <p class="store-note">Out now on iOS &amp; Android</p>
@@ -73,9 +74,9 @@
           <div class="hero__pills">
             <div class="pill-row">
               <span class="pill pill--cyan">Free to play</span>
-              <span class="pill">iOS 15+</span>
-              <span class="pill">Android 7.1+</span>
-              <span class="pill pill--gold">100 levels</span>
+              <span class="pill">100 levels</span>
+              <span class="pill">5 bosses</span>
+              <span class="pill pill--gold">Plays offline</span>
             </div>
           </div>
         </div>
@@ -105,73 +106,57 @@
       </div>
     </section>
 
-    <!-- ============ FEATURES ============ -->
-    <section class="section section--surface" id="features">
+    <!-- ============ THE LOOP ============ -->
+    <!-- Three beats, alternating sides. This replaced a six-card icon grid: the
+         game explains itself better in its own screenshots than in glyphs. -->
+    <section class="section section--surface" id="game">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Features</p>
-          <h2>Every line matters</h2>
-          <p class="lead">Simple to pick up, tense to master. Physics, reflexes, and a single stroke of ink.</p>
+        <div class="section-head left reveal">
+          <p class="eyebrow">The loop</p>
+          <h2>One line of ink</h2>
+          <p class="lead">Simple to hold, hard to spend well. Physics, reflexes, and a meter that does not refill mid-level.</p>
         </div>
 
-        <div class="grid">
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20c4-1 5-4 8-9s5-8 8-8"/><path d="M14 4l4 4"/><circle cx="4" cy="19" r="2" fill="currentColor" stroke="none"/></svg>
+        <div class="beats">
+          <article class="beat reveal">
+            <div class="beat__media">
+              <img src="assets/images/beats/loop-draw.jpg" width="1200" height="496" loading="lazy" alt="A drawn ink line arcs beneath the orb, which rebounds off it mid-flight" />
             </div>
-            <h3>Draw to survive</h3>
-            <p>Sketch ink lines with your finger to redirect the ball. Ink is limited — waste it and it's game over.</p>
+            <div class="beat__body">
+              <h3>Draw beneath it</h3>
+              <p>The orb is already moving when the level starts. Every line you draw is a surface — the orb leaves it at the angle you gave it, so the shape of the stroke is the whole decision.</p>
+            </div>
           </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg>
+          <article class="beat reveal">
+            <div class="beat__media">
+              <img src="assets/images/beats/loop-portal.jpg" width="1200" height="496" loading="lazy" alt="The orb streaks through a low-gravity zone toward a glowing portal on the right" />
             </div>
-            <h3>100 levels · 5 worlds</h3>
-            <p>Hand-designed campaign across Ice Valley, Ancient Grove, Frost Shrine, Ashen Rift and Sun Temple — 20 levels each.</p>
+            <div class="beat__body">
+              <h3>Reach the portal</h3>
+              <p>The goal never moves. Everything else does. Gravity inverts, zones rewrite the rules the moment the orb crosses them, and hazards stop being things you avoid and start being things you use.</p>
+            </div>
           </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 8.5c-2.5 0-4 1.6-4 3.5s1.5 3.5 4 3.5c3.5 0 4.5-7 8-7 2.5 0 4 1.6 4 3.5s-1.5 3.5-4 3.5c-3.5 0-4.5-7-8-7Z"/></svg>
+          <article class="beat reveal">
+            <div class="beat__media">
+              <img src="assets/images/beats/loop-ink.jpg" width="1200" height="496" loading="lazy" alt="The ink meter runs low as the orb crosses a shifting low-gravity corridor" />
             </div>
-            <h3>Endless mode</h3>
-            <p>Procedurally generated runs. Chase distance, beat your high score, keep the ball alive.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 0 0 0 18c1.4 0 2-1 2-2 0-.6-.3-1-.7-1.4-.4-.4-.6-.8-.6-1.3 0-1 .8-1.7 1.8-1.7H16a5 5 0 0 0 5-5c0-3.6-4-6.6-9-6.6Z"/><circle cx="7.5" cy="11.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="12" cy="8.5" r="1.1" fill="currentColor" stroke="none"/><circle cx="16.5" cy="11.5" r="1.1" fill="currentColor" stroke="none"/></svg>
+            <div class="beat__body">
+              <h3>Don't run dry</h3>
+              <p>Ink is finite, and a wasted line is not a mistake you fix later — it is ink the portal needed. Clearing a level and clearing it clean are two different problems.</p>
             </div>
-            <h3>Skins &amp; trails</h3>
-            <p>Unlock a collection of ball skins and glowing ink trails to make every bounce your own.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 4h12v4a6 6 0 0 1-12 0V4Z"/><path d="M6 6H3.5v1.5A3 3 0 0 0 6 10.4"/><path d="M18 6h2.5v1.5A3 3 0 0 1 18 10.4"/><path d="M10 14.5V18"/><path d="M14 14.5V18"/><path d="M8 20h8"/></svg>
-            </div>
-            <h3>Rewards &amp; power-ups</h3>
-            <p>Coins, power-ups, achievements, statistics and daily rewards keep you coming back for one more try.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M10 6h4"/><path d="M11 18h2"/></svg>
-            </div>
-            <h3>Made for mobile</h3>
-            <p>Landscape, one-thumb controls, fast loading. Pick it up for ten seconds or ten minutes.</p>
           </article>
         </div>
       </div>
     </section>
 
     <!-- ============ WORLDS ============ -->
-    <section class="section section--alt">
+    <section class="section section--alt" id="worlds">
       <div class="container">
         <div class="section-head reveal">
           <p class="eyebrow">Campaign</p>
-          <h2>Five worlds to conquer</h2>
-          <p class="lead">One hundred hand-built levels, twenty per world, each with its own palette, hazards and rules.</p>
+          <h2>Five worlds, one hundred levels</h2>
+          <p class="lead">Twenty hand-built levels each, and every world breaks a habit the last one taught you.</p>
         </div>
-        <!-- A grid on wide screens; below 1000px the same markup becomes a
-             swipeable snap rail, so five square cards never wrap into an
-             orphan row. -->
         <div class="worlds reveal">
           <article class="world-card world-card--1">
             <div class="world-card__art">
@@ -224,15 +209,104 @@
             </div>
           </article>
         </div>
+
+        <div class="beats beats--after">
+          <article class="beat reveal">
+            <div class="beat__media">
+              <img src="assets/images/beats/boss.jpg" width="1200" height="496" loading="lazy" alt="The Wall, a shielded boss block with glowing eyes, takes a hit from the orb" />
+            </div>
+            <div class="beat__body">
+              <h3>At level 20, something is waiting</h3>
+              <p>Five bosses, one at the end of every world. They do not care how fast you are — they punish a lazy line.</p>
+              <p class="beat__note">Three stars a level. Sixty a world. Three hundred across the campaign.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ENDLESS ============ -->
+    <section class="section section--surface" id="endless">
+      <div class="container">
+        <div class="section-head left reveal">
+          <p class="eyebrow">Endless</p>
+          <h2>One corridor, no finish line</h2>
+        </div>
+
+        <div class="beats">
+          <article class="beat reveal">
+            <div class="beat__media">
+              <img src="assets/images/beats/fever.jpg" width="1200" height="483" loading="lazy" alt="An endless run at Fever with a combo of 12, the orb trailing cyan light down the corridor" />
+            </div>
+            <div class="beat__body">
+              <h3>Chain ten and Fever opens</h3>
+              <p>Keep the orb off the ground and the combo climbs. Reach a chain of ten and every line costs <strong>30% less for eight seconds</strong>.</p>
+              <p>The corridor keeps accelerating. Your ink does not get cheaper on its own.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ GEAR ============ -->
+    <section class="section section--alt" id="gear">
+      <div class="container">
+        <div class="section-head left reveal">
+          <p class="eyebrow">Gear</p>
+          <h2>Five pieces, five ranks each</h2>
+          <p class="lead">Permanent upgrades you rank up and equip. Two slots to start with, a third once you have bought ten ranks.</p>
+        </div>
+
+        <dl class="gear reveal">
+          <div class="gear__row"><dt>Ink Regulator</dt><dd>Cuts what every line costs.</dd></div>
+          <div class="gear__row"><dt>Slow-Dry Formula</dt><dd>Lines last longer before they fade.</dd></div>
+          <div class="gear__row"><dt>Broad Nib</dt><dd>Draws thicker.</dd></div>
+          <div class="gear__row"><dt>Rebound Coil</dt><dd>Adds lift off your own ink.</dd></div>
+          <div class="gear__row"><dt>Safety Core</dt><dd>Absorbs one hazard.</dd></div>
+        </dl>
+
+        <p class="gear__note reveal">Ink Refill, Shield and Slow Time go into any attempt. Rocket Start throws an endless run down the corridor before you have drawn a thing.</p>
+      </div>
+    </section>
+
+    <!-- ============ THE LONG GAME ============ -->
+    <section class="section section--surface" id="collection">
+      <div class="container">
+        <div class="section-head left reveal">
+          <p class="eyebrow">The long game</p>
+          <h2>What is left after the hundred</h2>
+        </div>
+
+        <!-- Hairline grid rather than rounded cards: this is a stats panel and it
+             should read like the one in the game. -->
+        <dl class="stats reveal">
+          <div class="stat"><dd class="stat__n">100</dd><dt class="stat__l">Levels</dt></div>
+          <div class="stat"><dd class="stat__n">5</dd><dt class="stat__l">Bosses</dt></div>
+          <div class="stat"><dd class="stat__n">300</dd><dt class="stat__l">Stars</dt></div>
+          <div class="stat"><dd class="stat__n">54</dd><dt class="stat__l">Orb skins</dt></div>
+          <div class="stat"><dd class="stat__n">104</dd><dt class="stat__l">Badges</dt></div>
+        </dl>
+
+        <div class="beats beats--after">
+          <article class="beat reveal">
+            <div class="beat__media">
+              <img src="assets/images/beats/badges.jpg" width="1200" height="483" loading="lazy" alt="The badges screen at 39% overall progress, with campaign, endless and mastery tabs" />
+            </div>
+            <div class="beat__body">
+              <h3>Every run is on the record</h3>
+              <p>54 orb skins, each with its own trail. 104 badges across campaign, endless and mastery. Daily rewards, challenges and leaderboards.</p>
+              <p>Every campaign attempt is recorded — watch the replay back, or skip it. And a statistics screen that remembers every run you would rather it forgot.</p>
+            </div>
+          </article>
+        </div>
       </div>
     </section>
 
     <!-- ============ SCREENSHOTS ============ -->
-    <section class="section section--surface" id="screenshots">
+    <section class="section section--alt" id="screenshots">
       <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Screenshots</p>
-          <h2>See it in motion</h2>
+        <div class="section-head left reveal">
+          <h2>Screenshots</h2>
         </div>
         <!-- Arrows and dots are added by main.js; without JS this stays a plain
              swipeable rail. -->
@@ -250,12 +324,12 @@
     </section>
 
     <!-- ============ DOWNLOAD ============ -->
-    <section class="section section--alt" id="download">
+    <section class="section section--surface" id="download">
       <div class="container">
         <div class="download-cta reveal">
           <p class="eyebrow">Download</p>
           <h2>Out now on iOS &amp; Android</h2>
-          <p class="lead">Ink Bounce is free on the App Store and Google Play. Grab it and see how far one line takes you.</p>
+          <p class="lead">Free, and it plays offline. See how far one line takes you.</p>
           <div class="store-badges">
             <a class="store-badge" href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store">
               <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
@@ -264,6 +338,7 @@
               <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
             </a>
           </div>
+          <p class="download-specs">iOS 15+ &middot; Android 7.1+ &middot; Free with ads and optional in-app purchases</p>
         </div>
       </div>
     </section>
@@ -284,9 +359,11 @@
         <div class="footer__col">
           <h4>Game</h4>
           <ul>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#screenshots">Screenshots</a></li>
-            <li><a href="index.html#download">Download</a></li>
+            <li><a href="#game">The game</a></li>
+            <li><a href="#worlds">Worlds</a></li>
+            <li><a href="#endless">Endless</a></li>
+            <li><a href="#screenshots">Screenshots</a></li>
+            <li><a href="#download">Download</a></li>
           </ul>
         </div>
         <div class="footer__col">

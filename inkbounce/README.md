@@ -9,7 +9,7 @@ requirements.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/` | Landing page — hero, features, worlds, screenshots, download |
+| `index.html` | `/` | Landing page — hero/trailer, the loop, worlds, endless, gear, stats, screenshots, download |
 | `support.html` | `/support` | **Store-required support URL** — contact, FAQ, bug reports |
 | `privacy.html` | `/privacy` | **Store-required privacy policy** |
 | `terms.html` | `/terms` | Terms of service |
@@ -98,6 +98,47 @@ for i in 1 2 3 4 5 6; do
 done
 ```
 
+### Beat stills (in `assets/images/beats/`)
+
+The mechanic sections each pair one wide still with the text explaining it. These
+replaced a six-card grid of outline icons — the game reads better in its own frames
+than in glyphs.
+
+Both sources carry a **marketing caption in a black band across the lower third**
+(the store screenshots and the trailer alike), so every still is cropped *above* that
+band rather than scaled down whole. `sips --cropOffset` is silently ignored and always
+crops from the centre, so the crop is done with CoreGraphics instead:
+
+```sh
+# store screenshots are 1440x810, caption band starts around y=600
+# trailer frames are 1280x720, caption band starts around y=520
+swift tools/crop.swift in.jpg out.jpg 0 0 1440 595   # x y w h, origin top-left
+sips -Z 1200 -s format jpeg -s formatOptions 70 out.jpg --out beats/name.jpg
+```
+
+| File | Source |
+|---|---|
+| `loop-draw.jpg`, `loop-portal.jpg`, `loop-ink.jpg` | `screenshot-1`, `-2`, `-5` |
+| `boss.jpg` | `screenshot-3` — The Wall, world 1's boss |
+| `fever.jpg` | trailer ~22s, showing `FEVER · COMBO 12` |
+| `badges.jpg` | trailer ~25s, the badges screen |
+
+### Numbers on the page come from the game, not the store listing
+
+Every figure the homepage states was read out of the Unity project, because the store
+listing has drifted (it still lists the pre-rename worlds, and says 42 skins):
+
+| Claim | Source |
+|---|---|
+| 100 levels, 5 worlds, 20 each, 300 stars | `Campaign/Worlds/World<N>/world.json` |
+| Fever: 10-combo, 30% cheaper ink, 8 seconds | `Scoring/ScoreManager.cs` (`feverComboThreshold`, `feverInkCostMultiplier`, `feverDurationSeconds`) |
+| 5 gear pieces, 5 ranks, 2 slots then 3 at 10 ranks | `Progression/GearType.cs`, `GearCatalog.cs` |
+| 54 orb skins | `Resources/Skins/BallTrailSkinCatalog.asset` |
+| 104 badges | `Progression/AchievementService.cs` (`AchievementDefinitions`) |
+
+Re-check these after a content update — a stale number on the site is worse than no
+number.
+
 To refresh the world art after a re-theme:
 
 ```sh
@@ -136,12 +177,14 @@ inkbounce/
 ├── index.html · support.html · privacy.html · terms.html · 404.html
 ├── .nojekyll                 # tells GitHub Pages to skip Jekyll processing
 ├── README.md
+├── tools/crop.swift          # top-left crop, for cutting caption bands off stills
 └── assets/
     ├── css/style.css         # design tokens + all components
     ├── js/main.js            # nav toggle, FAQ, footer year, scroll reveal,
     │                         # trailer play button, screenshot rail + lightbox
     ├── fonts/                # self-hosted woff2 (latin) + fonts.css
-    ├── images/               # icons, badges, screenshots
+    ├── images/               # icons, store badges, screenshots
+    │   ├── beats/            # wide stills for the mechanic sections
     │   └── worlds/           # the five campaign worlds' key art
     └── video/                # trailer.mp4 + its poster frame
 ```
