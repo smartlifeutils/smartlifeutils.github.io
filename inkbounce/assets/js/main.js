@@ -62,6 +62,43 @@
     reveals.forEach(function (el) { el.classList.add("is-visible"); });
   }
 
+  /* ---- Hero trailer ----
+     The video already works on its own (poster + native controls). All this
+     does is reveal the big play button drawn over it and hand the first click
+     to the video. Once playback starts the button is gone for good, so it can
+     never end up covering the control bar. */
+  var trailer = document.querySelector(".trailer__video");
+  var trailerPlay = document.querySelector(".trailer__play");
+  if (trailer && trailerPlay) {
+    // Hide the control bar until there is something to control — it would
+    // otherwise sit across the bottom of the poster behind the play button.
+    trailer.removeAttribute("controls");
+    trailerPlay.hidden = false;
+    trailerPlay.addEventListener("click", function () {
+      var started = trailer.play();
+      // Safari returns undefined here; a rejected promise means the browser
+      // refused to start, so hand the visitor the native controls instead.
+      if (started && started.catch) {
+        started.catch(function () {
+          trailerPlay.hidden = false;
+          trailer.setAttribute("controls", "");
+        });
+      }
+      trailerPlay.hidden = true;
+    });
+    trailer.addEventListener("play", function () {
+      trailerPlay.hidden = true;
+      trailer.setAttribute("controls", "");
+    });
+    // Real length, once the browser knows it — the markup ships a fallback.
+    var time = document.querySelector(".trailer__play-time");
+    trailer.addEventListener("loadedmetadata", function () {
+      if (!time || !isFinite(trailer.duration)) return;
+      var total = Math.round(trailer.duration);
+      time.textContent = Math.floor(total / 60) + ":" + ("0" + (total % 60)).slice(-2);
+    });
+  }
+
   /* ---- Screenshot rail: arrows, dots and edge fades ----
      The rail is a plain scroll-snap container, so swipe and keyboard scrolling
      already work on their own. Everything below is added on top of that. */

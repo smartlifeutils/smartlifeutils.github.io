@@ -432,11 +432,75 @@ strong { color: var(--text); font-weight: 600; }
   overflow: hidden;
 }
 .phone-frame img,
+.phone-frame video,
 .phone-frame .phone-screen {
   width: 100%;
   height: 100%;
   object-fit: cover;
   border-radius: 12px;
+}
+
+/* ---------- Hero trailer --------------------------------------------------- */
+/* The video sits in the same 16:9 frame the screenshots use. Its own controls
+   are always present (JS off: poster + native play); main.js reveals the big
+   overlay button and drops it for good once playback starts, so it can never
+   sit on top of the control bar. */
+.trailer { margin: 0; }
+.trailer__video { background: #050506; }
+
+.trailer__play {
+  position: absolute;
+  inset: 8px;                 /* the frame's padding — covers the screen only */
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.9rem;
+  padding: 0;
+  border: 0;
+  border-radius: 12px;
+  background: rgba(8, 10, 13, 0.28);
+  color: var(--text);
+  font-family: var(--font-body);
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+.trailer__play[hidden] { display: none; }
+.trailer__play:hover { background: rgba(8, 10, 13, 0.14); }
+
+.trailer__play-icon {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--green);
+  color: #06210F;
+  transition: transform 0.18s ease, background 0.18s ease;
+}
+.trailer__play-icon svg { width: 34px; height: 34px; margin-left: 3px; }
+.trailer__play:hover .trailer__play-icon { background: var(--green-bright); transform: scale(1.06); }
+.trailer__play:active .trailer__play-icon { transform: scale(0.98); }
+
+.trailer__play-label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--r-pill);
+  background: rgba(8, 10, 13, 0.72);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+  border: 1px solid var(--border);
+}
+.trailer__play-time { color: var(--text-dim); }
+
+@media (max-width: 560px) {
+  .trailer__play-icon { width: 58px; height: 58px; }
+  .trailer__play-icon svg { width: 27px; height: 27px; }
+  .trailer__play-label { font-size: 0.8rem; }
 }
 
 @media (max-width: 860px) {
@@ -479,20 +543,105 @@ strong { color: var(--text); font-weight: 600; }
 }
 .card__icon svg { width: 24px; height: 24px; display: block; }
 
-/* ---------- Worlds strip -------------------------------------------------- */
-.worlds { display: flex; flex-wrap: wrap; gap: 0.75rem; justify-content: center; }
-.world-chip {
-  font-family: var(--font-display);
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  font-size: 1.15rem;
-  color: var(--text);
-  padding: 0.7rem 1.3rem;
-  border-radius: var(--r-pill);
+/* ---------- Worlds ------------------------------------------------------- */
+/* Five square pieces of the game's own campaign art. A five-across grid where
+   there is room; a snap rail below that, because 5 cards in a 2- or 3-column
+   grid always leaves a hole in the last row. */
+.worlds {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+}
+
+.world-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
   background: var(--panel);
   border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  transition: transform 0.2s ease, border-color 0.2s ease;
 }
-.world-chip span { color: var(--text-muted); opacity: 0.6; margin-right: 0.5rem; }
+/* Each world's own theme colour, straight from its campaign data. */
+.world-card--1 { --world-accent: #5392FA; }
+.world-card--2 { --world-accent: #5AFACD; }
+.world-card--3 { --world-accent: #AACAFA; }
+.world-card--4 { --world-accent: #FA4D59; }
+.world-card--5 { --world-accent: #FAC363; }
+
+/* The accent only ever appears as a hairline at the top of the card — colour
+   as a label, never as a glow. */
+.world-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 3px;
+  z-index: 2;
+  background: var(--world-accent);
+  opacity: 0.55;
+  transition: opacity 0.2s ease;
+}
+.world-card:hover { transform: translateY(-4px); border-color: #3a3f47; }
+.world-card:hover::before { opacity: 1; }
+
+.world-card__art {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.world-card__art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.world-card:hover .world-card__art img { transform: scale(1.06); }
+/* Art fades into the card body instead of stopping at a hard edge. */
+.world-card__art::after {
+  content: "";
+  position: absolute;
+  inset: 40% 0 0;
+  background: linear-gradient(to bottom, transparent, rgba(13, 13, 14, 0.85) 88%, var(--panel));
+  pointer-events: none;
+}
+
+.world-card__body { padding: 0.9rem 1rem 1.1rem; margin-top: -2.2rem; position: relative; z-index: 1; }
+.world-card__num {
+  margin: 0 0 0.15rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--world-accent);
+  opacity: 0.85;
+}
+.world-card__name {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 1.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin: 0 0 0.3rem;
+}
+.world-card__blurb { margin: 0; font-size: 0.95rem; line-height: 1.45; color: var(--text-dim); }
+
+@media (max-width: 999px) {
+  .worlds {
+    display: flex;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding-bottom: 0.5rem;
+  }
+  .worlds::-webkit-scrollbar { display: none; }
+  .world-card { flex: 0 0 min(260px, 68vw); scroll-snap-align: center; }
+  /* Hover lift is a pointer affordance; on a rail it just fights the swipe. */
+  .world-card:hover { transform: none; }
+}
 
 /* ---------- Screenshots rail --------------------------------------------- */
 .shots-rail { position: relative; }

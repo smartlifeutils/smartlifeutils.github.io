@@ -81,6 +81,12 @@ Real game art is in place — all sourced from the Unity project
       badges. Both are full-bleed at ~3.37:1, so they line up at a shared CSS height.
       The Apple badge has an opaque white background, so `.store-badges img` clips it
       with a `border-radius` — keep that if you ever re-export the badges.
+- [x] `worlds/world-1-ice-valley.jpg` … `world-5-sun-temple.jpg` — the campaign
+      world art, 800×800, straight from the game's own
+      `Assets/_Game/UI/Resources/CampaignWorlds/`. Names, level counts and the accent
+      colour on each card all come from `Assets/_Game/Resources/Campaign/Worlds/
+      World<N>/world.json` — if a world is renamed or re-themed there, update the
+      `.world-card--N { --world-accent }` values in `style.css` to match.
 
 To refresh the screenshots after a new build:
 
@@ -92,8 +98,36 @@ for i in 1 2 3 4 5 6; do
 done
 ```
 
-> Tip: for a gameplay clip, add an autoplaying muted looping `<video>` (or a GIF) into
-> the hero's `.phone-frame` in `index.html`.
+To refresh the world art after a re-theme:
+
+```sh
+cd /path/to/InkBounce/Assets/_Game/UI/Resources/CampaignWorlds
+sips -Z 800 -s format jpeg -s formatOptions 72 World_01_IceValley.jpg \
+  --out /path/to/inkbounce/assets/images/worlds/world-1-ice-valley.jpg
+# …and the same for worlds 2–5.
+```
+
+### Trailer (in `assets/video/`)
+
+The hero's `.phone-frame` holds the gameplay trailer instead of a still.
+
+- `trailer.mp4` — 1280×720, H.264 + AAC, ~2 Mbps, 0:29, **7.4 MB**. It is the
+  heaviest file in the repo by far, so it is `preload="none"`: nothing is fetched
+  until a visitor presses play.
+- `trailer-poster.jpg` — a frame lifted from the trailer itself (a caption-free one,
+  so the play button doesn't land on top of burned-in text). This *is* what loads on
+  every visit, so keep it around 100 KB.
+
+Keep the video at 16:9 — the frame it sits in is `aspect-ratio: 16 / 9`, shared with
+the screenshots. To re-encode a new master:
+
+```sh
+ffmpeg -i Trailer.mp4 -vf scale=1280:720 -c:v libx264 -b:v 2M -profile:v high \
+  -c:a aac -b:a 96k -movflags +faststart assets/video/trailer.mp4
+```
+
+Without ffmpeg installed, macOS ships `avconvert -s in.mp4 -p Preset1280x720 -o
+out.mp4`, but it targets ~7 Mbps — roughly 27 MB for this clip, too heavy to ship.
 
 ## Structure
 
@@ -104,9 +138,12 @@ inkbounce/
 ├── README.md
 └── assets/
     ├── css/style.css         # design tokens + all components
-    ├── js/main.js            # nav toggle, FAQ, footer year, scroll reveal
+    ├── js/main.js            # nav toggle, FAQ, footer year, scroll reveal,
+    │                         # trailer play button, screenshot rail + lightbox
     ├── fonts/                # self-hosted woff2 (latin) + fonts.css
-    └── images/               # placeholder SVG art
+    ├── images/               # icons, badges, screenshots
+    │   └── worlds/           # the five campaign worlds' key art
+    └── video/                # trailer.mp4 + its poster frame
 ```
 
 ## Design

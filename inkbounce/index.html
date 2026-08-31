@@ -81,9 +81,26 @@
         </div>
 
         <div class="hero__media">
-          <div class="phone-frame">
-            <img src="assets/images/screenshot-1.jpg" width="1440" height="810" alt="Ink Bounce gameplay: a burning orb rebounds off a freshly drawn ink line" />
-          </div>
+          <!-- The trailer is the hero image: nothing loads until it is played
+               (preload="none"), so the poster frame is all a visitor pays for.
+               Native controls stay on, so the video still works with JS off;
+               main.js only un-hides the big play button layered over them. -->
+          <figure class="trailer phone-frame">
+            <video class="trailer__video"
+                   poster="assets/video/trailer-poster.jpg"
+                   width="1280" height="720"
+                   preload="none" playsinline controls
+                   aria-label="Ink Bounce gameplay trailer">
+              <source src="assets/video/trailer.mp4" type="video/mp4" />
+              <p>Your browser can't play this video. <a href="assets/video/trailer.mp4">Download the trailer</a> instead.</p>
+            </video>
+            <button class="trailer__play" type="button" hidden>
+              <span class="trailer__play-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
+              </span>
+              <span class="trailer__play-label">Watch the trailer <span aria-hidden="true">·</span> <span class="trailer__play-time">0:29</span></span>
+            </button>
+          </figure>
         </div>
       </div>
     </section>
@@ -110,7 +127,7 @@
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4 3 6v14l6-2 6 2 6-2V4l-6 2-6-2Z"/><path d="M9 4v14"/><path d="M15 6v14"/></svg>
             </div>
             <h3>100 levels · 5 worlds</h3>
-            <p>Hand-designed campaign across The Beginning, Neon Depths, Shattered Realm, Gravity Fields and Crystal Caves.</p>
+            <p>Hand-designed campaign across Ice Valley, Ancient Grove, Frost Shrine, Ashen Rift and Sun Temple — 20 levels each.</p>
           </article>
           <article class="card reveal">
             <div class="card__icon" aria-hidden="true">
@@ -150,13 +167,62 @@
         <div class="section-head reveal">
           <p class="eyebrow">Campaign</p>
           <h2>Five worlds to conquer</h2>
+          <p class="lead">One hundred hand-built levels, twenty per world, each with its own palette, hazards and rules.</p>
         </div>
+        <!-- A grid on wide screens; below 1000px the same markup becomes a
+             swipeable snap rail, so five square cards never wrap into an
+             orphan row. -->
         <div class="worlds reveal">
-          <span class="world-chip"><span>01</span>The Beginning</span>
-          <span class="world-chip"><span>02</span>Neon Depths</span>
-          <span class="world-chip"><span>03</span>Shattered Realm</span>
-          <span class="world-chip"><span>04</span>Gravity Fields</span>
-          <span class="world-chip"><span>05</span>Crystal Caves</span>
+          <article class="world-card world-card--1">
+            <div class="world-card__art">
+              <img src="assets/images/worlds/world-1-ice-valley.jpg" width="800" height="800" loading="lazy" alt="Ice Valley: a moonlit canyon of blue-lit glaciers and a frozen river running through it" />
+            </div>
+            <div class="world-card__body">
+              <p class="world-card__num">World 01 <span aria-hidden="true">·</span> 20 levels</p>
+              <h3 class="world-card__name">Ice Valley</h3>
+              <p class="world-card__blurb">Frozen switchbacks under a still, starlit sky.</p>
+            </div>
+          </article>
+          <article class="world-card world-card--2">
+            <div class="world-card__art">
+              <img src="assets/images/worlds/world-2-ancient-grove.jpg" width="800" height="800" loading="lazy" alt="Ancient Grove: ivy-swallowed stone ruins and broken steps climbing to a glowing green archway" />
+            </div>
+            <div class="world-card__body">
+              <p class="world-card__num">World 02 <span aria-hidden="true">·</span> 20 levels</p>
+              <h3 class="world-card__name">Ancient Grove</h3>
+              <p class="world-card__blurb">Overgrown ruins swallowed by thick green light.</p>
+            </div>
+          </article>
+          <article class="world-card world-card--3">
+            <div class="world-card__art">
+              <img src="assets/images/worlds/world-3-frost-shrine.jpg" width="800" height="800" loading="lazy" alt="Frost Shrine: a pale crystal shrine on a lone rock platform, deep in a moonlit ravine" />
+            </div>
+            <div class="world-card__body">
+              <p class="world-card__num">World 03 <span aria-hidden="true">·</span> 20 levels</p>
+              <h3 class="world-card__name">Frost Shrine</h3>
+              <p class="world-card__blurb">A crystal shrine at the far end of a moonlit ravine.</p>
+            </div>
+          </article>
+          <article class="world-card world-card--4">
+            <div class="world-card__art">
+              <img src="assets/images/worlds/world-4-ashen-rift.jpg" width="800" height="800" loading="lazy" alt="Ashen Rift: a scorched basin split by rivers of lava beneath a burning monolith" />
+            </div>
+            <div class="world-card__body">
+              <p class="world-card__num">World 04 <span aria-hidden="true">·</span> 20 levels</p>
+              <h3 class="world-card__name">Ashen Rift</h3>
+              <p class="world-card__blurb">Molten channels and falling ember.</p>
+            </div>
+          </article>
+          <article class="world-card world-card--5">
+            <div class="world-card__art">
+              <img src="assets/images/worlds/world-5-sun-temple.jpg" width="800" height="800" loading="lazy" alt="Sun Temple: an obelisk on a stepped pyramid, silhouetted against a low golden sun as rubble floats past" />
+            </div>
+            <div class="world-card__body">
+              <p class="world-card__num">World 05 <span aria-hidden="true">·</span> 20 levels</p>
+              <h3 class="world-card__name">Sun Temple</h3>
+              <p class="world-card__blurb">Golden heat, and the campaign's last stand.</p>
+            </div>
+          </article>
         </div>
       </div>
     </section>
