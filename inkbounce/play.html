@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Get Ink Bounce</title>
+  <meta name="description" content="Download Ink Bounce — free on the App Store and Google Play." />
+  <meta name="theme-color" content="#080A0D" />
+  <!-- A redirector, not a destination: keep it out of the index and point search
+       engines at the real page. -->
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://smartlifeutils.github.io/inkbounce/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ink Bounce — Draw. Bounce. Beat the level." />
+  <meta property="og:description" content="A one-thumb arcade game where every line you draw is the only thing keeping the ball alive. Free on iOS and Android." />
+  <meta property="og:image" content="https://smartlifeutils.github.io/inkbounce/assets/images/og-image.jpg" />
+  <meta property="og:url" content="https://smartlifeutils.github.io/inkbounce/play" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
+  <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts/fonts.css" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+
+  <!-- Runs in <head>, before the body paints, so a phone jumps straight to its
+       store instead of flashing this page first. Everything below still renders
+       for desktop, for anything we can't identify, and with JS off. -->
+  <script>
+    (function (w) {
+      "use strict";
+
+      // No country code: Apple redirects to the visitor's own storefront. A
+      // /us/ link sends everyone through the US store first.
+      var APP_STORE = "https://apps.apple.com/app/id6792821983";
+      var PLAY_STORE = "https://play.google.com/store/apps/details?id=com.smartlife.inkbounce";
+
+      /* Which store a visitor belongs in, or null when we can't tell — exposed
+         so it can be exercised with fabricated user agents instead of by
+         actually following the redirect. */
+      function storeFor(ua, touchPoints) {
+        ua = ua || "";
+        // Fire tablets report Android but have no Play Store on them.
+        if (/Silk|KFAPWI|Kindle/i.test(ua)) return null;
+        if (/Android/i.test(ua)) return PLAY_STORE;
+        if (/iPhone|iPad|iPod/i.test(ua)) return APP_STORE;
+        // iPadOS 13+ claims to be a Mac; a real Mac reports no touch points.
+        if (/Macintosh/.test(ua) && touchPoints > 1) return APP_STORE;
+        return null;
+      }
+      w.__storeFor = storeFor;
+
+      var target;
+      // ?platform=ios|android|none forces a branch, so the link can be checked
+      // from a desktop without spoofing a user agent.
+      var forced = (w.location.search.match(/[?&]platform=([a-z]+)/i) || [])[1];
+      if (forced) {
+        forced = forced.toLowerCase();
+        target = forced === "ios" ? APP_STORE : forced === "android" ? PLAY_STORE : null;
+      } else {
+        target = storeFor(w.navigator.userAgent, w.navigator.maxTouchPoints);
+      }
+
+      if (!target) return;
+      // replace(), not assign(): Back should return wherever they came from,
+      // not to this page, which would just bounce them to the store again.
+      w.location.replace(target);
+    })(window);
+  </script>
+</head>
+<body>
+  <main id="main" class="section">
+    <div class="container">
+      <div class="get">
+        <img class="get__icon" src="assets/images/icon-180.png" width="88" height="88" alt="" />
+        <p class="eyebrow">Free on iOS &amp; Android</p>
+        <h1 class="display get__title">Get Ink Bounce</h1>
+        <p class="lead get__lead">Ink Bounce is a mobile game. Open this page on your phone and it will take you
+          straight to the right store — or pick one below.</p>
+
+        <div class="store-badges get__badges">
+          <a class="store-badge" href="https://apps.apple.com/app/id6792821983" aria-label="Download Ink Bounce on the App Store">
+            <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
+          </a>
+          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play">
+            <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
+          </a>
+        </div>
+
+        <p class="get__back"><a href="index.html">More about the game</a></p>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

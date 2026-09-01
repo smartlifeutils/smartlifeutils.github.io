@@ -533,6 +533,21 @@ strong { color: var(--text); font-weight: 600; }
 }
 .card h3 { margin-bottom: 0.4rem; }
 .card p { margin: 0; font-size: 1rem; }
+/* ---------- Store redirect page ------------------------------------------- */
+/* Only shown when the redirect can't run: desktop, an unrecognised device, or
+   JS off. Everyone else has already left for their store. */
+.get {
+  max-width: 560px;
+  margin-inline: auto;
+  text-align: center;
+  padding-block: clamp(1rem, 6vw, 4rem);
+}
+.get__icon { margin: 0 auto 1.5rem; border-radius: 20px; }
+.get__title { font-size: clamp(2.6rem, 8vw, 4rem); margin-bottom: 0.6rem; }
+.get__lead { margin-bottom: 2rem; }
+.get__badges { justify-content: center; }
+.get__back { margin-top: 2.5rem; font-size: 0.95rem; }
+
 /* ---------- Mechanic beats ------------------------------------------------ */
 /* A screenshot and the text that explains it, alternating sides down the page.
    These replaced a six-card icon grid — the game reads better in its own frames
