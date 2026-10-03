@@ -18,6 +18,7 @@ sea.js can place a cropped hull exactly where the game places the full PNG.
 
 import collections
 import json
+import math
 import os
 import sys
 from pathlib import Path
@@ -232,6 +233,96 @@ def ui():
         save(img, f"skin/{slug}.webp", 92)
 
 
+def surf():
+    """The rolling water under the hero: three seamless SVG tiles.
+
+    Drawn the way the game draws its sea (D/08): bands of flat colour whose top
+    edge is a dark rim over a light crest line, Gerstner swell (sharp crests,
+    broad troughs) so it never reads as a sine, and foam only on the peaks.
+    Colours are the Pacific's WaterBiome (shallow, upperMid, crestHighlight,
+    crestRimColor), with the front band ending on the site's own sea blue so it
+    runs straight into the next section. Each tile holds a whole number of
+    crests, so it repeats without a seam.
+    """
+    print("surf")
+    out = OUT / "surf"
+    out.mkdir(parents=True, exist_ok=True)
+    H = 104
+    layers = {
+        # width, mean y, [(amplitude, crests per tile, steepness, phase)],
+        # fill, rim, crest line, streak colour, foam strength
+        "back": (760, 46, [(16, 2, 0.6, 0.4), (6, 1, 0.35, 1.9)],
+                 "#6ddbee", "#1a8fc4", "#d2fbfd", "#b8f3f8", 0),
+        "mid": (560, 62, [(16, 2, 0.72, 0.9), (6, 1, 0.3, 2.4)],
+                "#1fa4e0", "#0d5f9e", "#8feff5", "#62d0f0", 0.6),
+        "front": (720, 80, [(19, 2, 0.82, 0.5), (7, 1, 0.35, 1.2)],
+                  "#0a8ad4", "#083f6e", "#8feff5", "#3fb0e8", 1),
+    }
+    for name, (w, mean, comps, fill, rim, crest, streak, foam) in layers.items():
+        def height(x):
+            h = 0.0
+            for amp, n, steep, phase in comps:
+                p = 2 * math.pi * n * x / w + phase
+                th = p
+                for _ in range(6):  # invert the trochoid's horizontal shift
+                    th = p + steep * math.sin(th)
+                h += amp * math.cos(th)
+            return h
+
+        xs = list(range(0, w + 1, 4))
+        hs = [height(x) for x in xs]
+        top = max(hs)
+        pts = [(x, mean - h) for x, h in zip(xs, hs)]
+        line = " ".join(f"{x},{y:.1f}" for x, y in pts)
+        body = [f'<path d="M0,{H} L{line} L{w},{H} Z" fill="{fill}"/>']
+
+        # Light streaks drifting through the band, following the swell and
+        # flattening with depth (WaterBiome bandColorA). Broken by a sine with a
+        # whole number of periods per tile, so they repeat without a seam.
+        for depth, damp, periods, phase, width in ((15, 0.7, 3, 0.4, 3), (29, 0.45, 2, 2.1, 2.5)):
+            if mean + depth > H - 4:
+                continue
+            seg = []
+            for x, h in zip(xs, hs):
+                on = math.sin(2 * math.pi * periods * x / w + phase) > 0.2
+                if on:
+                    seg.append(f"{x},{mean + depth - h * damp:.1f}")
+                elif seg:
+                    body.append(f'<polyline points="{" ".join(seg)}" fill="none" stroke="{streak}" '
+                                f'stroke-width="{width}" stroke-linecap="round" opacity=".55"/>')
+                    seg = []
+            if seg:
+                body.append(f'<polyline points="{" ".join(seg)}" fill="none" stroke="{streak}" '
+                            f'stroke-width="{width}" stroke-linecap="round" opacity=".55"/>')
+
+        body.append(f'<polyline points="{line}" fill="none" stroke="{rim}" stroke-width="4" stroke-linejoin="round"/>')
+        body.append(f'<polyline points="{line}" transform="translate(0 4)" fill="none" stroke="{crest}" '
+                    f'stroke-width="3.5" stroke-linejoin="round"/>')
+
+        if foam:
+            # White caps where the swell stands highest, thickest at the peak,
+            # with flecks left on the back of each crest as it passes.
+            for (x0, y0), (x1, y1) in zip(pts, pts[1:]):
+                t = (mean - min(y0, y1)) / top
+                if t < 0.5:
+                    continue
+                k = (t - 0.5) / 0.5
+                body.append(f'<line x1="{x0}" y1="{y0 + 1:.1f}" x2="{x1}" y2="{y1 + 1:.1f}" stroke="#fff" '
+                            f'stroke-width="{(3 + 7 * k) * foam:.1f}" stroke-linecap="round"/>')
+            peaks = [i for i in range(1, len(pts) - 1)
+                     if pts[i][1] < pts[i - 1][1] and pts[i][1] <= pts[i + 1][1]]
+            for i in peaks:
+                x, y = pts[i]
+                for dx, dy, r in ((-17, 10, 3.6), (-33, 15, 2.6), (-49, 12, 1.8), (-8, 18, 1.6)):
+                    body.append(f'<circle cx="{(x + dx) % w}" cy="{y + dy:.1f}" r="{r * foam:.1f}" '
+                                f'fill="#fff" opacity=".85"/>')
+
+        svg = (f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {H}" width="{w}" height="{H}">'
+               + "".join(body) + "</svg>\n")
+        (out / f"{name}.svg").write_text(svg)
+        print(f"  surf/{name}.svg {' ' * 30} {w}x{H}  {len(svg) // 1024} KB")
+
+
 def fonts():
     print("fonts")
     out = SITE / "assets/fonts"
@@ -275,5 +366,6 @@ if __name__ == "__main__":
     worlds()
     actors()
     ui()
+    surf()
     fonts()
     write_manifest()

@@ -54,13 +54,22 @@
     <!-- ============ HERO: the boot splash ============ -->
     <section class="hero" aria-labelledby="hero-title">
       <h1 id="hero-title" class="sr-only">Wave Rider: Boat Stunt Racing</h1>
-      <picture class="hero__art">
-        <source media="(max-width: 559px)" srcset="assets/img/brand/splash-skipper-640.webp" width="640" height="558" />
-        <img src="assets/img/brand/splash-1792.webp"
-             srcset="assets/img/brand/splash-720.webp 720w, assets/img/brand/splash-1100.webp 1100w, assets/img/brand/splash-1792.webp 1795w"
-             sizes="100vw" width="1795" height="876" fetchpriority="high"
-             alt="The Wave Rider skipper launches a red inflatable off a breaking wave" />
-      </picture>
+      <div class="hero__media">
+        <picture class="hero__art">
+          <source media="(max-width: 559px)" srcset="assets/img/brand/splash-skipper-640.webp" width="640" height="558" />
+          <img src="assets/img/brand/splash-1792.webp"
+               srcset="assets/img/brand/splash-720.webp 720w, assets/img/brand/splash-1100.webp 1100w, assets/img/brand/splash-1792.webp 1795w"
+               sizes="100vw" width="1795" height="876" fetchpriority="high"
+               alt="The Wave Rider skipper launches a red inflatable off a breaking wave" />
+        </picture>
+        <!-- The sea rolling out of the art: three bands of the game's water,
+             each its own speed, drawn by tools/build-assets.py (surf()). -->
+        <div class="surf" aria-hidden="true">
+          <span class="surf__band surf__band--back"><i></i></span>
+          <span class="surf__band surf__band--mid"><i></i></span>
+          <span class="surf__band surf__band--front"><i></i></span>
+        </div>
+      </div>
       <img class="hero__logo" src="assets/img/brand/logo.webp" width="709" height="430" alt="" />
 
       <div class="hero__cta">
@@ -68,16 +77,15 @@
         <div class="stores">
           <span class="badge"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download on the App Store" /></span>
           <span class="badge"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get it on Google Play" /></span>
-          <span class="soon">Soon</span>
+          <span class="soon">Coming soon</span>
         </div>
         <p class="hero__soon">Coming soon to <strong>iPhone, iPad and Android</strong>. Free to play.</p>
       </div>
 
-      <div class="surf" aria-hidden="true"><i></i><i></i></div>
     </section>
 
     <!-- ============ RIDE: the live sea ============ -->
-    <section class="sec sec--sea ride" id="ride">
+    <section class="sec sec--sea sec--flat ride" id="ride">
       <div class="wrap">
         <header class="head rise">
           <h2 class="h-display">The sea never stops moving</h2>

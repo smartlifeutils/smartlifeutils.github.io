@@ -495,7 +495,7 @@ a.badge:hover { transform: translateY(-2px); }
 .hero__soon strong { color: var(--gold); }
 
 /* Desktop: the CTA sits on the art itself, under the baked-in title. */
-@media (min-width: 1100px) {
+@media (min-width: 1280px) {
   .hero__art img { height: var(--hc); }
   .hero__cta {
     position: absolute;
@@ -508,7 +508,9 @@ a.badge:hover { transform: translateY(-2px); }
     gap: 12px;
   }
   .hero__tag { font-size: clamp(1.6rem, 2.15vw, 2.4rem); }
-  .hero__soon { font-size: 1.02rem; text-shadow: 0 2px 0 rgba(16, 20, 24, 0.6); }
+  /* On the art the CTA is two rows, so it clears the surf; the sticker says
+     "coming soon" and the badges name the stores. */
+  .hero__soon { display: none; }
 }
 
 /* Phones: the skipper on his own, then the lifted title. */
@@ -526,44 +528,57 @@ a.badge:hover { transform: translateY(-2px); }
   .badge img { height: 44px; }
 }
 
-/* The surf: two bands of the next section's water rolling at the bottom. */
+/* The surf: the sea rolling out of the bottom of the art. Three tiles of the
+   game's own water (tools/build-assets.py, surf()), back to front, each with
+   its own width and speed so they never line up, and each bobbing on its own
+   clock. The front band is the next section's colour, so it runs straight on. */
+.hero__media { position: relative; }
+.hero + .sec { margin-top: -1px; } /* no hairline where two blues meet on a fractional pixel */
 .surf {
+  --s: 1; /* tile scale */
   position: absolute;
   left: 0;
   right: 0;
   bottom: -1px;
-  height: 46px;
+  z-index: 1;
+  height: calc(104px * var(--s));
   overflow: hidden;
   pointer-events: none;
-  z-index: 1;
 }
-.surf i {
+.surf__band {
   position: absolute;
-  left: 0;
+  inset: 0;
+  animation: surf-bob 4.6s ease-in-out infinite alternate;
+}
+.surf__band i {
+  --tile: calc(var(--w) * var(--s));
+  position: absolute;
+  top: 0;
   bottom: 0;
-  width: calc(100% + 480px);
-  height: 100%;
-  background: var(--sea);
-  -webkit-mask: var(--wave) repeat-x 0 100% / 480px 100%;
-  mask: var(--wave) repeat-x 0 100% / 480px 100%;
-  animation: surf 9s linear infinite;
+  left: 0;
+  width: calc(100% + var(--tile));
+  background: var(--img) repeat-x 0 0 / var(--tile) 100%;
+  animation: var(--roll) var(--dur) linear infinite;
+  will-change: transform;
 }
-.surf i:first-child {
-  height: 80%;
-  bottom: 9px;
-  background: var(--paper);
-  opacity: 0.85;
-  animation-duration: 6s;
-  animation-direction: reverse;
+.surf__band--back { animation-duration: 5.8s; animation-delay: -2s; }
+.surf__band--back i { --w: 760px; --img: url("../img/surf/back.svg"); --roll: surf-back; --dur: 34s; }
+.surf__band--mid { animation-duration: 4.4s; animation-delay: -1s; }
+.surf__band--mid i { --w: 560px; --img: url("../img/surf/mid.svg"); --roll: surf-mid; --dur: 22s; }
+.surf__band--front { animation-duration: 3.6s; }
+.surf__band--front i { --w: 720px; --img: url("../img/surf/front.svg"); --roll: surf-front; --dur: 19s; }
+
+/* One keyframe set per band: a tile's width, in the band's own scale. */
+@keyframes surf-back { to { transform: translateX(calc(-760px * var(--s))); } }
+@keyframes surf-mid { to { transform: translateX(calc(-560px * var(--s))); } }
+@keyframes surf-front { to { transform: translateX(calc(-720px * var(--s))); } }
+@keyframes surf-bob {
+  from { transform: translateY(0); }
+  to { transform: translateY(5px); }
 }
-@keyframes surf {
-  to { transform: translateX(-480px); }
-}
-/* Below the desktop layout the CTA sits on a band of the next section's own
-   colour, so there is no seam for the surf to cover. */
-@media (max-width: 1099px) {
-  .surf { display: none; }
-}
+
+@media (max-width: 1279px) { .surf { --s: 0.8; } }
+@media (max-width: 559px) { .surf { --s: 0.6; } }
 
 /* ==========================================================================
    RIDE — the live sea toy

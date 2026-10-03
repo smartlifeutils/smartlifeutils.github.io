@@ -78,7 +78,9 @@ python3 tools/build-assets.py ~/Projects/UnityProjects/WaveRider
 
 It exports the splash, icon and an `og:image` crop of the splash; lifts the **WAVE RIDER** title
 off the splash's sky into a transparent logo; crops the boats, skipper, actors, UI icons and pedals
-to their pixels; copies the world cards, backdrop strips and UI skin plates; subsets Lilita One
+to their pixels; copies the world cards, backdrop strips and UI skin plates; draws the three
+seamless water tiles that roll under the hero (`surf/*.svg`: the Pacific's water colours, Gerstner
+crests, the game's rim and crest lines, foam on the peaks); subsets Lilita One
 (the game's font) and Nunito (body text, OFL, found via `$NUNITO_DIR`) to latin woff2; and writes
 `assets/js/art.js`, the crop box of each sprite so the live sea can place a cropped hull exactly
 where the game places the full PNG.
