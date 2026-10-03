@@ -6,6 +6,17 @@
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---- Nav: clear over the top of the page, a solid panel once it scrolls
+     (or while its menu is open) ---- */
+  var nav = document.querySelector(".nav");
+  var syncNav = function () {
+    if (!nav) return;
+    var open = nav.querySelector(".nav__menu.is-open");
+    nav.classList.toggle("is-solid", window.scrollY > 24 || !!open);
+  };
+  window.addEventListener("scroll", syncNav, { passive: true });
+  syncNav();
+
   /* ---- Mobile nav ---- */
   var toggle = document.querySelector(".nav__toggle");
   var menu = document.getElementById("menu");
@@ -13,6 +24,7 @@
     var setOpen = function (open) {
       menu.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      syncNav();
     };
     toggle.addEventListener("click", function () {
       setOpen(!menu.classList.contains("is-open"));

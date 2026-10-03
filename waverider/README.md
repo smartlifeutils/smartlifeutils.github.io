@@ -56,13 +56,17 @@ does not make 1.0, delete its `<article class="world">` and its picker button in
 
 | On the page | Source in the game repo |
 |---|---|
-| Boat prices, world unlock prices and free-path distances | `BoatDefinition_*.asset` / `WorldDefinition_*.asset` `unlockCost`, `unlockMilestoneMetres` |
+| Boat unlock order ("2nd unlock"…) and sea free-path distances | `BoatDefinition_*.asset` `unlockCost` (the garage sorts by it), `WorldDefinition_*.asset` `unlockMilestoneMetres` |
 | Boat promises | `Docs/Design/04_BOAT_CATALOG.md` |
 | Stat pips (0–10) | Asset values, floored and capped at 10: speed = `targetTopSpeed` × 0.6, air = `airTorque` ÷ 16, stability = (`capsizeAngle` − 68) ÷ 5, range = `tankSize` ÷ `drainRate` × `targetTopSpeed` ÷ 50 |
 | Sea signatures, stars, actors and their lines | `Docs/Design/06_WORLD_CATALOG.md`, `mutatorLabel` / `mutatorHint` on each world |
 | Trick names and payouts | `Docs/Design/01_CORE_LOOP_AND_CONTROLS.md` *Scoring* (only the fixed numbers: +50/s air, +200 flip, +300 the big one) |
 | Garage demo | The Rescue RIB: PlaningWork family totals from `05_UPGRADES.md`, base 1,250, cost = base × 1.28ⁿ, rounded per `UpgradeTable.RoundCost` |
 | Missions, streak, ranks | `09_META_AND_ECONOMY.md`, `BadgeBook.RankTitles` |
+
+Coin prices for boats and seas are deliberately left off: they are balance numbers that move
+with every tuning pass, and six-figure prices next to coin packs read as grind to someone who
+hasn't played. The garage demo keeps its costs, since it is showing the upgrade loop itself.
 
 Re-check these against the game before each release; the game wins any disagreement.
 
