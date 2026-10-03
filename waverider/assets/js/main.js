@@ -78,14 +78,20 @@
     var BASE = 1250;
     var GROWTH = 1.28;
     var balance = 75000;
+    var pct = function (fraction) {
+      var x = +(fraction * 100).toFixed(6);
+      var r = Math.round(x);
+      if (Math.abs(x % 1) === 0.5 && r % 2 !== 0) r -= 1;
+      return r;
+    };
     var LANES = {
-      go: function (t) { return "+" + Math.round(0.85 * t * 100) + "% power"; },
-      hull: function (t) { return "-" + Math.round(0.30 * t * 100) + "% drag"; },
-      bite: function (t) { return "+" + Math.round(0.60 * t * 100) + "% grip"; },
-      angle: function (t) { return "+" + Math.round(0.80 * t * 100) + "% control"; },
+      go: function (t) { return "+" + pct(0.85 * t) + "% power"; },
+      hull: function (t) { return "-" + pct(0.30 * t) + "% drag"; },
+      bite: function (t) { return "+" + pct(0.60 * t) + "% grip"; },
+      angle: function (t) { return "+" + pct(0.80 * t) + "% control"; },
       range: function (t) {
         var x = 0.55 * t;
-        return "+" + Math.round(((1 + 0.6 * x) / (1 - 0.4 * x) - 1) * 100) + "% range";
+        return "+" + pct((1 + 0.6 * x) / (1 - 0.4 * x) - 1) + "% range";
       }
     };
 
@@ -106,7 +112,7 @@
       var btn = lane.querySelector("button");
       lane.querySelector(".meter").style.setProperty("--v", level);
       lane.querySelector(".lane__lv").textContent = level >= CAP ? "Max lvl" : "Lv " + level + " / " + CAP;
-      lane.querySelector(".lane__fx").textContent = LANES[kind](level / CAP);
+      lane.querySelector(".lane__fx").textContent = level > 0 ? LANES[kind](level / CAP) : "Stock";
       if (level >= CAP) {
         btn.disabled = true;
         btn.querySelector("span").textContent = "Maxed";
@@ -142,30 +148,74 @@
     renderAll();
   }
 
-  var shots = Array.prototype.slice.call(document.querySelectorAll(".shots img"));
-  if (shots.length) {
+  var viewer = document.querySelector("[data-viewer]");
+  if (viewer) {
+    var stage = viewer.querySelector(".viewer__stage");
+    var stageImg = viewer.querySelector(".viewer__img");
+    var caption = viewer.querySelector(".viewer__cap");
+    var thumbs = Array.prototype.slice.call(viewer.querySelectorAll(".viewer__thumb"));
+    var at = 0;
+
     var box = document.createElement("div");
     box.className = "lightbox";
     box.hidden = true;
     box.setAttribute("role", "dialog");
     box.setAttribute("aria-modal", "true");
-    box.setAttribute("aria-label", "Screenshot viewer");
+    box.setAttribute("aria-label", "Screenshot");
     var big = document.createElement("img");
     box.appendChild(big);
     document.body.appendChild(box);
-    var at = 0;
+
     var show = function (i) {
-      at = (i + shots.length) % shots.length;
-      big.src = shots[at].currentSrc || shots[at].src;
-      big.alt = shots[at].alt;
+      at = (i + thumbs.length) % thumbs.length;
+      var thumb = thumbs[at];
+      var src = thumb.getAttribute("href");
+      var text = thumb.getAttribute("data-cap");
+      thumbs.forEach(function (t) { t.setAttribute("aria-current", t === thumb ? "true" : "false"); });
+      caption.textContent = text;
+      stageImg.classList.add("is-swapping");
+      var next = new Image();
+      next.onload = function () {
+        stageImg.src = src;
+        stageImg.alt = text;
+        stageImg.classList.remove("is-swapping");
+      };
+      next.src = src;
+      if (!box.hidden) {
+        big.src = src;
+        big.alt = text;
+      }
     };
-    var close = function () { box.hidden = true; document.body.style.overflow = ""; };
-    shots.forEach(function (img, i) {
-      img.tabIndex = 0;
-      img.style.cursor = "zoom-in";
-      var open = function () { show(i); box.hidden = false; document.body.style.overflow = "hidden"; };
-      img.addEventListener("click", open);
-      img.addEventListener("keydown", function (e) { if (e.key === "Enter") open(); });
+
+    var open = function () {
+      big.src = thumbs[at].getAttribute("href");
+      big.alt = thumbs[at].getAttribute("data-cap");
+      box.hidden = false;
+      document.body.classList.add("has-lightbox");
+      document.body.style.overflow = "hidden";
+    };
+    var close = function () {
+      box.hidden = true;
+      document.body.classList.remove("has-lightbox");
+      document.body.style.overflow = "";
+      stage.focus({ preventScroll: true });
+    };
+
+    thumbs.forEach(function (thumb, i) {
+      thumb.addEventListener("click", function (e) {
+        e.preventDefault();
+        show(i);
+      });
+    });
+    stage.tabIndex = 0;
+    stage.setAttribute("role", "button");
+    stage.setAttribute("aria-label", "Open this screenshot larger");
+    stage.addEventListener("click", open);
+    stage.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
     });
     box.addEventListener("click", close);
     document.addEventListener("keydown", function (e) {

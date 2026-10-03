@@ -107,15 +107,25 @@ It pauses off screen and in a background tab, and with *reduce motion* on it onl
 pedal is held. `window.__waveToy.tick(seconds)` steps it by hand for testing (a hidden tab gets
 no animation frames).
 
-## Trailer and screenshots
+## Screenshots and trailer
 
-Both sections are in `index.html` with a `hidden` attribute, so they can't show up empty:
+**Screenshots** are real captures from the game, 1920×1080, kept in the Unity repo at
+`WaveRider/Build/screenshots/website/`. `tools/build-assets.py` exports the ones listed in its
+`SCREENSHOTS` table to `assets/img/shots/` (1600 and 480 wide WebP). They appear in three places:
 
-- **Trailer**: put `assets/video/trailer.mp4` and `assets/video/trailer-poster.jpg` in place, add
-  `poster="assets/video/trailer-poster.jpg"` to the `<video>`, delete `hidden` on `#trailer`.
-- **Screenshots**: capture with *Tools ▸ Wave Rider ▸ Store ▸ Capture Screenshots*, convert to
-  1440-wide WebP in `assets/img/shots/`, list them in `.shots`, delete `hidden` on
-  `#screenshots`. Any image there opens in the lightbox.
+| Where | Shot |
+|---|---|
+| `#screenshots`, the gallery after the live sea | Jet Ski Pacific launch, RIB with Nessie, the hippo, Speedboat on the Caribbean, garage, results |
+| `#tricks`, the big picture | Jet Ski backflip over the Nile (ORBIT +125, FLIP +200 in the popup lane) |
+| `#tricks`, the wipeout box | Motor Dinghy capsized on the Calm Lake (the clean capture: the HUD one shows a stray "+82 BADGES") |
+
+To change them: recapture into that folder, update `SCREENSHOTS` and the matching thumbnails
+(`.viewer__thumb`, whose `data-cap` is the caption) in `index.html`, and re-run the script.
+Captures must show launch content only.
+
+**Trailer**: the section is in `index.html` with a `hidden` attribute, so it can't show up empty.
+Put `assets/video/trailer.mp4` and `assets/video/trailer-poster.jpg` in place, add
+`poster="assets/video/trailer-poster.jpg"` to the `<video>`, and delete `hidden` on `#trailer`.
 
 ## Design rules (from the game's `UI_DESIGN_SYSTEM.md`)
 
@@ -141,4 +151,4 @@ Both sections are in `index.html` with a `hidden` attribute, so they can't show 
       take it out of both copies.
 - [ ] **Notification example.** Both copies of the policy say a reminder might be "that your fuel
       is topped off"; the game's reminders are about the daily streak (`09_META_AND_ECONOMY.md`).
-- [ ] **Trailer and screenshots**, above.
+- [ ] **Trailer**, above.

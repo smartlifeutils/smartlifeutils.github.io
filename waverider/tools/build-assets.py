@@ -18,6 +18,7 @@ NUNITO = Path(os.environ.get(
 ART = GAME / "WaveRider/Assets/_Game/Art"
 SRC = GAME / "ArtSource"
 BRAND = GAME / "Docs/Branding/Assets"
+SHOTS = GAME / "WaveRider/Build/screenshots/website"
 OUT = SITE / "assets/img"
 
 BOATS = {
@@ -40,6 +41,16 @@ ACTORS = {
     "whale": "WhaleBack",
     "manta": "Manta",
     "jet-ski-rider": "JetSki",
+}
+SCREENSHOTS = {
+    "jetski-pacific": "01_jetski_pacific_launch_hud",
+    "jetski-backflip": "02_jetski_nile_backflip_hud",
+    "dinghy-capsize": "03_dinghy_calmlake_capsize",
+    "rib-lochness": "04_rib_lochness_nessie_hud",
+    "dinghy-hippo": "05_dinghy_nile_hippo_hud",
+    "speedboat-caribbean": "06_speedboat_caribbean_manta",
+    "garage": "07_garage_tune_rib",
+    "results": "08_results_new_best",
 }
 
 manifest = {}
@@ -263,6 +274,17 @@ def surf():
         print(f"  surf/{name}.svg {' ' * 30} {w}x{H}  {len(svg) // 1024} KB")
 
 
+def screenshots():
+    print("screenshots")
+    if not SHOTS.is_dir():
+        print(f"  skipped: no {SHOTS}")
+        return
+    for slug, name in SCREENSHOTS.items():
+        img = Image.open(SHOTS / f"{name}.png").convert("RGB")
+        save(fit_width(img, 1600), f"shots/{slug}-1600.webp", 82)
+        save(fit_width(img, 480), f"shots/{slug}-480.webp", 80)
+
+
 def fonts():
     print("fonts")
     out = SITE / "assets/fonts"
@@ -303,5 +325,6 @@ if __name__ == "__main__":
     actors()
     ui()
     surf()
+    screenshots()
     fonts()
     write_manifest()

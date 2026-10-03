@@ -878,7 +878,7 @@
 
   var KEYS = { ArrowRight: "throttle", KeyD: "throttle", ArrowLeft: "brake", KeyA: "brake" };
   function keyFor(e) {
-    if (!visible) return null;
+    if (!visible || document.body.classList.contains("has-lightbox")) return null;
     var tag = (e.target && e.target.tagName) || "";
     if (/INPUT|TEXTAREA|SELECT/.test(tag)) return null;
     return KEYS[e.code] || null;
