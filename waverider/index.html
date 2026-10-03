@@ -1,542 +1,562 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Wave Rider — Ride the wave. Don't run dry.</title>
-  <meta name="description" content="Wave Rider is a physics arcade game where a boat rides procedurally generated, always-moving waves as far as it can. 17 boats, 23 waters, endless runs. Coming to iOS and Android." />
-  <meta name="theme-color" content="#0A1A2C" />
+  <title>Wave Rider: Boat Stunt Racing | Jump, flip and land ocean waves</title>
+  <meta name="description" content="Wave Rider is a physics boat game where every wave is a ramp. Jump, flip and land it in anything from a motor dinghy to a jet ski. Coming soon to iPhone, iPad and Android." />
+  <meta name="theme-color" content="#0b2545" />
   <link rel="canonical" href="https://smartlifeutils.github.io/waverider/" />
 
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Wave Rider — Ride the wave. Don't run dry." />
-  <meta property="og:description" content="A physics arcade game on always-moving water. 17 boats, 23 waters, endless runs." />
-  <meta property="og:image" content="https://smartlifeutils.github.io/waverider/assets/images/og-image.png" />
+  <meta property="og:site_name" content="Wave Rider" />
+  <meta property="og:title" content="Wave Rider: Boat Stunt Racing" />
+  <meta property="og:description" content="Every wave is a ramp. Jump, flip and land it on a sea that never stops moving. Coming soon to iOS and Android." />
+  <meta property="og:image" content="https://smartlifeutils.github.io/waverider/assets/img/brand/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://smartlifeutils.github.io/waverider/" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml" />
-  <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png" />
-  <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
+  <link rel="icon" href="assets/img/brand/icon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/brand/icon-180.png" />
 
-  <!-- Fonts -->
-  <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/lilita-one.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/nunito-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
-
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script>document.documentElement.classList.remove("no-js");</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
   <!-- ============ NAV ============ -->
   <header class="nav">
-    <div class="container nav__inner">
-      <a class="nav__brand" href="index.html">
-        <img src="assets/images/icon-64.png" alt="" width="30" height="30" />
+    <div class="wrap nav__in">
+      <a class="brand" href="index.html">
+        <img src="assets/img/brand/icon-64.png" width="40" height="40" alt="" />
         Wave Rider
       </a>
-      <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
-      <nav aria-label="Primary">
-        <ul class="nav__links" id="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="support.html">Support</a></li>
-          <li><a href="privacy.html">Privacy</a></li>
-          <li><a href="terms.html">Terms</a></li>
-        </ul>
+      <nav class="nav__menu" id="menu" aria-label="Primary">
+        <a href="#ride">Ride</a>
+        <a href="#tricks">Tricks</a>
+        <a href="#boats">Boats</a>
+        <a href="#seas">Seas</a>
+        <a href="#garage">Garage</a>
+        <a href="support.html">Support</a>
       </nav>
+      <a class="plate plate--go nav__cta" href="#download">Get the game</a>
+      <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
     </div>
   </header>
 
   <main id="main">
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow">Physics arcade · 2D</p>
-          <h1 class="hero-title">Wave Rider</h1>
-          <p class="hero__tagline">Ride the wave. Don't run dry.</p>
-          <p class="hero__pitch lead">A physics-driven boat rides procedurally generated, always-moving waves as far as it can — until the fuel runs out or the sea rolls you over. Coins buy upgrades and new boats; new waters change the physics, not just the backdrop.</p>
+    <!-- ============ HERO: the boot splash ============ -->
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="sr-only">Wave Rider: Boat Stunt Racing</h1>
+      <picture class="hero__art">
+        <source media="(max-width: 559px)" srcset="assets/img/brand/splash-skipper-640.webp" width="640" height="558" />
+        <img src="assets/img/brand/splash-1792.webp"
+             srcset="assets/img/brand/splash-720.webp 720w, assets/img/brand/splash-1100.webp 1100w, assets/img/brand/splash-1792.webp 1795w"
+             sizes="100vw" width="1795" height="876" fetchpriority="high"
+             alt="The Wave Rider skipper launches a red inflatable off a breaking wave" />
+      </picture>
+      <img class="hero__logo" src="assets/img/brand/logo.webp" width="709" height="430" alt="" />
 
-          <div class="hero__cta">
-            <p class="store-note">Coming soon to iOS &amp; Android</p>
-            <div class="store-badges">
-              <a class="store-badge" href="#download" aria-label="Download on the App Store (coming soon)">
-                <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
-              </a>
-              <a class="store-badge" href="#download" aria-label="Get it on Google Play (coming soon)">
-                <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
-              </a>
+      <div class="hero__cta">
+        <p class="hero__tag gt">Every wave is a ramp</p>
+        <div class="stores">
+          <span class="badge"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download on the App Store" /></span>
+          <span class="badge"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get it on Google Play" /></span>
+          <span class="soon">Soon</span>
+        </div>
+        <p class="hero__soon">Coming soon to <strong>iPhone, iPad and Android</strong>. Free to play.</p>
+      </div>
+
+      <div class="surf" aria-hidden="true"><i></i><i></i></div>
+    </section>
+
+    <!-- ============ RIDE: the live sea ============ -->
+    <section class="sec sec--sea ride" id="ride">
+      <div class="wrap">
+        <header class="head rise">
+          <h2 class="h-display">The sea never stops moving</h2>
+          <p class="lede">Every wave is built on the fly and keeps rolling even when you sit still. Your boat floats on it, tilts with it and gets thrown by it. Go on, take it out.</p>
+        </header>
+
+        <div class="toy rise" data-toy>
+          <canvas aria-label="A live, playable sea: a boat riding animated waves. Hold throttle to go."></canvas>
+          <div class="toy__hud" aria-hidden="true">
+            <span class="toy__coins"><img src="assets/img/ui/coin.webp" width="40" height="40" alt="" /><span data-coins>0</span></span>
+            <span class="toy__dist"><span data-dist>0 m</span><span class="toy__best" data-best>Best 0 m</span></span>
+          </div>
+          <div class="toy__pops" data-pops aria-live="polite"></div>
+          <p class="toy__hint" data-hint>Hold throttle</p>
+          <button class="pedal pedal--brake" type="button" data-pedal="brake" aria-label="Brake. In the air, tips the nose down">
+            <img src="assets/img/ui/pedal-brake.webp" width="360" height="371" alt="" />
+          </button>
+          <button class="pedal pedal--throttle" type="button" data-pedal="throttle" aria-label="Throttle. In the air, lifts the nose">
+            <img src="assets/img/ui/pedal-throttle.webp" width="360" height="327" alt="" />
+          </button>
+        </div>
+
+        <div class="picker rise" data-picker>
+          <div class="picker__row" role="group" aria-label="Boat">
+            <span class="picker__label">Boat</span>
+            <button class="plate" type="button" data-boat="motor-dinghy" aria-pressed="true">Motor Dinghy</button>
+            <button class="plate" type="button" data-boat="speedboat" aria-pressed="false">Speedboat</button>
+            <button class="plate" type="button" data-boat="jet-ski" aria-pressed="false">Jet Ski</button>
+            <button class="plate" type="button" data-boat="rescue-rib" aria-pressed="false">Rescue RIB</button>
+          </div>
+          <div class="picker__row" role="group" aria-label="Sea">
+            <span class="picker__label">Sea</span>
+            <button class="plate" type="button" data-sea="calm-lake" aria-pressed="false">Calm Lake</button>
+            <button class="plate" type="button" data-sea="nile" aria-pressed="false">Nile</button>
+            <button class="plate" type="button" data-sea="loch-ness" aria-pressed="false">Loch Ness</button>
+            <button class="plate" type="button" data-sea="pacific" aria-pressed="true">Pacific</button>
+            <button class="plate" type="button" data-sea="caribbean" aria-pressed="false">Caribbean</button>
+          </div>
+        </div>
+
+        <ol class="howto">
+          <li class="rise"><b>Climb</b>Hold <span class="key">→</span> THROTTLE to build speed up the back of a wave.</li>
+          <li class="rise"><b>Launch</b>Keep it pinned over the crest and the sea throws you into the air.</li>
+          <li class="rise"><b>Land it</b>In the air THROTTLE lifts the nose and <span class="key">←</span> BRAKE drops it. Match the water's angle as you touch down.</li>
+        </ol>
+        <p class="toy-note">A toy, built in your browser from the game's own art. In the game, every hull floats on real buoyancy and the sea gets much bigger.</p>
+      </div>
+    </section>
+
+    <!-- ============ TRICKS ============ -->
+    <section class="sec sec--deep" id="tricks">
+      <div class="wrap">
+        <div class="tricks">
+          <div class="stunt rise" role="img" aria-label="A jet ski mid-backflip high over the Pacific, with the run's popups: ORBIT, FLIP +200 and FLIP +400">
+            <span class="stunt__trail" aria-hidden="true"></span>
+            <img class="stunt__coin" style="left:7%;bottom:30%" src="assets/img/ui/coin.webp" width="160" height="161" alt="" />
+            <img class="stunt__coin" style="left:14%;bottom:42%" src="assets/img/ui/coin.webp" width="160" height="161" alt="" />
+            <img class="stunt__coin" style="left:22%;bottom:51%" src="assets/img/ui/coin.webp" width="160" height="161" alt="" />
+            <div class="stunt__boat">
+              <!-- The skipper where BoatVisual seats him on the jet ski:
+                   captainOffset (-0.39, 0.6), captainScale 1.2, over the hull. -->
+              <img src="assets/img/boats/jet-ski.webp" width="900" height="384" alt="" />
+              <img class="stunt__rider" src="assets/img/captain/sitting.webp" width="420" height="492" alt="" />
+            </div>
+            <div class="stunt__lane">
+              <p class="pop">Orbit <b>+150</b></p>
+              <p class="pop">Flip <b>+200</b></p>
+              <p class="pop">Flip <b>+400</b></p>
             </div>
           </div>
 
-          <div class="hero__pills">
-            <div class="pill-row">
-              <span class="pill pill--aqua">Free to play</span>
-              <span class="pill">iOS 15+</span>
-              <span class="pill">Android 7.1+</span>
-              <span class="pill pill--gold">17 boats</span>
-              <span class="pill pill--gold">23 waters</span>
-            </div>
+          <div>
+            <header class="head head--left rise">
+              <h2 class="h-display">Big air pays. Flips pay more.</h2>
+              <p class="lede">Every stunt pays out in coins, and coins buy upgrades. Riding with style is how you get rich.</p>
+            </header>
+            <ul class="trick-list">
+              <li class="rise"><span class="pop">Airborne · Sent · Orbit</span><span>Air time pays by the second. Fly higher and the tier multiplies it, up to ×2.5.</span></li>
+              <li class="rise"><span class="pop">Flip <b>+200</b></span><span>Front or back, same pay. Chain another before you land and it doubles.</span></li>
+              <li class="rise"><span class="pop">Perfect landing</span><span>Touch down with the hull matched to the water. The right angle moves with the wave, so you read the sea, not a timer.</span></li>
+              <li class="rise"><span class="pop">Wave hop <b>×3</b></span><span>Clear a whole trough in one flight. Land and launch again fast and the streak multiplies.</span></li>
+              <li class="rise"><span class="pop">Clean clear</span><span>Slip past rocks and reefs without a scrape. The closer the shave, the bigger the pay.</span></li>
+              <li class="rise"><span class="pop">The big one</span><span>Now and then a rogue wave rolls in. Come out the far side upright for <strong>+300</strong>.</span></li>
+            </ul>
           </div>
         </div>
 
-        <div class="hero__media">
-          <div class="phone-frame">
-            <img src="assets/images/screenshot-1.svg" width="1440" height="810" alt="Wave Rider gameplay: a speedboat rides the face of a swell with the throttle open" />
+        <div class="wipeout rise">
+          <div class="wipeout__art" aria-hidden="true">
+            <img class="wipeout__boat" src="assets/img/boats/motor-dinghy.webp" width="900" height="248" alt="" />
+            <img class="wipeout__rider" src="assets/img/captain/sitting.webp" width="420" height="492" alt="" />
+          </div>
+          <div>
+            <h3 class="gt">Get it wrong and you're swimming</h3>
+            <p>Land at the wrong angle and you bury the bow, flip the boat and send the skipper flying. It's funny every time, and it's always your fault. Hit retry and you're back on the water in a second.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Decorative seam between the hero and the first section. -->
-    <div class="wave-divider" aria-hidden="true">
-      <div class="wave-divider__layer wave-divider__layer--back"></div>
-      <div class="wave-divider__layer wave-divider__layer--front"></div>
-    </div>
+    <!-- ============ BOATS ============ -->
+    <section class="sec sec--sand" id="boats">
+      <div class="wrap">
+        <header class="head rise">
+          <h2 class="h-display">Pick your hull</h2>
+          <p class="lede">No boat here is a reskin. Each one answers to the same water in its own way, so the hull you mastered yesterday can be a handful today.</p>
+        </header>
 
-    <!-- ============ FEATURES ============ -->
-    <section class="section section--surface" id="features">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Features</p>
-          <h2>The ground never stops moving</h2>
-          <p class="lead">Two thumbs, real buoyancy, and a sea that is generated fresh every run. Easy to start, a long way to master.</p>
-        </div>
+        <div class="fleet">
+          <article class="boat-card frame rise">
+            <div class="boat-card__art"><img src="assets/img/boats/motor-dinghy.webp" width="900" height="248" alt="Motor Dinghy: a red inflatable with a small outboard" loading="lazy" /><span class="price price--free">Free</span></div>
+            <div class="boat-card__top">
+              <h3 class="boat-card__name gt">Motor Dinghy</h3>
+            </div>
+            <p class="boat-card__role">The starter</p>
+            <p class="boat-card__promise">Tubes and a small outboard. The lightest hull on the water, so every bit of chop throws it around. Your first boat, and still the best thing on the Calm Lake.</p>
+            <dl class="stats">
+              <div><dt>Speed</dt><dd><span class="meter" style="--v:4"></span></dd></div>
+              <div><dt>Air</dt><dd><span class="meter" style="--v:8"></span></dd></div>
+              <div><dt>Stability</dt><dd><span class="meter" style="--v:4"></span></dd></div>
+              <div><dt>Range</dt><dd><span class="meter" style="--v:4"></span></dd></div>
+            </dl>
+          </article>
 
-        <div class="grid">
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="8" height="11" rx="3"/><rect x="14" y="7" width="8" height="11" rx="3"/><path d="M6 15.5v-5"/><path d="M4.4 12.1 6 10.5l1.6 1.6"/><path d="M18 10.5v5"/><path d="M16.4 13.9 18 15.5l1.6-1.6"/></svg>
+          <article class="boat-card frame rise">
+            <div class="boat-card__art"><img src="assets/img/boats/speedboat.webp" width="900" height="207" alt="Speedboat: a yellow racing hull with orange flames" loading="lazy" /><span class="price"><img src="assets/img/ui/coin.webp" width="22" height="22" alt="" />35,000</span></div>
+            <div class="boat-card__top">
+              <h3 class="boat-card__name gt">Speedboat</h3>
             </div>
-            <h3>Two thumbs, real physics</h3>
-            <p>Right thumb throttle, left thumb brake and reverse. Get airborne and the same two buttons become nose-up and nose-down — that is the whole skill game.</p>
+            <p class="boat-card__role">All-rounder</p>
+            <p class="boat-card__promise">Good on every sea and best on none. It's the boat every other boat is measured against, and the one most runs start in once you own it.</p>
+            <dl class="stats">
+              <div><dt>Speed</dt><dd><span class="meter" style="--v:7"></span></dd></div>
+              <div><dt>Air</dt><dd><span class="meter" style="--v:6"></span></dd></div>
+              <div><dt>Stability</dt><dd><span class="meter" style="--v:5"></span></dd></div>
+              <div><dt>Range</dt><dd><span class="meter" style="--v:7"></span></dd></div>
+            </dl>
           </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7q2.5-3 5 0t5 0 5 0 5 0"/><path d="M2 13q2.5-3 5 0t5 0 5 0 5 0"/><path d="M2 19q2.5-3 5 0t5 0 5 0 5 0"/></svg>
+
+          <article class="boat-card frame rise">
+            <div class="boat-card__art"><img src="assets/img/boats/jet-ski.webp" width="900" height="384" alt="Jet Ski: yellow and blue, with an orange saddle" loading="lazy" /><span class="price"><img src="assets/img/ui/coin.webp" width="22" height="22" alt="" />110,000</span></div>
+            <div class="boat-card__top">
+              <h3 class="boat-card__name gt">Jet Ski</h3>
             </div>
-            <h3>The water is alive</h3>
-            <p>Every wave is generated on the fly and never stops moving. No two runs give you the same swell, and nothing under you holds still while you decide.</p>
+            <p class="boat-card__role">Trick machine</p>
+            <p class="boat-card__promise">Planes in an instant and spins faster in the air than anything else. The catch: the least stability and the smallest tank of any boat.</p>
+            <dl class="stats">
+              <div><dt>Speed</dt><dd><span class="meter" style="--v:8"></span></dd></div>
+              <div><dt>Air</dt><dd><span class="meter" style="--v:10"></span></dd></div>
+              <div><dt>Stability</dt><dd><span class="meter" style="--v:3"></span></dd></div>
+              <div><dt>Range</dt><dd><span class="meter" style="--v:6"></span></dd></div>
+            </dl>
           </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="1.7"/><path d="M12 7.3C11 4.6 12.6 2.5 14.4 3.4c1.6.8 1.2 3.1-.9 4.6"/><path d="M13.6 9.9c2.7-.6 4.2 1.5 3 3-1.1 1.4-3.2.5-4.2-1.6"/><path d="M10.4 9.9c-2.7-.6-4.2 1.5-3 3 1.1 1.4 3.2.5 4.2-1.6"/><path d="M2 18q2.5-2.6 5 0t5 0 5 0 5 0"/></svg>
+
+          <article class="boat-card frame rise">
+            <div class="boat-card__art"><img src="assets/img/boats/rescue-rib.webp" width="900" height="279" alt="Rescue RIB: a yellow rigid inflatable with a light bar" loading="lazy" /><span class="price"><img src="assets/img/ui/coin.webp" width="22" height="22" alt="" />260,000</span></div>
+            <div class="boat-card__top">
+              <h3 class="boat-card__name gt">Rescue RIB</h3>
             </div>
-            <h3>Prop in the water</h3>
-            <p>The revs climb the instant you touch the throttle, but thrust only arrives when the propeller is actually under the surface. Learn where the bite is and you keep your speed.</p>
+            <p class="boat-card__role">Survivor</p>
+            <p class="boat-card__promise">Built to come home. The inflatable collar soaks up ugly landings, and it leans further before it goes over than any boat you've had before it.</p>
+            <dl class="stats">
+              <div><dt>Speed</dt><dd><span class="meter" style="--v:6"></span></dd></div>
+              <div><dt>Air</dt><dd><span class="meter" style="--v:5"></span></dd></div>
+              <div><dt>Stability</dt><dd><span class="meter" style="--v:9"></span></dd></div>
+              <div><dt>Range</dt><dd><span class="meter" style="--v:9"></span></dd></div>
+            </dl>
           </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="12" height="14" rx="2.5"/><path d="M15 11h3.5a1.5 1.5 0 0 1 1.5 1.5V17a1.5 1.5 0 0 1-3 0v-2"/><path d="M6.5 6V4h5v2"/><path d="M6.5 11h5"/></svg>
+
+          <article class="boat-card boat-card--locked frame rise">
+            <div class="mystery" aria-hidden="true">?</div>
+            <div>
+              <h3 class="gt">More hulls on the way</h3>
+              <p>New boats arrive with updates. Some of them are a lot bigger.</p>
             </div>
-            <h3>Fuel is the clock</h3>
-            <p>Cans ride the surface ahead of you and the gap to the next one grows every time. Runs end themselves — upgrades are how you push that wall further out.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a7 7 0 1 0-2.5 5.4"/><path d="M20 6.5V11h-4.5"/><path d="M3 20q2.5-2.4 5 0t5 0 5 0 5 0"/></svg>
-            </div>
-            <h3>Air, flips and perfect landings</h3>
-            <p>Big Air, Huge Air, chained flips and close calls all pay coins. Land with your hull matched to the water's angle and you keep every bit of speed you left with.</p>
-          </article>
-          <article class="card reveal">
-            <div class="card__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="M6 9v6"/><path d="M18 9v6"/></svg>
-            </div>
-            <h3>Made for mobile</h3>
-            <p>Landscape, two thumbs, no account and no connection required. Runs last one to three minutes — pick it up for one, or for twenty.</p>
           </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ FLEET ============ -->
-    <section class="section section--alt" id="fleet">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">The fleet</p>
-          <h2>From a rowboat to an aircraft carrier</h2>
-          <p class="lead">Seventeen boats, and none of them are a reskin. Each one is a different set of trade-offs between power, buoyancy, stability and range.</p>
-        </div>
+    <!-- ============ SEAS ============ -->
+    <section class="sec sec--sky" id="seas">
+      <div class="wrap">
+        <header class="head rise">
+          <h2 class="h-display">The sea is not a backdrop</h2>
+          <p class="lede">Every sea has its own waves, its own water and one rule it's named for. Ride far enough and the next one opens for free, or buy your way in.</p>
+        </header>
 
-        <div class="fleet-grid">
-          <article class="boat-card reveal">
-            <div class="boat-card__art" aria-hidden="true">
-              <svg viewBox="0 0 220 92" fill="none">
-                <path d="M60 46 h100 l-7 12 q-4 5 -11 5 H78 q-7 0 -11 -5 Z" fill="#12354F"/>
-                <path d="M60 46 h100 l-1.5 4 H61.5 Z" fill="#1B4A70"/>
-                <path d="M104 46 l2 -9 q6 -4 12 0 l2 9 Z" fill="#A6413A"/>
-                <circle cx="112" cy="31" r="7" fill="#E8C48A"/>
-                <path d="M104 28 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
-                <!-- Oars go on last: they pivot at the gunwale and the blades reach
-                     past the hull into the water, so they must sit over the hull. -->
-                <path d="M84 40 L46 60" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/>
-                <path d="M44 56 l9 5 -5 8 -9 -5 Z" fill="#A97B4B"/>
-                <path d="M136 40 L174 60" stroke="#8A6A45" stroke-width="4" stroke-linecap="round"/>
-                <path d="M176 56 l-9 5 5 8 9 -5 Z" fill="#A97B4B"/>
-              </svg>
+        <div class="worlds">
+          <article class="world rise">
+            <div class="world__art">
+              <img src="assets/img/worlds/calm-lake.webp" width="780" height="420" alt="The Calm Lake: turquoise water under alpine forest" loading="lazy" />
+              <img class="world__actor bob" style="right:9%;bottom:15%;width:30%" src="assets/img/actors/paddleboarder.webp" width="560" height="328" alt="" loading="lazy" />
+              <span class="callout" style="right:22%;top:14%">Sorry!</span>
+              <span class="world__ribbon world__ribbon--start">Start here</span>
             </div>
-            <p class="boat-card__class">Paddle</p>
-            <h3>Rowboat</h3>
-            <p>The honest starter. Hull-speed capped, four oars, and absolutely no excuses.</p>
+            <div class="world__body">
+              <div class="world__top"><h3 class="world__name gt">Calm Lake</h3><span class="stars" aria-label="Difficulty 1 of 5">★<span>★★★★</span></span></div>
+              <p class="world__copy">Slow rollers on a bright alpine lake. Every boat works here and nothing punishes you but yourself. The paddleboarder really should get out of the way.</p>
+              <p class="world__unlock">Free. Every run starts here.</p>
+            </div>
           </article>
 
-          <article class="boat-card reveal">
-            <div class="boat-card__art" aria-hidden="true">
-              <svg viewBox="0 0 220 92" fill="none">
-                <path d="M58 42 h104 q10 0 10 8 t-10 9 H58 q-10 0 -10 -9 t10 -8 Z" fill="#1B4A70"/>
-                <path d="M58 48 h104 q6 0 6 5 t-6 5 H58 q-6 0 -6 -5 t6 -5 Z" fill="#12354F"/>
-                <rect x="40" y="34" width="12" height="16" rx="3" fill="#153B5C"/>
-                <path d="M44 50 l-4 10 h8 Z" fill="#0D2740"/>
-                <path d="M40 60 q-12 3 -20 9 q14 -2 20 -4 Z" fill="#FFFFFF" opacity=".5"/>
-                <path d="M96 42 l2 -9 q6 -4 12 0 l2 9 Z" fill="#A6413A"/>
-                <circle cx="104" cy="27" r="7" fill="#E8C48A"/>
-                <path d="M96 24 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
-              </svg>
+          <article class="world rise">
+            <div class="world__art">
+              <img src="assets/img/worlds/nile.webp" width="780" height="420" alt="The Nile: desert escarpment and palms over green water" loading="lazy" />
+              <img class="world__actor" style="right:6%;bottom:6%;width:36%" src="assets/img/actors/hippo.webp" width="560" height="222" alt="" loading="lazy" />
+              <span class="callout" style="right:28%;top:22%">Hey!</span>
+              <span class="world__ribbon">Shallows</span>
             </div>
-            <p class="boat-card__class">Light motor</p>
-            <h3>Motor Dinghy</h3>
-            <p>The first engine. The moment the water stops being the only thing pushing you.</p>
+            <div class="world__body">
+              <div class="world__top"><h3 class="world__name gt">Nile</h3><span class="stars" aria-label="Difficulty 2 of 5">★★<span>★★★</span></span></div>
+              <p class="world__rule">Sandbanks ground a deep hull.</p>
+              <p class="world__copy">A gentle current pushes back, a hot wind builds over the dunes, and a hippo surfaces right under your hull.</p>
+              <p class="world__unlock">Ride 900 m on the Calm Lake, or <span class="cost"><img src="assets/img/ui/coin.webp" width="18" height="18" alt="coins" />20,000</span></p>
+            </div>
           </article>
 
-          <article class="boat-card reveal">
-            <div class="boat-card__art" aria-hidden="true">
-              <svg viewBox="0 0 220 92" fill="none">
-                <path d="M108 40 l3 -14 q8 -5 16 0 l3 14 Z" fill="#A6413A"/>
-                <circle cx="119" cy="21" r="7" fill="#E8C48A"/>
-                <path d="M111 18 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
-                <path d="M30 42 L188 36 q7 9 0 20 q-4 5 -14 5 H48 q-15 0 -18 -9 Z" fill="#0D2740"/>
-                <path d="M30 42 L188 36 L189 42 L30 48 Z" fill="#1B4A70"/>
-                <path d="M36 46 L182 40 L182 44 L36 50 Z" fill="#FFC93C" opacity=".85"/>
-                <path d="M116 42 L128 21 L162 21 L172 42 Z" fill="#153B5C"/>
-                <path d="M138 38 L146 25 L160 25 L166 38 Z" fill="#6FE0DC" opacity=".75"/>
-                <path d="M30 48 q-16 4 -26 13 q18 -3 26 -6 Z" fill="#FFFFFF" opacity=".5"/>
-              </svg>
+          <article class="world rise">
+            <div class="world__art">
+              <img src="assets/img/worlds/loch-ness.webp" width="780" height="420" alt="Loch Ness: dark water under a grey haar" loading="lazy" />
+              <img class="world__actor" style="right:8%;bottom:8%;width:42%" src="assets/img/actors/nessie.webp" width="560" height="285" alt="" loading="lazy" />
+              <span class="callout" style="right:6%;top:12%">Nessie hop</span>
+              <span class="world__ribbon">Fog</span>
             </div>
-            <p class="boat-card__class">Light motor</p>
-            <h3>Speedboat</h3>
-            <p>The reference boat. Good everywhere, best nowhere — your daily driver for most of the map.</p>
+            <div class="world__body">
+              <div class="world__top"><h3 class="world__name gt">Loch Ness</h3><span class="stars" aria-label="Difficulty 2 of 5">★★<span>★★★</span></span></div>
+              <p class="world__rule">Shoals stay hidden until you're close.</p>
+              <p class="world__copy">Cold, dark water and a fog that eats the horizon. Catch one of Nessie's humps while it's up.</p>
+              <p class="world__unlock">Ride 1,200 m on the Calm Lake, or <span class="cost"><img src="assets/img/ui/coin.webp" width="18" height="18" alt="coins" />35,000</span></p>
+            </div>
           </article>
 
-          <article class="boat-card reveal">
-            <div class="boat-card__art" aria-hidden="true">
-              <svg viewBox="0 0 220 92" fill="none">
-                <path d="M104 40 l3 -13 q7 -5 14 0 l3 13 Z" fill="#A6413A"/>
-                <circle cx="114" cy="22" r="7" fill="#E8C48A"/>
-                <path d="M106 19 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
-                <path d="M62 44 q10 -10 30 -10 h34 q18 0 26 10 l6 8 q3 8 -8 8 H70 q-12 0 -14 -8 Z" fill="#0D2740"/>
-                <path d="M78 38 q10 -6 26 -6 h20 q12 0 18 6 Z" fill="#1B4A70"/>
-                <path d="M96 34 h32 v4 H96 Z" fill="#FFC93C" opacity=".8"/>
-                <path d="M148 36 l22 -6 q4 3 0 6 l-20 4 Z" fill="#153B5C"/>
-                <path d="M62 52 q-18 4 -30 12 q20 -3 30 -6 Z" fill="#FFFFFF" opacity=".5"/>
-              </svg>
+          <article class="world rise">
+            <div class="world__art">
+              <img src="assets/img/worlds/pacific.webp" width="780" height="420" alt="The Pacific: deep blue swell, islands and a big sky" loading="lazy" />
+              <img class="world__actor" style="right:4%;bottom:7%;width:56%" src="assets/img/actors/whale.webp" width="560" height="130" alt="" loading="lazy" />
+              <span class="callout" style="right:14%;top:30%">Whale hop</span>
+              <span class="world__ribbon">Sets</span>
             </div>
-            <p class="boat-card__class">Light motor</p>
-            <h3>Jet Ski</h3>
-            <p>The best air control in the game and the worst stability. Every landing is a decision you make in the air.</p>
+            <div class="world__body">
+              <div class="world__top"><h3 class="world__name gt">Pacific</h3><span class="stars" aria-label="Difficulty 3 of 5">★★★<span>★★</span></span></div>
+              <p class="world__rule">The big waves arrive in groups.</p>
+              <p class="world__copy">The real game. Long rolling swell, huge launches and landings that matter. When a whale surfaces, ride its back.</p>
+              <p class="world__unlock">Ride 1,400 m on the Calm Lake, or <span class="cost"><img src="assets/img/ui/coin.webp" width="18" height="18" alt="coins" />50,000</span></p>
+            </div>
           </article>
 
-          <article class="boat-card reveal">
-            <div class="boat-card__art" aria-hidden="true">
-              <svg viewBox="0 0 220 92" fill="none">
-                <circle cx="56" cy="28" r="22" fill="none" stroke="#153B5C" stroke-width="5"/>
-                <path d="M56 12 L56 44 M42 20 L70 36 M42 36 L70 20" stroke="#1B4A70" stroke-width="4" stroke-linecap="round"/>
-                <path d="M110 40 l3 -13 q7 -5 14 0 l3 13 Z" fill="#A6413A"/>
-                <circle cx="120" cy="22" r="7" fill="#E8C48A"/>
-                <path d="M112 19 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
-                <path d="M40 44 h140 q6 6 -2 12 H50 q-12 0 -10 -12 Z" fill="#0D2740"/>
-                <path d="M40 44 h140 l-2 5 H40 Z" fill="#1B4A70"/>
-                <path d="M96 44 h56 v-6 h-56 Z" fill="#153B5C"/>
-                <path d="M40 56 q-16 3 -26 10 q18 -2 26 -4 Z" fill="#FFFFFF" opacity=".45"/>
-              </svg>
+          <article class="world rise">
+            <div class="world__art">
+              <img src="assets/img/worlds/caribbean.webp" width="780" height="420" alt="The Caribbean: bright turquoise water and low green cays" loading="lazy" />
+              <img class="world__actor bob" style="right:7%;bottom:9%;width:36%" src="assets/img/actors/jet-ski-rider.webp" width="560" height="340" alt="" loading="lazy" />
+              <span class="callout" style="right:30%;top:18%">Oi!</span>
+              <span class="world__ribbon">Trade wind</span>
             </div>
-            <p class="boat-card__class">Light motor</p>
-            <h3>Airboat</h3>
-            <p>A caged fan instead of a screw, so it keeps pushing even while it is off the water entirely.</p>
+            <div class="world__body">
+              <div class="world__top"><h3 class="world__name gt">Caribbean</h3><span class="stars" aria-label="Difficulty 2 of 5">★★<span>★★★</span></span></div>
+              <p class="world__rule">Current and wind both carry you.</p>
+              <p class="world__copy">Crystal water that floats you a little higher. Mantas leap out ahead and leave a trail of coins, and the rental jet ski never looks where it's going.</p>
+              <p class="world__unlock">Ride 1,000 m on the Pacific, or <span class="cost"><img src="assets/img/ui/coin.webp" width="18" height="18" alt="coins" />90,000</span></p>
+            </div>
           </article>
 
-          <article class="boat-card reveal">
-            <div class="boat-card__art" aria-hidden="true">
-              <svg viewBox="0 0 220 92" fill="none">
-                <path d="M104 34 l3 -13 q7 -5 14 0 l3 13 Z" fill="#A6413A"/>
-                <circle cx="114" cy="16" r="7" fill="#E8C48A"/>
-                <path d="M106 13 q8 -8 16 -1 l6 1 -6 3 q-8 2 -16 -3 Z" fill="#FFC93C"/>
-                <path d="M62 36 h96 l8 8 H54 Z" fill="#153B5C"/>
-                <path d="M88 36 h44 v-8 h-44 Z" fill="#1B4A70"/>
-                <path d="M44 44 h132 q14 0 14 8 t-14 8 H44 q-14 0 -14 -8 t14 -8 Z" fill="#0D2740"/>
-                <path d="M44 44 h132 q10 0 12 5 H32 q2 -5 12 -5 Z" fill="#1B4A70"/>
-                <path d="M30 64 q-10 6 -18 10 q22 -2 34 -6 Z" fill="#FFFFFF" opacity=".45"/>
-                <path d="M190 64 q10 6 18 10 q-22 -2 -34 -6 Z" fill="#FFFFFF" opacity=".45"/>
-              </svg>
+          <article class="world world--locked rise">
+            <div class="mystery" aria-hidden="true">?</div>
+            <div>
+              <h3 class="gt">More seas on the way</h3>
+              <p>New water arrives with updates, and each sea changes the physics, not just the view.</p>
             </div>
-            <p class="boat-card__class">Hover</p>
-            <h3>Hovercraft</h3>
-            <p>Skims at a fixed height and never touches a wave face. A different game on the same sea.</p>
           </article>
-
-          <article class="boat-card reveal">
-            <div class="boat-card__art" aria-hidden="true">
-              <svg viewBox="0 0 220 92" fill="none">
-                <path d="M110 46 V6" stroke="#8A6A45" stroke-width="5" stroke-linecap="round"/>
-                <path d="M110 10 q26 6 26 14 q0 8 -26 12 Z" fill="#E8DCC4"/>
-                <path d="M110 12 q-24 5 -24 12 q0 7 24 11 Z" fill="#F2E6D8"/>
-                <path d="M110 6 l16 4 -16 4 Z" fill="#A6413A"/>
-                <path d="M52 46 h116 l-6 14 q-5 6 -16 6 H74 q-11 0 -16 -6 Z" fill="#0D2740"/>
-                <path d="M52 46 h116 l-1.5 5 H53.5 Z" fill="#8A6A45"/>
-                <path d="M62 54 h96 v4 H62 Z" fill="#FFC93C" opacity=".7"/>
-                <path d="M168 46 l16 -4 -2 10 -14 2 Z" fill="#153B5C"/>
-              </svg>
-            </div>
-            <p class="boat-card__class">Heavy · sail</p>
-            <h3>Pirate Ship</h3>
-            <p>Wind-driven, so it never runs out of fuel. Distance stops being a range problem and becomes a stability one.</p>
-          </article>
-
-          <article class="boat-card reveal">
-            <div class="boat-card__art" aria-hidden="true">
-              <svg viewBox="0 0 220 92" fill="none">
-                <path d="M16 44 h188 l-8 14 q-6 6 -18 6 H40 q-14 0 -18 -6 Z" fill="#0D2740"/>
-                <path d="M16 44 h188 l-2 5 H18 Z" fill="#1B4A70"/>
-                <path d="M12 38 h196 q4 0 4 6 H8 q0 -6 4 -6 Z" fill="#153B5C"/>
-                <path d="M24 41 h172" stroke="#FFC93C" stroke-width="2" stroke-dasharray="10 8" opacity=".85"/>
-                <rect x="140" y="18" width="26" height="20" rx="3" fill="#1B4A70"/>
-                <path d="M153 18 V6" stroke="#153B5C" stroke-width="3" stroke-linecap="round"/>
-                <path d="M56 34 l14 -6 l16 6 Z" fill="#6FE0DC" opacity=".8"/>
-                <path d="M96 34 l14 -6 l16 6 Z" fill="#6FE0DC" opacity=".55"/>
-              </svg>
-            </div>
-            <p class="boat-card__class">Heavy motor</p>
-            <h3>Aircraft Carrier</h3>
-            <p>A hundred and thirty tonnes, nuclear range, flat as a runway. Nothing the sea does moves it.</p>
-          </article>
-        </div>
-
-        <div class="fleet-more reveal">
-          <p class="fleet-more__label">Also in the fleet</p>
-          <span class="world-chip">Inflatable Raft</span>
-          <span class="world-chip">Rescue RIB</span>
-          <span class="world-chip">Catamaran</span>
-          <span class="world-chip">Hydroplane</span>
-          <span class="world-chip">Fishing Trawler</span>
-          <span class="world-chip">Military Patrol Boat</span>
-          <span class="world-chip">Icebreaker</span>
-          <span class="world-chip">Destroyer</span>
-          <span class="world-chip">Cruise Ship</span>
         </div>
       </div>
     </section>
 
-    <!-- ============ UPGRADES ============ -->
-    <section class="section section--surface" id="upgrades">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">The garage</p>
-          <h2>Five lanes, one honest question</h2>
-          <p class="lead">Every boat tunes along the same five lanes, so you always know what a coin buys. Cards show the effect, not just the level.</p>
-        </div>
+    <!-- ============ GARAGE ============ -->
+    <section class="sec sec--navy dock" id="garage">
+      <div class="wrap">
+        <header class="head rise">
+          <h2 class="h-display">Upgrades you feel on the next wave</h2>
+          <p class="lede">Every boat tunes along the same five lanes. Each card tells you what the coins buy, not just the level. Tap one.</p>
+        </header>
 
-        <div class="lanes">
-          <article class="lane reveal">
-            <div class="lane__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8Z"/></svg>
-            </div>
-            <p class="lane__name">Go</p>
-            <p class="lane__what">Engine</p>
-            <p>Raw power. More shove off the mark and a higher top speed once you are up and planing.</p>
-          </article>
-          <article class="lane reveal">
-            <div class="lane__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v6c0 4.4 3 7.7 7 9 4-1.3 7-4.6 7-9V6l-7-3Z"/></svg>
-            </div>
-            <p class="lane__name">Hull</p>
-            <p class="lane__what">Hull</p>
-            <p>Weight, buoyancy and how hard a bad landing hits — the difference between a stumble and a capsize.</p>
-          </article>
-          <article class="lane reveal">
-            <div class="lane__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M12 10c-1.2-3.2.7-5.7 2.8-4.6 1.9 1 1.4 3.7-1.1 5.4"/><path d="M13.9 13.2c3.2-.7 5 1.8 3.6 3.6-1.3 1.6-3.8.6-5-1.9"/><path d="M10.1 13.2c-3.2-.7-5 1.8-3.6 3.6 1.3 1.6 3.8.6 5-1.9"/></svg>
-            </div>
-            <p class="lane__name">Bite</p>
-            <p class="lane__what">Propeller</p>
-            <p>How much of the engine actually reaches the water, and how fast the screw recovers once it drops back in.</p>
-          </article>
-          <article class="lane reveal">
-            <div class="lane__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19h16"/><path d="M4 19 17 6"/><path d="M11 19a7 7 0 0 1 2-5"/></svg>
-            </div>
-            <p class="lane__name">Angle</p>
-            <p class="lane__what">Trim</p>
-            <p>Authority over your own pitch. Sets how fast you can level out before you touch back down.</p>
-          </article>
-          <article class="lane reveal">
-            <div class="lane__icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 12 16 8"/><path d="M12 3v2"/><path d="M21 12h-2"/><path d="M5 12H3"/></svg>
-            </div>
-            <p class="lane__name">Range</p>
-            <p class="lane__what">Fuel</p>
-            <p>Tank size. Every level pushes out the gap you can clear before the next can, and a maxed boat goes a long way past a stock one.</p>
-          </article>
-        </div>
-
-        <p class="lead center mt-4 reveal">The lanes rename themselves to fit the boat. The rowboat tunes <strong>Oars</strong> and <strong>Rations</strong>; the jet ski has an <strong>Impeller</strong>; the pirate ship trims <strong>Sails</strong> and <strong>Rigging</strong> — and its fuel lane just reads <strong>Never runs out</strong>.</p>
-      </div>
-    </section>
-
-    <!-- ============ WATERS ============ -->
-    <section class="section section--alt" id="waters">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Twenty-three waters</p>
-          <h2>The sea is not a backdrop</h2>
-          <p class="lead">Each water changes the physics you are riding — density, viscosity, current, wind, even gravity. The Dead Sea floats you high, the Bayou turns everything to glue, and the Southern Ocean simply does not care.</p>
-        </div>
-
-        <div class="waters">
-          <section class="waters-region reveal">
-            <div class="waters-region__head">
-              <h3 class="waters-region__name">Lakes</h3>
-              <p class="waters-region__note">Where you learn. Small swell, forgiving water.</p>
-            </div>
-            <div class="worlds">
-              <span class="world-chip">Calm Lake</span>
-              <span class="world-chip">Loch Ness</span>
-              <span class="world-chip">Dead Sea</span>
-              <span class="world-chip">Lake Superior</span>
-            </div>
-          </section>
-
-          <section class="waters-region reveal">
-            <div class="waters-region__head">
-              <h3 class="waters-region__name">Rivers</h3>
-              <p class="waters-region__note">Currents that push back — and one that pushes hard.</p>
-            </div>
-            <div class="worlds">
-              <span class="world-chip">Nile</span>
-              <span class="world-chip">Amazon</span>
-              <span class="world-chip">Mississippi</span>
-              <span class="world-chip">Bayou</span>
-              <span class="world-chip">Colorado Rapids</span>
-            </div>
-          </section>
-
-          <section class="waters-region reveal">
-            <div class="waters-region__head">
-              <h3 class="waters-region__name">Seas</h3>
-              <p class="waters-region__note">Real swell, real consequences.</p>
-            </div>
-            <div class="worlds">
-              <span class="world-chip">Caribbean</span>
-              <span class="world-chip">Mediterranean</span>
-              <span class="world-chip">Norwegian Fjord</span>
-              <span class="world-chip">North Sea</span>
-              <span class="world-chip">Pirate Sea</span>
-            </div>
-          </section>
-
-          <section class="waters-region reveal">
-            <div class="waters-region__head">
-              <h3 class="waters-region__name">Oceans</h3>
-              <p class="waters-region__note">Beaufort four and up. This is the main event.</p>
-            </div>
-            <div class="worlds">
-              <span class="world-chip">Pacific</span>
-              <span class="world-chip">Atlantic</span>
-              <span class="world-chip">Indian</span>
-              <span class="world-chip">Arctic</span>
-              <span class="world-chip">Southern Ocean</span>
-            </div>
-          </section>
-
-          <section class="waters-region reveal">
-            <div class="waters-region__head">
-              <h3 class="waters-region__name">Exotic</h3>
-              <p class="waters-region__note">Boiling water, flooded skylines, and two oceans with the gravity turned down.</p>
-            </div>
-            <div class="worlds">
-              <span class="world-chip world-chip--exotic">Volcano</span>
-              <span class="world-chip world-chip--exotic">Flooded City</span>
-              <span class="world-chip world-chip--exotic">Alien Ocean</span>
-              <span class="world-chip world-chip--exotic">Space Ocean</span>
-            </div>
-          </section>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SCREENSHOTS ============ -->
-    <section class="section section--surface" id="screenshots">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Screenshots</p>
-          <h2>See it in motion</h2>
-        </div>
-        <!-- Arrows and dots are added by main.js; without JS this stays a plain
-             swipeable rail. -->
-        <div class="shots-rail reveal">
-          <div class="shots" role="region" aria-label="Screenshots" tabindex="0">
-            <div class="phone-frame"><img src="assets/images/screenshot-1.svg" width="1440" height="810" loading="lazy" alt="Riding the face of a swell with the throttle open, distance and fuel on the HUD" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-2.svg" width="1440" height="810" loading="lazy" alt="Launching off a crest for a wave hop, spray trailing off the stern" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-3.svg" width="1440" height="810" loading="lazy" alt="Mid-flip high above the water, coins strung out along the arc" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-4.svg" width="1440" height="810" loading="lazy" alt="Touching down with the hull matched to the water's angle for a perfect landing" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-5.svg" width="1440" height="810" loading="lazy" alt="The garage, tuning the speedboat across its five upgrade lanes" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-6.svg" width="1440" height="810" loading="lazy" alt="Choosing a water: Calm Lake and Pacific unlocked, the Arctic still to buy" /></div>
+        <div class="garage-bar rise">
+          <div class="garage-bar__boat">
+            <img src="assets/img/boats/rescue-rib.webp" width="900" height="279" alt="" loading="lazy" />
+            <p class="gt">Rescue RIB</p>
           </div>
+          <p class="counter" aria-live="polite"><img src="assets/img/ui/coin.webp" width="38" height="38" alt="Coins" /><span data-balance>75,000</span></p>
+        </div>
+
+        <div class="lanes" data-garage>
+          <article class="lane frame rise" data-lane="go" data-level="6">
+            <div class="lane__icon"><img src="assets/img/ui/engine.webp" width="200" height="180" alt="" loading="lazy" /></div>
+            <h3 class="lane__name gt">Engine</h3>
+            <p class="lane__fn">Go</p>
+            <span class="meter" style="--v:6"></span>
+            <p class="lane__lv">Lv 6 / 20</p>
+            <p class="lane__fx">+26% power</p>
+            <button class="plate plate--go" type="button"><img src="assets/img/ui/coin.webp" width="20" height="20" alt="" /><span>5,498</span></button>
+          </article>
+          <article class="lane frame rise" data-lane="hull" data-level="4">
+            <div class="lane__icon"><img src="assets/img/ui/hull.webp" width="200" height="101" alt="" loading="lazy" /></div>
+            <h3 class="lane__name gt">Hull</h3>
+            <p class="lane__fn">Hull</p>
+            <span class="meter" style="--v:4"></span>
+            <p class="lane__lv">Lv 4 / 20</p>
+            <p class="lane__fx">-6% drag</p>
+            <button class="plate plate--go" type="button"><img src="assets/img/ui/coin.webp" width="20" height="20" alt="" /><span>3,355</span></button>
+          </article>
+          <article class="lane frame rise" data-lane="bite" data-level="9">
+            <div class="lane__icon"><img src="assets/img/ui/propeller.webp" width="200" height="183" alt="" loading="lazy" /></div>
+            <h3 class="lane__name gt">Propeller</h3>
+            <p class="lane__fn">Bite</p>
+            <span class="meter" style="--v:9"></span>
+            <p class="lane__lv">Lv 9 / 20</p>
+            <p class="lane__fx">+27% grip</p>
+            <button class="plate plate--go" type="button"><img src="assets/img/ui/coin.webp" width="20" height="20" alt="" /><span>11.5k</span></button>
+          </article>
+          <article class="lane frame rise" data-lane="angle" data-level="3">
+            <div class="lane__icon"><img src="assets/img/ui/trim.webp" width="200" height="174" alt="" loading="lazy" /></div>
+            <h3 class="lane__name gt">Trim</h3>
+            <p class="lane__fn">Angle</p>
+            <span class="meter" style="--v:3"></span>
+            <p class="lane__lv">Lv 3 / 20</p>
+            <p class="lane__fx">+12% control</p>
+            <button class="plate plate--go" type="button"><img src="assets/img/ui/coin.webp" width="20" height="20" alt="" /><span>2,621</span></button>
+          </article>
+          <article class="lane frame rise" data-lane="range" data-level="5">
+            <div class="lane__icon"><img src="assets/img/ui/fuel.webp" width="200" height="227" alt="" loading="lazy" /></div>
+            <h3 class="lane__name gt">Fuel</h3>
+            <p class="lane__fn">Range</p>
+            <span class="meter" style="--v:5"></span>
+            <p class="lane__lv">Lv 5 / 20</p>
+            <p class="lane__fx">+15% range</p>
+            <button class="plate plate--go" type="button"><img src="assets/img/ui/coin.webp" width="20" height="20" alt="" /><span>4,295</span></button>
+          </article>
+        </div>
+
+        <p class="lane-note rise">The lanes rename themselves to fit the boat: the dinghy tunes its <strong>Outboard</strong> and the jet ski its <strong>Impeller</strong>. Sprint hulls skip the fuel lane altogether, because on a boat that fast more engine is the better way to go further.</p>
+      </div>
+      <div class="planks" aria-hidden="true"></div>
+    </section>
+
+    <!-- ============ DAILY ============ -->
+    <section class="sec sec--sky" id="daily">
+      <div class="wrap">
+        <header class="head rise">
+          <h2 class="h-display">Something to chase every day</h2>
+          <p class="lede">Short runs, long goals. There's always one more thing a run can finish.</p>
+        </header>
+
+        <div class="daily">
+          <article class="tile rise">
+            <img src="assets/img/ui/win-mission.webp" width="240" height="175" alt="" loading="lazy" />
+            <h3 class="gt">Daily missions</h3>
+            <p>Nine a day, three at a time, with a chest at three and another at nine. Targets grow with your own best runs, so none is out of reach.</p>
+          </article>
+          <article class="tile rise">
+            <img src="assets/img/ui/win-badge.webp" width="240" height="270" alt="" loading="lazy" />
+            <h3 class="gt">Badge book</h3>
+            <p>Badges for your career, every sea and every boat, plus a page of secrets you'll mostly find by accident.</p>
+          </article>
+          <article class="tile rise">
+            <img src="assets/img/ui/win-rank.webp" width="240" height="182" alt="" loading="lazy" />
+            <h3 class="gt">Captain rank</h3>
+            <p>Every badge moves you up, from Deckhand to Sea Legend. Leaderboards for best distance, longest air and most flips.</p>
+          </article>
+        </div>
+
+        <div class="streak rise">
+          <div class="streak__head">
+            <h3 class="gt">Seven-day streak</h3>
+            <p>Paid in coins. Miss a day and it starts over.</p>
+          </div>
+          <ol class="days">
+            <li class="day"><span class="day__n">Day 1</span><img src="assets/img/ui/coin.webp" width="34" height="34" alt="" loading="lazy" /><span class="day__c">500</span></li>
+            <li class="day"><span class="day__n">Day 2</span><img src="assets/img/ui/coin.webp" width="34" height="34" alt="" loading="lazy" /><span class="day__c">750</span></li>
+            <li class="day"><span class="day__n">Day 3</span><img src="assets/img/ui/coin.webp" width="34" height="34" alt="" loading="lazy" /><span class="day__c">1,000</span></li>
+            <li class="day"><span class="day__n">Day 4</span><img src="assets/img/ui/coin.webp" width="34" height="34" alt="" loading="lazy" /><span class="day__c">1,500</span></li>
+            <li class="day"><span class="day__n">Day 5</span><img src="assets/img/ui/coin.webp" width="34" height="34" alt="" loading="lazy" /><span class="day__c">2,000</span></li>
+            <li class="day"><span class="day__n">Day 6</span><img src="assets/img/ui/coin.webp" width="34" height="34" alt="" loading="lazy" /><span class="day__c">3,000</span></li>
+            <li class="day day--7"><span class="day__n">Day 7</span><img src="assets/img/ui/coin.webp" width="52" height="52" alt="" loading="lazy" /><span class="day__c">6,000</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TRAILER ============
+         Hidden until the gameplay trailer exists. To switch it on: put the file
+         at assets/video/trailer.mp4, a poster frame at
+         assets/video/trailer-poster.jpg, add poster="assets/video/trailer-poster.jpg"
+         to the <video>, then delete the `hidden` attribute. (The poster is left
+         off until then: a hidden <video> still fetches its poster.) -->
+    <section class="sec sec--deep" id="trailer" hidden>
+      <div class="wrap">
+        <header class="head">
+          <h2 class="h-display">See it move</h2>
+        </header>
+        <div class="trailer">
+          <video controls playsinline preload="none">
+            <source src="assets/video/trailer.mp4" type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCREENSHOTS ============
+         Hidden until real captures exist (README: "Screenshots"). Drop them in
+         assets/img/shots/, list them here, and delete the `hidden` attribute.
+         main.js opens any image in .shots in the lightbox. -->
+    <section class="sec sec--deep" id="screenshots" hidden>
+      <div class="wrap">
+        <header class="head">
+          <h2 class="h-display">Screenshots</h2>
+        </header>
+        <div class="shots" tabindex="0" role="region" aria-label="Screenshots">
+          <!-- <img src="assets/img/shots/1.webp" width="1440" height="810" loading="lazy" alt="…" /> -->
         </div>
       </div>
     </section>
 
     <!-- ============ DOWNLOAD ============ -->
-    <section class="section section--alt" id="download">
-      <div class="container">
-        <div class="download-cta reveal">
-          <p class="eyebrow">Download</p>
-          <h2>Coming soon to iOS &amp; Android</h2>
-          <p class="lead">Wave Rider is on the way to the App Store and Google Play. Store links will light up here at launch.</p>
-          <div class="store-badges">
-            <a class="store-badge" href="#" aria-label="Download on the App Store (coming soon)">
-              <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
-            </a>
-            <a class="store-badge" href="#" aria-label="Get it on Google Play (coming soon)">
-              <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
-            </a>
+    <section class="sec sec--sun" id="download">
+      <span class="sun" aria-hidden="true"></span>
+      <div class="wrap get">
+        <div class="get__card rise">
+          <div class="get__title">
+            <img src="assets/img/brand/icon-256.webp" width="256" height="256" alt="" loading="lazy" />
+            <div>
+              <h2 class="h-display">Wave Rider</h2>
+              <p class="get__sub">Boat Stunt Racing</p>
+            </div>
           </div>
+          <p class="get__lede">Coming soon to the App Store and Google Play. The store buttons go live here the day it launches.</p>
+          <div class="stores">
+            <span class="badge"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download on the App Store" /></span>
+            <span class="badge"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get it on Google Play" /></span>
+            <span class="soon">Soon</span>
+          </div>
+          <ul class="facts">
+            <li>Free to play</li>
+            <li>Ads and optional purchases</li>
+            <li>Plays offline</li>
+            <li>No account needed</li>
+            <li>iOS 15+</li>
+            <li>Android 7.1+</li>
+          </ul>
         </div>
+        <img class="get__skipper" src="assets/img/captain/standing.webp" width="401" height="833" alt="" loading="lazy" />
       </div>
     </section>
   </main>
 
   <!-- ============ FOOTER ============ -->
   <footer class="footer">
-    <div class="container">
+    <div class="wrap">
       <div class="footer__grid">
         <div class="footer__brand">
-          <a class="nav__brand" href="index.html">
-            <img src="assets/images/icon-64.png" alt="" width="30" height="30" />
-            Wave Rider
-          </a>
-          <p class="muted">A physics arcade game where the ground under you is always moving.</p>
-          <p class="muted">By <strong>SmartLifeUtils</strong></p>
+          <a class="brand" href="index.html"><img src="assets/img/brand/icon-64.png" width="40" height="40" alt="" />Wave Rider</a>
+          <p class="footer__about">A physics boat game where the ground under you never stops moving. By SmartLifeUtils.</p>
         </div>
-        <div class="footer__col">
+        <div>
           <h4>Game</h4>
           <ul>
-            <li><a href="index.html#features">Features</a></li>
-            <li><a href="index.html#fleet">The fleet</a></li>
-            <li><a href="index.html#waters">Waters</a></li>
-            <li><a href="index.html#screenshots">Screenshots</a></li>
+            <li><a href="index.html#ride">Ride</a></li>
+            <li><a href="index.html#boats">Boats</a></li>
+            <li><a href="index.html#seas">Seas</a></li>
             <li><a href="index.html#download">Download</a></li>
           </ul>
         </div>
-        <div class="footer__col">
+        <div>
           <h4>Help</h4>
           <ul>
             <li><a href="support.html">Support</a></li>
+            <li><a href="support.html#report">Report a bug</a></li>
             <li><a href="mailto:smartlife.utilities@gmail.com">Contact</a></li>
           </ul>
         </div>
-        <div class="footer__col">
+        <div>
           <h4>Legal</h4>
           <ul>
             <li><a href="privacy.html">Privacy Policy</a></li>
@@ -552,5 +572,7 @@
   </footer>
 
   <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/art.js" defer></script>
+  <script src="assets/js/sea.js" defer></script>
 </body>
 </html>

@@ -1,34 +1,35 @@
-/* Wave Rider — progressive enhancement only. The site works fully with JS off.
-   Shared verbatim with the Ink Bounce site; port fixes to both. */
+/* Wave Rider — page behaviour. Everything here is an enhancement: with JS off
+   the page reads top to bottom, the nav is a list of links and the garage
+   cards simply show their levels. The live sea is sea.js. */
 (function () {
   "use strict";
 
-  /* ---- Mobile nav toggle ---- */
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  /* ---- Mobile nav ---- */
   var toggle = document.querySelector(".nav__toggle");
-  var links = document.getElementById("nav-links");
-  if (toggle && links) {
-    toggle.addEventListener("click", function () {
-      var open = links.classList.toggle("is-open");
+  var menu = document.getElementById("menu");
+  if (toggle && menu) {
+    var setOpen = function (open) {
+      menu.classList.toggle("is-open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+    };
+    toggle.addEventListener("click", function () {
+      setOpen(!menu.classList.contains("is-open"));
     });
-    // Close the menu after tapping a link (mobile)
-    links.addEventListener("click", function (e) {
-      if (e.target.tagName === "A") {
-        links.classList.remove("is-open");
-        toggle.setAttribute("aria-expanded", "false");
-      }
+    menu.addEventListener("click", function (e) {
+      if (e.target.tagName === "A") setOpen(false);
+    });
+    document.addEventListener("keydown", function (e) {
+      if (e.key === "Escape") setOpen(false);
     });
   }
 
-  /* ---- Active nav highlight (based on current file) ---- */
-  var path = window.location.pathname.split("/").pop() || "index.html";
-  document.querySelectorAll(".nav__links a").forEach(function (a) {
+  /* ---- Current page in the nav ---- */
+  var page = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav__menu a").forEach(function (a) {
     var href = a.getAttribute("href");
-    if (!href) return;
-    if (href === path || (path === "" && href === "index.html")) {
-      a.classList.add("is-active");
-      a.setAttribute("aria-current", "page");
-    }
+    if (href === page || href === page + ".html") a.setAttribute("aria-current", "page");
   });
 
   /* ---- Footer year ---- */
@@ -36,153 +37,122 @@
     el.textContent = new Date().getFullYear();
   });
 
-  /* ---- Scroll reveal (respects reduced motion) ---- */
-  var reveals = document.querySelectorAll(".reveal");
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (reveals.length && !reduce && "IntersectionObserver" in window) {
-    var vh = window.innerHeight || document.documentElement.clientHeight;
+  /* ---- Rise into view ----
+     Anything already on screen at load is shown at once, so a reload or a
+     jump to an anchor never flashes empty cards. */
+  var rises = document.querySelectorAll(".rise");
+  if (!reduce && "IntersectionObserver" in window) {
+    var vh = window.innerHeight;
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-          io.unobserve(entry.target);
-        }
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        io.unobserve(entry.target);
       });
-    }, { threshold: 0.12 });
-    reveals.forEach(function (el) {
-      // Elements already on screen at load: show instantly (no entrance
-      // animation) so navigating between pages doesn't flash/jitter.
-      // Only elements below the fold animate when scrolled into view.
-      if (el.getBoundingClientRect().top < vh) {
-        el.classList.add("is-visible", "no-anim");
+    }, { threshold: 0.12, rootMargin: "0px 0px -40px 0px" });
+    rises.forEach(function (el) {
+      var top = el.getBoundingClientRect().top;
+      if (top < vh && top > -el.offsetHeight) {
+        el.style.transition = "none";
+        el.classList.add("is-in");
       } else {
         io.observe(el);
       }
     });
-  } else {
-    reveals.forEach(function (el) { el.classList.add("is-visible"); });
-  }
-
-  /* ---- Screenshot rail: arrows, dots and edge fades ----
-     The rail is a plain scroll-snap container, so swipe and keyboard scrolling
-     already work on their own. Everything below is added on top of that. */
-  var rail = document.querySelector(".shots");
-  var railWrap = rail && rail.parentElement;
-  var cards = rail ? Array.prototype.slice.call(rail.children) : [];
-  var syncRailTo = null; // set below, so the lightbox can leave the rail in sync
-
-  var CHEVRON_LEFT = "M15 5l-7 7 7 7";
-  var CHEVRON_RIGHT = "M9 5l7 7-7 7";
-  var CROSS = "M6 6l12 12M18 6L6 18";
-
-  // Round icon button, shared by the rail arrows and the lightbox controls.
-  function iconButton(className, label, path) {
-    var b = document.createElement("button");
-    b.type = "button";
-    b.className = "circle-btn " + className;
-    b.setAttribute("aria-label", label);
-    b.innerHTML =
-      '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" ' +
-      'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' +
-      path + '"/></svg>';
-    return b;
-  }
-
-  if (rail && railWrap && cards.length > 1) {
-    var FADE = 72; // px of dissolve at an edge that has more content past it
-
-    var prev = iconButton("shots-arrow shots-arrow--prev", "Previous screenshot", CHEVRON_LEFT);
-    var next = iconButton("shots-arrow shots-arrow--next", "Next screenshot", CHEVRON_RIGHT);
-    railWrap.appendChild(prev);
-    railWrap.appendChild(next);
-
-    var dots = document.createElement("div");
-    dots.className = "shots-dots";
-    var dotList = cards.map(function (card, i) {
-      var d = document.createElement("button");
-      d.type = "button";
-      d.className = "shots-dot";
-      d.setAttribute("aria-label", "Go to screenshot " + (i + 1) + " of " + cards.length);
-      d.addEventListener("click", function () { scrollToCard(i); });
-      dots.appendChild(d);
-      return d;
+    // Siblings in a grid come in one after another rather than as a block.
+    document.querySelectorAll(".fleet, .worlds, .lanes, .daily, .trick-list, .howto").forEach(function (grid) {
+      Array.prototype.forEach.call(grid.children, function (child, i) {
+        if (child.classList.contains("rise") && !child.style.transition) {
+          child.style.transitionDelay = Math.min(i, 6) * 70 + "ms";
+        }
+      });
     });
-    railWrap.parentElement.insertBefore(dots, railWrap.nextSibling);
+  } else {
+    rises.forEach(function (el) { el.classList.add("is-in"); });
+  }
 
-    function maxScroll() { return rail.scrollWidth - rail.clientWidth; }
-
-    // Where the rail lands when card i is snapped to centre. Clamped, because
-    // the first and last cards can never actually reach the middle.
-    function targetFor(i) {
-      var card = cards[i];
-      return Math.max(0, Math.min(
-        maxScroll(),
-        card.offsetLeft - (rail.clientWidth - card.offsetWidth) / 2
-      ));
-    }
-
-    // The card whose resting position is closest to where we are. Comparing
-    // against clamped targets (rather than "nearest card to the rail centre")
-    // is what keeps the ends honest: at scrollLeft 0 the first card is at the
-    // left edge, not the middle, so a centre test would report the second one.
-    function currentIndex() {
-      if (rail.scrollLeft <= 1) return 0;
-      if (rail.scrollLeft >= maxScroll() - 1) return cards.length - 1;
-      var best = 0;
-      var bestGap = Infinity;
-      for (var i = 0; i < cards.length; i++) {
-        var gap = Math.abs(targetFor(i) - rail.scrollLeft);
-        if (gap < bestGap) { bestGap = gap; best = i; }
+  /* ---- The garage: tap a lane to buy a level ----
+     The Rescue RIB's own numbers (D/05, D/09): PlaningWork, every lane FINE
+     (20 levels), base 1,250 coins, each level costs base × 1.28ⁿ, rounded to
+     a hundred from 10,000 up. The effect line is the family's full-max total
+     × level / cap, the way the game prints it. */
+  var garage = document.querySelector("[data-garage]");
+  var balanceEl = document.querySelector("[data-balance]");
+  if (garage && balanceEl) {
+    var CAP = 20;
+    var BASE = 1250;
+    var GROWTH = 1.28;
+    var balance = 75000;
+    var LANES = {
+      go: function (t) { return "+" + Math.round(0.85 * t * 100) + "% power"; },
+      hull: function (t) { return "-" + Math.round(0.30 * t * 100) + "% drag"; },
+      bite: function (t) { return "+" + Math.round(0.60 * t * 100) + "% grip"; },
+      angle: function (t) { return "+" + Math.round(0.80 * t * 100) + "% control"; },
+      // RANGE prints tank and thrift as one number: tank grows 0.6×, drain
+      // falls 0.4× of the lane's total.
+      range: function (t) {
+        var x = 0.55 * t;
+        return "+" + Math.round(((1 + 0.6 * x) / (1 - 0.4 * x) - 1) * 100) + "% range";
       }
-      return best;
-    }
+    };
 
-    function scrollToCard(i) {
-      rail.scrollTo({
-        left: targetFor(Math.max(0, Math.min(cards.length - 1, i))),
-        behavior: reduce ? "auto" : "smooth"
+    var group = function (n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); };
+    // UiKit.ShortCount: whole numbers under 10k, one decimal to 100k, then none.
+    var short = function (n) {
+      if (n < 10000) return group(n);
+      if (n < 100000) return (Math.round(n / 100) / 10).toFixed(1).replace(/\.0$/, "") + "k";
+      return Math.round(n / 1000) + "k";
+    };
+    var cost = function (level) {
+      var raw = Math.round(BASE * Math.pow(GROWTH, level));
+      return raw < 10000 ? raw : Math.round(raw / 100) * 100;
+    };
+
+    var render = function (lane) {
+      var level = +lane.getAttribute("data-level");
+      var kind = lane.getAttribute("data-lane");
+      var btn = lane.querySelector("button");
+      lane.querySelector(".meter").style.setProperty("--v", level);
+      lane.querySelector(".lane__lv").textContent = level >= CAP ? "Max lvl" : "Lv " + level + " / " + CAP;
+      lane.querySelector(".lane__fx").textContent = LANES[kind](level / CAP);
+      if (level >= CAP) {
+        btn.disabled = true;
+        btn.querySelector("span").textContent = "Maxed";
+        btn.querySelector("img").hidden = true;
+        return;
+      }
+      var price = cost(level);
+      btn.querySelector("span").textContent = short(price);
+      btn.disabled = price > balance;
+      btn.setAttribute("aria-label", "Upgrade " + lane.querySelector(".lane__name").textContent +
+        " to level " + (level + 1) + " for " + group(price) + " coins");
+    };
+
+    var lanes = Array.prototype.slice.call(garage.querySelectorAll("[data-lane]"));
+    var renderAll = function () {
+      balanceEl.textContent = group(balance);
+      lanes.forEach(render);
+    };
+
+    lanes.forEach(function (lane) {
+      lane.querySelector("button").addEventListener("click", function () {
+        var level = +lane.getAttribute("data-level");
+        var price = cost(level);
+        if (level >= CAP || price > balance) return;
+        balance -= price;
+        lane.setAttribute("data-level", level + 1);
+        lane.classList.remove("is-bumped");
+        void lane.offsetWidth; // restart the bump
+        lane.classList.add("is-bumped");
+        renderAll();
       });
-    }
-
-    function update() {
-      // Sub-pixel scroll positions mean scrollLeft rarely hits the exact end.
-      var max = rail.scrollWidth - rail.clientWidth;
-      var atStart = rail.scrollLeft <= 1;
-      var atEnd = rail.scrollLeft >= max - 1;
-
-      rail.style.setProperty("--fade-start", (atStart ? 0 : FADE) + "px");
-      rail.style.setProperty("--fade-end", (atEnd ? 0 : FADE) + "px");
-      prev.disabled = atStart;
-      next.disabled = atEnd;
-
-      var active = currentIndex();
-      dotList.forEach(function (d, i) {
-        d.classList.toggle("is-active", i === active);
-        d.setAttribute("aria-current", i === active ? "true" : "false");
-      });
-    }
-
-    prev.addEventListener("click", function () { scrollToCard(currentIndex() - 1); });
-    next.addEventListener("click", function () { scrollToCard(currentIndex() + 1); });
-
-    var ticking = false;
-    rail.addEventListener("scroll", function () {
-      if (ticking) return;
-      ticking = true;
-      window.requestAnimationFrame(function () { ticking = false; update(); });
-    }, { passive: true });
-    window.addEventListener("resize", update);
-    update();
-
-    syncRailTo = scrollToCard;
+    });
+    renderAll();
   }
 
   /* ---- Screenshot lightbox ----
-     Click (or Enter/Space on) a card to open it large, then cycle with the
-     chevrons, arrow keys or a swipe. Esc or a click outside the image closes. */
-  var shots = cards.map(function (card) { return card.querySelector("img"); })
-                   .filter(Boolean);
-
+     Any image in .shots opens large. Esc, a click outside or the arrow keys. */
+  var shots = Array.prototype.slice.call(document.querySelectorAll(".shots img"));
   if (shots.length) {
     var box = document.createElement("div");
     box.className = "lightbox";
@@ -190,133 +160,29 @@
     box.setAttribute("role", "dialog");
     box.setAttribute("aria-modal", "true");
     box.setAttribute("aria-label", "Screenshot viewer");
-
-    var bar = document.createElement("div");
-    bar.className = "lightbox__bar";
-    var count = document.createElement("span");
-    count.className = "lightbox__count";
-    var closeBtn = iconButton("lightbox__close", "Close viewer", CROSS);
-    bar.appendChild(count);
-    bar.appendChild(closeBtn);
-
-    var stage = document.createElement("div");
-    stage.className = "lightbox__stage";
-    var full = document.createElement("img");
-    full.className = "lightbox__img";
-    var lbPrev = iconButton("lightbox__nav lightbox__nav--prev", "Previous screenshot", CHEVRON_LEFT);
-    var lbNext = iconButton("lightbox__nav lightbox__nav--next", "Next screenshot", CHEVRON_RIGHT);
-    stage.appendChild(lbPrev);
-    stage.appendChild(full);
-    stage.appendChild(lbNext);
-
-    var caption = document.createElement("p");
-    caption.className = "lightbox__caption";
-
-    box.appendChild(bar);
-    box.appendChild(stage);
-    box.appendChild(caption);
+    var big = document.createElement("img");
+    box.appendChild(big);
     document.body.appendChild(box);
-
     var at = 0;
-    var opener = null;
-
-    function preload(i) {
-      if (i < 0 || i >= shots.length) return;
-      var img = new Image();
-      img.src = shots[i].src;
-    }
-
-    function render(i) {
-      at = Math.max(0, Math.min(shots.length - 1, i));
-      full.src = shots[at].src;
-      full.alt = shots[at].alt;
-      caption.textContent = shots[at].alt;
-      count.textContent = at + 1 + " / " + shots.length;
-      lbPrev.disabled = at === 0;
-      lbNext.disabled = at === shots.length - 1;
-      // Neighbours, so a click through feels instant.
-      preload(at - 1);
-      preload(at + 1);
-    }
-
-    function openAt(i) {
-      opener = document.activeElement;
-      render(i);
-      box.hidden = false;
-      // Compensate for the scrollbar the lock removes, or the page shifts.
-      var gap = window.innerWidth - document.documentElement.clientWidth;
-      if (gap > 0) document.body.style.paddingRight = gap + "px";
-      document.body.classList.add("has-lightbox");
-      // Next frame, so the opacity transition has a starting value to run from.
-      window.requestAnimationFrame(function () { box.classList.add("is-open"); });
-      closeBtn.focus();
-    }
-
-    function closeBox() {
-      box.hidden = true;
-      box.classList.remove("is-open");
-      document.body.classList.remove("has-lightbox");
-      document.body.style.paddingRight = "";
-      // Leave the rail showing whichever screenshot was last viewed, and put
-      // focus on that card — never on the button we just hid.
-      if (syncRailTo) syncRailTo(at);
-      var landing = cards[at] || opener;
-      if (landing && landing.focus) landing.focus({ preventScroll: true });
-      opener = null;
-    }
-
-    function step(delta) {
-      var to = at + delta;
-      if (to < 0 || to >= shots.length) return;
-      render(to);
-    }
-
-    cards.forEach(function (card, i) {
-      card.setAttribute("role", "button");
-      card.setAttribute("tabindex", "0");
-      card.setAttribute("aria-label", "View screenshot " + (i + 1) + " larger");
-      card.addEventListener("click", function () { openAt(i); });
-      card.addEventListener("keydown", function (e) {
-        if (e.key === "Enter" || e.key === " " || e.key === "Spacebar") {
-          e.preventDefault();
-          openAt(i);
-        }
-      });
+    var show = function (i) {
+      at = (i + shots.length) % shots.length;
+      big.src = shots[at].currentSrc || shots[at].src;
+      big.alt = shots[at].alt;
+    };
+    var close = function () { box.hidden = true; document.body.style.overflow = ""; };
+    shots.forEach(function (img, i) {
+      img.tabIndex = 0;
+      img.style.cursor = "zoom-in";
+      var open = function () { show(i); box.hidden = false; document.body.style.overflow = "hidden"; };
+      img.addEventListener("click", open);
+      img.addEventListener("keydown", function (e) { if (e.key === "Enter") open(); });
     });
-
-    closeBtn.addEventListener("click", closeBox);
-    lbPrev.addEventListener("click", function () { step(-1); });
-    lbNext.addEventListener("click", function () { step(1); });
-    // Anywhere off the image — including the padding around it — closes.
-    box.addEventListener("click", function (e) {
-      if (e.target === box || e.target === stage || e.target === caption) closeBox();
-    });
-
+    box.addEventListener("click", close);
     document.addEventListener("keydown", function (e) {
       if (box.hidden) return;
-      if (e.key === "Escape") { closeBox(); return; }
-      if (e.key === "ArrowLeft") { e.preventDefault(); step(-1); return; }
-      if (e.key === "ArrowRight") { e.preventDefault(); step(1); return; }
-      if (e.key !== "Tab") return;
-      // Keep focus inside the dialog while it is open.
-      var focusable = [closeBtn, lbPrev, lbNext].filter(function (b) { return !b.disabled; });
-      var first = focusable[0];
-      var last = focusable[focusable.length - 1];
-      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
-      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
-      else if (focusable.indexOf(document.activeElement) === -1) { e.preventDefault(); first.focus(); }
+      if (e.key === "Escape") close();
+      if (e.key === "ArrowRight") show(at + 1);
+      if (e.key === "ArrowLeft") show(at - 1);
     });
-
-    // Swipe, for touch devices where the chevrons are a smaller target.
-    var swipeX = null;
-    stage.addEventListener("touchstart", function (e) {
-      swipeX = e.changedTouches[0].clientX;
-    }, { passive: true });
-    stage.addEventListener("touchend", function (e) {
-      if (swipeX === null) return;
-      var dx = e.changedTouches[0].clientX - swipeX;
-      swipeX = null;
-      if (Math.abs(dx) > 45) step(dx < 0 ? 1 : -1);
-    }, { passive: true });
   }
 })();

@@ -1,39 +1,40 @@
-/* Self-hosted fonts (latin subset) — same-origin & cached, so navigating
-   between pages doesn't re-fetch from an external domain or flash/reflow. */
+/* Self-hosted, latin subset, written by tools/build-assets.py.
+   Lilita One is the game's one UI face (OFL 1.1, the game's own copy).
+   Nunito carries the body copy the game never has to set (OFL 1.1). */
 
 @font-face {
-  font-family: 'Bebas Neue';
+  font-family: "Lilita One";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('bebas-neue-400.woff2') format('woff2');
+  src: url("lilita-one.woff2") format("woff2");
 }
 
 @font-face {
-  font-family: 'Rajdhani';
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url('rajdhani-300.woff2') format('woff2');
-}
-@font-face {
-  font-family: 'Rajdhani';
+  font-family: "Nunito";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url('rajdhani-400.woff2') format('woff2');
+  src: url("nunito-400.woff2") format("woff2");
 }
 @font-face {
-  font-family: 'Rajdhani';
+  font-family: "Nunito";
   font-style: normal;
-  font-weight: 500;
+  font-weight: 700;
   font-display: swap;
-  src: url('rajdhani-500.woff2') format('woff2');
+  src: url("nunito-700.woff2") format("woff2");
 }
 @font-face {
-  font-family: 'Rajdhani';
+  font-family: "Nunito";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 800;
   font-display: swap;
-  src: url('rajdhani-600.woff2') format('woff2');
+  src: url("nunito-800.woff2") format("woff2");
+}
+@font-face {
+  font-family: "Nunito";
+  font-style: normal;
+  font-weight: 900;
+  font-display: swap;
+  src: url("nunito-900.woff2") format("woff2");
 }

@@ -3,29 +3,35 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Page not found — Wave Rider</title>
+  <title>Off the chart | Wave Rider</title>
   <meta name="robots" content="noindex" />
-  <meta name="theme-color" content="#0A1A2C" />
+  <meta name="theme-color" content="#0b2545" />
   <!-- Relative paths: this site is served from /waverider/, not the domain root. -->
-  <link rel="icon" href="assets/images/icon.svg" type="image/svg+xml" />
-  <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png" />
-  <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
-  <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="icon" href="assets/img/brand/icon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/brand/icon-180.png" />
+  <link rel="preload" href="assets/fonts/lilita-one.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
   <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
-  <main class="container">
-    <div class="notfound">
+  <header class="nav">
+    <div class="wrap nav__in">
+      <a class="brand" href="index.html">
+        <img src="assets/img/brand/icon-64.png" width="40" height="40" alt="" />
+        Wave Rider
+      </a>
+    </div>
+  </header>
+
+  <main id="main" class="sec sec--sky sec--flat">
+    <div class="wrap lost">
       <div>
-        <div class="code">404</div>
-        <h1 class="display" style="font-size:clamp(1.8rem,6vw,2.8rem);">Off the chart</h1>
-        <p class="lead" style="max-width:44ch;margin:0 auto 1.75rem;">This page is out past the buoys. Let's get you back to open water.</p>
-        <a class="btn btn--primary" href="index.html">Back to home</a>
+        <img src="assets/img/boats/motor-dinghy.webp" width="900" height="248" alt="" />
+        <h1 class="h-display">Off the chart</h1>
+        <p>This page is out past the buoys. The boat's fine, the skipper's swimming, and the way home is right here.</p>
+        <a class="plate plate--go plate--lg" href="index.html">Back to the water</a>
       </div>
     </div>
   </main>
-  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
