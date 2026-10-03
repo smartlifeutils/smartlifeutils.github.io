@@ -1,23 +1,8 @@
-/* ==========================================================================
-   Wave Rider — site styles
-
-   The look is the game's own garage, not a web template:
-   - one display face, Lilita One, always uppercase with a heavy ink keyline
-     (the game's "Heavy" text weight: UiKit.SharedTextMaterial);
-   - panels are the game's cream-framed navy card, sliced from the real
-     Ui_Card sprite with border-image, the same 9-slice the game uses;
-   - green plates are the priority action and nothing else, blue is "you are
-     here", steel is everything else (UI_DESIGN_SYSTEM.md §6);
-   - flat colour blocks joined by wave edges. No glows, no gradients on chrome.
-   ========================================================================== */
-
 :root {
-  /* Ink and paper — UiKit.Ink / UiKit.Paper */
   --ink: #101418;
   --paper: #ffffff;
   --cream: #fcfaed;
 
-  /* Water and sky, read off the splash and the worlds */
   --sky: #2fb2f6;
   --sky-pale: #d6f1ff;
   --sea: #0a8ad4;
@@ -26,13 +11,11 @@
   --navy: #13365c;
   --navy-2: #1f4f7f;
 
-  /* Sand and dock */
   --sand: #f8e2ad;
   --sand-2: #efcd88;
   --wood: #8a5a33;
   --wood-2: #6f4527;
 
-  /* Accents — UiKit.Accent (gold), the plate green, the dinghy red */
   --gold: #ffc93c;
   --coin: #ffd21f;
   --green: #38c83d;
@@ -45,10 +28,9 @@
 
   --wrap: 1180px;
   --gutter: 20px;
-  --nav-h: 84px; /* the room the floating nav covers: inset + bar + drop */
+  --nav-h: 84px;
   --radius: 18px;
 
-  /* The section edge: one wave, masked over any colour. */
   --wave: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 30' preserveAspectRatio='none'%3E%3Cpath d='M0 15C30 3 60 3 90 11s60 17 90 12 45-14 60-8V30H0Z'/%3E%3C/svg%3E");
   --wave-flip: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 30' preserveAspectRatio='none'%3E%3Cpath d='M0 15C30 27 60 27 90 19s60-17 90-12 45 14 60 8V0H0Z'/%3E%3C/svg%3E");
 }
@@ -57,7 +39,6 @@
   :root { --gutter: 16px; --nav-h: 76px; }
 }
 
-/* ---------- Reset ---------- */
 *,
 *::before,
 *::after { box-sizing: border-box; }
@@ -131,10 +112,6 @@ ol { margin: 0; padding: 0; list-style: none; }
   padding-inline: var(--gutter);
 }
 
-/* ==========================================================================
-   Game text — Lilita One, uppercase, a keyline drawn behind the fill and a
-   hard drop under it. paint-order keeps the stroke outside the letters.
-   ========================================================================== */
 .gt,
 .h-display {
   font-family: var(--display);
@@ -153,7 +130,6 @@ ol { margin: 0; padding: 0; list-style: none; }
 .gt--gold { color: var(--gold); }
 .gt--sm { -webkit-text-stroke-width: 0.17em; text-shadow: 0 0.09em 0 var(--ink); }
 
-/* Section heads */
 .head {
   max-width: 760px;
   margin: 0 auto 44px;
@@ -183,10 +159,6 @@ ol { margin: 0; padding: 0; list-style: none; }
   line-height: 1.55;
 }
 
-/* ==========================================================================
-   Plates — the game's buttons, 9-sliced from the real sprites.
-   Slice numbers are UiSkinMenu.Pieces' border fractions × the sprite size.
-   ========================================================================== */
 .plate {
   --bw: 15px;
   display: inline-flex;
@@ -236,13 +208,11 @@ ol { margin: 0; padding: 0; list-style: none; }
 }
 .plate img { width: auto; height: 26px; flex: none; }
 
-/* The framed card: Ui_Card, cream frame and four screws. */
 .frame {
   border: 22px solid transparent;
   border-image: url("../img/skin/card.webp") 59 fill / 22px / 0 stretch;
 }
 
-/* Counter: the game's currency bar */
 .counter {
   display: inline-flex;
   align-items: center;
@@ -260,7 +230,6 @@ ol { margin: 0; padding: 0; list-style: none; }
 }
 .counter img { width: 38px; height: 38px; margin: -12px 0 -12px -18px; }
 
-/* Store badges */
 .stores {
   display: flex;
   flex-wrap: wrap;
@@ -276,7 +245,7 @@ ol { margin: 0; padding: 0; list-style: none; }
 .badge img {
   height: 48px;
   width: auto;
-  border-radius: 9px; /* Apple's badge carries an opaque white corner */
+  border-radius: 9px;
 }
 a.badge { transition: transform 0.12s ease; }
 a.badge:hover { transform: translateY(-2px); }
@@ -296,11 +265,6 @@ a.badge:hover { transform: translateY(-2px); }
   box-shadow: 0 3px 0 var(--ink);
 }
 
-/* ==========================================================================
-   Nav — floats. At the top of a page it is only the game's outlined words over
-   the art; once the page scrolls it becomes one of the page's own panels (navy,
-   ink keyline, hard drop), inset from the edges like the game's HUD rail.
-   ========================================================================== */
 .nav {
   position: fixed;
   top: 0;
@@ -308,7 +272,7 @@ a.badge:hover { transform: translateY(-2px); }
   right: 0;
   z-index: 50;
   padding: 12px var(--gutter) 0;
-  pointer-events: none; /* only the bar itself takes clicks */
+  pointer-events: none;
 }
 .nav__in {
   position: relative;
@@ -410,7 +374,6 @@ a.badge:hover { transform: translateY(-2px); }
   .nav__toggle { display: block; }
   .nav__cta { margin-left: auto; }
   .nav__cta + .nav__toggle { margin-left: 0; }
-  /* The menu drops as a second panel under the bar. */
   .nav__menu {
     position: absolute;
     top: calc(100% + 12px);
@@ -447,16 +410,12 @@ a.badge:hover { transform: translateY(-2px); }
   .nav__cta + .nav__toggle { margin-left: auto; }
 }
 
-/* ==========================================================================
-   Sections and their wave edges
-   ========================================================================== */
 .sec {
   position: relative;
   padding: 96px 0;
   background: var(--sec-bg, var(--deep));
 }
 .sec::before {
-  /* The top edge: this section's colour, cut as a wave over the one above. */
   content: "";
   position: absolute;
   left: 0;
@@ -482,12 +441,8 @@ a.badge:hover { transform: translateY(-2px); }
   .head { margin-bottom: 32px; }
 }
 
-/* ==========================================================================
-   Hero — the boot splash, with the store buttons where the game draws its
-   loading bar: under the title.
-   ========================================================================== */
 .hero {
-  --art-h: 48.8vw;                /* the splash is 1795 × 876 */
+  --art-h: 48.8vw;
   --hc: min(var(--art-h), 100svh);
   position: relative;
   background: var(--sea);
@@ -521,26 +476,20 @@ a.badge:hover { transform: translateY(-2px); }
 }
 .hero__soon strong { color: var(--gold); }
 
-/* Desktop: the CTA sits on the art itself, under the baked-in title. */
 @media (min-width: 1280px) {
   .hero__art img { height: var(--hc); }
   .hero__cta {
     position: absolute;
     left: 56.4vw;
     width: 41.8vw;
-    /* The title ends at 74.5% of the art; the art is cropped evenly top and
-       bottom when the viewport is shorter than it. */
     top: calc(0.745 * var(--art-h) - (var(--art-h) - var(--hc)) / 2 + 4px);
     padding: 0;
     gap: 12px;
   }
   .hero__tag { font-size: clamp(1.6rem, 2.15vw, 2.4rem); }
-  /* On the art the CTA is two rows, so it clears the surf; the sticker says
-     "coming soon" and the badges name the stores. */
   .hero__soon { display: none; }
 }
 
-/* Phones: the skipper on his own, then the lifted title. */
 @media (max-width: 559px) {
   .hero__art img { aspect-ratio: 640 / 558; }
   .hero__logo {
@@ -555,14 +504,10 @@ a.badge:hover { transform: translateY(-2px); }
   .badge img { height: 44px; }
 }
 
-/* The surf: the sea rolling out of the bottom of the art. Three tiles of the
-   game's own water (tools/build-assets.py, surf()), back to front, each with
-   its own width and speed so they never line up, and each bobbing on its own
-   clock. The front band is the next section's colour, so it runs straight on. */
 .hero__media { position: relative; }
-.hero + .sec { margin-top: -1px; } /* no hairline where two blues meet on a fractional pixel */
+.hero + .sec { margin-top: -1px; }
 .surf {
-  --s: 1; /* tile scale */
+  --s: 1;
   position: absolute;
   left: 0;
   right: 0;
@@ -595,7 +540,6 @@ a.badge:hover { transform: translateY(-2px); }
 .surf__band--front { animation-duration: 3.6s; }
 .surf__band--front i { --w: 720px; --img: url("../img/surf/front.svg"); --roll: surf-front; --dur: 19s; }
 
-/* One keyframe set per band: a tile's width, in the band's own scale. */
 @keyframes surf-back { to { transform: translateX(calc(-760px * var(--s))); } }
 @keyframes surf-mid { to { transform: translateX(calc(-560px * var(--s))); } }
 @keyframes surf-front { to { transform: translateX(calc(-720px * var(--s))); } }
@@ -607,9 +551,6 @@ a.badge:hover { transform: translateY(-2px); }
 @media (max-width: 1279px) { .surf { --s: 0.8; } }
 @media (max-width: 559px) { .surf { --s: 0.6; } }
 
-/* ==========================================================================
-   RIDE — the live sea toy
-   ========================================================================== */
 .ride .head .h-display { max-width: 15ch; margin-inline: auto; }
 
 .toy {
@@ -622,7 +563,7 @@ a.badge:hover { transform: translateY(-2px); }
   overflow: hidden;
   background: #7fd3e8;
   box-shadow: 0 10px 0 var(--sea-dark);
-  touch-action: pan-y; /* the page still scrolls over the sea; the pedals don't */
+  touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
   -webkit-touch-callout: none;
@@ -748,7 +689,6 @@ a.badge:hover { transform: translateY(-2px); }
 .pedal--throttle { right: 2.5%; }
 .pedal.is-down { transform: translateY(4px) scale(0.95); filter: brightness(1.18); }
 
-/* Pickers under the toy */
 .picker {
   display: grid;
   gap: 14px;
@@ -834,9 +774,6 @@ a.badge:hover { transform: translateY(-2px); }
   .picker .plate { flex: 1 1 calc(50% - 10px); }
 }
 
-/* ==========================================================================
-   TRICKS
-   ========================================================================== */
 .tricks {
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 1fr);
@@ -844,10 +781,8 @@ a.badge:hover { transform: translateY(-2px); }
   gap: 56px;
 }
 
-/* The illustration: a world card sky, the jet ski mid-backflip, its coin arc
-   and the popups the run would show. Built from the game's sprites. */
 .stunt {
-  position: sticky; /* also the containing block for the art inside it */
+  position: sticky;
   top: calc(var(--nav-h) + 28px);
   aspect-ratio: 1040 / 640;
   border: 5px solid var(--ink);
@@ -956,9 +891,6 @@ a.badge:hover { transform: translateY(-2px); }
   .wipeout__rider { width: 80px; }
 }
 
-/* ==========================================================================
-   BOATS
-   ========================================================================== */
 .fleet {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -983,7 +915,6 @@ a.badge:hover { transform: translateY(-2px); }
   background: #1a578f;
 }
 .boat-card__art::after {
-  /* a strip of water for the hull to sit in */
   content: "";
   position: absolute;
   left: 0; right: 0; bottom: 0;
@@ -1054,7 +985,6 @@ a.badge:hover { transform: translateY(-2px); }
   flex: 1;
 }
 
-/* Stat meters: ten pips, like the garage's level bars. */
 .stats { display: grid; gap: 7px; margin: 0; }
 .stats div {
   display: grid;
@@ -1119,9 +1049,6 @@ a.badge:hover { transform: translateY(-2px); }
 .boat-card--locked p { font-weight: 700; color: var(--muted); }
 .boat-card--locked h3 { font-size: 1.6rem; margin-bottom: 4px; }
 
-/* ==========================================================================
-   SEAS
-   ========================================================================== */
 .worlds {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -1275,9 +1202,6 @@ a.badge:hover { transform: translateY(-2px); }
   .worlds { grid-template-columns: 1fr; }
 }
 
-/* ==========================================================================
-   GARAGE — five upgrade cards, tappable
-   ========================================================================== */
 .dock {
   position: relative;
   padding-bottom: 0;
@@ -1374,7 +1298,6 @@ a.badge:hover { transform: translateY(-2px); }
 }
 .lane-note strong { color: var(--gold); font-weight: 900; }
 
-/* The dock planks under the cards */
 .planks {
   height: 86px;
   margin-top: 64px;
@@ -1397,9 +1320,6 @@ a.badge:hover { transform: translateY(-2px); }
   .garage-bar { justify-content: center; }
 }
 
-/* ==========================================================================
-   DAILY
-   ========================================================================== */
 .daily {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1480,9 +1400,6 @@ a.badge:hover { transform: translateY(-2px); }
   .day--7 { grid-column: span 4; flex-direction: row; justify-content: center; gap: 12px; }
 }
 
-/* ==========================================================================
-   Trailer and screenshots (hidden until the media exists)
-   ========================================================================== */
 .trailer {
   max-width: 980px;
   margin: 0 auto;
@@ -1534,9 +1451,6 @@ a.badge:hover { transform: translateY(-2px); }
   border-radius: 18px;
 }
 
-/* ==========================================================================
-   DOWNLOAD
-   ========================================================================== */
 .get {
   position: relative;
   display: grid;
@@ -1618,9 +1532,6 @@ a.badge:hover { transform: translateY(-2px); }
   .sun { width: 90px; height: 90px; top: -30px; }
 }
 
-/* ==========================================================================
-   Footer
-   ========================================================================== */
 .footer {
   position: relative;
   padding: 64px 0 34px;
@@ -1663,9 +1574,6 @@ a.badge:hover { transform: translateY(-2px); }
   .footer__brand { grid-column: span 2; }
 }
 
-/* ==========================================================================
-   Inner pages: support, privacy, terms, 404
-   ========================================================================== */
 .page-hero {
   position: relative;
   padding: calc(var(--nav-h) + 40px) 0 90px;
@@ -1681,7 +1589,7 @@ a.badge:hover { transform: translateY(-2px); }
   right: max(2%, calc((100vw - var(--wrap)) / 2 + 20px));
   bottom: 0;
   width: auto;
-  height: calc(100% - var(--nav-h) - 14px); /* stands clear of the floating nav */
+  height: calc(100% - var(--nav-h) - 14px);
   z-index: 0;
 }
 .page-hero + .sec { padding-top: 64px; }
@@ -1792,8 +1700,6 @@ a.badge:hover { transform: translateY(-2px); }
   border-radius: 6px;
 }
 
-/* Legal documents: long-form, mixed case, readable. The game sets its legal
-   scroll in mixed case for the same reason (UI_DESIGN_SYSTEM.md §3). */
 .doc {
   max-width: 820px;
   margin: 0 auto;
@@ -1845,9 +1751,6 @@ a.badge:hover { transform: translateY(-2px); }
 .lost img { width: min(300px, 70vw); height: auto; margin: 0 auto 10px; transform: rotate(168deg); }
 .lost p { margin: 16px auto 26px; max-width: 40ch; font-weight: 700; }
 
-/* ==========================================================================
-   Motion
-   ========================================================================== */
 .rise {
   opacity: 0;
   transform: translateY(24px);

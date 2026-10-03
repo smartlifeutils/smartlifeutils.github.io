@@ -1,15 +1,3 @@
-/* Wave Rider — the live sea on the home page.
-
-   A small toy built from the game's own data, not a port of it:
-   - each sea's palette, swell and backdrop come from its WorldDefinition,
-     WaterBiome and WaveProfile assets (amplitude and wavelength scaled up to
-     what a mid-run sea looks like, since a toy has no 1,500 m ramp);
-   - each hull is fitted the way BoatVisual fits it: the PNG's full width is
-     hullLength × hullSpriteScale metres, the skipper's 1024 px canvas is
-     1.35 m × captainScale, centred at the deck line + captainOffset;
-   - the trick names and the two-pedal controls are D/01's.
-   The physics is a toy: one buoyancy spring, ballistic flight, a torque in
-   the air. The game floats every hull on real float points. */
 (function () {
   "use strict";
 
@@ -22,10 +10,6 @@
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ------------------------------------------------------------------ data */
-
-  // BoatDefinition_*.asset, the fields that place the art and the four that
-  // shape how it rides. Captain draw: 0 over the hull, 1 inside it, 2 hidden.
   var BOATS = {
     "motor-dinghy": {
       len: 3.6, fit: 1.48, off: [0, 0.364], hullH: 0.78, draft: 0.24,
@@ -49,9 +33,6 @@
     }
   };
 
-  // WorldDefinition palette + WaterBiome colours + WaveProfile swell.
-  // amp/len are the asset's primary swell × a mid-run ramp; steep is the
-  // Gerstner crest sharpness the toy draws with.
   var SEAS = {
     "calm-lake": {
       sky: ["#a8c8de", "#ebd9c4"], far: "#2a6678", back: "#2e7e8c",
@@ -90,9 +71,6 @@
     }
   };
 
-  // How each sea's resident sits on the water: width in metres, how deep it
-  // floats (fraction of its height under the surface), and what riding into
-  // it does. "lift" throws the boat up, the hop names are D/06's.
   var ACTORS = {
     paddleboarder: { w: 3.2, sink: 0.08, say: "Sorry!", topple: true },
     hippo: { w: 3.6, sink: 0.55, say: "Hey!", lift: 7.5 },
@@ -104,8 +82,6 @@
   var G = 9.81;
   var TAU = Math.PI * 2;
 
-  /* -------------------------------------------------------------- images */
-
   var images = {};
   function img(key) {
     var meta = ART[key];
@@ -114,15 +90,11 @@
     if (!cached) {
       cached = images[key] = new Image();
       cached.decoding = "async";
-      // A paused sea (off screen, reduced motion) draws again as art lands,
-      // so its still frame is never missing a picture.
       cached.onload = function () { if (!running && S) render(0); };
       cached.src = meta.src;
     }
     return cached.complete && cached.naturalWidth ? cached : null;
   }
-
-  /* --------------------------------------------------------------- state */
 
   var state = {
     boat: "motor-dinghy",
@@ -132,13 +104,13 @@
     brake: false,
     started: false
   };
-  var B, S;           // current boat / sea data
-  var hull;           // the boat's physical state
-  var run;            // distance, coins, best
-  var coins = [];     // pickups on the water
-  var actors = [];    // the sea's residents
-  var parts = [];     // spray
-  var skipper = null; // the flying skipper after a wipeout
+  var B, S;
+  var hull;
+  var run;
+  var coins = [];
+  var actors = [];
+  var parts = [];
+  var skipper = null;
 
   var W = 0, H = 0, dpr = 1, ppm = 50;
   var cam = { x: 0, y: 0 };
@@ -155,7 +127,7 @@
     try { return +localStorage.getItem(bestKey()) || 0; } catch (e) { return 0; }
   }
   function saveBest(v) {
-    try { localStorage.setItem(bestKey(), String(v)); } catch (e) { /* private mode */ }
+    try { localStorage.setItem(bestKey(), String(v)); } catch (e) {  }
   }
 
   function resetHull(x) {
@@ -196,15 +168,10 @@
     newRun();
   }
 
-  /* --------------------------------------------------------------- waves */
-
-  // One Gerstner component evaluated at a horizontal position X: invert the
-  // trochoid's horizontal shift with a few fixed-point steps, then read its
-  // height. Travels toward +x, so the swell overtakes a boat at rest (D/01).
   function gerstner(X, t, A, L, speed, steep, phase) {
     var k = TAU / L;
     var c = Math.sqrt(G / k) * speed;
-    var q = steep / k; // horizontal amplitude: steepness = q·k
+    var q = steep / k;
     var p = k * (X - c * t) + phase;
     var x0 = p;
     for (var i = 0; i < 4; i++) x0 = p + steep * Math.sin(x0);
@@ -218,8 +185,6 @@
       0.04 * Math.sin(x * 2.7 + t * 1.6);
   }
 
-  /* ------------------------------------------------------------- physics */
-
   function topSpeed() { return 5 + B.top * 0.95; }
 
   function step(dt) {
@@ -227,20 +192,15 @@
     var h = hull;
     var half = B.len * 0.45;
 
-    // Surface under the hull, and its angle across the hull's length.
     var ys = surf(h.x - half, t);
     var yb = surf(h.x + half, t);
     var yc = surf(h.x, t);
     var target = (ys + yb) * 0.25 + yc * 0.5;
-    // How fast the water under the hull is rising or falling: the hull is
-    // damped against that, not against standing still, so the momentum a
-    // face gives it carries on over the crest.
     var vsurf = h.prevTarget === null ? 0 : (target - h.prevTarget) / dt;
     h.prevTarget = target;
     var slope = Math.atan2(yb - ys, half * 2);
 
     if (h.dead) {
-      // Upside down, drifting, until the reset.
       h.deadT += dt;
       h.vx *= Math.pow(0.4, dt);
       h.x += h.vx * dt;
@@ -258,7 +218,6 @@
     var vt = topSpeed();
     var thrust = vt * 0.75;
 
-    // Lowest corner of the hull against the water decides contact.
     var cos = Math.cos(h.th), sin = Math.sin(h.th);
     var sternY = h.y - half * sin, bowY = h.y + half * sin;
     var sternX = h.x - half * cos, bowX = h.x + half * cos;
@@ -269,14 +228,12 @@
     if (!h.air && gap > 0.2) takeoff();
 
     if (!h.air) {
-      // Buoyancy: a stiff spring up to the surface, gravity always on.
       var sub = target - h.y;
       var ay = -G;
       if (sub > -0.05) ay += Math.max(0, sub + 0.05) * 140 - (h.vy - vsurf) * 9;
       h.vy += ay * dt;
       h.y += h.vy * dt;
 
-      // Drive: thrust only with the prop in the water, drag, and the slope.
       var ax = -G * Math.sin(slope) * 0.45 - h.vx * Math.abs(h.vx) * (thrust / (vt * vt)) - h.vx * 0.08;
       if (state.throttle && !state.brake) ax += thrust;
       else if (state.throttle && state.brake) ax += thrust * 0.5;
@@ -284,8 +241,6 @@
       h.vx += ax * dt;
       if (h.vx < -vt * 0.35) h.vx = -vt * 0.35;
 
-      // Pitch: the hull lies on the water, the bow lifts under throttle and
-      // drops under the brake (D/01: the brake is bow-down trim).
       var trim = 0;
       if (state.throttle) trim += 0.07 * Math.min(1, h.vx / vt + 0.3);
       if (state.brake) trim -= 0.12;
@@ -294,7 +249,6 @@
       h.w += (dth * 48 - h.w * 10) * dt;
       h.th += h.w * dt;
 
-      // Rolled past the boat's capsize window for too long: over she goes.
       var tilt = Math.abs(wrap(h.th - slope));
       var limit = B.capsize * Math.PI / 180;
       if (tilt > Math.PI / 2) h.tipped = true;
@@ -309,12 +263,10 @@
         }
       }
 
-      // Spray off the stern when on the plane.
       if (state.throttle && h.vx > vt * 0.5 && Math.random() < dt * 40) {
         spray(sternX, surf(sternX, t) + 0.1, -h.vx * 0.25, 1.5 + Math.random() * 2, 1);
       }
     } else {
-      // Flight: gravity, a little air drag, and the pedals as torque.
       h.airT += dt;
       h.vy -= G * dt;
       h.vx *= Math.pow(0.97, dt);
@@ -329,14 +281,12 @@
       var before = h.spin;
       h.th += h.w * dt;
       h.spin += h.w * dt;
-      // A completed rotation counts the moment it completes.
       var flips = Math.floor(Math.abs(h.spin) / TAU);
       if (flips > Math.floor(Math.abs(before) / TAU)) h.pendingFlips = flips;
     }
 
     h.x += h.vx * dt;
 
-    // Ride into the sea's resident.
     for (var i = 0; i < actors.length; i++) touchActor(actors[i]);
   }
 
@@ -348,7 +298,6 @@
     h.spin = 0;
     h.pendingFlips = 0;
     h.takeoffX = h.x;
-    // The hull is a ramp: leaving the water nose-up at speed throws it higher.
     h.vy += Math.max(0, Math.sin(h.th)) * Math.max(0, h.vx) * 0.32;
   }
 
@@ -365,7 +314,6 @@
 
     var t = h.airT;
     if (t > 0.45) {
-      // AIRBORNE → SENT → ORBIT: the apex tiers the air-time pay (D/01).
       var tier = h.apex > 5 ? ["Orbit", 2.5] : h.apex > 2.6 ? ["Sent", 1.5] : ["Airborne", 1];
       award(tier[0], Math.max(50, Math.round(t * tier[1] * 2) * 25));
     }
@@ -374,12 +322,10 @@
     if (rel < 0.14 && t > 0.35) {
       award("Perfect landing", 150);
     } else if (rel > 0.55) {
-      // A brutal landing does not kill; it costs the speed you came in with.
       h.vx *= 0.55;
       h.w += (h.th > slope ? -1 : 1) * 2;
     }
 
-    // WAVE HOP: a flight that crossed a trough, streaking if you go again fast.
     if (h.x - h.takeoffX > S.wl * 0.45) {
       h.hopStreak = state.t - h.lastLand < 1.4 ? h.hopStreak + 1 : 1;
       award(h.hopStreak > 1 ? "Wave hop ×" + h.hopStreak : "Wave hop", 100 * h.hopStreak);
@@ -402,11 +348,8 @@
     pop('<span>Splash!</span>');
   }
 
-  /* -------------------------------------------------------- the course */
-
   function spawn() {
     var ahead = hull.x + W / ppm;
-    // Coin domes sitting on the water, like the game's (D/01).
     while (run.nextCoins < ahead) {
       var n = 5 + Math.floor(Math.random() * 3);
       for (var i = 0; i < n; i++) {
@@ -455,8 +398,6 @@
     }
   }
 
-  /* -------------------------------------------------------- feedback */
-
   var pops = root.querySelector("[data-pops]");
   var hintEl = root.querySelector("[data-hint]");
   var coinEl = root.querySelector("[data-coins]");
@@ -474,7 +415,6 @@
     el.className = "pop";
     el.innerHTML = html;
     pops.appendChild(el);
-    // Three rows at most, the lane closes up as each expires (D/01 HUD).
     while (pops.children.length > 3) pops.removeChild(pops.firstChild);
     setTimeout(function () {
       el.classList.add("is-out");
@@ -515,8 +455,6 @@
     return a - Math.PI;
   }
 
-  /* ------------------------------------------------------------- render */
-
   function resize() {
     var r = canvas.getBoundingClientRect();
     dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -524,12 +462,10 @@
     H = Math.max(1, r.height);
     canvas.width = Math.round(W * dpr);
     canvas.height = Math.round(H * dpr);
-    // The view scales with the boat, barely with the sea (D/01 Camera).
     var viewH = 7.5 + (B ? B.len : 4) * 0.9;
     ppm = H / viewH;
   }
 
-  // World metres to screen pixels.
   function sx(x) { return (x - cam.x) * ppm + W * 0.3; }
   function sy(y) { return H * 0.6 - (y - cam.y) * ppm; }
 
@@ -543,10 +479,6 @@
     return horizon;
   }
 
-  // A parallax ring of backdrop strips, tiled like the game's Continuous
-  // mode: every slot filled, sprites alternating by a hash of the slot. Each
-  // strip carries a solid skirt under its silhouette for the water to cover;
-  // `sink` is how much of the strip sits below the horizon.
   function ring(names, horizon, parallax, scale, sink) {
     var first = img("backdrop:" + state.sea + ":" + names[0]);
     if (!first) return;
@@ -571,7 +503,6 @@
     var shift = cam.x * parallax;
     var start = Math.floor((shift - 20) / every);
     for (var i = start; i < start + 6; i++) {
-      // One slot in three is empty, the rest alternate (D/08's Sparse ring).
       var hsh = ((i * 2246822519) >>> 0) % 3;
       if (hsh === 0) continue;
       var name = S.marks[hsh % S.marks.length];
@@ -621,7 +552,6 @@
   }
 
   function drawBackWater(horizon) {
-    // The back band: a slower, smaller swell between the horizon and the sea.
     ctx.fillStyle = S.back;
     ctx.beginPath();
     ctx.moveTo(0, H);
@@ -638,7 +568,6 @@
   function drawWater() {
     var w = S.water;
     var A = S.amp + S.amp2;
-    // Cel bands that follow the swell, damped with depth like real orbitals.
     bodyPath(0, 1);
     ctx.fillStyle = w[0];
     ctx.fill();
@@ -649,7 +578,6 @@
       ctx.fill();
     }
 
-    // Light streaks drifting through the top band.
     ctx.save();
     ctx.globalAlpha = 0.28;
     ctx.strokeStyle = S.band;
@@ -669,7 +597,6 @@
     }
     ctx.restore();
 
-    // The surface line: dark rim, light crest, white foam on the tops.
     ctx.lineJoin = "round";
     ctx.beginPath();
     for (var j = 0; j < col.length; j++) ctx.lineTo(col[j][0], sy(col[j][1]));
@@ -700,8 +627,6 @@
     ctx.globalAlpha = 1;
   }
 
-  // Draw a sprite whose crop box sits inside a source frame of frameW × frameH
-  // metres centred at (cx, cy) in the current (pixel, y-down) transform.
   function framed(key, cx, cy, frameW) {
     var meta = ART[key];
     var im = img(key);
@@ -733,8 +658,6 @@
     if (showCap && B.cap.draw === 0) drawCaptain(deckY);
     ctx.restore();
 
-    // The part of the hull under the surface takes the sea's colour, the way
-    // the game's hull shader does it (BoatVisual: submergedShade).
     ctx.save();
     var r = B.len * B.fit * ppm * 0.65;
     ctx.beginPath();
@@ -782,7 +705,6 @@
       var y0 = surf(a.x, state.t);
       ctx.save();
       if (spec.leap) {
-        // The manta leaps clean out ahead and slaps down (D/06).
         var cyc = (state.t + a.t0) % 5;
         if (cyc > 1.4) { ctx.restore(); continue; }
         var u = cyc / 1.4;
@@ -816,7 +738,6 @@
         ctx.globalAlpha = 1 - age / 0.35;
         y -= age * 3 * ppm;
       }
-      // A coin spins: squash its width on a slow cycle.
       var spin = Math.abs(Math.cos(state.t * 3 + c.x));
       var w = s * (0.35 + 0.65 * spin);
       if (im) ctx.drawImage(im, x - w / 2, y - s / 2, w, s);
@@ -848,7 +769,6 @@
 
   function fog() {
     if (!S.fog) return;
-    // Loch Ness: the fog takes the horizon and hides what is ahead (D/06).
     var g = ctx.createLinearGradient(W * 0.45, 0, W, 0);
     g.addColorStop(0, "rgba(126,150,152,0)");
     g.addColorStop(1, "rgba(126,150,152,0.55)");
@@ -861,14 +781,12 @@
     var horizon = drawSky();
     clouds();
     ring(S.far1, horizon, 0.1, 0.36, 0.5);
-    // Distance haze over the far ring (WaterBiome farBandHaze).
     ctx.fillStyle = S.sky[1];
     ctx.globalAlpha = S.haze * 0.5;
     ctx.fillRect(0, horizon - 2.4 * ppm, W, 2.4 * ppm);
     ctx.globalAlpha = 1;
     landmarks(horizon);
     ring(S.mid, horizon, 0.22, 0.34, 0.62);
-    // The far water band, from the horizon down; it hides the rings' skirts.
     ctx.fillStyle = S.far;
     ctx.fillRect(0, horizon, W, H - horizon);
     drawBackWater(horizon);
@@ -881,8 +799,6 @@
     drawParts(dt);
     fog();
   }
-
-  /* --------------------------------------------------------------- loop */
 
   var running = false;
   var visible = true;
@@ -898,8 +814,6 @@
       step(h);
       acc -= h;
     }
-    // Camera: the boat at ~30% across (Hill Climb framing); vertical framing
-    // follows the water, and climbs toward the boat in the air.
     cam.x += (hull.x - cam.x) * Math.min(1, dt * 8);
     var airY = hull.air ? Math.max(0, hull.y - 1.5) * 0.8 : 0;
     cam.y += (airY - cam.y) * Math.min(1, dt * (hull.air ? 3 : 1.6));
@@ -930,8 +844,6 @@
   }
   function stop() { running = false; }
 
-  /* -------------------------------------------------------------- input */
-
   function setPedal(which, down) {
     state[which] = down;
     var el = root.querySelector('[data-pedal="' + which + '"]');
@@ -956,7 +868,6 @@
     el.addEventListener("pointercancel", up);
     el.addEventListener("lostpointercapture", up);
     el.addEventListener("contextmenu", function (e) { e.preventDefault(); });
-    // Keyboard users: Space or Enter on a focused pedal holds it.
     el.addEventListener("keydown", function (e) {
       if ((e.key === " " || e.key === "Enter") && !e.repeat) { e.preventDefault(); setPedal(which, true); }
     });
@@ -965,7 +876,6 @@
     });
   });
 
-  // Arrow keys and A/D drive the toy while it is on screen.
   var KEYS = { ArrowRight: "throttle", KeyD: "throttle", ArrowLeft: "brake", KeyA: "brake" };
   function keyFor(e) {
     if (!visible) return null;
@@ -988,7 +898,6 @@
     setPedal("brake", false);
   });
 
-  // Boat and sea pickers.
   var picker = root.parentNode.querySelector("[data-picker]");
   if (picker) {
     picker.addEventListener("click", function (e) {
@@ -1009,16 +918,12 @@
     });
   }
 
-  /* -------------------------------------------------------------- boot */
-
   readPicker();
   B = BOATS[state.boat];
   S = SEAS[state.sea];
   resize();
   newRun();
 
-  // Fetch what the current boat and sea draw; anything else loads the first
-  // time it is picked (img() draws nothing until its picture lands).
   function warm() {
     Object.keys(ART).forEach(function (key) {
       if (key.indexOf("backdrop:" + state.sea + ":") === 0 || key === "boat:" + state.boat ||
@@ -1050,13 +955,11 @@
     start();
   }
 
-  // For tests: drive the toy without the pedals.
   window.__waveToy = {
     state: state,
     hull: function () { return hull; },
     run: function () { return run; },
     setPedal: setPedal,
-    // Step the sea by hand (a hidden tab gets no animation frames).
     tick: function (seconds) {
       for (var i = 0; i < Math.round(seconds * 60); i++) advance(1 / 60);
     }

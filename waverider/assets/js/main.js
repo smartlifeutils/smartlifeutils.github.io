@@ -1,13 +1,8 @@
-/* Wave Rider — page behaviour. Everything here is an enhancement: with JS off
-   the page reads top to bottom, the nav is a list of links and the garage
-   cards simply show their levels. The live sea is sea.js. */
 (function () {
   "use strict";
 
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  /* ---- Nav: clear over the top of the page, a solid panel once it scrolls
-     (or while its menu is open) ---- */
   var nav = document.querySelector(".nav");
   var syncNav = function () {
     if (!nav) return;
@@ -17,7 +12,6 @@
   window.addEventListener("scroll", syncNav, { passive: true });
   syncNav();
 
-  /* ---- Mobile nav ---- */
   var toggle = document.querySelector(".nav__toggle");
   var menu = document.getElementById("menu");
   if (toggle && menu) {
@@ -37,21 +31,16 @@
     });
   }
 
-  /* ---- Current page in the nav ---- */
   var page = window.location.pathname.split("/").pop() || "index.html";
   document.querySelectorAll(".nav__menu a").forEach(function (a) {
     var href = a.getAttribute("href");
     if (href === page || href === page + ".html") a.setAttribute("aria-current", "page");
   });
 
-  /* ---- Footer year ---- */
   document.querySelectorAll("[data-year]").forEach(function (el) {
     el.textContent = new Date().getFullYear();
   });
 
-  /* ---- Rise into view ----
-     Anything already on screen at load is shown at once, so a reload or a
-     jump to an anchor never flashes empty cards. */
   var rises = document.querySelectorAll(".rise");
   if (!reduce && "IntersectionObserver" in window) {
     var vh = window.innerHeight;
@@ -71,7 +60,6 @@
         io.observe(el);
       }
     });
-    // Siblings in a grid come in one after another rather than as a block.
     document.querySelectorAll(".fleet, .worlds, .lanes, .daily, .trick-list, .howto").forEach(function (grid) {
       Array.prototype.forEach.call(grid.children, function (child, i) {
         if (child.classList.contains("rise") && !child.style.transition) {
@@ -83,11 +71,6 @@
     rises.forEach(function (el) { el.classList.add("is-in"); });
   }
 
-  /* ---- The garage: tap a lane to buy a level ----
-     The Rescue RIB's own numbers (D/05, D/09): PlaningWork, every lane FINE
-     (20 levels), base 1,250 coins, each level costs base × 1.28ⁿ, rounded to
-     a hundred from 10,000 up. The effect line is the family's full-max total
-     × level / cap, the way the game prints it. */
   var garage = document.querySelector("[data-garage]");
   var balanceEl = document.querySelector("[data-balance]");
   if (garage && balanceEl) {
@@ -100,8 +83,6 @@
       hull: function (t) { return "-" + Math.round(0.30 * t * 100) + "% drag"; },
       bite: function (t) { return "+" + Math.round(0.60 * t * 100) + "% grip"; },
       angle: function (t) { return "+" + Math.round(0.80 * t * 100) + "% control"; },
-      // RANGE prints tank and thrift as one number: tank grows 0.6×, drain
-      // falls 0.4× of the lane's total.
       range: function (t) {
         var x = 0.55 * t;
         return "+" + Math.round(((1 + 0.6 * x) / (1 - 0.4 * x) - 1) * 100) + "% range";
@@ -109,7 +90,6 @@
     };
 
     var group = function (n) { return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); };
-    // UiKit.ShortCount: whole numbers under 10k, one decimal to 100k, then none.
     var short = function (n) {
       if (n < 10000) return group(n);
       if (n < 100000) return (Math.round(n / 100) / 10).toFixed(1).replace(/\.0$/, "") + "k";
@@ -154,7 +134,7 @@
         balance -= price;
         lane.setAttribute("data-level", level + 1);
         lane.classList.remove("is-bumped");
-        void lane.offsetWidth; // restart the bump
+        void lane.offsetWidth;
         lane.classList.add("is-bumped");
         renderAll();
       });
@@ -162,8 +142,6 @@
     renderAll();
   }
 
-  /* ---- Screenshot lightbox ----
-     Any image in .shots opens large. Esc, a click outside or the arrow keys. */
   var shots = Array.prototype.slice.call(document.querySelectorAll(".shots img"));
   if (shots.length) {
     var box = document.createElement("div");

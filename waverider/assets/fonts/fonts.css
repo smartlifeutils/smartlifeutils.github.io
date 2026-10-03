@@ -1,7 +1,3 @@
-/* Self-hosted, latin subset, written by tools/build-assets.py.
-   Lilita One is the game's one UI face (OFL 1.1, the game's own copy).
-   Nunito carries the body copy the game never has to set (OFL 1.1). */
-
 @font-face {
   font-family: "Lilita One";
   font-style: normal;

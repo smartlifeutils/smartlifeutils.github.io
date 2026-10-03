@@ -30,7 +30,6 @@
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
 
-  <!-- ============ NAV ============ -->
   <header class="nav">
     <div class="nav__in">
       <a class="brand" href="index.html">
@@ -51,7 +50,6 @@
   </header>
 
   <main id="main">
-    <!-- ============ HERO: the boot splash ============ -->
     <section class="hero" aria-labelledby="hero-title">
       <h1 id="hero-title" class="sr-only">Wave Rider: Boat Stunt Racing</h1>
       <div class="hero__media">
@@ -62,8 +60,6 @@
                sizes="100vw" width="1795" height="876" fetchpriority="high"
                alt="The Wave Rider skipper launches a red inflatable off a breaking wave" />
         </picture>
-        <!-- The sea rolling out of the art: three bands of the game's water,
-             each its own speed, drawn by tools/build-assets.py (surf()). -->
         <div class="surf" aria-hidden="true">
           <span class="surf__band surf__band--back"><i></i></span>
           <span class="surf__band surf__band--mid"><i></i></span>
@@ -84,7 +80,6 @@
 
     </section>
 
-    <!-- ============ RIDE: the live sea ============ -->
     <section class="sec sec--sea sec--flat ride" id="ride">
       <div class="wrap">
         <header class="head rise">
@@ -135,7 +130,6 @@
       </div>
     </section>
 
-    <!-- ============ TRICKS ============ -->
     <section class="sec sec--deep" id="tricks">
       <div class="wrap">
         <div class="tricks">
@@ -145,8 +139,6 @@
             <img class="stunt__coin" style="left:14%;bottom:42%" src="assets/img/ui/coin.webp" width="160" height="161" alt="" />
             <img class="stunt__coin" style="left:22%;bottom:51%" src="assets/img/ui/coin.webp" width="160" height="161" alt="" />
             <div class="stunt__boat">
-              <!-- The skipper where BoatVisual seats him on the jet ski:
-                   captainOffset (-0.39, 0.6), captainScale 1.2, over the hull. -->
               <img src="assets/img/boats/jet-ski.webp" width="900" height="384" alt="" />
               <img class="stunt__rider" src="assets/img/captain/sitting.webp" width="420" height="492" alt="" />
             </div>
@@ -186,7 +178,6 @@
       </div>
     </section>
 
-    <!-- ============ BOATS ============ -->
     <section class="sec sec--sand" id="boats">
       <div class="wrap">
         <header class="head rise">
@@ -266,7 +257,6 @@
       </div>
     </section>
 
-    <!-- ============ SEAS ============ -->
     <section class="sec sec--sky" id="seas">
       <div class="wrap">
         <header class="head rise">
@@ -360,7 +350,6 @@
       </div>
     </section>
 
-    <!-- ============ GARAGE ============ -->
     <section class="sec sec--navy dock" id="garage">
       <div class="wrap">
         <header class="head rise">
@@ -429,7 +418,6 @@
       <div class="planks" aria-hidden="true"></div>
     </section>
 
-    <!-- ============ DAILY ============ -->
     <section class="sec sec--sky" id="daily">
       <div class="wrap">
         <header class="head rise">
@@ -473,12 +461,6 @@
       </div>
     </section>
 
-    <!-- ============ TRAILER ============
-         Hidden until the gameplay trailer exists. To switch it on: put the file
-         at assets/video/trailer.mp4, a poster frame at
-         assets/video/trailer-poster.jpg, add poster="assets/video/trailer-poster.jpg"
-         to the <video>, then delete the `hidden` attribute. (The poster is left
-         off until then: a hidden <video> still fetches its poster.) -->
     <section class="sec sec--deep" id="trailer" hidden>
       <div class="wrap">
         <header class="head">
@@ -492,22 +474,16 @@
       </div>
     </section>
 
-    <!-- ============ SCREENSHOTS ============
-         Hidden until real captures exist (README: "Screenshots"). Drop them in
-         assets/img/shots/, list them here, and delete the `hidden` attribute.
-         main.js opens any image in .shots in the lightbox. -->
     <section class="sec sec--deep" id="screenshots" hidden>
       <div class="wrap">
         <header class="head">
           <h2 class="h-display">Screenshots</h2>
         </header>
         <div class="shots" tabindex="0" role="region" aria-label="Screenshots">
-          <!-- <img src="assets/img/shots/1.webp" width="1440" height="810" loading="lazy" alt="…" /> -->
         </div>
       </div>
     </section>
 
-    <!-- ============ DOWNLOAD ============ -->
     <section class="sec sec--sun" id="download">
       <span class="sun" aria-hidden="true"></span>
       <div class="wrap get">
@@ -539,7 +515,6 @@
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
   <footer class="footer">
     <div class="wrap">
       <div class="footer__grid">
