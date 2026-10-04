@@ -962,8 +962,10 @@ a.badge:hover { transform: translateY(-2px); }
 .stats dd { margin: 0; }
 .meter {
   --v: 5;
+  --m: 0;
   --n: 10;
   position: relative;
+  isolation: isolate;
   display: block;
   height: 14px;
   background: #0c2440;
@@ -979,6 +981,21 @@ a.badge:hover { transform: translateY(-2px); }
   background: var(--gold);
   -webkit-mask: repeating-linear-gradient(90deg, #000 0 calc(100% / var(--v) - 3px), transparent 0 calc(100% / var(--v)));
   mask: repeating-linear-gradient(90deg, #000 0 calc(100% / var(--v) - 3px), transparent 0 calc(100% / var(--v)));
+}
+.meter::after {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  z-index: -1;
+  width: calc((100% - 4px) * var(--m) / var(--n));
+  background: #7a6b39;
+  -webkit-mask: repeating-linear-gradient(90deg, #000 0 calc(100% / var(--m) - 3px), transparent 0 calc(100% / var(--m)));
+  mask: repeating-linear-gradient(90deg, #000 0 calc(100% / var(--m) - 3px), transparent 0 calc(100% / var(--m)));
+}
+.fleet-key {
+  margin: 10px 0 0;
+  color: var(--muted-ink);
+  font-size: 0.95rem;
 }
 
 .boat-card--locked {

@@ -58,7 +58,7 @@ does not make 1.0, delete its `<article class="world">` and its picker button in
 |---|---|
 | Boat unlock order ("2nd unlock"…) and sea free-path distances | `BoatDefinition_*.asset` `unlockCost` (the garage sorts by it), `WorldDefinition_*.asset` `unlockMilestoneMetres` |
 | Boat promises | `Docs/Design/04_BOAT_CATALOG.md` |
-| Stat pips (0–10) | Asset values, floored and capped at 10: speed = `targetTopSpeed` × 0.6, air = `airTorque` ÷ 16, stability = (`capsizeAngle` − 68) ÷ 5, range = `tankSize` ÷ `drainRate` × `targetTopSpeed` ÷ 50 |
+| Stat pips (1–10): `--v` stock, `--m` fully upgraded | The game's garage meters (`Docs/Design/05_UPGRADES.md` *The garage meters*). Copy them from the log of the EditMode test `BoatStatsTests.MeterTable` — never re-derive them here |
 | Sea signatures, stars, actors and their lines | `Docs/Design/06_WORLD_CATALOG.md`, `mutatorLabel` / `mutatorHint` on each world |
 | Trick names and payouts | `Docs/Design/01_CORE_LOOP_AND_CONTROLS.md` *Scoring* (only the fixed numbers: +50/s air, +200 flip, +300 the big one) |
 | Garage demo | The Rescue RIB: PlaningWork family totals from `05_UPGRADES.md`, base 1,250, cost = base × 1.28ⁿ, rounded per `UpgradeTable.RoundCost` |
