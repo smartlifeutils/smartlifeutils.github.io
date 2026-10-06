@@ -116,7 +116,7 @@ no animation frames).
 | Where | Shot |
 |---|---|
 | `#screenshots`, the gallery after the live sea | Jet Ski Pacific launch, RIB with Nessie, the hippo, Speedboat on the Caribbean, garage, results |
-| `#tricks`, the big picture | Jet Ski backflip over the Nile (ORBIT +125, FLIP +200 in the popup lane) |
+| `#tricks`, the big picture | Jet Ski backflip over the Nile (ORBIT +50 and FLIP +200 in the popup lane, the Triple Axel secret found) |
 | `#tricks`, the wipeout box | Motor Dinghy capsized on the Calm Lake (the clean capture: the HUD one shows a stray "+82 BADGES") |
 
 To change them: recapture into that folder, update `SCREENSHOTS` and the matching thumbnails
