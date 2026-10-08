@@ -19,6 +19,7 @@ ART = GAME / "WaveRider/Assets/_Game/Art"
 SRC = GAME / "ArtSource"
 BRAND = GAME / "Docs/Branding/Assets"
 SHOTS = GAME / "WaveRider/Build/screenshots/website"
+STORE = GAME / "WaveRider/Build/store-shots/play"
 OUT = SITE / "assets/img"
 
 BOATS = {
@@ -43,14 +44,16 @@ ACTORS = {
     "jet-ski-rider": "JetSki",
 }
 SCREENSHOTS = {
-    "jetski-pacific": "01_jetski_pacific_launch_hud",
-    "jetski-backflip": "02_jetski_nile_backflip_hud",
-    "dinghy-capsize": "03_dinghy_calmlake_capsize",
-    "rib-lochness": "04_rib_lochness_nessie_hud",
-    "dinghy-hippo": "05_dinghy_nile_hippo_hud",
-    "speedboat-caribbean": "06_speedboat_caribbean_manta",
-    "garage": "07_garage_tune_rib",
-    "results": "08_results_new_best",
+    "jetski-backflip": SHOTS / "02_jetski_nile_backflip_hud",
+    "dinghy-capsize": SHOTS / "03_dinghy_calmlake_capsize",
+    "crest": STORE / "01-crest",
+    "flip": STORE / "02-flip",
+    "nile": STORE / "05-nile",
+    "caribbean": SHOTS / "06_speedboat_caribbean_manta_caption",
+    "boats": STORE / "03-garage",
+    "upgrades": STORE / "06-tune",
+    "missions": STORE / "07-missions",
+    "offline": STORE / "08-calm",
 }
 
 manifest = {}
@@ -276,11 +279,11 @@ def surf():
 
 def screenshots():
     print("screenshots")
-    if not SHOTS.is_dir():
-        print(f"  skipped: no {SHOTS}")
-        return
-    for slug, name in SCREENSHOTS.items():
-        img = Image.open(SHOTS / f"{name}.png").convert("RGB")
+    for slug, src in SCREENSHOTS.items():
+        if not src.with_suffix(".png").is_file():
+            print(f"  skipped: no {src}.png")
+            continue
+        img = Image.open(src.with_suffix(".png")).convert("RGB")
         save(fit_width(img, 1600), f"shots/{slug}-1600.webp", 82)
         save(fit_width(img, 480), f"shots/{slug}-480.webp", 80)
 

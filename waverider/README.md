@@ -109,18 +109,35 @@ no animation frames).
 
 ## Screenshots and trailer
 
-**Screenshots** are real captures from the game, 1920×1080, kept in the Unity repo at
-`WaveRider/Build/screenshots/website/`. `tools/build-assets.py` exports the ones listed in its
-`SCREENSHOTS` table to `assets/img/shots/` (1600 and 480 wide WebP). They appear in three places:
+**Screenshots** are real captures from the game, 1920×1080, from two folders in the Unity repo:
+the store set at `WaveRider/Build/store-shots/play/` (framed, with the store captions burned in;
+see `Tools/store-shots/`) and the plain captures at `WaveRider/Build/screenshots/website/`.
+`tools/build-assets.py` exports the ones listed in its `SCREENSHOTS` table to `assets/img/shots/`
+(1600 and 480 wide WebP). They appear in three places:
 
 | Where | Shot |
 |---|---|
-| `#screenshots`, the gallery after the live sea | Jet Ski Pacific launch, RIB with Nessie, the hippo, Speedboat on the Caribbean, garage, results |
+| `#screenshots`, the gallery after the live sea | The store set: JUMP HUGE WAVES, FLIP IT. LAND IT., FROM THE NILE TO THE PACIFIC, MEET THE LOCALS, FROM DINGHY TO RESCUE RIB, UPGRADE ENGINE, HULL AND MORE, DAILY MISSIONS AND BADGES, PLAY OFFLINE, NO ACCOUNT. REAL WATER PHYSICS is left out: the frame is dimmed and the wipeout box already shows a capsize |
 | `#tricks`, the big picture | Jet Ski backflip over the Nile (ORBIT +50 and FLIP +200 in the popup lane, the Triple Axel secret found) |
 | `#tricks`, the wipeout box | Motor Dinghy capsized on the Calm Lake (the clean capture: the HUD one shows a stray "+82 BADGES") |
 
-To change them: recapture into that folder, update `SCREENSHOTS` and the matching thumbnails
-(`.viewer__thumb`, whose `data-cap` is the caption) in `index.html`, and re-run the script.
+MEET THE LOCALS is not in the store set. It is the plain Caribbean capture
+(`06_speedboat_caribbean_manta.png`) run through the store caption tool, saved next to it as
+`06_speedboat_caribbean_manta_caption.png`:
+
+```bash
+mkdir -p /tmp/cap/raw/play && cp WaveRider/Build/screenshots/website/06_speedboat_caribbean_manta.png /tmp/cap/raw/play/caribbean.png
+echo '[{"name":"caribbean","caption":"MEET THE LOCALS"}]' > /tmp/cap/captions.json
+swiftc -O Tools/store-shots/caption.swift -o /tmp/cap/caption
+/tmp/cap/caption /tmp/cap/raw /tmp/cap/out /tmp/cap/captions.json WaveRider/Assets/_Game/Art/UI/Fonts/LilitaOne-Regular.ttf
+cp /tmp/cap/out/play/01-caribbean.png WaveRider/Build/screenshots/website/06_speedboat_caribbean_manta_caption.png
+```
+
+(run from the Unity repo root). The gallery shows 8 thumbnails in a 4-column grid; change
+`.viewer__thumbs` in `style.css` if the count changes.
+
+To change them: recapture, update `SCREENSHOTS` and the matching thumbnails
+(`.viewer__thumb`, whose `data-cap` is the caption under the picture) in `index.html`, and re-run the script.
 Captures must show launch content only.
 
 **Trailer**: the section is in `index.html` with a `hidden` attribute, so it can't show up empty.
