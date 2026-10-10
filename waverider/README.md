@@ -61,7 +61,7 @@ does not make 1.0, delete its `<article class="world">` and its picker button in
 
 | On the page | Source in the game repo |
 |---|---|
-| Boat unlock order ("2nd unlock"…) and sea free-path distances | `BoatDefinition_*.asset` `unlockCost` (the garage sorts by it), `WorldDefinition_*.asset` `unlockMilestoneMetres` |
+| Boat unlock order ("2nd unlock"…) and sea prices | `unlockCost` on `BoatDefinition_*.asset` (the garage sorts by it) and on `WorldDefinition_*.asset`. Every sea opens by coins only since 2026-10-08 (D/09 *Unlocks*); the free path is dormant |
 | Boat promises | `Docs/Design/04_BOAT_CATALOG.md` |
 | Stat pips (1–10): `--v` stock, `--m` fully upgraded | The game's garage meters (`Docs/Design/05_UPGRADES.md` *The garage meters*). Copy them from the log of the EditMode test `BoatStatsTests.MeterTable` — never re-derive them here |
 | Sea signatures, stars, actors and their lines | `Docs/Design/06_WORLD_CATALOG.md`, `mutatorLabel` / `mutatorHint` on each world |
