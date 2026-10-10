@@ -250,21 +250,6 @@ ol { margin: 0; padding: 0; list-style: none; }
 a.badge { transition: transform 0.12s ease; }
 a.badge:hover { transform: translateY(-2px); }
 
-.soon {
-  display: inline-block;
-  padding: 3px 12px 2px;
-  font-family: var(--display);
-  font-size: 0.95rem;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--ink);
-  background: var(--gold);
-  border: 3px solid var(--ink);
-  border-radius: 8px;
-  transform: rotate(-3deg);
-  box-shadow: 0 3px 0 var(--ink);
-}
-
 .nav {
   position: fixed;
   top: 0;
@@ -470,12 +455,12 @@ a.badge:hover { transform: translateY(-2px); }
 .hero__tag {
   font-size: clamp(1.7rem, 4.4vw, 2.6rem);
 }
-.hero__soon {
+.hero__out {
   font-weight: 800;
   font-size: 1rem;
   color: var(--paper);
 }
-.hero__soon strong { color: var(--gold); }
+.hero__out strong { color: var(--gold); }
 
 @media (min-width: 1280px) {
   .hero__art img { height: var(--hc); }
@@ -488,7 +473,7 @@ a.badge:hover { transform: translateY(-2px); }
     gap: 12px;
   }
   .hero__tag { font-size: clamp(1.6rem, 2.15vw, 2.4rem); }
-  .hero__soon { display: none; }
+  .hero__out { display: none; }
 }
 
 @media (max-width: 559px) {
@@ -501,7 +486,6 @@ a.badge:hover { transform: translateY(-2px); }
     height: auto;
     margin: -64px auto 4px;
   }
-  .hero .soon { display: none; }
   .badge img { height: 44px; }
 }
 

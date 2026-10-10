@@ -157,10 +157,9 @@ Put `assets/video/trailer.mp4` and `assets/video/trailer-poster.jpg` in place, a
 
 ## Before launch
 
-- [ ] **Store links.** Turn the `<span class="badge">` elements in `index.html` (hero and
-      `#download`) into links, drop the **Soon** stickers, and change "Coming soon" copy. Play's
-      URL is `https://play.google.com/store/apps/details?id=com.smartlife.waverider`; Apple's needs
-      the app id. Consider a `play.html` smart link like `../inkbounce/play.html`.
+- [x] **Store links.** The hero and `#download` badges link to the App Store
+      (`id6819839167`) and Google Play (`com.smartlife.waverider`); the copy says "Out now". A
+      `play.html` smart link like `../inkbounce/play.html` is still an option.
 - [ ] **Leaderboards.** The Captain rank tile mentions leaderboards; `STORE_LISTING.md` says to cut
       them if the Play Games ids are still `REPLACE_ME` at 1.0.
 - [ ] **Firebase.** The privacy policy (here and in `legal_content.json`) names Firebase Analytics
