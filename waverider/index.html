@@ -80,9 +80,36 @@
 
     </section>
 
-    <section class="sec sec--sea sec--flat ride" id="ride">
+    <section class="sec sec--sea sec--flat" aria-labelledby="watch-title">
       <div class="wrap">
         <header class="head rise">
+          <h2 class="h-display" id="watch-title">This is the game.</h2>
+          <p class="lede">Thirty seconds straight out of the game: big swell, bigger air, four boats and the garage that makes them faster.</p>
+        </header>
+        <div class="trailer rise" id="trailer" data-trailer>
+          <video controls playsinline preload="none" width="1920" height="1080" poster="assets/video/trailer-poster.jpg" aria-label="Wave Rider trailer">
+            <source src="assets/video/trailer.mp4" type="video/mp4" />
+          </video>
+          <button class="trailer__play" type="button" hidden>
+            <span class="trailer__btn" aria-hidden="true"></span>
+            <span class="trailer__label">Watch the trailer <b>0:30</b></span>
+          </button>
+          <div class="trailer__end" hidden>
+            <p class="trailer__end-title gt">Your turn</p>
+            <div class="stores">
+              <a class="badge" href="https://apps.apple.com/us/app/wave-rider-boat-stunt-racing/id6819839167" rel="noopener"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download Wave Rider on the App Store" /></a>
+              <a class="badge" href="https://play.google.com/store/apps/details?id=com.smartlife.waverider" rel="noopener"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get Wave Rider on Google Play" /></a>
+            </div>
+            <button class="plate trailer__again" type="button">Watch again</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--abyss ride" id="ride">
+      <div class="wrap">
+        <header class="head rise">
+          <span class="kicker">Now you try</span>
           <h2 class="h-display">The sea never stops moving</h2>
           <p class="lede">Every wave is built on the fly and keeps rolling even when you sit still. Your boat floats on it, tilts with it and gets thrown by it. Go on, take it out.</p>
         </header>
@@ -130,29 +157,12 @@
       </div>
     </section>
 
-    <section class="sec sec--abyss" id="screenshots">
+    <section class="sec sec--navy" id="screenshots">
       <div class="wrap">
         <header class="head rise">
-          <h2 class="h-display">That was the toy.<br />This is the game.</h2>
-          <p class="lede">Thirty seconds straight out of a run, then the stills: the swell, the stunts, the sea's residents and the garage you come back to.</p>
+          <h2 class="h-display">That was the toy.<br />The real sea is bigger.</h2>
+          <p class="lede">Straight out of a run: the swell, the stunts, the sea's residents and the garage you come back to.</p>
         </header>
-        <div class="trailer rise" id="trailer" data-trailer>
-          <video controls playsinline preload="none" width="1920" height="1080" poster="assets/video/trailer-poster.jpg" aria-label="Wave Rider trailer">
-            <source src="assets/video/trailer.mp4" type="video/mp4" />
-          </video>
-          <button class="trailer__play" type="button" hidden>
-            <span class="trailer__btn" aria-hidden="true"></span>
-            <span class="trailer__label">Watch the trailer <b>0:30</b></span>
-          </button>
-          <div class="trailer__end" hidden>
-            <p class="trailer__end-title gt">Your turn</p>
-            <div class="stores">
-              <a class="badge" href="https://apps.apple.com/us/app/wave-rider-boat-stunt-racing/id6819839167" rel="noopener"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download Wave Rider on the App Store" /></a>
-              <a class="badge" href="https://play.google.com/store/apps/details?id=com.smartlife.waverider" rel="noopener"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get Wave Rider on Google Play" /></a>
-            </div>
-            <button class="plate trailer__again" type="button">Watch again</button>
-          </div>
-        </div>
         <div class="viewer rise" data-viewer>
           <figure class="viewer__stage">
             <img class="viewer__img" src="assets/img/shots/crest-1600.webp" width="1600" height="900" alt="A Jet Ski launching off a Pacific crest" loading="lazy" />

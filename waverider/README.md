@@ -12,7 +12,7 @@ assets or design docs.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/waverider/` | Home: the boot splash, a playable live sea, the trailer, tricks, boats, seas, the garage, daily goals, download |
+| `index.html` | `/waverider/` | Home: the boot splash, the trailer, a playable live sea, the gallery, tricks, boats, seas, the garage, daily goals, download |
 | `play.html` | `/waverider/play` | **The link to share**: a phone goes straight to its store (Android to Play, iPhone and iPad to the App Store); desktops, Fire tablets and anything unknown see a download card. `?platform=ios\|android\|none` forces a branch for testing |
 | `support.html` | `/waverider/support.html` | **Store-required support URL**: contact, FAQ, bug reports |
 | `privacy.html` | `/waverider/privacy.html` | **Store-required privacy policy** (same text as the in-game one) |
@@ -141,8 +141,9 @@ To change them: recapture, update `SCREENSHOTS` and the matching thumbnails
 (`.viewer__thumb`, whose `data-cap` is the caption under the picture) in `index.html`, and re-run the script.
 Captures must show launch content only.
 
-**Trailer**: `#trailer` opens the "This is the game." section, above the gallery, and the hero's
-TRAILER pill scrolls to it and starts it. `assets/video/trailer.mp4` is the game repo's
+**Trailer**: `#trailer` is the first thing under the hero ("This is the game."), ahead of the
+live sea ("Now you try") and the gallery ("That was the toy."), because most visitors decide on
+the first screen. The hero's TRAILER pill scrolls to it and starts it. `assets/video/trailer.mp4` is the game repo's
 `WaveRider/Build/trailer/out/hero_1920x1080_60.mp4` re-encoded for the web (1080p60, about 12 MB):
 
     ffmpeg -i hero_1920x1080_60.mp4 -c:v libx264 -preset slow -crf 23 -maxrate 7M -bufsize 14M \

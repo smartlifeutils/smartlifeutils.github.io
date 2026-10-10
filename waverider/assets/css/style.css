@@ -547,7 +547,7 @@ a.badge:hover { transform: translateY(-2px); }
   border-radius: 26px;
   overflow: hidden;
   background: #7fd3e8;
-  box-shadow: 0 10px 0 var(--sea-dark);
+  box-shadow: 0 10px 0 #04345a;
   touch-action: pan-y;
   user-select: none;
   -webkit-user-select: none;
@@ -1366,7 +1366,7 @@ a.badge:hover { transform: translateY(-2px); }
 .trailer {
   position: relative;
   max-width: 980px;
-  margin: 0 auto 44px;
+  margin: 0 auto;
   border: 5px solid var(--ink);
   border-radius: 26px;
   overflow: hidden;
