@@ -225,4 +225,40 @@
       if (e.key === "ArrowLeft") show(at - 1);
     });
   }
+
+  var trailer = document.querySelector("[data-trailer]");
+  if (trailer) {
+    var video = trailer.querySelector("video");
+    var playBtn = trailer.querySelector(".trailer__play");
+    var endCard = trailer.querySelector(".trailer__end");
+
+    // play() inside the click itself: Safari only allows sound from the gesture's own handler.
+    var start = function () {
+      playBtn.hidden = true;
+      endCard.hidden = true;
+      video.controls = true;
+      if (video.ended) video.currentTime = 0;
+      var playing = video.play();
+      if (playing && playing.catch) playing.catch(function () {});
+    };
+
+    video.controls = false;
+    playBtn.hidden = false;
+    playBtn.addEventListener("click", start);
+    trailer.querySelector(".trailer__again").addEventListener("click", start);
+    video.addEventListener("ended", function () {
+      if (document.fullscreenElement) document.exitFullscreen();
+      if (video.webkitDisplayingFullscreen) video.webkitExitFullscreen();
+      video.controls = false;
+      endCard.hidden = false;
+    });
+
+    document.querySelectorAll("[data-watch]").forEach(function (link) {
+      link.addEventListener("click", function (e) {
+        e.preventDefault();
+        trailer.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+        start();
+      });
+    });
+  }
 })();

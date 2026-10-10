@@ -73,6 +73,7 @@
         <div class="stores">
           <a class="badge" href="https://apps.apple.com/us/app/wave-rider-boat-stunt-racing/id6819839167" rel="noopener"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download Wave Rider on the App Store" /></a>
           <a class="badge" href="https://play.google.com/store/apps/details?id=com.smartlife.waverider" rel="noopener"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get Wave Rider on Google Play" /></a>
+          <a class="hero__watch" href="#trailer" data-watch><span class="trailer__btn" aria-hidden="true"></span>Trailer</a>
         </div>
         <p class="hero__out">Out now on <strong>iPhone, iPad and Android</strong>. Free to play.</p>
       </div>
@@ -133,8 +134,25 @@
       <div class="wrap">
         <header class="head rise">
           <h2 class="h-display">That was the toy.<br />This is the game.</h2>
-          <p class="lede">Straight out of a run: the swell, the stunts, the sea's residents and the garage you come back to.</p>
+          <p class="lede">Thirty seconds straight out of a run, then the stills: the swell, the stunts, the sea's residents and the garage you come back to.</p>
         </header>
+        <div class="trailer rise" id="trailer" data-trailer>
+          <video controls playsinline preload="none" width="1920" height="1080" poster="assets/video/trailer-poster.jpg" aria-label="Wave Rider trailer">
+            <source src="assets/video/trailer.mp4" type="video/mp4" />
+          </video>
+          <button class="trailer__play" type="button" hidden>
+            <span class="trailer__btn" aria-hidden="true"></span>
+            <span class="trailer__label">Watch the trailer <b>0:30</b></span>
+          </button>
+          <div class="trailer__end" hidden>
+            <p class="trailer__end-title gt">Your turn</p>
+            <div class="stores">
+              <a class="badge" href="https://apps.apple.com/us/app/wave-rider-boat-stunt-racing/id6819839167" rel="noopener"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download Wave Rider on the App Store" /></a>
+              <a class="badge" href="https://play.google.com/store/apps/details?id=com.smartlife.waverider" rel="noopener"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get Wave Rider on Google Play" /></a>
+            </div>
+            <button class="plate trailer__again" type="button">Watch again</button>
+          </div>
+        </div>
         <div class="viewer rise" data-viewer>
           <figure class="viewer__stage">
             <img class="viewer__img" src="assets/img/shots/crest-1600.webp" width="1600" height="900" alt="A Jet Ski launching off a Pacific crest" loading="lazy" />
@@ -467,19 +485,6 @@
             <li class="day"><span class="day__n">Day 6</span><img src="assets/img/ui/coin.webp" width="34" height="34" alt="" loading="lazy" /><span class="day__c">3,000</span></li>
             <li class="day day--7"><span class="day__n">Day 7</span><img src="assets/img/ui/coin.webp" width="52" height="52" alt="" loading="lazy" /><span class="day__c">6,000</span></li>
           </ol>
-        </div>
-      </div>
-    </section>
-
-    <section class="sec sec--deep" id="trailer" hidden>
-      <div class="wrap">
-        <header class="head">
-          <h2 class="h-display">See it move</h2>
-        </header>
-        <div class="trailer">
-          <video controls playsinline preload="none">
-            <source src="assets/video/trailer.mp4" type="video/mp4" />
-          </video>
         </div>
       </div>
     </section>

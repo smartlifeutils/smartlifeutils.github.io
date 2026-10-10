@@ -12,7 +12,8 @@ assets or design docs.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/waverider/` | Home: the boot splash, a playable live sea, tricks, boats, seas, the garage, daily goals, download |
+| `index.html` | `/waverider/` | Home: the boot splash, a playable live sea, the trailer, tricks, boats, seas, the garage, daily goals, download |
+| `play.html` | `/waverider/play` | **The link to share**: a phone goes straight to its store (Android to Play, iPhone and iPad to the App Store); desktops, Fire tablets and anything unknown see a download card. `?platform=ios\|android\|none` forces a branch for testing |
 | `support.html` | `/waverider/support.html` | **Store-required support URL**: contact, FAQ, bug reports |
 | `privacy.html` | `/waverider/privacy.html` | **Store-required privacy policy** (same text as the in-game one) |
 | `terms.html` | `/waverider/terms.html` | Terms of service (same text as the in-game one) |
@@ -140,9 +141,16 @@ To change them: recapture, update `SCREENSHOTS` and the matching thumbnails
 (`.viewer__thumb`, whose `data-cap` is the caption under the picture) in `index.html`, and re-run the script.
 Captures must show launch content only.
 
-**Trailer**: the section is in `index.html` with a `hidden` attribute, so it can't show up empty.
-Put `assets/video/trailer.mp4` and `assets/video/trailer-poster.jpg` in place, add
-`poster="assets/video/trailer-poster.jpg"` to the `<video>`, and delete `hidden` on `#trailer`.
+**Trailer**: `#trailer` opens the "This is the game." section, above the gallery, and the hero's
+TRAILER pill scrolls to it and starts it. `assets/video/trailer.mp4` is the game repo's
+`WaveRider/Build/trailer/out/hero_1920x1080_60.mp4` re-encoded for the web (1080p60, about 12 MB):
+
+    ffmpeg -i hero_1920x1080_60.mp4 -c:v libx264 -preset slow -crf 23 -maxrate 7M -bufsize 14M \
+      -profile:v high -level 4.2 -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart trailer.mp4
+
+`trailer-poster.jpg` is the frame at 21.1 s (the Speedboat airborne over a crest), 1600 wide.
+`main.js` swaps the poster's play button for native controls on the first click and shows the
+end card (store badges, Watch again) when it finishes; with JS off it is a plain `<video>`.
 
 ## Design rules (from the game's `UI_DESIGN_SYSTEM.md`)
 
@@ -158,8 +166,8 @@ Put `assets/video/trailer.mp4` and `assets/video/trailer-poster.jpg` in place, a
 ## Before launch
 
 - [x] **Store links.** The hero and `#download` badges link to the App Store
-      (`id6819839167`) and Google Play (`com.smartlife.waverider`); the copy says "Out now". A
-      `play.html` smart link like `../inkbounce/play.html` is still an option.
+      (`id6819839167`) and Google Play (`com.smartlife.waverider`); the copy says "Out now", and
+      `play.html` is the one link to share.
 - [ ] **Leaderboards.** The Captain rank tile mentions leaderboards; `STORE_LISTING.md` says to cut
       them if the Play Games ids are still `REPLACE_ME` at 1.0.
 - [ ] **Firebase.** The privacy policy (here and in `legal_content.json`) names Firebase Analytics
@@ -167,4 +175,4 @@ Put `assets/video/trailer.mp4` and `assets/video/trailer-poster.jpg` in place, a
       take it out of both copies.
 - [ ] **Notification example.** Both copies of the policy say a reminder might be "that your fuel
       is topped off"; the game's reminders are about the daily streak (`09_META_AND_ECONOMY.md`).
-- [ ] **Trailer**, above.
+- [x] **Trailer**, above.
