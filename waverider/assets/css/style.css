@@ -455,12 +455,30 @@ a.badge:hover { transform: translateY(-2px); }
 .hero__tag {
   font-size: clamp(1.7rem, 4.4vw, 2.6rem);
 }
+/* Under the badges: the kicker's sticker language, so "out now" and "free" read as game UI
+   rather than as small print. The platforms take the tagline's outlined display face. */
 .hero__out {
-  font-weight: 800;
-  font-size: 1rem;
-  color: var(--paper);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 8px 12px;
 }
-.hero__out strong { color: var(--gold); }
+.hero__now,
+.hero__free {
+  padding: 4px 12px 3px;
+  font-family: var(--display);
+  font-size: 0.95rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 0 3px 0 var(--ink);
+}
+.hero__now { background: var(--gold); transform: rotate(-3deg); }
+.hero__free { background: var(--cream); }
+.hero__on { font-size: 1.2rem; }
 
 @media (min-width: 1280px) {
   .hero__art img { height: var(--hc); }
@@ -487,6 +505,8 @@ a.badge:hover { transform: translateY(-2px); }
     margin: -64px auto 4px;
   }
   .badge img { height: 44px; }
+  /* Too narrow for one row: the platforms on top, the two stickers side by side under them. */
+  .hero__on { order: -1; flex-basis: 100%; }
 }
 
 .hero__media { position: relative; }
