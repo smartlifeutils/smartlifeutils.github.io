@@ -32,6 +32,10 @@ python3 -m http.server 8000
 Then open <http://localhost:8000>. The only absolute URLs are the `canonical`, `og:url` and
 `og:image` tags in each `<head>`.
 
+**After changing any CSS or JS, bump `?v=` on its links in every page** (one find-and-replace).
+GitHub Pages lets browsers keep assets for 10 minutes, so without a new version a fresh page can
+load next to the old stylesheet and show half old, half new.
+
 ## What the site shows, and what it doesn't
 
 The site names **only the launch set**. Content that hasn't shipped never appears, so an update can
