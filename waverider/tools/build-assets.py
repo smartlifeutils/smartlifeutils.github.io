@@ -19,7 +19,7 @@ ART = GAME / "WaveRider/Assets/_Game/Art"
 SRC = GAME / "ArtSource"
 BRAND = GAME / "Docs/Branding/Assets"
 SHOTS = GAME / "WaveRider/Build/screenshots/website"
-STORE = GAME / "WaveRider/Build/store-shots/play"
+STORE = GAME / "WaveRider/Build/listing/google-play/screenshots_1920x1080"
 OUT = SITE / "assets/img"
 
 BOATS = {
@@ -44,8 +44,8 @@ ACTORS = {
     "jet-ski-rider": "JetSki",
 }
 SCREENSHOTS = {
-    "jetski-backflip": SHOTS / "02_jetski_nile_backflip_hud",
-    "dinghy-capsize": SHOTS / "03_dinghy_calmlake_capsize",
+    "jetski-backflip": SHOTS / "09_speedboat_pacific_flip_hud",
+    "dinghy-capsize": SHOTS / "10_dinghy_pacific_sinking_hud",
     "crest": STORE / "01-crest",
     "flip": STORE / "02-flip",
     "nile": STORE / "05-nile",

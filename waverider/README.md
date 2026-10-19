@@ -115,7 +115,7 @@ no animation frames).
 ## Screenshots and trailer
 
 **Screenshots** are real captures from the game, 1920×1080, from two folders in the Unity repo:
-the store set at `WaveRider/Build/store-shots/play/` (framed, with the store captions burned in;
+the store set at `WaveRider/Build/listing/google-play/screenshots_1920x1080/` (framed, with the store captions burned in;
 see `Tools/store-shots/`) and the plain captures at `WaveRider/Build/screenshots/website/`.
 `tools/build-assets.py` exports the ones listed in its `SCREENSHOTS` table to `assets/img/shots/`
 (1600 and 480 wide WebP). They appear in three places:
@@ -123,8 +123,8 @@ see `Tools/store-shots/`) and the plain captures at `WaveRider/Build/screenshots
 | Where | Shot |
 |---|---|
 | `#screenshots`, the gallery after the live sea | The store set: JUMP HUGE WAVES, FLIP IT. LAND IT., FROM THE NILE TO THE PACIFIC, MEET THE LOCALS, FROM DINGHY TO RESCUE RIB, UPGRADE ENGINE, HULL AND MORE, DAILY MISSIONS AND BADGES, PLAY OFFLINE, NO ACCOUNT. REAL WATER PHYSICS is left out: the frame is dimmed and the wipeout box already shows a capsize |
-| `#tricks`, the big picture | Jet Ski backflip over the Nile (ORBIT +50 and FLIP +200 in the popup lane, the Triple Axel secret found) |
-| `#tricks`, the wipeout box | Motor Dinghy capsized on the Calm Lake (the clean capture: the HUD one shows a stray "+82 BADGES") |
+| `#tricks`, the big picture | Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 (`09_speedboat_pacific_flip_hud.png`, 2026-10-19; not the gallery's Jet Ski flip) |
+| `#tricks`, the wipeout box | Motor Dinghy capsized on the Pacific, sinking under the wave (`10_dinghy_pacific_sinking_hud.png`, 2026-10-19) |
 
 MEET THE LOCALS is not in the store set. It is the plain Caribbean capture
 (`06_speedboat_caribbean_manta.png`) run through the store caption tool, saved next to it as
@@ -148,12 +148,12 @@ Captures must show launch content only.
 **Trailer**: `#trailer` is the first thing under the hero ("This is the game."), ahead of the
 live sea ("Now you try") and the gallery ("That was the toy."), because most visitors decide on
 the first screen. The hero's TRAILER pill scrolls to it and starts it. `assets/video/trailer.mp4` is the game repo's
-`WaveRider/Build/trailer/out/hero_1920x1080_60.mp4` re-encoded for the web (1080p60, about 12 MB):
+`WaveRider/Build/listing/youtube/promo-trailer_1920x1080_60fps.mp4` re-encoded for the web (1080p60, about 14 MB):
 
-    ffmpeg -i hero_1920x1080_60.mp4 -c:v libx264 -preset slow -crf 23 -maxrate 7M -bufsize 14M \
+    ffmpeg -i promo-trailer_1920x1080_60fps.mp4 -c:v libx264 -preset slow -crf 23 -maxrate 7M -bufsize 14M \
       -profile:v high -level 4.2 -pix_fmt yuv420p -c:a aac -b:a 160k -movflags +faststart trailer.mp4
 
-`trailer-poster.jpg` is the frame at 21.1 s (the Speedboat airborne over a crest), 1600 wide.
+`trailer-poster.jpg` is the frame at 2.3 s (the Speedboat airborne over a crest under JUMP HUGE WAVES), 1600 wide.
 `main.js` swaps the poster's play button for native controls on the first click and shows the
 end card (store badges, Watch again) when it finishes; with JS off it is a plain `<video>`.
 
