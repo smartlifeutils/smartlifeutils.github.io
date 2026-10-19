@@ -74,7 +74,7 @@
   var ACTORS = {
     paddleboarder: { w: 3.2, sink: 0.08, say: "Sorry!", topple: true },
     hippo: { w: 3.6, sink: 0.55, say: "Hey!", lift: 7.5 },
-    nessie: { w: 5.2, sink: 0.5, say: "Nessie hop", lift: 6 },
+    nessie: { w: 6.2, sink: 0.32, say: "Nessie hop", lift: 6 },   // one whole floating drawing since 2026-10-13
     whale: { w: 9.5, sink: 0.62, say: "Whale hop", lift: 5.5 },
     manta: { w: 3.2, leap: true, say: "Manta!" }
   };
@@ -354,7 +354,10 @@
       var n = 5 + Math.floor(Math.random() * 3);
       for (var i = 0; i < n; i++) {
         var u = i / (n - 1);
-        coins.push({ x: run.nextCoins + i * 1.5, lift: 0.5 + Math.sin(u * Math.PI) * 0.9, got: false });
+        // The game's arcs: bronze 25 at the ends, silver 50, gold 100 at the top (Coin_025/050/100).
+        var d = Math.abs(u - 0.5);
+        var v = d < 0.15 ? 100 : d < 0.35 ? 50 : 25;
+        coins.push({ x: run.nextCoins + i * 1.5, lift: 0.5 + Math.sin(u * Math.PI) * 0.9, got: false, v: v });
       }
       run.nextCoins += 30 + Math.random() * 26;
     }
@@ -393,7 +396,7 @@
       if (dx * dx + dy * dy < 1.7) {
         c.got = true;
         c.gotT = state.t;
-        run.coins += 100;
+        run.coins += c.v || 100;
       }
     }
   }
@@ -725,7 +728,7 @@
   }
 
   function drawCoins() {
-    var im = img("coin");
+    var plain = img("coin");
     var s = 0.7 * ppm;
     for (var i = 0; i < coins.length; i++) {
       var c = coins[i];
@@ -740,6 +743,7 @@
       }
       var spin = Math.abs(Math.cos(state.t * 3 + c.x));
       var w = s * (0.35 + 0.65 * spin);
+      var im = img("coin" + c.v) || plain;
       if (im) ctx.drawImage(im, x - w / 2, y - s / 2, w, s);
       ctx.globalAlpha = 1;
     }

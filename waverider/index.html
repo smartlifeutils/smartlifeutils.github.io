@@ -24,7 +24,7 @@
   <link rel="preload" href="assets/fonts/lilita-one.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/nunito-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261010" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261019" />
   <script>document.documentElement.classList.remove("no-js");</script>
 </head>
 <body>
@@ -117,18 +117,18 @@
         </header>
 
         <div class="toy rise" data-toy>
-          <canvas aria-label="A live, playable sea: a boat riding animated waves. Hold throttle to go."></canvas>
+          <canvas aria-label="A live, playable sea: a boat riding animated waves. Hold AHEAD to go."></canvas>
           <div class="toy__hud" aria-hidden="true">
             <span class="toy__coins"><img src="assets/img/ui/coin.webp" width="40" height="40" alt="" /><span data-coins>0</span></span>
             <span class="toy__dist"><span data-dist>0 m</span><span class="toy__best" data-best>Best 0 m</span></span>
           </div>
           <div class="toy__pops" data-pops aria-live="polite"></div>
-          <p class="toy__hint" data-hint>Hold throttle</p>
-          <button class="pedal pedal--brake" type="button" data-pedal="brake" aria-label="Brake. In the air, tips the nose down">
-            <img src="assets/img/ui/pedal-brake.webp" width="360" height="371" alt="" />
+          <p class="toy__hint" data-hint>Hold AHEAD</p>
+          <button class="pedal pedal--brake" type="button" data-pedal="brake" aria-label="Astern: brake, and reverse from a standstill. In the air, tips the nose down">
+            <img src="assets/img/ui/pedal-brake.webp?v=20261019" width="360" height="371" alt="" /><span class="pedal__word">Astern</span>
           </button>
-          <button class="pedal pedal--throttle" type="button" data-pedal="throttle" aria-label="Throttle. In the air, lifts the nose">
-            <img src="assets/img/ui/pedal-throttle.webp" width="360" height="327" alt="" />
+          <button class="pedal pedal--throttle" type="button" data-pedal="throttle" aria-label="Ahead: throttle. In the air, lifts the nose">
+            <img src="assets/img/ui/pedal-throttle.webp?v=20261019" width="360" height="327" alt="" /><span class="pedal__word">Ahead</span>
           </button>
         </div>
 
@@ -151,9 +151,9 @@
         </div>
 
         <ol class="howto">
-          <li class="rise"><b>Climb</b>Hold <span class="key">→</span> THROTTLE to build speed up the back of a wave.</li>
+          <li class="rise"><b>Climb</b>Hold <span class="key">→</span> AHEAD to build speed up the back of a wave.</li>
           <li class="rise"><b>Launch</b>Keep it pinned over the crest and the sea throws you into the air.</li>
-          <li class="rise"><b>Land it</b>In the air THROTTLE lifts the nose and <span class="key">←</span> BRAKE drops it. Match the water's angle as you touch down.</li>
+          <li class="rise"><b>Land it</b>In the air AHEAD lifts the nose and <span class="key">←</span> ASTERN drops it. Match the water's angle as you touch down.</li>
         </ol>
         <p class="toy-note">A toy, built in your browser from the game's own art. In the game, every hull floats on real buoyancy and the sea gets much bigger.</p>
       </div>
@@ -570,8 +570,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20261010" defer></script>
-  <script src="assets/js/art.js?v=20261010" defer></script>
-  <script src="assets/js/sea.js?v=20261010" defer></script>
+  <script src="assets/js/main.js?v=20261019" defer></script>
+  <script src="assets/js/art.js?v=20261019" defer></script>
+  <script src="assets/js/sea.js?v=20261019" defer></script>
 </body>
 </html>

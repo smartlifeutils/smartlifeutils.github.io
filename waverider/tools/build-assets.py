@@ -193,6 +193,10 @@ def ui():
     for name in ("Engine", "Hull", "Propeller", "Trim", "Fuel"):
         sprite(ART / f"UI/Skin/Ui_{name}.png", f"ui/{name.lower()}.webp", 200)
     sprite(ART / "Pickups/Coin.png", "ui/coin.webp", 160)
+    # The sea's coins carry their value since 2026-10-12 (bronze 25, silver 50, gold 100); the plain gold one stays the
+    # counter's icon, as in the game's HUD.
+    for value in (25, 50, 100):
+        sprite(ART / f"Pickups/Coin_{value:03d}.png", f"ui/coin-{value}.webp", 120, f"coin{value}")
     for name in ("Win_Mission", "Win_Badge", "Win_Rank"):
         sprite(ART / f"UI/{name}.png", f"ui/{name.lower().replace('_', '-')}.webp", 240)
 

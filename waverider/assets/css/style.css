@@ -690,6 +690,24 @@ a.badge:hover { transform: translateY(-2px); }
   transition: transform 0.06s ease, filter 0.06s ease;
 }
 .pedal img { width: 100%; height: 100%; object-fit: contain; pointer-events: none; }
+/* The word is drawn over word-less plate art, as in the game (BoatControls: AHEAD / ASTERN since 2026-10-10). */
+.pedal { container-type: inline-size; }
+.pedal__word {
+  position: absolute;
+  left: 50%;
+  top: 76%;
+  transform: translate(-50%, -50%);
+  font-family: var(--display);
+  font-size: 15cqw;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--paper);
+  -webkit-text-stroke: 0.2em var(--ink);
+  paint-order: stroke fill;
+  pointer-events: none;
+}
+.pedal--throttle .pedal__word { top: 73%; }
 .pedal--brake { left: 2.5%; }
 .pedal--throttle { right: 2.5%; }
 .pedal.is-down { transform: translateY(4px) scale(0.95); filter: brightness(1.18); }
