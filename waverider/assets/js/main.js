@@ -60,13 +60,6 @@
         io.observe(el);
       }
     });
-    document.querySelectorAll(".fleet, .worlds, .lanes, .daily, .trick-list, .howto").forEach(function (grid) {
-      Array.prototype.forEach.call(grid.children, function (child, i) {
-        if (child.classList.contains("rise") && !child.style.transition) {
-          child.style.transitionDelay = Math.min(i, 6) * 70 + "ms";
-        }
-      });
-    });
   } else {
     rises.forEach(function (el) { el.classList.add("is-in"); });
   }
