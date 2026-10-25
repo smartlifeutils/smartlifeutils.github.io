@@ -151,7 +151,7 @@ def brand():
 
     icon = Image.open(BRAND / "AppIcon_AppStore_1024.png").convert("RGB")
     save(icon.resize((256, 256), Image.LANCZOS), "brand/icon-256.webp", 86)
-    for size in (180, 64, 32):
+    for size in (192, 180, 64, 48, 32):
         save(icon.resize((size, size), Image.LANCZOS), f"brand/icon-{size}.png")
 
     og = splash.crop((96, 0, 96 + 1669, 876)).resize((1200, 630), Image.LANCZOS)
