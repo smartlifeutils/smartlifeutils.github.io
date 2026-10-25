@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SmartLifeUtils: Wave Rider, Ink Bounce and Budget Buddy</title>
+  <meta name="description" content="SmartLifeUtils makes small, polished games and apps for iPhone, iPad and Android: Wave Rider, Ink Bounce and Budget Buddy." />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="theme-color" content="#14202e" />
+  <link rel="canonical" href="https://smartlifeutils.github.io/" />
+
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="SmartLifeUtils" />
+  <meta property="og:title" content="SmartLifeUtils: games and apps for iPhone and Android" />
+  <meta property="og:description" content="Wave Rider, Ink Bounce and Budget Buddy. Small, polished games and apps for iPhone, iPad and Android." />
+  <meta property="og:image" content="https://smartlifeutils.github.io/waverider/assets/img/brand/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="The Wave Rider skipper launches a red inflatable off a breaking wave" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:url" content="https://smartlifeutils.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="icon" href="favicon.ico" sizes="48x48" />
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml" />
+  <link rel="icon" href="assets/icon-192.png" sizes="192x192" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://smartlifeutils.github.io/#org",
+        "name": "SmartLifeUtils",
+        "url": "https://smartlifeutils.github.io/",
+        "logo": "https://smartlifeutils.github.io/assets/icon-192.png",
+        "email": "smartlife.utilities@gmail.com"
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://smartlifeutils.github.io/#website",
+        "url": "https://smartlifeutils.github.io/",
+        "name": "SmartLifeUtils",
+        "inLanguage": "en",
+        "publisher": { "@id": "https://smartlifeutils.github.io/#org" }
+      },
+      {
+        "@type": "ItemList",
+        "name": "Apps by SmartLifeUtils",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "item": {
+              "@type": ["VideoGame", "MobileApplication"],
+              "@id": "https://smartlifeutils.github.io/waverider/#game",
+              "name": "Wave Rider: Boat Stunt Racing",
+              "url": "https://smartlifeutils.github.io/waverider/",
+              "applicationCategory": "GameApplication",
+              "operatingSystem": "iOS, Android",
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+              "publisher": { "@id": "https://smartlifeutils.github.io/#org" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "item": {
+              "@type": ["VideoGame", "MobileApplication"],
+              "name": "Ink Bounce",
+              "url": "https://smartlifeutils.github.io/inkbounce/",
+              "applicationCategory": "GameApplication",
+              "operatingSystem": "iOS, Android",
+              "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+              "publisher": { "@id": "https://smartlifeutils.github.io/#org" }
+            }
+          },
+          {
+            "@type": "ListItem",
+            "position": 3,
+            "item": {
+              "@type": "MobileApplication",
+              "name": "Budget Buddy",
+              "url": "https://smartlifeutils.github.io/budgetbuddy/",
+              "applicationCategory": "FinanceApplication",
+              "operatingSystem": "iOS, Android",
+              "publisher": { "@id": "https://smartlifeutils.github.io/#org" }
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #14202e;
+      --muted: #536173;
+      --line: #dfe6ef;
+      --pill: #eef2f7;
+      --pill-hover: #e2e9f2;
+      --shadow: 0 1px 2px rgba(20, 32, 46, 0.06), 0 8px 24px rgba(20, 32, 46, 0.06);
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #0d141c;
+        --card: #16212d;
+        --text: #e8eef5;
+        --muted: #9fb0c3;
+        --line: #243243;
+        --pill: #1f2c3a;
+        --pill-hover: #283849;
+        --shadow: none;
+        color-scheme: dark;
+      }
+    }
+    :root[data-theme="dark"] {
+      --bg: #0d141c;
+      --card: #16212d;
+      --text: #e8eef5;
+      --muted: #9fb0c3;
+      --line: #243243;
+      --pill: #1f2c3a;
+      --pill-hover: #283849;
+      --shadow: none;
+      color-scheme: dark;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { -webkit-text-size-adjust: 100%; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    a { color: inherit; }
+    .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+    header { padding: 28px 0 0; }
+    .brand { display: inline-flex; align-items: center; gap: 12px; font-weight: 800; font-size: 1.15rem; text-decoration: none; }
+    .brand img { width: 40px; height: 40px; }
+    .intro { padding: 56px 0 40px; max-width: 680px; }
+    h1 { margin: 0; font-size: clamp(2.1rem, 6vw, 3.2rem); line-height: 1.1; letter-spacing: -0.02em; }
+    .intro p { margin: 16px 0 0; font-size: 1.15rem; color: var(--muted); }
+    .apps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; padding-bottom: 56px; }
+    .app {
+      display: flex;
+      flex-direction: column;
+      padding: 24px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-top: 4px solid var(--accent);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+    .app__icon { width: 72px; height: 72px; border-radius: 17px; }
+    .app h2 { margin: 18px 0 2px; font-size: 1.4rem; line-height: 1.2; }
+    .app__kind { margin: 0; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; color: var(--muted); }
+    .app__pitch { margin: 12px 0 20px; flex: 1; }
+    .app__site {
+      display: inline-flex;
+      justify-content: center;
+      padding: 11px 16px;
+      border-radius: 12px;
+      background: var(--accent);
+      color: var(--on-accent, #fff);
+      font-weight: 800;
+      text-decoration: none;
+    }
+    .app__site:hover { filter: brightness(1.06); }
+    .app__stores { display: flex; gap: 8px; margin-top: 10px; }
+    .app__stores a {
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: 10px;
+      background: var(--pill);
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-align: center;
+      text-decoration: none;
+    }
+    .app__stores a:hover { background: var(--pill-hover); }
+    .app--wave { --accent: #0a8ad4; }
+    .app--ink { --accent: #d6246e; }
+    .app--budget { --accent: #23894a; }
+    .contact { padding: 32px 0 48px; border-top: 1px solid var(--line); }
+    .contact h2 { margin: 0 0 6px; font-size: 1.25rem; }
+    .contact p { margin: 0; color: var(--muted); }
+    .contact a { font-weight: 800; color: var(--text); }
+    footer { padding: 20px 0 36px; color: var(--muted); font-size: 0.9rem; }
+    @media (max-width: 900px) { .apps { grid-template-columns: 1fr; max-width: 560px; } }
+    @media (max-width: 600px) { .intro { padding: 36px 0 28px; } .app { padding: 20px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <a class="brand" href="./"><img src="assets/icon.svg" width="40" height="40" alt="" />SmartLifeUtils</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="intro">
+      <h1>Games and apps for the phone in your pocket</h1>
+      <p>SmartLifeUtils makes small, polished apps for iPhone, iPad and Android. Two arcade games you can pick up for a minute, and a budgeting app that keeps your money in view.</p>
+    </section>
+
+    <section class="apps" aria-label="Our apps">
+      <article class="app app--wave">
+        <img class="app__icon" src="waverider/assets/img/brand/icon-180.png" width="72" height="72" alt="Wave Rider app icon" />
+        <h2>Wave Rider</h2>
+        <p class="app__kind">Boat stunt racing game</p>
+        <p class="app__pitch">A physics boat game where every wave is a ramp. Jump, flip and land it in anything from a motor dinghy to a jet ski, on seas from Loch Ness to the Pacific.</p>
+        <a class="app__site" href="waverider/">Visit Wave Rider</a>
+        <div class="app__stores">
+          <a href="https://apps.apple.com/us/app/wave-rider-boat-stunt-racing/id6819839167" rel="noopener">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.waverider" rel="noopener">Google Play</a>
+        </div>
+      </article>
+
+      <article class="app app--ink">
+        <img class="app__icon" src="inkbounce/assets/images/icon-180.png" width="72" height="72" alt="Ink Bounce app icon" />
+        <h2>Ink Bounce</h2>
+        <p class="app__kind">One-thumb arcade game</p>
+        <p class="app__pitch">Every line you draw is the only thing keeping the ball alive. 100 levels across 5 worlds, plus an endless mode for when the levels run out.</p>
+        <a class="app__site" href="inkbounce/">Visit Ink Bounce</a>
+        <div class="app__stores">
+          <a href="https://apps.apple.com/us/app/ink-bounce/id6792821983" rel="noopener">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" rel="noopener">Google Play</a>
+        </div>
+      </article>
+
+      <article class="app app--budget">
+        <img class="app__icon" src="assets/budget-buddy-180.png" width="72" height="72" alt="Budget Buddy app icon" />
+        <h2>Budget Buddy</h2>
+        <p class="app__kind">Expense manager</p>
+        <p class="app__pitch">Track expenses in a few taps, set budgets per category and hit your savings goals, with monthly insights that show where your money goes.</p>
+        <a class="app__site" href="budgetbuddy/">Visit Budget Buddy</a>
+        <div class="app__stores">
+          <a href="https://apps.apple.com/us/app/budget-buddy-expense-manager/id6758464704" rel="noopener">App Store</a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy" rel="noopener">Google Play</a>
+        </div>
+      </article>
+    </section>
+
+    <section class="contact">
+      <h2>Get in touch</h2>
+      <p>Questions, bug reports or ideas: <a href="mailto:smartlife.utilities@gmail.com">smartlife.utilities@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">© 2026 SmartLifeUtils. All rights reserved.</div>
+  </footer>
+</body>
+</html>
