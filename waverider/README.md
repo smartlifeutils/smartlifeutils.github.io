@@ -29,8 +29,21 @@ Store submission URLs are the ones in the game repo's `Docs/Release/01_IDENTITY.
 python3 -m http.server 8000
 ```
 
-Then open <http://localhost:8000>. The only absolute URLs are the `canonical`, `og:url` and
-`og:image` tags in each `<head>`.
+Then open <http://localhost:8000>. The only absolute URLs are the `canonical`, `og:url`,
+`og:image` and JSON-LD tags in each `<head>`, and `sitemap.xml`.
+
+## Search
+
+- `sitemap.xml` lists the indexable pages (home, support, privacy, terms) plus the home page's
+  screenshots. `robots.txt` lives at the repo root (crawlers only read it there) and points to it.
+  **Bump `<lastmod>` on a page whenever its content changes**, and add a `<url>` for any new page.
+- Internal links to the home page use `./`, never `index.html`, so only one home address exists.
+- `index.html` carries JSON-LD: the game (`VideoGame` + `MobileApplication`, free, both store
+  links), the publisher and the trailer (`VideoObject`, its `duration` and `uploadDate` must follow
+  `trailer.mp4`). Check it at <https://search.google.com/test/rich-results> after editing.
+- `play.html` and `404.html` are `noindex` on purpose.
+- Google Search Console: a URL-prefix property for `https://smartlifeutils.github.io/waverider/`,
+  verified by the HTML file Google issues, dropped into this folder. Don't delete that file.
 
 **After changing any CSS or JS, bump `?v=` on its links in every page** (one find-and-replace).
 GitHub Pages lets browsers keep assets for 10 minutes, so without a new version a fresh page can
@@ -55,7 +68,7 @@ does not make 1.0, delete its `<article class="world">` and its picker button in
 1. Add it to `BOATS` / `WORLDS` / `ACTORS` in `tools/build-assets.py` and re-run the script.
 2. Add a card to `#boats` or `#seas` in `index.html` (copy a neighbour).
 3. Add its picker button under the live sea, and a row to `BOATS` or `SEAS` in `assets/js/sea.js`
-   (the comment above each table says which asset fields to copy).
+   (copy a neighbouring row and take its fields from the game's assets, see *The live sea* below).
 
 ### Where the numbers come from
 

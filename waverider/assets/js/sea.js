@@ -74,7 +74,7 @@
   var ACTORS = {
     paddleboarder: { w: 3.2, sink: 0.08, say: "Sorry!", topple: true },
     hippo: { w: 3.6, sink: 0.55, say: "Hey!", lift: 7.5 },
-    nessie: { w: 6.2, sink: 0.32, say: "Nessie hop", lift: 6 },   // one whole floating drawing since 2026-10-13
+    nessie: { w: 6.2, sink: 0.32, say: "Nessie hop", lift: 6 },
     whale: { w: 9.5, sink: 0.62, say: "Whale hop", lift: 5.5 },
     manta: { w: 3.2, leap: true, say: "Manta!" }
   };
@@ -354,7 +354,6 @@
       var n = 5 + Math.floor(Math.random() * 3);
       for (var i = 0; i < n; i++) {
         var u = i / (n - 1);
-        // The game's arcs: bronze 25 at the ends, silver 50, gold 100 at the top (Coin_025/050/100).
         var d = Math.abs(u - 0.5);
         var v = d < 0.15 ? 100 : d < 0.35 ? 50 : 25;
         coins.push({ x: run.nextCoins + i * 1.5, lift: 0.5 + Math.sin(u * Math.PI) * 0.9, got: false, v: v });

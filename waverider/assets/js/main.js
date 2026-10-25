@@ -232,7 +232,6 @@
     var playBtn = trailer.querySelector(".trailer__play");
     var endCard = trailer.querySelector(".trailer__end");
 
-    // play() inside the click itself: Safari only allows sound from the gesture's own handler.
     var start = function () {
       playBtn.hidden = true;
       endCard.hidden = true;

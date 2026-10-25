@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://smartlifeutils.github.io/waverider/</loc>
+    <lastmod>2026-10-25</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/brand/splash-1792.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/crest-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/flip-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/jetski-backflip-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/nile-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/caribbean-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/dinghy-capsize-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/boats-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/upgrades-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/missions-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/offline-1600.webp</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://smartlifeutils.github.io/waverider/support.html</loc>
+    <lastmod>2026-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://smartlifeutils.github.io/waverider/privacy.html</loc>
+    <lastmod>2026-10-25</lastmod>
+  </url>
+  <url>
+    <loc>https://smartlifeutils.github.io/waverider/terms.html</loc>
+    <lastmod>2026-10-25</lastmod>
+  </url>
+</urlset>
