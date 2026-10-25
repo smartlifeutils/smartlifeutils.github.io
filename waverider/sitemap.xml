@@ -31,6 +31,15 @@
     </video:video>
   </url>
   <url>
+    <loc>https://smartlifeutils.github.io/waverider/seas.html</loc>
+    <lastmod>2026-10-25</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/worlds/calm-lake.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/worlds/nile.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/worlds/loch-ness.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/worlds/pacific.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/worlds/caribbean.webp</image:loc></image:image>
+  </url>
+  <url>
     <loc>https://smartlifeutils.github.io/waverider/garage.html</loc>
     <lastmod>2026-10-25</lastmod>
     <video:video>
