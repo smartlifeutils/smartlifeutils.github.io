@@ -1907,3 +1907,111 @@ a.badge:hover { transform: translateY(-2px); }
   }
   .rise { opacity: 1; transform: none; }
 }
+
+.trailer iframe { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0; }
+.video-note {
+  max-width: 820px;
+  margin: 26px auto 0;
+  font-weight: 700;
+  line-height: 1.6;
+  text-align: center;
+}
+.video-note a { color: var(--gold); font-weight: 900; }
+.sec--sky .video-note a,
+.sec--sand .video-note a { color: var(--sea-dark); }
+
+.chapters {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  max-width: 980px;
+  margin: 24px auto 0;
+}
+.chapters a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px 6px 8px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 3px solid var(--ink);
+  border-radius: 999px;
+  box-shadow: 0 3px 0 var(--ink);
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.08s ease;
+}
+.chapters a:hover { transform: translateY(-1px); }
+.chapters time {
+  padding: 2px 8px 1px;
+  background: var(--gold);
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  font-family: var(--display);
+  font-size: 0.9rem;
+}
+
+.boat-rows { display: grid; gap: 28px; }
+.boat-row {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  align-items: center;
+  gap: 18px 34px;
+  padding: 6px 8px;
+  color: var(--cream);
+  scroll-margin-top: calc(var(--nav-h) + 16px);
+}
+.boat-row .boat-card__art { height: 230px; margin: 0; }
+.boat-row .boat-card__art img { height: 190px; }
+.boat-row__name { font-size: clamp(1.9rem, 3.6vw, 2.6rem); -webkit-text-stroke-width: 0.15em; }
+.boat-row p { margin-top: 12px; font-weight: 700; line-height: 1.6; }
+.boat-row p.boat-card__role { margin-top: 4px; }
+.boat-row__best strong { color: var(--gold); font-weight: 900; }
+.boat-row .stats { margin-top: 18px; max-width: 440px; }
+@media (max-width: 760px) {
+  .boat-row { grid-template-columns: 1fr; }
+  .boat-row .boat-card__art { height: 170px; }
+  .boat-row .boat-card__art img { height: 140px; }
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+
+.lane__what {
+  margin-top: 10px;
+  font-weight: 700;
+  font-size: 0.96rem;
+  line-height: 1.5;
+  color: #d5e4f2;
+}
+
+.table-card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: var(--paper);
+  color: var(--ink);
+  border: 4px solid var(--ink);
+  border-radius: 22px;
+  box-shadow: 0 7px 0 var(--ink);
+  overflow-x: auto;
+}
+.stat-table { width: 100%; min-width: 520px; border-collapse: collapse; font-weight: 800; }
+.stat-table caption { padding: 18px 20px 4px; text-align: left; font-weight: 700; color: var(--muted-ink); }
+.stat-table th,
+.stat-table td { padding: 13px 18px; text-align: center; }
+.stat-table th:first-child,
+.stat-table td:first-child { text-align: left; }
+.stat-table thead th {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--sea-dark);
+}
+.stat-table tbody tr { border-top: 2px solid #dde9f3; }
+.stat-table b { color: var(--sea-dark); font-weight: 900; }

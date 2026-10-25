@@ -260,4 +260,15 @@
       });
     });
   }
+
+  document.querySelectorAll("[data-seek]").forEach(function (link) {
+    link.addEventListener("click", function (e) {
+      var frame = document.getElementById(link.getAttribute("data-player"));
+      if (!frame) return;
+      e.preventDefault();
+      var base = frame.getAttribute("data-src");
+      frame.src = base + (base.indexOf("?") < 0 ? "?" : "&") + "start=" + link.getAttribute("data-seek") + "&autoplay=1";
+      frame.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
+    });
+  });
 })();

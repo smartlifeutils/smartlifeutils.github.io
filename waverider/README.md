@@ -14,6 +14,8 @@ assets or design docs.
 |---|---|---|
 | `index.html` | `/waverider/` | Home: the boot splash, the trailer, a playable live sea, the gallery, tricks, boats, seas, the garage, daily goals, download |
 | `play.html` | `/waverider/play` | **The link to share**: a phone goes straight to its store (Android to Play, iPhone and iPad to the App Store); desktops, Fire tablets and anything unknown see a download card. `?platform=ios\|android\|none` forces a branch for testing |
+| `boats.html` | `/waverider/boats.html` | Every boat in depth, built around the All Boats Showcase YouTube video: role, where it does best, stock vs upgraded meters |
+| `garage.html` | `/waverider/garage.html` | The upgrade lanes and a stock vs upgraded table, built around the Garage YouTube video, whose chapters seek the player (`data-seek` in `main.js`) |
 | `support.html` | `/waverider/support.html` | **Store-required support URL**: contact, FAQ, bug reports |
 | `privacy.html` | `/waverider/privacy.html` | **Store-required privacy policy** (same text as the in-game one) |
 | `terms.html` | `/waverider/terms.html` | Terms of service (same text as the in-game one) |
@@ -42,6 +44,10 @@ Then open <http://localhost:8000>. The only absolute URLs are the `canonical`, `
   links), the publisher and the trailer (`VideoObject`, its `duration` and `uploadDate` must follow
   `trailer.mp4`). Check it at <https://search.google.com/test/rich-results> after editing.
 - `play.html` and `404.html` are `noindex` on purpose.
+- Topic pages (`boats.html`, `garage.html`) each carry one YouTube video, embedded from
+  `youtube-nocookie.com`, described by a `VideoObject` (plus `Clip`s for chapters) and by a
+  `<video:video>` entry in the sitemap. Their stats repeat the home page's, so change both together.
+  A new video gets its own topic page the same way: one video per page, plenty of text around it.
 - Google Search Console: a URL-prefix property for `https://smartlifeutils.github.io/waverider/`,
   verified by the HTML file Google issues, dropped into this folder. Don't delete that file.
 
