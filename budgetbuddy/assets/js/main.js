@@ -98,15 +98,4 @@
       light();
     });
   });
-
-  document.querySelectorAll('[data-mailme]').forEach((form) => {
-    form.addEventListener('submit', (e) => {
-      e.preventDefault();
-      const input = form.querySelector('input');
-      const to = input.value.trim();
-      if (!input.checkValidity() || !to) { input.reportValidity(); return; }
-      const body = 'Budget Buddy\n\niPhone: https://apps.apple.com/app/id6758464704\nAndroid: https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy\n\nMore: https://smartlifeutils.github.io/budgetbuddy/';
-      window.location.href = `mailto:${encodeURIComponent(to)}?subject=${encodeURIComponent('Budget Buddy download links')}&body=${encodeURIComponent(body)}`;
-    });
-  });
 })();

@@ -13,7 +13,7 @@ project), the same data shown in the store screenshots.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/budgetbuddy/` | Home: a working copy of the September 2025 overview (type an amount, pick a category, press Add, and the balance, donut and insight chips recalculate), the app's screens in a carousel, one coffee in four steps, the ten-month spending chart, links to every topic page, questions, and a form that emails the store links to yourself |
+| `index.html` | `/budgetbuddy/` | Home: the September 2025 overview built in HTML (balance, donuts, insight chips, the month's top categories), the app's screens in a carousel, one coffee in four steps, the ten-month spending chart, links to every topic page, questions, and a download band |
 | `tracking.html` | `/budgetbuddy/tracking.html` | Logging: the numpad, QR bill scanning (a working reader for EPC, SPAYD and UPI payloads), receipts and warranties, recurring entries and reminders, categories and the 180 icons, search and saved views, accounts, CSV import, currencies and number formats |
 | `budgets.html` | `/budgetbuddy/budgets.html` | Budgets: a working pace and forecast calculator, how a budget is set up, Budget Progress tiers and streaks, savings goals |
 | `insights.html` | `/budgetbuddy/insights.html` | Overview donuts, expense analysis, net flow, weekday spending, a working Plan Ahead projector, insight chips, the monthly recap story |
