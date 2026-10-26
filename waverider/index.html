@@ -127,7 +127,7 @@
   <link rel="preload" href="assets/fonts/lilita-one.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/nunito-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026-5" />
   <script>document.documentElement.classList.remove("no-js");document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -152,42 +152,45 @@
   </header>
 
   <main id="main">
-    <section class="hx" aria-labelledby="hero-title">
-      <div class="hx__in">
-        <h1 class="hx__title gt lines" id="hero-title">
-          <span class="line"><span data-line style="--i:0">Wave</span></span>
-          <span class="line hx__l2"><span data-line style="--i:1">Rider</span></span>
-        </h1>
-        <figure class="hx__print">
-          <picture>
-            <source media="(max-width: 699px)" srcset="assets/img/brand/splash-skipper-640.webp" width="640" height="558" />
-            <img src="assets/img/brand/splash-1792.webp"
-                 srcset="assets/img/brand/splash-720.webp 720w, assets/img/brand/splash-1100.webp 1100w, assets/img/brand/splash-1792.webp 1795w"
-                 sizes="(max-width: 699px) 100vw, 58vw" width="1795" height="876" fetchpriority="high"
-                 alt="The Wave Rider skipper launches a red inflatable off a breaking wave" />
-          </picture>
-        </figure>
-        <div class="hx__foot">
-          <p class="hx__say">Every wave is a ramp. A free boat stunt game for iPhone, iPad and Android: hit the swell, flip the boat and land it.</p>
-          <div class="stores">
-            <a class="badge" href="https://apps.apple.com/us/app/wave-rider-boat-stunt-racing/id6819839167" rel="noopener"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download Wave Rider on the App Store" /></a>
-            <a class="badge" href="https://play.google.com/store/apps/details?id=com.smartlife.waverider" rel="noopener"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get Wave Rider on Google Play" /></a>
-            <a class="hx__watch" href="#trailer" data-watch><span class="trailer__btn" aria-hidden="true"></span>Watch the trailer</a>
-          </div>
+    <section class="hero" aria-labelledby="hero-title">
+      <h1 id="hero-title" class="sr-only">Wave Rider: Boat Stunt Racing</h1>
+      <div class="hero__media">
+        <picture class="hero__art">
+          <source media="(max-width: 559px)" srcset="assets/img/brand/splash-skipper-640.webp" width="640" height="558" />
+          <img src="assets/img/brand/splash-1792.webp"
+               srcset="assets/img/brand/splash-720.webp 720w, assets/img/brand/splash-1100.webp 1100w, assets/img/brand/splash-1792.webp 1795w"
+               sizes="100vw" width="1795" height="876" fetchpriority="high"
+               alt="The Wave Rider skipper launches a red inflatable off a breaking wave" />
+        </picture>
+        <div class="surf" aria-hidden="true">
+          <span class="surf__band surf__band--back"><i></i></span>
+          <span class="surf__band surf__band--mid"><i></i></span>
+          <span class="surf__band surf__band--front"><i></i></span>
         </div>
       </div>
-      <div class="surf" aria-hidden="true">
-        <span class="surf__band surf__band--back"><i></i></span>
-        <span class="surf__band surf__band--mid"><i></i></span>
-        <span class="surf__band surf__band--front"><i></i></span>
+      <img class="hero__logo" src="assets/img/brand/logo.webp" width="709" height="430" alt="" />
+
+      <div class="hero__cta">
+        <p class="hero__tag gt">Every wave is a ramp</p>
+        <div class="stores">
+          <a class="badge" href="https://apps.apple.com/us/app/wave-rider-boat-stunt-racing/id6819839167" rel="noopener"><img src="assets/img/badges/app-store.png" width="162" height="48" alt="Download Wave Rider on the App Store" /></a>
+          <a class="badge" href="https://play.google.com/store/apps/details?id=com.smartlife.waverider" rel="noopener"><img src="assets/img/badges/google-play.png" width="162" height="48" alt="Get Wave Rider on Google Play" /></a>
+          <a class="hero__watch" href="#trailer" data-watch><span class="trailer__btn" aria-hidden="true"></span>Trailer</a>
+        </div>
+        <p class="hero__out">
+          <span class="hero__now">Out now</span>
+          <span class="gt gt--sm hero__on">iPhone · iPad · Android</span>
+          <span class="hero__free">Free to play</span>
+        </p>
       </div>
+
     </section>
 
     <section class="sec sec--deep sec--flat tr" aria-labelledby="watch-title">
       <div class="wrap tr__grid">
         <div class="tr__copy" data-reveal>
           <h2 class="h-display" id="watch-title">This is the game.</h2>
-          <p class="lead">27 seconds of gameplay, from the Nile to the Pacific: big air, flips, the locals and a wipeout or two.</p>
+          <p class="lead">Real gameplay, straight from the Nile to the Pacific.</p>
         </div>
         <div class="trailer" id="trailer" data-trailer data-reveal>
           <video controls playsinline preload="none" width="1920" height="1080" poster="assets/video/trailer-poster.jpg" aria-label="Wave Rider trailer">
@@ -211,7 +214,10 @@
     <section class="sec sec--sea ride" id="ride" aria-labelledby="ride-title">
       <div class="wrap">
         <header class="split" data-reveal>
-          <h2 class="h-display" id="ride-title">Now you try</h2>
+          <div>
+            <span class="kicker">Now you try</span>
+            <h2 class="h-display" id="ride-title">The sea never stops moving</h2>
+          </div>
           <p class="lead">Every wave is built on the fly and keeps rolling even when you sit still. Your boat floats on it, tilts with it and gets thrown by it. Hold AHEAD and go.</p>
         </header>
 
@@ -260,39 +266,43 @@
       </div>
     </section>
 
-    <section class="sec sec--red gal" id="screenshots" aria-labelledby="gal-title">
-      <div class="wrap gal__grid">
-        <div class="gal__copy" data-reveal>
+    <section class="sec sec--navy gal" id="screenshots" aria-labelledby="gal-title">
+      <div class="wrap">
+        <header class="split" data-reveal>
           <h2 class="h-display" id="gal-title">The real sea is bigger</h2>
           <p class="lead">That was the toy. These are straight out of a run: the swell, the stunts, the locals and the garage you come back to.</p>
-        </div>
-        <div class="gal__ctrl">
-          <p class="gal__cap" data-cap aria-live="polite">A Jet Ski launching off a Pacific crest</p>
-          <p class="gal__count" data-count>1 of 9</p>
-          <div class="gal__btns" hidden data-pile-btns>
-            <button class="plate" type="button" data-prev>Back</button>
-            <button class="plate plate--here" type="button" data-next>Next shot</button>
-          </div>
-        </div>
-        <div class="pile" data-pile>
-          <figure class="print"><a href="assets/img/shots/crest-1600.webp"><img src="assets/img/shots/crest-1600.webp" srcset="assets/img/shots/crest-480.webp 480w, assets/img/shots/crest-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="A Jet Ski launching off a Pacific crest" loading="lazy" /></a></figure>
-          <figure class="print"><a href="assets/img/shots/nile-1600.webp"><img src="assets/img/shots/nile-1600.webp" srcset="assets/img/shots/nile-480.webp 480w, assets/img/shots/nile-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="A hippo surfaces under the Speedboat on the Nile" loading="lazy" /></a></figure>
-          <figure class="print"><a href="assets/img/shots/flip-1600.webp"><img src="assets/img/shots/flip-1600.webp" srcset="assets/img/shots/flip-480.webp 480w, assets/img/shots/flip-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="A Jet Ski upside down, mid-flip over a wave" loading="lazy" /></a></figure>
-          <figure class="print"><a href="assets/img/shots/caribbean-1600.webp"><img src="assets/img/shots/caribbean-1600.webp" srcset="assets/img/shots/caribbean-480.webp 480w, assets/img/shots/caribbean-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="Speedboat on the Caribbean, a manta leaping ahead" loading="lazy" /></a></figure>
-          <figure class="print"><a href="assets/img/shots/dinghy-capsize-1600.webp"><img src="assets/img/shots/dinghy-capsize-1600.webp" srcset="assets/img/shots/dinghy-capsize-480.webp 480w, assets/img/shots/dinghy-capsize-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="The Motor Dinghy capsized on the Pacific, sinking under the wave while the skipper bobs in the foam above" loading="lazy" /></a></figure>
-          <figure class="print"><a href="assets/img/shots/boats-1600.webp"><img src="assets/img/shots/boats-1600.webp" srcset="assets/img/shots/boats-480.webp 480w, assets/img/shots/boats-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="The garage: pick your boat" loading="lazy" /></a></figure>
-          <figure class="print"><a href="assets/img/shots/upgrades-1600.webp"><img src="assets/img/shots/upgrades-1600.webp" srcset="assets/img/shots/upgrades-480.webp 480w, assets/img/shots/upgrades-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="The garage: engine, hull, impeller and trim upgrades" loading="lazy" /></a></figure>
-          <figure class="print"><a href="assets/img/shots/missions-1600.webp"><img src="assets/img/shots/missions-1600.webp" srcset="assets/img/shots/missions-480.webp 480w, assets/img/shots/missions-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="Today's three missions, easy to hard" loading="lazy" /></a></figure>
-          <figure class="print"><a href="assets/img/shots/offline-1600.webp"><img src="assets/img/shots/offline-1600.webp" srcset="assets/img/shots/offline-480.webp 480w, assets/img/shots/offline-1600.webp 1600w" sizes="(max-width: 899px) 90vw, 760px" width="1600" height="900" alt="A Jet Ski on the Calm Lake" loading="lazy" /></a></figure>
+        </header>
+        <div class="viewer" data-viewer data-reveal>
+          <figure class="viewer__stage">
+            <img class="viewer__img" src="assets/img/shots/crest-1600.webp" width="1600" height="900" alt="A Jet Ski launching off a Pacific crest" loading="lazy" />
+            <figcaption class="viewer__cap">A Jet Ski launching off a Pacific crest</figcaption>
+          </figure>
+            <ul class="viewer__thumbs">
+              <li><a class="viewer__thumb" href="assets/img/shots/crest-1600.webp" data-cap="A Jet Ski launching off a Pacific crest" aria-current="true"><img src="assets/img/shots/crest-480.webp" width="480" height="270" alt="A Jet Ski launching off a Pacific crest" loading="lazy" /></a></li>
+              <li><a class="viewer__thumb" href="assets/img/shots/flip-1600.webp" data-cap="A Jet Ski upside down, mid-flip over a wave"><img src="assets/img/shots/flip-480.webp" width="480" height="270" alt="A Jet Ski upside down, mid-flip over a wave" loading="lazy" /></a></li>
+              <li><a class="viewer__thumb" href="assets/img/shots/nile-1600.webp" data-cap="A hippo surfaces under the Speedboat on the Nile"><img src="assets/img/shots/nile-480.webp" width="480" height="270" alt="A hippo surfaces under the Speedboat on the Nile" loading="lazy" /></a></li>
+              <li><a class="viewer__thumb" href="assets/img/shots/caribbean-1600.webp" data-cap="Speedboat on the Caribbean, a manta leaping ahead"><img src="assets/img/shots/caribbean-480.webp" width="480" height="270" alt="Speedboat on the Caribbean, a manta leaping ahead" loading="lazy" /></a></li>
+              <li><a class="viewer__thumb" href="assets/img/shots/boats-1600.webp" data-cap="The garage: pick your boat"><img src="assets/img/shots/boats-480.webp" width="480" height="270" alt="The garage: pick your boat" loading="lazy" /></a></li>
+              <li><a class="viewer__thumb" href="assets/img/shots/upgrades-1600.webp" data-cap="The garage: engine, hull, impeller and trim upgrades"><img src="assets/img/shots/upgrades-480.webp" width="480" height="270" alt="The garage: engine, hull, impeller and trim upgrades" loading="lazy" /></a></li>
+              <li><a class="viewer__thumb" href="assets/img/shots/missions-1600.webp" data-cap="Today's three missions, easy to hard"><img src="assets/img/shots/missions-480.webp" width="480" height="270" alt="Today's three missions, easy to hard" loading="lazy" /></a></li>
+              <li><a class="viewer__thumb" href="assets/img/shots/offline-1600.webp" data-cap="A Jet Ski on the Calm Lake"><img src="assets/img/shots/offline-480.webp" width="480" height="270" alt="A Jet Ski on the Calm Lake" loading="lazy" /></a></li>
+            </ul>
         </div>
       </div>
     </section>
 
     <section class="sec sec--deep tricks" id="tricks" aria-labelledby="tricks-title">
       <div class="wrap tricks__grid">
-        <figure class="tricks__shot" data-reveal>
-          <img src="assets/img/shots/jetski-backflip-1600.webp" srcset="assets/img/shots/jetski-backflip-480.webp 480w, assets/img/shots/jetski-backflip-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 640px" width="1600" height="900" alt="A Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 rising off it" loading="lazy" />
-        </figure>
+        <div class="tricks__shots" data-reveal>
+          <figure class="tricks__shot">
+            <img src="assets/img/shots/jetski-backflip-1600.webp" srcset="assets/img/shots/jetski-backflip-480.webp 480w, assets/img/shots/jetski-backflip-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 640px" width="1600" height="900" alt="A Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 rising off it" loading="lazy" />
+            <figcaption>Land it and it pays.</figcaption>
+          </figure>
+          <figure class="tricks__shot">
+            <img src="assets/img/shots/dinghy-capsize-1600.webp" srcset="assets/img/shots/dinghy-capsize-480.webp 480w, assets/img/shots/dinghy-capsize-1600.webp 1600w" sizes="(max-width: 899px) 100vw, 640px" width="1600" height="900" alt="The Motor Dinghy capsized on the Pacific, sinking under the wave while the skipper bobs in the foam above" loading="lazy" />
+            <figcaption>Get it wrong and you're swimming.</figcaption>
+          </figure>
+        </div>
         <div>
           <h2 class="h-display" id="tricks-title" data-reveal>Big air pays. Flips pay more.</h2>
           <p class="lead" data-reveal>Every stunt pays out in coins, and coins buy upgrades. Riding with style is how you get rich.</p>
@@ -618,8 +628,8 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20261026-2" defer></script>
-  <script src="assets/js/art.js?v=20261026-2" defer></script>
-  <script src="assets/js/sea.js?v=20261026-2" defer></script>
+  <script src="assets/js/main.js?v=20261026-5" defer></script>
+  <script src="assets/js/art.js?v=20261026-5" defer></script>
+  <script src="assets/js/sea.js?v=20261026-5" defer></script>
 </body>
 </html>

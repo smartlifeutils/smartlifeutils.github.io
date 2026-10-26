@@ -132,20 +132,13 @@
     renderAll();
   }
 
-  var pile = document.querySelector("[data-pile]");
-  if (pile) {
-    var prints = Array.prototype.slice.call(pile.querySelectorAll(".print"));
-    var capEl = document.querySelector("[data-cap]");
-    var countEl = document.querySelector("[data-count]");
-    var btns = document.querySelector("[data-pile-btns]");
-    var order = prints.map(function (_, i) { return i; });
-    var LOOK = [
-      { r: -3, x: "0%", y: "0%" },
-      { r: 5, x: "3%", y: "-7%" },
-      { r: -8, x: "-4%", y: "-10%" },
-      { r: 9, x: "5%", y: "-3%" }
-    ];
-    var busy = false;
+  var viewer = document.querySelector("[data-viewer]");
+  if (viewer) {
+    var stage = viewer.querySelector(".viewer__stage");
+    var stageImg = viewer.querySelector(".viewer__img");
+    var caption = viewer.querySelector(".viewer__cap");
+    var thumbs = Array.prototype.slice.call(viewer.querySelectorAll(".viewer__thumb"));
+    var at = 0;
 
     var box = document.createElement("div");
     box.className = "lightbox";
@@ -157,53 +150,30 @@
     box.appendChild(big);
     document.body.appendChild(box);
 
-    var lay = function () {
-      order.forEach(function (idx, pos) {
-        var p = prints[idx];
-        var look = LOOK[Math.min(pos, LOOK.length - 1)];
-        p.style.setProperty("--r", look.r + "deg");
-        p.style.setProperty("--x", look.x);
-        p.style.setProperty("--y", look.y);
-        p.style.zIndex = prints.length - pos;
-        p.style.opacity = pos < LOOK.length ? "" : "0";
-        p.classList.toggle("is-top", pos === 0);
-        p.setAttribute("aria-hidden", pos === 0 ? "false" : "true");
-        p.querySelector("a").tabIndex = pos === 0 ? 0 : -1;
-      });
-      var top = prints[order[0]];
-      capEl.textContent = top.querySelector("img").alt;
-      countEl.textContent = (order[0] + 1) + " of " + prints.length;
+    var show = function (i) {
+      at = (i + thumbs.length) % thumbs.length;
+      var thumb = thumbs[at];
+      var src = thumb.getAttribute("href");
+      var text = thumb.getAttribute("data-cap");
+      thumbs.forEach(function (t) { t.setAttribute("aria-current", t === thumb ? "true" : "false"); });
+      caption.textContent = text;
+      stageImg.classList.add("is-swapping");
+      var next = new Image();
+      next.onload = function () {
+        stageImg.src = src;
+        stageImg.alt = text;
+        stageImg.classList.remove("is-swapping");
+      };
+      next.src = src;
       if (!box.hidden) {
-        big.src = top.querySelector("a").getAttribute("href");
-        big.alt = top.querySelector("img").alt;
+        big.src = src;
+        big.alt = text;
       }
     };
-    var next = function () {
-      if (busy) return;
-      var top = prints[order[0]];
-      if (reduce || !box.hidden) {
-        order.push(order.shift());
-        lay();
-        return;
-      }
-      busy = true;
-      top.classList.add("is-off");
-      setTimeout(function () {
-        order.push(order.shift());
-        top.classList.remove("is-off");
-        lay();
-        busy = false;
-      }, 380);
-    };
-    var prev = function () {
-      if (busy) return;
-      order.unshift(order.pop());
-      lay();
-    };
+
     var open = function () {
-      var top = prints[order[0]];
-      big.src = top.querySelector("a").getAttribute("href");
-      big.alt = top.querySelector("img").alt;
+      big.src = thumbs[at].getAttribute("href");
+      big.alt = thumbs[at].getAttribute("data-cap");
       box.hidden = false;
       document.body.classList.add("has-lightbox");
       document.body.style.overflow = "hidden";
@@ -212,38 +182,31 @@
       box.hidden = true;
       document.body.classList.remove("has-lightbox");
       document.body.style.overflow = "";
-      prints[order[0]].querySelector("a").focus({ preventScroll: true });
+      stage.focus({ preventScroll: true });
     };
 
-    pile.classList.add("is-live");
-    btns.hidden = false;
-    lay();
-
-    prints.forEach(function (p) {
-      p.querySelector("a").addEventListener("click", function (e) {
+    thumbs.forEach(function (thumb, i) {
+      thumb.addEventListener("click", function (e) {
         e.preventDefault();
-        open();
+        show(i);
       });
     });
-    btns.querySelector("[data-next]").addEventListener("click", next);
-    btns.querySelector("[data-prev]").addEventListener("click", prev);
-
-    var x0 = null;
-    pile.addEventListener("touchstart", function (e) { x0 = e.touches[0].clientX; }, { passive: true });
-    pile.addEventListener("touchend", function (e) {
-      if (x0 === null) return;
-      var dx = e.changedTouches[0].clientX - x0;
-      x0 = null;
-      if (dx < -40) next();
-      if (dx > 40) prev();
-    }, { passive: true });
-
+    stage.tabIndex = 0;
+    stage.setAttribute("role", "button");
+    stage.setAttribute("aria-label", "Open this screenshot larger");
+    stage.addEventListener("click", open);
+    stage.addEventListener("keydown", function (e) {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        open();
+      }
+    });
     box.addEventListener("click", close);
     document.addEventListener("keydown", function (e) {
       if (box.hidden) return;
       if (e.key === "Escape") close();
-      if (e.key === "ArrowRight") next();
-      if (e.key === "ArrowLeft") prev();
+      if (e.key === "ArrowRight") show(at + 1);
+      if (e.key === "ArrowLeft") show(at - 1);
     });
   }
 

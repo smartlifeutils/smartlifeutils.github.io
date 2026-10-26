@@ -12,7 +12,7 @@ assets or design docs.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/waverider/` | Home: WAVE / RIDER beside the boot splash, the trailer, a playable live sea, the pile of screenshots, tricks, a short boat line-up (the full story is on `boats.html`), the seas board, the garage, daily goals and the streak, download |
+| `index.html` | `/waverider/` | Home: the boot splash, the trailer, a playable live sea, the screenshot gallery, tricks, a short boat line-up (the full story is on `boats.html`), the seas board, the garage, daily goals and the streak, download |
 | `play.html` | `/waverider/play` | **The link to share**: a phone goes straight to its store (Android to Play, iPhone and iPad to the App Store); desktops, Fire tablets and anything unknown see a download card. `?platform=ios\|android\|none` forces a branch for testing |
 | `boats.html` | `/waverider/boats.html` | Every boat in depth, built around the All Boats Showcase YouTube video: role, where it does best, stock vs upgraded meters |
 | `seas.html` | `/waverider/seas.html` | Every sea in depth (water, hazards, view, locals, unlock) and the boat × sea fit table, from the game's `06_WORLD_CATALOG.md` and `07_BOAT_WORLD_MATRIX.md` (launch seas only). Room for a seas video when one exists |
@@ -145,15 +145,8 @@ see `Tools/store-shots/`) and the plain captures at `WaveRider/Build/screenshots
 
 | Where | Shot |
 |---|---|
-| `#tricks`, beside the trick list | The Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 (`09_speedboat_pacific_flip_hud.png`, 2026-10-19) |
-
-Everything else sits in one pile of prints in `#screenshots`, the section after the live sea, in this order:
-
-| Shot |
-|---|
-| The store set's JUMP HUGE WAVES (on top), FROM THE NILE TO THE PACIFIC, FLIP IT. LAND IT., MEET THE LOCALS |
-| The Motor Dinghy capsized on the Pacific, sinking under the wave (`10_dinghy_pacific_sinking_hud.png`, 2026-10-19) |
-| FROM DINGHY TO RESCUE RIB, UPGRADE ENGINE, HULL AND MORE, DAILY MISSIONS AND BADGES, PLAY OFFLINE, NO ACCOUNT. REAL WATER PHYSICS is left out: the frame is dimmed and the capsize already shows a wipeout |
+| `#screenshots`, the gallery after the live sea | The store set: JUMP HUGE WAVES, FLIP IT. LAND IT., FROM THE NILE TO THE PACIFIC, MEET THE LOCALS, FROM DINGHY TO RESCUE RIB, UPGRADE ENGINE, HULL AND MORE, DAILY MISSIONS AND BADGES, PLAY OFFLINE, NO ACCOUNT. REAL WATER PHYSICS is left out: the frame is dimmed and the tricks section already shows a capsize |
+| `#tricks`, beside the trick list | The Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 (`09_speedboat_pacific_flip_hud.png`, 2026-10-19), and under it the Motor Dinghy capsized on the Pacific, sinking under the wave (`10_dinghy_pacific_sinking_hud.png`, 2026-10-19) |
 
 MEET THE LOCALS is not in the store set. It is the plain Caribbean capture
 (`06_speedboat_caribbean_manta.png`) run through the store caption tool, saved next to it as
@@ -167,18 +160,17 @@ swiftc -O Tools/store-shots/caption.swift -o /tmp/cap/caption
 cp /tmp/cap/out/play/01-caribbean.png WaveRider/Build/screenshots/website/06_speedboat_caribbean_manta_caption.png
 ```
 
-(run from the Unity repo root). `main.js` lays the pile out (the top four prints show, tilted), and
-Back / Next shot, a swipe or the arrow keys in the lightbox cycle it; the caption under the buttons is
-the top print's `alt`. Without JS the prints sit in a plain two-column grid.
+(run from the Unity repo root). The gallery is one big shot with all eight thumbnails beside it (two
+columns on desktop, a row of four on phones); change `.viewer__thumbs` in `style.css` if the count
+changes. Clicking a thumbnail swaps the big shot, and clicking the big shot opens it full screen.
 
-To change them: recapture, update `SCREENSHOTS` and the matching `<figure class="print">` in
-`index.html` (its `alt` is the caption), and re-run the script. The count in "1 of 10" follows the
-number of prints (9 today).
+To change them: recapture, update `SCREENSHOTS` and the matching thumbnails
+(`.viewer__thumb`, whose `data-cap` is the caption under the picture) in `index.html`, and re-run the script.
 Captures must show launch content only.
 
 **Trailer**: `#trailer` is the first thing under the hero ("This is the game."), ahead of the
-live sea ("Now you try") and the pile of screenshots ("The real sea is bigger"), because most visitors
-decide on the first screen. The hero's WATCH THE TRAILER pill scrolls to it and starts it. `assets/video/trailer.mp4` is the game repo's
+live sea ("Now you try") and the gallery ("The real sea is bigger"), because most visitors
+decide on the first screen. The hero's TRAILER pill scrolls to it and starts it. `assets/video/trailer.mp4` is the game repo's
 `WaveRider/Build/listing/youtube/promo-trailer_1920x1080_60fps.mp4` re-encoded for the web (1080p60, about 14 MB):
 
     ffmpeg -i promo-trailer_1920x1080_60fps.mp4 -c:v libx264 -preset slow -crf 23 -maxrate 7M -bufsize 14M \
@@ -206,13 +198,15 @@ The page layout (the 2026-10-26 redesign):
   28px). The game's own interface pieces (the live sea, the garage lanes, the store card) keep their
   look and are marked `data-ui`.
 - **A small set of type sizes**, as tokens: `--fs-display` (section titles), `--fs-title`,
-  `--fs-lead`, `--fs-body` and `--fs-small`. Only WAVE / RIDER in the hero is set larger. Headings
+  `--fs-lead`, `--fs-body` and `--fs-small`. Headings
   stay on two lines at every width.
-- **Sections vary their layout** (title beside the trailer, the screenshot pile, the trick list
-  beside its shot, the seas board), left-aligned on one grid with `--gutter` margins.
-- **Section colour fields** keep white keyline titles readable: the hero and download sit on `--sea`,
-  the screenshots on `--red-field`.
-- **Motion**: WAVE / RIDER rises line by line on load; everything else enters once as it scrolls in
+- **Sections vary their layout** (title beside the trailer, the gallery, the trick list beside its
+  shots, the seas board), left-aligned on one grid with `--gutter` margins. The one exception is
+  the hero, which is the game's boot splash as it was before the redesign.
+- **Gold pill** (`.kicker`): the "Now you try" badge over the live sea. Keep it rare so it stays loud.
+- **Section colour fields** keep white keyline titles readable: dark fields for most sections,
+  `--sea` for the download section.
+- **Motion**: sections enter once as they scroll in
   (`data-reveal`, in `main.js`), and under *reduce motion* nothing moves.
 
 ## Before launch
