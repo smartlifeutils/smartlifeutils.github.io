@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
   <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/rajdhani-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261026-2" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-2" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261026-3" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026-3" />
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -109,23 +109,22 @@
     </section>
 
     <section class="sec wrap" aria-labelledby="get-title">
-      <div class="ctarow">
-        <div class="ctarow__side"><img src="assets/images/worlds-lg/world-5.jpg" width="1200" height="1200" loading="lazy" alt="" /></div>
-        <div class="ctarow__main" data-reveal>
-          <h2 id="get-title">Free on iPhone and Android</h2>
-          <p>No account and no connection needed to play. It has ads, and one purchase removes them.</p>
-          <div class="badges">
+      <div class="split">
+        <div class="split__text">
+          <h2 id="get-title" data-reveal>Free on iPhone and Android</h2>
+          <p class="lead" data-reveal style="--i:1">No account and no connection needed to play. It has ads, and one purchase removes them.</p>
+          <div style="margin-top:2rem;--i:2" data-reveal><div class="badges">
           <a href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store"><img src="assets/images/badge-appstore.png" width="162" height="48" alt="Download on the App Store" /></a>
           <a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play"><img src="assets/images/badge-googleplay.png" width="162" height="48" alt="Get it on Google Play" /></a>
+        </div></div>
         </div>
-        </div>
-        <div class="ctarow__side" style="--sc:var(--w2)"></div>
+        <figure class="split__media inked" data-reveal><img class="get__art" src="assets/images/worlds-lg/world-5.jpg" width="1200" height="1200" loading="lazy" alt="" /></figure>
       </div>
     </section>
   </main>
 
   <footer class="foot">
-    <div class="mark" role="img" aria-label="Ink Bounce"><span style="--c:var(--w1);--h:100%">I</span><span style="--c:var(--w2);--h:80%">N</span><span style="--c:var(--pink);--h:94%">K</span><span class="gap"></span><span style="--c:var(--w3);--h:86%">B</span><span style="--c:var(--w4);--h:100%">O</span><span style="--c:var(--w5);--h:72%">U</span><span style="--c:var(--w1);--h:90%">N</span><span style="--c:var(--pink);--h:80%">C</span><span style="--c:var(--w2);--h:96%">E</span></div>
+    <p class="foot__mark"><img src="assets/images/icon-180.png" width="72" height="72" alt="" />Ink Bounce</p>
     <div class="foot__cols">
       <nav aria-label="Game">
         <h2>Game</h2>
@@ -169,6 +168,6 @@
       <a class="btn btn--small" href="play.html">Get the game</a>
     </div>
   </footer>
-  <script src="assets/js/main.js?v=20261026-2" defer></script>
+  <script src="assets/js/main.js?v=20261026-3" defer></script>
 </body>
 </html>

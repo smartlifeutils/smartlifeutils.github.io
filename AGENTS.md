@@ -106,8 +106,9 @@ Every marketing page was at 0 FAIL when last shipped; keep it there. Legal pages
   - Don't list everything an app supports (every icon, every currency format). Show one good example.
   - The source code is for checking that a claim is true, not for filling the page. When a section
     starts explaining how the app works inside, cut it.
-  - Interactive pieces earn their place only when they show the product's value (a playable level,
-    a budget that fills as you spend). Don't build demos of internals, like what a scanner reads.
+  - No interactive try-outs on the sites (playable toys, calculators, sliders, pickers). Show the
+    real product instead: its screens, its trailer, short gameplay loops. Small working UI is fine
+    only where the app itself is the picture, such as Budget Buddy's budget circle.
 - **Never invent proof**: no testimonials, ratings, download counts, press quotes or user numbers.
   Neither store shows ratings yet.
 - **Use only shipped features.** An idea in a design doc or an `Ideas.md` is not a feature.
@@ -124,6 +125,10 @@ Every marketing page was at 0 FAIL when last shipped; keep it there. Legal pages
 Each site keeps its own look: Wave Rider is a loud flat poster, Ink Bounce a dark game site built
 on its pink ink stroke and world colours, Budget Buddy a light product site whose pictures are
 working pieces of the app. Extend the look a site already has; don't restyle it toward the others.
+
+No decorative colour: no flat-colour tiles, bands, side rectangles or block letters used as
+ornament. Colour comes from the app's own art and screens, plus one accent for actions. Keep
+sections close together; a section is as tall as its content, never a forced full screen.
 
 House rules, which the inspector measures:
 - headlines of two lines or fewer at every width;

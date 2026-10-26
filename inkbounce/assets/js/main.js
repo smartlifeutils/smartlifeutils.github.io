@@ -50,26 +50,6 @@
     });
   });
 
-  $$('[data-acc]').forEach((root) => {
-    const panels = $$('.acc__panel', root);
-    panels.forEach((p) => {
-      const btn = $('.acc__btn', p);
-      btn.addEventListener('click', () => {
-        panels.forEach((q) => {
-          const on = q === p;
-          q.classList.toggle('is-open', on);
-          $('.acc__btn', q).setAttribute('aria-expanded', String(on));
-        });
-      });
-    });
-  });
-
-  $$('[data-band]').forEach((band) => {
-    const sw = $('.switch', band);
-    const set = (on) => { band.classList.toggle('is-on', on); sw.setAttribute('aria-checked', String(on)); };
-    sw.addEventListener('click', () => set(sw.getAttribute('aria-checked') !== 'true'));
-  });
-
   $$('.index').forEach((root) => {
     const frame = $('.index__frame', root);
     if (!frame) return;
@@ -132,51 +112,5 @@
       q.addEventListener('pointerenter', () => { if (pane && getComputedStyle(pane).display !== 'none') pick(q); });
     });
   });
-
-  const skins = $('[data-skins]');
-  if (skins && window.INK_SKINS) {
-    const view = $('.skin-view', skins);
-    const orb = $('.skin-view__orb', view);
-    const name = $('[data-skin-name]', view);
-    const rar = $('[data-skin-rarity]', view);
-    const how = $('[data-skin-how]', view);
-    const groups = { classic: 'Classic', rare: 'Rare', epic: 'Epic', legendary: 'Legendary' };
-    const wrap = $('.swatch-groups', skins);
-    const buttons = [];
-    const pick = (s, b) => {
-      orb.style.setProperty('--core', s.core);
-      orb.style.setProperty('--glow', s.glow);
-      name.textContent = s.name;
-      rar.textContent = groups[s.rarity];
-      how.textContent = s.how;
-      buttons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
-    };
-    Object.keys(groups).forEach((g) => {
-      const list = window.INK_SKINS.filter((s) => s.rarity === g);
-      const box = document.createElement('div');
-      const h = document.createElement("p");
-      h.textContent = `${groups[g]}, ${list.length}`;
-      const grid = document.createElement('div');
-      grid.className = 'swatches';
-      grid.setAttribute('data-ui', '');
-      list.forEach((s) => {
-        const b = document.createElement('button');
-        b.type = 'button';
-        b.style.setProperty('--core', s.core);
-        b.style.setProperty('--glow', s.glow);
-        b.setAttribute('aria-label', `${s.name}, ${groups[g]}`);
-        b.setAttribute('aria-pressed', 'false');
-        b.addEventListener('click', () => pick(s, b));
-        b.addEventListener('pointerenter', () => pick(s, b));
-        buttons.push(b);
-        grid.appendChild(b);
-      });
-      box.append(h, grid);
-      wrap.appendChild(box);
-    });
-    const first = window.INK_SKINS.find((s) => s.name === 'Fire') || window.INK_SKINS[0];
-    pick(first, buttons[window.INK_SKINS.filter((s) => s.rarity === 'classic').length + 0]);
-    skins.classList.add('is-live');
-  }
 
 })();

@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
   <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/rajdhani-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261026-2" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-2" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261026-3" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026-3" />
   <script>document.documentElement.classList.add('js')</script>
   <script type="application/ld+json">
   {
@@ -83,46 +83,24 @@
   </header>
 
   <main id="main">
-    <section class="hero" aria-labelledby="title">
-      <h1 class="hero__title lines" id="title"><span class="line"><span data-line style="--i:0">Ink Bounce</span></span></h1>
-      <p class="hero__lead wrap" data-rise style="--d:380ms">A free one-thumb game for iPhone, iPad and Android. The orb is already moving: draw the line it bounces off, and don&rsquo;t run out of ink.</p>
-      <div class="folders">
-        <div class="folder f5" style="--i:0"><a class="folder__tab" href="worlds.html#sun-temple">Sun Temple</a></div>
-        <div class="folder f4" style="--i:1"><a class="folder__tab" href="worlds.html#ashen-rift">Ashen Rift</a></div>
-        <div class="folder f3" style="--i:2"><a class="folder__tab" href="worlds.html#frost-shrine">Frost Shrine</a></div>
-        <div class="folder f2" style="--i:3"><a class="folder__tab" href="worlds.html#ancient-grove">Ancient Grove</a></div>
-        <div class="folder f1 folder--front" style="--i:4">
-          <a class="folder__tab" href="worlds.html#ice-valley">Ice Valley</a>
-          <div class="front__top">
-            <a class="btn" href="play.html">Get the game</a>
-            <div class="badges">
+    <section class="hero wrap" aria-labelledby="title">
+      <div class="hero__text">
+        <h1 class="hero__title lines" id="title"><span class="line"><span data-line style="--i:0">Ink Bounce</span></span></h1>
+        <p class="hero__lead" data-rise style="--d:380ms">A free one-thumb game for iPhone, iPad and Android. The orb is already moving: draw the line it bounces off, and don&rsquo;t run out of ink.</p>
+        <div class="hero__actions" data-rise style="--d:460ms">
+          <a class="btn" href="play.html">Get the game</a>
+          <div class="badges">
           <a href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store"><img src="assets/images/badge-appstore.png" width="162" height="48" alt="Download on the App Store" /></a>
           <a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play"><img src="assets/images/badge-googleplay.png" width="162" height="48" alt="Get it on Google Play" /></a>
         </div>
-            <a class="link" href="assets/video/trailer.mp4" data-trailer>Watch the 29-second trailer</a>
-          </div>
-          <div class="toy" data-toy>
-            <div class="toy__copy">
-              <h2>Try one line</h2>
-              <p>Draw under the orb with your finger or mouse. It bounces off your ink, so the angle of the line decides where it goes. Get it into the portal before the ink runs out.</p>
-              <div class="toy__hud toy__live">
-                <p class="toy__level" data-toy-level>Draw beneath it</p>
-                <div class="meter" aria-hidden="true"><i data-toy-ink></i></div>
-                <p class="toy__ink" data-toy-ink-text>100% ink</p>
-                <p class="toy__status" data-toy-status aria-live="polite"></p>
-              </div>
-              <div class="toy__actions">
-                <button class="btn btn--dark" type="button" data-toy-assist>Draw one for me</button>
-                <button class="btn btn--light" type="button" data-toy-reset>Start again</button>
-              </div>
-            </div>
-            <div class="toy__stage">
-              <canvas aria-label="A small Ink Bounce level: draw a line under the orb to bounce it into the portal" role="img"></canvas>
-              <img class="toy__still" src="assets/images/screenshot-1.jpg" width="1440" height="810" alt="The orb rebounds off a freshly drawn ink line in Ice Valley" />
-            </div>
-          </div>
         </div>
       </div>
+      <figure class="hero__film" data-rise style="--d:200ms">
+        <video controls playsinline preload="none" poster="assets/video/trailer-poster.jpg" width="1280" height="720" aria-label="Ink Bounce gameplay trailer, 29 seconds">
+          <source src="assets/video/trailer.mp4" type="video/mp4" />
+        </video>
+        <figcaption>The 29-second trailer, all gameplay.</figcaption>
+      </figure>
     </section>
 
     <section class="plate" aria-label="Three ways to play" data-tabs>
@@ -139,71 +117,39 @@
           <div class="plate__panel" role="tabpanel" id="panel-campaign" aria-labelledby="tab-campaign">
               <div class="plate__words"><h2>100 levels, 5 worlds</h2>
               <p>Twenty hand-made levels in every world, and three stars to win on each one.</p></div>
-              <div class="cells">
-                <a class="btn" href="worlds.html">See the worlds</a>
-                <a class="btn btn--dark" href="assets/video/trailer.mp4" data-trailer>Watch the trailer</a>
-              </div>
+              <p class="plate__go"><a class="btn" href="worlds.html">See the worlds</a></p>
             </div><div class="plate__panel" role="tabpanel" id="panel-bosses" aria-labelledby="tab-bosses" hidden>
               <div class="plate__words"><h2>A boss at every level 20</h2>
               <p>Every world ends with a boss behind a shield. Wait for it to open, then bounce the orb straight into its core.</p></div>
-              <div class="cells">
-                <a class="btn" href="worlds.html#bosses">Meet the boss</a>
-                <a class="btn btn--dark" href="assets/video/trailer.mp4" data-trailer>Watch the trailer</a>
-              </div>
+              <p class="plate__go"><a class="btn" href="worlds.html#bosses">Meet the boss</a></p>
             </div><div class="plate__panel" role="tabpanel" id="panel-endless" aria-labelledby="tab-endless" hidden>
               <div class="plate__words"><h2>One corridor, no finish</h2>
               <p>One corridor that never ends and keeps getting faster. How far can you get?</p></div>
-              <div class="cells">
-                <a class="btn" href="endless.html">See Endless</a>
-                <a class="btn btn--dark" href="assets/video/trailer.mp4" data-trailer>Watch the trailer</a>
-              </div>
+              <p class="plate__go"><a class="btn" href="endless.html">See Endless</a></p>
             </div>
         </div>
       </div>
     </section>
 
     <section class="sec wrap" aria-labelledby="loop-title">
-      <div class="grid loop__head">
-        <h2 class="head" id="loop-title" data-reveal>One line of ink</h2>
-        <p data-reveal style="--i:1">The orb moves on its own. You draw what it bounces off, and each line fades away after a moment.</p>
-      </div>
-      <div class="acc" data-acc data-reveal>
-          <div class="acc__panel p1 is-open">
-            <button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-0"><span class="acc__name">Draw beneath it</span></button>
-            <div class="acc__body" id="acc-0">
-              <div class="acc__text"><h3>Draw beneath it</h3><p>Every line is a surface. The orb bounces off it at the angle you draw, so the shape of your stroke decides where it goes.</p></div>
-              <figure><img src="assets/images/beats/loop-draw.jpg" width="1200" height="496" loading="lazy" alt="A pink ink line arcs under the orb, which rebounds off it" /></figure>
-            </div>
-          </div>
-          <div class="acc__panel p2">
-            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-1"><span class="acc__name">Reach the portal</span></button>
-            <div class="acc__body" id="acc-1">
-              <div class="acc__text"><h3>Reach the portal</h3><p>Get the orb into the portal. Gravity flips, spikes spin and swing, and the way there is never straight.</p></div>
-              <figure><img src="assets/images/beats/loop-portal.jpg" width="1200" height="496" loading="lazy" alt="The orb streaks through a low-gravity zone toward the portal" /></figure>
-            </div>
-          </div>
-          <div class="acc__panel p3">
-            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-2"><span class="acc__name">Keep your ink</span></button>
-            <div class="acc__body" id="acc-2">
-              <div class="acc__text"><h3>Keep your ink</h3><p>Every stroke costs ink. Finish with some left over and you earn an extra star.</p></div>
-              <figure><img src="assets/images/beats/loop-ink.jpg" width="1200" height="496" loading="lazy" alt="The ink meter runs low as the orb crosses a shifting corridor" /></figure>
-            </div>
-          </div>
-          <div class="acc__panel p4">
-            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-3"><span class="acc__name">Chain a Fever</span></button>
-            <div class="acc__body" id="acc-3">
-              <div class="acc__text"><h3>Chain a Fever</h3><p>Keep the orb bouncing without a break and Fever kicks in: for a few seconds your ink goes further.</p></div>
-              <figure><img src="assets/images/beats/fever.jpg" width="1200" height="496" loading="lazy" alt="An endless run in Fever with a combo of 12" /></figure>
-            </div>
-          </div>
-          <div class="acc__panel p5">
-            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-4"><span class="acc__name">Break the boss</span></button>
-            <div class="acc__body" id="acc-4">
-              <div class="acc__text"><h3>Break the boss</h3><p>Boss fights give you all the ink you want, so it comes down to timing.</p></div>
-              <figure><img src="assets/images/beats/boss.jpg" width="1200" height="496" loading="lazy" alt="The Wall, the first boss, takes a hit from the orb" /></figure>
-            </div>
-          </div>
-      </div>
+      <h2 class="head" id="loop-title" data-reveal>How to play</h2>
+      <ol class="steps">
+          <li class="step" data-reveal style="--i:0">
+            <figure class="inked"><img src="assets/images/beats/loop-draw.jpg" width="1200" height="496" loading="lazy" alt="A pink ink line arcs under the orb, which rebounds off it" /></figure>
+            <h3>Draw beneath it</h3>
+            <p>The orb is already moving. Draw a line under it and it bounces off at the angle you drew.</p>
+          </li>
+          <li class="step" data-reveal style="--i:1">
+            <figure class="inked"><img src="assets/images/beats/loop-portal.jpg" width="1200" height="496" loading="lazy" alt="The orb streaks toward the portal" /></figure>
+            <h3>Reach the portal</h3>
+            <p>Gravity flips, spikes spin and swing. Find the line that gets the orb through.</p>
+          </li>
+          <li class="step" data-reveal style="--i:2">
+            <figure class="inked"><img src="assets/images/beats/loop-ink.jpg" width="1200" height="496" loading="lazy" alt="The ink meter runs low as the orb crosses a corridor" /></figure>
+            <h3>Mind your ink</h3>
+            <p>Every stroke uses ink. Save some and the level gives you an extra star.</p>
+          </li>
+      </ol>
     </section>
 
     <section class="sec wrap" aria-labelledby="worlds-title">
@@ -239,85 +185,29 @@
       </div>
     </section>
 
-    <section class="sec" aria-labelledby="gear-title">
-      <div class="switches__head wrap">
-        <h2 class="head" id="gear-title" data-reveal>Gear you rank up</h2>
-        <p data-reveal style="--i:1">Five pieces you upgrade as you play. Switch one on to see what it does for you.</p>
-      </div>
-      <div class="band b1 is-on" data-band>
-        <div class="band__in wrap">
-          <div><p class="band__text" id="gear-0">Ink Regulator spends less ink.</p><p class="band__more">So there is ink left for the line that saves the level.</p></div>
-          <button class="switch" data-ui type="button" role="switch" aria-checked="true" aria-labelledby="gear-0"></button>
-        </div>
-      </div>
-      <div class="band b2" data-band>
-        <div class="band__in wrap">
-          <div><p class="band__text" id="gear-1">Slow-Dry Formula keeps lines longer.</p><p class="band__more">So your bridge is still there when the orb comes back.</p></div>
-          <button class="switch" data-ui type="button" role="switch" aria-checked="false" aria-labelledby="gear-1"></button>
-        </div>
-      </div>
-      <div class="band b3" data-band>
-        <div class="band__in wrap">
-          <div><p class="band__text" id="gear-2">Broad Nib draws a wider line.</p><p class="band__more">So a near miss turns into a bounce.</p></div>
-          <button class="switch" data-ui type="button" role="switch" aria-checked="false" aria-labelledby="gear-2"></button>
-        </div>
-      </div>
-      <div class="band b4 is-on" data-band>
-        <div class="band__in wrap">
-          <div><p class="band__text" id="gear-3">Rebound Coil sends you higher.</p><p class="band__more">So the orb clears the wall it used to hit.</p></div>
-          <button class="switch" data-ui type="button" role="switch" aria-checked="true" aria-labelledby="gear-3"></button>
-        </div>
-      </div>
-      <div class="band b5" data-band>
-        <div class="band__in wrap">
-          <div><p class="band__text" id="gear-4">Safety Core takes one hit for you.</p><p class="band__more">So one mistake doesn't cost you the level.</p></div>
-          <button class="switch" data-ui type="button" role="switch" aria-checked="false" aria-labelledby="gear-4"></button>
-        </div>
-      </div>
-      <p class="wrap" style="margin-top:2rem"><a class="link" href="gear.html">Gear, boosts and orb skins</a></p>
-    </section>
-
-    <section class="sec" aria-labelledby="numbers-title">
-      <div class="wall">
-        <div class="cell c-surf"><h2 id="numbers-title">In numbers</h2></div>
-        <div class="cell c-pink"><span class="cell__big">100</span><span class="cell__cap">Levels</span></div>
-        <div class="cell c-blue"><span class="cell__big">5</span><span class="cell__cap">Worlds and bosses</span></div>
-        <div class="cell"><img src="assets/video/loop-portal.jpg" width="600" height="600" loading="lazy" alt="The orb heads for the portal in Ancient Grove" /></div>
-        <div class="cell c-gold"><span class="cell__big">300</span><span class="cell__cap">Stars</span></div>
-        <div class="cell c-surf"><span class="cell__big">54</span><span class="cell__cap">Orb skins</span></div>
-        <div class="cell"><img src="assets/video/loop-boss.jpg" width="600" height="600" loading="lazy" alt="A world boss, a stone block with glowing eyes" /></div>
-        <div class="cell c-mint"><span class="cell__big">104</span><span class="cell__cap">Badges</span></div>
-        <div class="cell c-pink"><span class="cell__big">1</span><span class="cell__cap">Thumb to play</span></div>
-        <div class="cell"><img src="assets/video/loop-fever.jpg" width="600" height="600" loading="lazy" alt="Fever at a combo of 11 in Sun Temple" /></div>
-        <div class="cell c-gold"><span class="cell__big">4</span><span class="cell__cap">Leaderboards</span></div>
-        <div class="cell c-blue"><span class="cell__big">0</span><span class="cell__cap">Wi-Fi needed to play</span></div>
-      </div>
+    <section class="sec wrap" aria-labelledby="numbers-title">
+      <h2 class="sr-only" id="numbers-title">Ink Bounce in numbers</h2>
+      <ul class="numbers"><li data-reveal style="--i:0"><b>100</b><span>levels</span></li><li data-reveal style="--i:1"><b>5</b><span>worlds</span></li><li data-reveal style="--i:2"><b>5</b><span>bosses</span></li><li data-reveal style="--i:3"><b>54</b><span>orb skins</span></li><li data-reveal style="--i:4"><b>104</b><span>badges</span></li></ul>
+      <p class="numbers__more" data-reveal><a class="link" href="gear.html">Gear, boosts, orb skins and badges</a></p>
     </section>
 
     <section class="sec wrap" aria-labelledby="get-title">
-      <div class="ctarow">
-        <div class="ctarow__side"><img src="assets/images/worlds-lg/world-4.jpg" width="1200" height="1200" loading="lazy" alt="" /></div>
-        <div class="ctarow__main" data-reveal>
-          <h2 id="get-title">Free on iPhone and Android</h2>
-          <p>No account and no connection needed to play. It has ads, and one purchase removes them.</p>
-          <div class="badges">
+      <div class="split">
+        <div class="split__text">
+          <h2 id="get-title" data-reveal>Free on iPhone and Android</h2>
+          <p class="lead" data-reveal style="--i:1">No account and no connection needed to play. It has ads, and one purchase removes them.</p>
+          <div style="margin-top:2rem;--i:2" data-reveal><div class="badges">
           <a href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store"><img src="assets/images/badge-appstore.png" width="162" height="48" alt="Download on the App Store" /></a>
           <a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play"><img src="assets/images/badge-googleplay.png" width="162" height="48" alt="Get it on Google Play" /></a>
+        </div></div>
         </div>
-        </div>
-        <div class="ctarow__side" style="--sc:var(--w1)"></div>
+        <figure class="split__media inked" data-reveal><img src="assets/images/worlds-lg/world-4.jpg" width="1200" height="1200" loading="lazy" alt="Ashen Rift, the fourth world" class="get__art" /></figure>
       </div>
     </section>
   </main>
 
-  <dialog class="trailer" aria-label="Ink Bounce trailer">
-    <form method="dialog"><button class="btn btn--small btn--light" type="submit">Close</button></form>
-    <video controls playsinline preload="none" poster="assets/video/trailer-poster.jpg" width="1280" height="720">
-      <source src="assets/video/trailer.mp4" type="video/mp4" />
-    </video>
-  </dialog>
   <footer class="foot">
-    <div class="mark" role="img" aria-label="Ink Bounce"><span style="--c:var(--w1);--h:100%">I</span><span style="--c:var(--w2);--h:80%">N</span><span style="--c:var(--pink);--h:94%">K</span><span class="gap"></span><span style="--c:var(--w3);--h:86%">B</span><span style="--c:var(--w4);--h:100%">O</span><span style="--c:var(--w5);--h:72%">U</span><span style="--c:var(--w1);--h:90%">N</span><span style="--c:var(--pink);--h:80%">C</span><span style="--c:var(--w2);--h:96%">E</span></div>
+    <p class="foot__mark"><img src="assets/images/icon-180.png" width="72" height="72" alt="" />Ink Bounce</p>
     <div class="foot__cols">
       <nav aria-label="Game">
         <h2>Game</h2>
@@ -361,7 +251,6 @@
       <a class="btn btn--small" href="play.html">Get the game</a>
     </div>
   </footer>
-  <script src="assets/js/main.js?v=20261026-2" defer></script>
-  <script src="assets/js/toy.js?v=20261026-2" defer></script>
+  <script src="assets/js/main.js?v=20261026-3" defer></script>
 </body>
 </html>

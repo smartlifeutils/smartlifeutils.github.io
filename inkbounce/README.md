@@ -11,10 +11,10 @@ cut from the trailer, and numbers read out of the Unity project.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/inkbounce/` | Home: the name, a stack of the five worlds as folders with a playable level in the front one, the three modes, how a line works, the worlds, gear switches, the numbers, download |
+| `index.html` | `/inkbounce/` | Home: the name and the trailer, the three modes, how to play, the five worlds, the numbers, download |
 | `worlds.html` | `/inkbounce/worlds` | Every world: art, what it adds and its boss; then the boss fight and how stars are won |
 | `endless.html` | `/inkbounce/endless` | Endless: what changes the further you go, Fever, challenges and leaderboards |
-| `gear.html` | `/inkbounce/gear` | The five gear pieces, the four boosts, all 54 orb skins in a picker, the badges |
+| `gear.html` | `/inkbounce/gear` | The five gear pieces, the four boosts, orb skins, badges |
 | `support.html` | `/inkbounce/support` | **Store-required support URL**: contact, questions, bug reports |
 | `privacy.html` | `/inkbounce/privacy` | **Store-required privacy policy** |
 | `terms.html` | `/inkbounce/terms` | Terms of service |
@@ -38,34 +38,25 @@ Then open <http://localhost:8010/inkbounce/>.
 
 ## The design
 
-The site was redesigned with the taste skill (direction "One motif", seed 823048799, notes in
-`.taste-skill/direction.json`) and checked with its inspector at 1440, 768 and 390 pixels.
+The site was first built with the taste skill (direction "One motif", seed 823048799), then
+calmed down after review. It is checked with the taste inspector at 1440, 768 and 390 pixels.
 
-- **The motif is the ink stroke.** The pink line (`--pink: #ff149e`, the colour of the default ink in
-  the trailer and the store art) runs under pictures (`.inked`), is the bullet of every list
-  (`.ink-list`), the underline of the current page, and the shape of every button (round caps).
-- **The worlds lend their colours.** `--w1` to `--w5` are the accent colours from each
-  `world.json`, `--w1-dark` to `--w5-dark` their dark tones. The hero folders, the gear bands, the
-  boss hit row and the footer letters all use them.
+- **The game is the picture.** The home page opens on the trailer; the modes, worlds, gear and
+  support pages carry the world art, the boss sprites, badge icons and short silent loops cut
+  from the trailer. There are no interactive try-outs.
+- **One accent motif.** The pink ink stroke (`--pink: #ff149e`, the colour of the default ink in
+  the trailer and the store art) runs under pictures (`.inked`), marks list items (`.ink-list`),
+  underlines the current page, and gives buttons their round caps. Actions are green.
+- **No decorative colour blocks.** The world colours (`--w1` to `--w5`) tint each world's own
+  section on the Worlds page and its heading, nothing else.
 - **Type:** Bebas Neue for display, Rajdhani 500/600/700 for text, self-hosted in `assets/fonts/`.
 - **Rules kept:** no gradients, no resting shadows, no eyebrow labels, headlines of two lines at most.
-
-### The live things
-
-- **The toy** (`assets/js/toy.js`): a small level on a canvas. Draw under the orb and it bounces off
-  your line into the portal. It uses the game's gravity (2.4 times Earth), its cost of 1.5 ink per
-  unit of line, and its 4-second line life. The three levels and their "Draw one for me" lines were
-  solved in a simulation of the same physics; if you change the physics or a level, re-check that
-  the helper line still reaches the portal. Without JavaScript the still `screenshot-1.jpg` shows.
-- **The gear switches** on the home page, and **the skin picker** on Gear (`assets/js/skins.js`,
-  all 54 skins with their core and glow colours and how to get each one).
 
 ### Copy
 
 Write for a player deciding whether to install: what a world, a mode or a piece of gear does for
 them, in a sentence or two. Leave out the game's internals (multipliers, timings, percentages, coin
-prices, odds, level numbers) and full lists. The site was trimmed once for exactly this; the
-numbers below are the ones it still states.
+prices, odds, level numbers) and full lists. The numbers below are the ones the site still states.
 
 ## Numbers on the page come from the game
 
