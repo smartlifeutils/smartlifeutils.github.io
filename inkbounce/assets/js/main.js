@@ -70,30 +70,6 @@
     sw.addEventListener('click', () => set(sw.getAttribute('aria-checked') !== 'true'));
   });
 
-  const streak = $('[data-streak]');
-  if (streak) {
-    const input = $('input', streak);
-    const out = $('[data-streak-out]');
-    const days = $('[data-streak-days]');
-    const base = [40, 60, 80, 120, 150, 200, 350];
-    const calc = (n) => {
-      let total = 0;
-      for (let d = 1; d <= n; d++) {
-        const b = base[(d - 1) % 7];
-        const weeks = Math.floor((d - 1) / 7);
-        total += b + Math.round(b * Math.min(0.5, weeks * 0.1));
-      }
-      return total;
-    };
-    const paint = () => {
-      const n = Number(input.value);
-      days.textContent = `${n} ${n === 1 ? 'day' : 'days'}`;
-      out.textContent = calc(n).toLocaleString('en-US');
-    };
-    input.addEventListener('input', paint);
-    paint();
-  }
-
   $$('.index').forEach((root) => {
     const frame = $('.index__frame', root);
     if (!frame) return;
@@ -203,17 +179,4 @@
     skins.classList.add('is-live');
   }
 
-  const ruler = $('[data-ruler]');
-  if (ruler) {
-    const input = $('input', ruler);
-    const out = $('[data-ruler-out]');
-    const marks = $$('.ruler__marks li', ruler);
-    const paint = () => {
-      const m = Number(input.value);
-      out.textContent = `${m.toLocaleString('en-US')} m`;
-      marks.forEach((li) => li.classList.toggle('is-hit', m >= Number(li.dataset.m)));
-    };
-    input.addEventListener('input', paint);
-    paint();
-  }
 })();

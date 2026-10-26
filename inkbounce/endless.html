@@ -4,14 +4,14 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ink Bounce Endless: one corridor, no finish</title>
-  <meta name="description" content="Ink Bounce Endless mode: a corridor that speeds up from the first metre, hazards that join by distance, Fever, daily modifiers, challenges and four leaderboards." />
+  <meta name="description" content="Ink Bounce Endless: one corridor that keeps getting faster, Fever, daily twists, challenges and leaderboards." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#080a0d" />
   <link rel="canonical" href="https://smartlifeutils.github.io/inkbounce/endless" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Ink Bounce" />
   <meta property="og:title" content="Ink Bounce Endless: one corridor, no finish" />
-  <meta property="og:description" content="Ink Bounce Endless mode: a corridor that speeds up from the first metre, hazards that join by distance, Fever, daily modifiers, challenges and four leaderboards." />
+  <meta property="og:description" content="Ink Bounce Endless: one corridor that keeps getting faster, Fever, daily twists, challenges and leaderboards." />
   <meta property="og:image" content="https://smartlifeutils.github.io/inkbounce/assets/images/og-image.jpg" />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
@@ -21,8 +21,8 @@
   <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
   <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/rajdhani-500.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261026-1" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-1" />
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=20261026-2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026-2" />
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -47,7 +47,7 @@
         <div class="split__text">
           <h1 class="lines" id="title"><span class="line"><span data-line>Endless</span></span></h1>
           <p class="lead" data-rise style="--d:300ms">One corridor that keeps getting faster. There is no portal and no finish line: your score is how far the orb gets.</p>
-          <p data-rise style="--d:380ms">It starts at a speed of 5.3, adds 0.12 every second and tops out at 15, nearly three times as fast, about 81 seconds into a run.</p>
+          <p data-rise style="--d:380ms">Beat your best run, then go after your friends on the leaderboards.</p>
         </div>
         <figure class="split__media inked" data-rise style="--d:200ms">
           <div class="square">
@@ -57,17 +57,18 @@
       </div>
     </section>
 
-    <section class="sec wrap" aria-labelledby="ruler-title">
-      <div class="ruler" data-ruler>
-        <div class="ruler__side">
-          <h2 class="head" id="ruler-title" data-reveal>How far did you get?</h2>
-          <p class="lead" data-reveal style="--i:1;margin-top:1.25rem">New hazards join the corridor by distance, and the long runs pay out in badges. Slide to your best run.</p>
-          <div class="slider" data-ui>
-            <label for="dist"><span>Distance</span><span class="nums" data-ruler-out>500 m</span></label>
-            <input id="dist" type="range" min="0" max="2000" step="10" value="500" />
-          </div>
+    <section class="sec wrap" aria-labelledby="deep-title">
+      <div class="split">
+        <div class="split__text">
+          <h2 id="deep-title" data-reveal>The further, the harder</h2>
+          <ul class="ink-list" data-reveal style="--i:1">
+            <li>New hazards join the corridor the deeper you go.</li>
+            <li>Ink orbs along the way top up your meter.</li>
+            <li>Every day brings a twist: extra ink, a faster corridor, or a calm run.</li>
+            <li>Long runs earn badges, and the longest ones unlock rare orb skins.</li>
+          </ul>
         </div>
-        <ol class="ruler__marks"><li data-m="220"><b>220 m</b><span>Platform traps join the corridor</span></li><li data-m="250"><b>250 m</b><span>The first distance banner. One every 250 m after it</span></li><li data-m="400" class="is-badge"><b>400 m</b><span>Badge: Long Hall</span></li><li data-m="420"><b>420 m</b><span>Vertical hazards</span></li><li data-m="500" class="is-badge"><b>500 m</b><span>Badge: Half-Kilometer Headspace</span></li><li data-m="700"><b>700 m</b><span>Falling spikes</span></li><li data-m="950"><b>950 m</b><span>Moving spikes</span></li><li data-m="1000" class="is-badge"><b>1,000 m</b><span>Badge: Corridor Scout</span></li><li data-m="1250"><b>1,250 m</b><span>Rotating spike orbs</span></li><li data-m="1600"><b>1,600 m</b><span>Everything at once</span></li><li data-m="2000" class="is-badge"><b>2,000 m</b><span>Badge: Loop Breaker, and with it the Void orb skin</span></li></ol>
+        <figure class="split__media inked" data-reveal><img src="assets/images/beats/loop-ink.jpg" width="1200" height="496" loading="lazy" alt="An endless run, the orb trailing fire through a low-gravity zone" /></figure>
       </div>
     </section>
 
@@ -75,12 +76,11 @@
       <div class="split split--flip">
         <div class="split__text">
           <h2 id="fever-title" data-reveal>Fever</h2>
-          <p class="lead" data-reveal style="--i:1">Keep the orb in the air and the combo climbs. Reach ten and the corridor turns gold.</p>
+          <p class="lead" data-reveal style="--i:1">Keep the orb in the air and your combo climbs. Keep it going and the corridor turns gold.</p>
           <ul class="ink-list" data-reveal style="--i:2">
-            <li>Every bounce off your ink counts, up to three per line, and so does every near miss.</li>
-            <li>Let 2.5 seconds pass without one and the combo resets.</li>
-            <li>At ten, Fever opens for 8 seconds: every line costs 30% less ink, and you get 5 coins.</li>
-            <li>Ink orbs in the corridor refill 30% of the meter. Coins are there for the taking too.</li>
+            <li>Every bounce and every near miss adds to the combo.</li>
+            <li>Stop bouncing and it starts again from zero.</li>
+            <li>In Fever your ink goes further, and you collect coins.</li>
           </ul>
         </div>
         <figure class="split__media inked" data-reveal>
@@ -91,30 +91,19 @@
       </div>
     </section>
 
-    <section class="sec wrap" aria-labelledby="mods-title">
-      <h2 class="head" id="mods-title" data-reveal>Every day has a modifier</h2>
-      <p class="lead" data-reveal style="--i:1;margin-top:1.25rem">The game picks one for the day. Most days are calm; some stretch your ink or push the speed.</p>
-      <div class="mods" data-reveal>
-        <div style="--mc:var(--w3);flex-grow:38"><h3>Calm Waters</h3><p>No change. The corridor as it is.</p><b>38% of days</b></div>
-        <div style="--mc:var(--w2);flex-grow:32"><h3>Ink Stretch</h3><p>Your ink goes 25% further.</p><b>32% of days</b></div>
-        <div style="--mc:var(--w4);flex-grow:30"><h3>Velocity Surge</h3><p>Everything runs 8% faster.</p><b>30% of days</b></div>
-      </div>
-    </section>
-
     <section class="sec wrap" aria-labelledby="goals-title">
       <div class="split">
         <div class="split__text">
           <h2 id="goals-title" data-reveal>Challenges and leaderboards</h2>
           <ul class="ink-list" data-reveal style="--i:1">
-            <li>Three daily objectives, easy to hard, for 30, 50 and 85 coins. Clear the board for a bonus of at least 50 coins and a gem.</li>
-            <li>Two to four weekly objectives at 100 to 110 coins each, and a board bonus of at least 150 coins and 3 gems.</li>
-            <li>Eleven lifetime milestones. Seven of them hand out epic and legendary orb skins.</li>
-            <li>Rocket Start throws a run 60 m down the corridor in 1.5 seconds, if you fire it in the first 5.</li>
+            <li>New challenges every day and every week, paid in coins and gems.</li>
+            <li>Lifetime milestones that hand out the rarest orb skins.</li>
+            <li>Rocket Start, to blast down the corridor before you have drawn a thing.</li>
           </ul>
         </div>
         <div class="split__media">
-          <figure class="inked" data-reveal><img src="assets/images/beats/loop-ink.jpg" width="1200" height="496" loading="lazy" alt="An endless run at 39 m, the orb trailing fire through a low-gravity zone" /></figure>
-          <p class="lead" style="margin-top:1.25rem">Four leaderboards on Game Center and Google Play Games: best distance, campaign levels cleared, total stars, and the longest run in seconds.</p>
+          <figure class="inked" data-reveal><img src="assets/images/beats/badges.jpg" width="1200" height="483" loading="lazy" alt="The badges screen, with campaign, endless and mastery tabs" /></figure>
+          <p class="lead" style="margin-top:1.25rem">Leaderboards on Game Center and Google Play Games for your best distance, your stars and the levels you have cleared.</p>
         </div>
       </div>
     </section>
@@ -180,6 +169,6 @@
       <a class="btn btn--small" href="play.html">Get the game</a>
     </div>
   </footer>
-  <script src="assets/js/main.js?v=20261026-1" defer></script>
+  <script src="assets/js/main.js?v=20261026-2" defer></script>
 </body>
 </html>

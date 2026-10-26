@@ -11,10 +11,10 @@ cut from the trailer, and numbers read out of the Unity project.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/inkbounce/` | Home: the name, a stack of the five worlds as folders with a playable level in the front one, the three modes, how a line works, the worlds, gear switches, the numbers, the daily streak figure, download |
-| `worlds.html` | `/inkbounce/worlds` | Every world: art, what it adds, boss hits, hunt and timed levels, gravity, all 20 level names; then the boss and how stars are won |
-| `endless.html` | `/inkbounce/endless` | Endless: the speed curve, a distance slider showing when hazards and badges arrive, Fever, daily modifiers, challenges, leaderboards |
-| `gear.html` | `/inkbounce/gear` | Gear by rank, the four boosts, all 54 orb skins in a picker, the 104 badges, where gems come from |
+| `index.html` | `/inkbounce/` | Home: the name, a stack of the five worlds as folders with a playable level in the front one, the three modes, how a line works, the worlds, gear switches, the numbers, download |
+| `worlds.html` | `/inkbounce/worlds` | Every world: art, what it adds and its boss; then the boss fight and how stars are won |
+| `endless.html` | `/inkbounce/endless` | Endless: what changes the further you go, Fever, challenges and leaderboards |
+| `gear.html` | `/inkbounce/gear` | The five gear pieces, the four boosts, all 54 orb skins in a picker, the badges |
 | `support.html` | `/inkbounce/support` | **Store-required support URL**: contact, questions, bug reports |
 | `privacy.html` | `/inkbounce/privacy` | **Store-required privacy policy** |
 | `terms.html` | `/inkbounce/terms` | Terms of service |
@@ -57,11 +57,15 @@ The site was redesigned with the taste skill (direction "One motif", seed 823048
   unit of line, and its 4-second line life. The three levels and their "Draw one for me" lines were
   solved in a simulation of the same physics; if you change the physics or a level, re-check that
   the helper line still reaches the portal. Without JavaScript the still `screenshot-1.jpg` shows.
-- **The streak figure** on the home page: coins from the daily reward for N days in a row. Same
-  formula as `Progression/DailyRewardCatalog.cs` (40/60/80/120/150/200/350, plus 10% per completed
-  week, capped at 50%, rounded per day).
-- **The distance slider** on Endless, **the skin picker** on Gear (`assets/js/skins.js`, all 54
-  skins with their core and glow colours), **the gear switches** on the home page.
+- **The gear switches** on the home page, and **the skin picker** on Gear (`assets/js/skins.js`,
+  all 54 skins with their core and glow colours and how to get each one).
+
+### Copy
+
+Write for a player deciding whether to install: what a world, a mode or a piece of gear does for
+them, in a sentence or two. Leave out the game's internals (multipliers, timings, percentages, coin
+prices, odds, level numbers) and full lists. The site was trimmed once for exactly this; the
+numbers below are the ones it still states.
 
 ## Numbers on the page come from the game
 
@@ -70,19 +74,14 @@ Unity project. Re-check them after a content update.
 
 | Claim | Source |
 |---|---|
-| 100 levels, 5 worlds of 20, 300 stars, level names, hunt and timed levels | `Resources/Campaign/Worlds/World<N>/world.json`, `Levels/` |
-| Boss hits 3/3/4/4/5; shield 6 s shut, 1.5 s warning, 3.5 s open | `BossController2D.cs`, the level files |
-| Gravity per world 1.7 / 1.85 / 2.0 / 2.15 / 2.3; zones ×0.35, ×2.9, ×−0.5 | `world.json`, `Zones/Scripts/GravityZone.cs` |
-| Stars: portal, ink left, gold par; on combat levels, deaths | `SessionRuntimeCoordinator.cs` |
-| Fever: combo 10, 2.5 s window, 30% cheaper ink for 8 s, 5 coins, shield charge on combat levels | `Scoring/ScoreManager.cs` |
-| Ink: 1.5 per unit, lines fade after 4 s, ink orbs refill 30% | `InkMeter.cs`, `DrawPathController.cs` and scene values |
-| Gear ranks, gem costs 1/3/5/7/10, slots 2 then 3 at 10 ranks, unlock after level 5 | `Progression/GearType.cs`, `GearCatalog.cs` |
-| Boosts at 80/150/200/280 coins, +50% per copy held up to 3×, stock 9 | `PowerupCatalog.cs`, `CampaignProgressService.cs` |
-| 54 skins, their colours, prices and unlocks | `Resources/Skins/BallTrailSkinCatalog.asset`, `Skins/BallTrailSkinService.cs` |
-| 104 badges (53 campaign, 25 endless, 26 mastery), 36 titles, 18 on the platforms | `Progression/AchievementService.cs`, `PlatformGameIds.cs` |
-| Endless speed 5.3 + 0.12/s up to 15; hazards at 220/420/700/950/1250/1600 m; banners every 250 m | Endless scripts and scene values |
-| Daily modifiers 38/32/30%; daily and weekly boards; 11 milestones; 4 leaderboards | `EndlessChallengeService.cs`, platform setup |
-| Gem sources: 5 to start, boss +4, hunt +2, flawless +1, daily +1, weekly +3 | progression services |
+| 100 levels, 5 worlds of 20, 300 stars, a boss at the end of each world, hunt levels | `Resources/Campaign/Worlds/World<N>/world.json`, `Levels/` |
+| The Wall is Ice Valley's boss; bosses take more hits in later worlds | the level files, `BossController2D.cs` |
+| Stars for reaching the portal, saving ink and speed | `SessionRuntimeCoordinator.cs` |
+| Five gear pieces and what each does | `Progression/GearType.cs`, `GearCatalog.cs` |
+| Four boosts | `PowerupCatalog.cs` |
+| 54 skins, their colours and how to get them | `Resources/Skins/BallTrailSkinCatalog.asset`, `Skins/BallTrailSkinService.cs` |
+| 104 badges (53 campaign, 25 endless, 26 mastery) | `Progression/AchievementService.cs` |
+| 4 leaderboards, Game Center and Google Play Games | platform setup, `PlatformGameIds.cs` |
 
 ## Art
 
