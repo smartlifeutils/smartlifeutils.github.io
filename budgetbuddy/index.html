@@ -1,163 +1,383 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Budget Buddy helps you track expenses, plan budgets, and hit savings goals with confidence.">
-  <title>Budget Buddy | Smart Personal Budgeting</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Budget Buddy: expense tracker and budget planner for iPhone and Android</title>
+  <meta name="description" content="Log spending and income in a few taps, give every category a budget and see where your money went. Free on iPhone and Android, and your data stays on your phone." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#f7f8fa" />
+  <link rel="canonical" href="https://smartlifeutils.github.io/budgetbuddy/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Budget Buddy" />
+  <meta property="og:title" content="Budget Buddy: expense tracker and budget planner for iPhone and Android" />
+  <meta property="og:description" content="Log spending and income in a few taps, give every category a budget and see where your money went. Free on iPhone and Android, and your data stays on your phone." />
+  <meta property="og:image" content="https://smartlifeutils.github.io/budgetbuddy/assets/img/brand/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="586" />
+  <meta property="og:image:alt" content="Budget Buddy on three phones: the monthly overview, expense analysis and category list" />
+  <meta property="og:url" content="https://smartlifeutils.github.io/budgetbuddy/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/img/brand/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="icon" href="assets/img/brand/icon-48.png" sizes="48x48" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png" />
+  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026" />
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://smartlifeutils.github.io/#org",
+      "name": "SmartLifeUtils",
+      "url": "https://smartlifeutils.github.io/",
+      "email": "smartlife.utilities@gmail.com",
+      "logo": "https://smartlifeutils.github.io/assets/icon-192.png"
+    },
+    {
+      "@type": "MobileApplication",
+      "@id": "https://smartlifeutils.github.io/budgetbuddy/#app",
+      "name": "Budget Buddy",
+      "alternateName": [
+        "Budget Buddy: Expense Manager",
+        "Budget Buddy: Expense Tracker"
+      ],
+      "description": "Budget Buddy is an expense tracker and budget planner for iPhone and Android. Log spending and income, set budgets per category, scan bills and see your month in charts. Your data stays on your phone.",
+      "url": "https://smartlifeutils.github.io/budgetbuddy/",
+      "image": "https://smartlifeutils.github.io/budgetbuddy/assets/img/brand/og-image.jpg",
+      "screenshot": [
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/overview.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/transactions.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/analysis.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-1.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/dark.jpg"
+      ],
+      "applicationCategory": "FinanceApplication",
+      "operatingSystem": "iOS 13 or later, Android 7.0 or later",
+      "inLanguage": "en",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD",
+        "description": "Free with ads. Optional yearly Premium subscription."
+      },
+      "installUrl": [
+        "https://apps.apple.com/app/id6758464704",
+        "https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy"
+      ],
+      "sameAs": [
+        "https://apps.apple.com/app/id6758464704",
+        "https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy"
+      ],
+      "publisher": {
+        "@id": "https://smartlifeutils.github.io/#org"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://smartlifeutils.github.io/budgetbuddy/#page",
+      "url": "https://smartlifeutils.github.io/budgetbuddy/",
+      "name": "Budget Buddy: expense tracker and budget planner for iPhone and Android",
+      "description": "Log spending and income in a few taps, give every category a budget and see where your money went. Free on iPhone and Android, and your data stays on your phone.",
+      "isPartOf": {
+        "@id": "https://smartlifeutils.github.io/budgetbuddy/#website"
+      },
+      "about": {
+        "@id": "https://smartlifeutils.github.io/budgetbuddy/#app"
+      }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://smartlifeutils.github.io/budgetbuddy/#website",
+      "url": "https://smartlifeutils.github.io/budgetbuddy/",
+      "name": "Budget Buddy",
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://smartlifeutils.github.io/#org"
+      }
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://smartlifeutils.github.io/budgetbuddy/#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Is Budget Buddy free?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes. The app is free with ads. Premium is an optional yearly subscription that removes the ads and the free limits."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where is my data kept?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On your phone. There is no account and no server, and both app stores list Budget Buddy as collecting no data."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it connect to my bank?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. You log purchases yourself, scan the QR code on a bill, or import a CSV file."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
 </head>
 <body>
-  <div class="bg-orb orb-1"></div>
-  <div class="bg-orb orb-2"></div>
-
-  <header class="site-header">
-    <a class="logo" href="#top" aria-label="Budget Buddy home">
-      <img class="logo-image" src="assets/images/logo.png" alt="Budget Buddy logo">
-      <span>Budget Buddy</span>
-    </a>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="nav__in">
+      <a class="nav__brand" href="./"><img src="assets/img/brand/mark-192.png" width="28" height="28" alt="" />Budget Buddy</a>
+      <nav class="nav__menu" id="menu" aria-label="Primary">
+        <a href="tracking.html">Tracking</a>
+        <a href="budgets.html">Budgets</a>
+        <a href="insights.html">Insights</a>
+        <a href="data.html">Your data</a>
+        <a href="premium.html">Premium</a>
+        <a class="btn" href="play.html">Get the app</a>
+      </nav>
+      <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+    </div>
   </header>
-
-  <main id="top">
-    <section class="hero section">
-      <div class="hero-media">
-        <img src="assets/images/featured graphic.png" alt="Budget Buddy featured graphic">
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero__left">
+        <div class="hero__sticky">
+        <h1 id="hero-title" class="lines"><span class="line"><span data-line style="--i:0">See where your</span></span><span class="line"><span data-line style="--i:1">money goes</span></span></h1>
+        <p class="lead" data-load style="--d:420ms">Budget Buddy is a free expense tracker for iPhone and Android. Log a purchase in a few taps, give each category a budget, and read your month in charts.</p>
+        <div class="hero__actions" data-load style="--d:500ms">
+          <a class="btn" href="play.html">Get the app</a>
+          <div class="stores">
+          <a href="https://apps.apple.com/app/id6758464704" aria-label="Download Budget Buddy on the App Store"><img src="assets/img/brand/badge-appstore.png" width="148" height="44" alt="Download on the App Store" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy" aria-label="Get Budget Buddy on Google Play"><img src="assets/img/brand/badge-googleplay.png" width="148" height="44" alt="Get it on Google Play" /></a>
+        </div>
+        </div>
+        </div>
       </div>
-      <div class="hero-content">
-        <p class="eyebrow">Simple money management for real life</p>
-        <h1>Build better habits, one budget at a time.</h1>
-        <p class="lead">
-          Budget Buddy gives you a clear view of your spending, smart goal tracking,
-          and monthly insights so you always know where your money is going.
-        </p>
+      <div class="hero__right">
+        <div>
+          <div class="app" data-ui data-month role="group" aria-label="A working copy of the Budget Buddy overview for September 2025">
+            <div class="app__bar">
+              <span class="app__avatar" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6z"/></svg></span>
+              <span class="app__tabs"><b>Overview</b><span>Expenses</span><span>Incomes</span></span>
+            </div>
+            <div class="app__month"><span aria-hidden="true">‹</span><span>Sep 2025</span><span aria-hidden="true">›</span></div>
+            <div class="app__card">
+              <div class="app__balance"><small>Monthly Balance</small><strong data-balance>+982.31 $</strong></div>
+              <div class="app__donuts">
+                <div><span>Expenses</span><svg class="donut" viewBox="0 0 100 100" aria-hidden="true"><g data-donut transform="rotate(-90 50 50)"><circle cx="50" cy="50" r="40" stroke="#9C27B0" stroke-dasharray="70.11 251.33" stroke-dashoffset="0.00"></circle><circle cx="50" cy="50" r="40" stroke="#795548" stroke-dasharray="43.60 251.33" stroke-dashoffset="-71.31"></circle><circle cx="50" cy="50" r="40" stroke="#FF6E40" stroke-dasharray="36.62 251.33" stroke-dashoffset="-116.11"></circle><circle cx="50" cy="50" r="40" stroke="#E91E63" stroke-dasharray="28.49 251.33" stroke-dashoffset="-153.93"></circle><circle cx="50" cy="50" r="40" stroke="#673AB7" stroke-dasharray="23.04 251.33" stroke-dashoffset="-183.63"></circle><circle cx="50" cy="50" r="40" stroke="#CDDC39" stroke-dasharray="12.22 251.33" stroke-dashoffset="-207.87"></circle><circle cx="50" cy="50" r="40" stroke="#E91E63" stroke-dasharray="11.56 251.33" stroke-dashoffset="-221.30"></circle><circle cx="50" cy="50" r="40" stroke="#4CAF50" stroke-dasharray="8.85 251.33" stroke-dashoffset="-234.06"></circle><circle cx="50" cy="50" r="40" stroke="#66BB6A" stroke-dasharray="6.03 251.33" stroke-dashoffset="-244.10"></circle></g></svg><span data-exp>-3000.42 $</span></div>
+                <div><span>Incomes</span><svg class="donut" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" stroke="#F4511E"></circle></svg><span>+3982.73 $</span></div>
+              </div>
+            </div>
+            <div class="app__chips" aria-label="Overview insights">
+              <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><span data-chip-top>Top spend: Rent (28%)</span></span>
+              <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><span data-chip-three>Spend top 3: 61%</span></span>
+            </div>
+            <div class="app__entry">
+              <div class="entry__head"><small>How much?</small><span class="entry__amount" data-amount aria-live="off">14.52 $</span></div>
+              <div class="entry__cats" data-cats aria-label="Category"></div>
+              <div class="pad" data-pad>
+                <button type="button" data-k="1">1</button><button type="button" data-k="2">2</button><button type="button" data-k="3">3</button>
+                <button type="button" class="pad__add" data-add>Add</button>
+                <button type="button" data-k="4">4</button><button type="button" data-k="5">5</button><button type="button" data-k="6">6</button>
+                <button type="button" data-k="7">7</button><button type="button" data-k="8">8</button><button type="button" data-k="9">9</button>
+                <button type="button" data-k=".">.</button><button type="button" data-k="0">0</button><button type="button" class="pad__del" data-k="del" aria-label="Delete last digit">⌫</button>
+              </div>
+            </div>
+            <div class="app__list" data-list>
+              <div class="row"><span class="row__ic" style="--tint:rgb(250, 206, 221)"><img src="assets/img/icons/plane.svg" alt="" width="20" height="20" /></span><span><b>Travel</b><small>Weekend trip · 30 Sep</small></span><span class="row__amt neg">-152.31 $</span></div>
+              <div class="row"><span class="row__ic" style="--tint:rgb(250, 206, 221)"><img src="assets/img/icons/car.svg" alt="" width="20" height="20" /></span><span><b>Transport</b><small>Transit pass · 28 Sep</small></span><span class="row__amt neg">-22.52 $</span></div>
+            </div>
+            <p class="sr-only" data-live aria-live="polite"></p>
+          </div>
+          <p class="hero__note">The app’s demo month, September 2025. Type an amount and press Add.</p>
+        </div>
       </div>
     </section>
 
-    <section id="features" class="section">
-      <div class="section-head">
-        <p class="eyebrow">Everything in one app</p>
-        <h2>Tools designed to keep your finances in control</h2>
+    <section class="dark lit" data-lit="0" aria-labelledby="lit-title">
+      <div class="lit__head">
+        <h2 id="lit-title">Inside the app</h2>
+        <p>Screens from the current version, with the demo account loaded.</p>
       </div>
-      <div class="features-grid">
-        <article class="card feature">
-          <h3>Expense Tracking</h3>
-          <p>Log purchases in seconds and instantly see where your money goes.</p>
-        </article>
-        <article class="card feature">
-          <h3>Smart Budgeting</h3>
-          <p>Set category limits and stay on track with real-time progress bars.</p>
-        </article>
-        <article class="card feature">
-          <h3>Savings Goals</h3>
-          <p>Create custom goals and watch your progress with motivational milestones.</p>
-        </article>
-        <article class="card feature">
-          <h3>Monthly Insights</h3>
-          <p>Get easy reports that reveal trends and help you make better decisions.</p>
-        </article>
+      <div class="lit__stage">
+        <div class="lit__row" tabindex="0" aria-label="App screens, use the arrow keys to move">
+          <figure class="lit__panel" data-name="Overview" data-text="The month at a glance: balance, an expense and an income donut, and insight chips."><img src="assets/img/shots/overview.jpg" width="720" height="1466" alt="Budget Buddy overview for September 2025: monthly balance +982.31 dollars, expense and income donuts" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Transactions" data-text="Every purchase with its category, note and date. Search, filter and group them any way you like."><img src="assets/img/shots/transactions.jpg" width="720" height="1466" alt="The October 2025 transactions list: Health, Transport, Dining, Entertainment, Groceries and Gifts" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Budget" data-text="What is left, in a wave that empties as you spend, with pace, forecast and streaks underneath."><img src="assets/img/shots/budget.jpg" width="720" height="1466" alt="A monthly Bills budget with 500 dollars remaining, budget progress, streaks, forecast and pace" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Expense analysis" data-text="Ten months of spending stacked by category, with the median, the monthly average and the best and worst month."><img src="assets/img/shots/analysis.jpg" width="720" height="1466" alt="Expense analysis: stacked monthly bars from March to December 2025 and last year insights" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Reminders" data-text="Recurring payments and the categories you log regularly, sorted into waiting and on time."><img src="assets/img/shots/reminders.jpg" width="720" height="1466" alt="The Reminders screen with recurring payments and categories waiting to be logged" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Monthly recap" data-text="A story you swipe through when the month ends, opening with a headline about how it went."><img src="assets/img/shots/recap-1.jpg" width="720" height="1466" alt="Monthly recap for December 2025 opening with the headline Spending went overboard" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Category shifts" data-text="What moved the most since last month, and what showed up for the first time."><img src="assets/img/shots/recap-3.jpg" width="720" height="1466" alt="Recap slide listing the three categories that moved most: Rent, Health and Travel" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Account overview" data-text="One account’s balance, income and spending, and its balance over time."><img src="assets/img/shots/account.jpg" width="720" height="1430" alt="Account overview for a Personal account with its balance over time chart" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Scan a bill" data-text="Point the camera at the payment QR code on a bill and the amount and payee fill in."><img src="assets/img/shots/qr.jpg" width="720" height="1430" alt="The Scan bill QR code screen framing the QR code on a paper bill" loading="lazy" /></figure>
+          <figure class="lit__panel" data-dark data-name="Dark mode" data-text="Light, dark, or whatever your phone is set to."><img src="assets/img/shots/dark.jpg" width="720" height="1466" alt="The September 2025 category list in dark mode" loading="lazy" /></figure>
+        </div>
+        <div class="lit__text" aria-live="polite"><h3 data-lit-name>Overview</h3><p data-lit-text>The month at a glance: balance, an expense and an income donut, and insight chips.</p></div>
       </div>
-    </section>
-
-    <section id="how" class="section detail-section">
-      <div class="section-head">
-        <p class="eyebrow">How it works</p>
-      </div>
-
-      <article class="detail-row card">
-        <div class="detail-image-wrap">
-          <img src="assets/images/budgets.png" alt="Budget Like a Pro screenshot">
-        </div>
-        <div class="detail-copy">
-          <h3>Budget Like a Pro</h3>
-          <p>Set tailored budgets for each category and track your progress in real time. Stay on target, avoid overspending, and reach your financial goals with ease.</p>
-        </div>
-      </article>
-
-      <article class="detail-row card">
-        <div class="detail-image-wrap">
-          <img src="assets/images/charts.png" alt="See the Big Picture screenshot">
-        </div>
-        <div class="detail-copy">
-          <h3>See the Big Picture</h3>
-          <p>Unlock the power of visuals. Explore intuitive charts and insights that reveal spending trends, highlight saving opportunities, and empower smarter decisions.</p>
-        </div>
-      </article>
-
-      <article class="detail-row card">
-        <div class="detail-image-wrap">
-          <img src="assets/images/transactions.png" alt="Stay on Top of Your Finances screenshot">
-        </div>
-        <div class="detail-copy">
-          <h3>Stay on Top of Your Finances</h3>
-          <p>Easily track your expenses and incomes in just a few taps. See where your money is going and take control of your financial journey effortlessly.</p>
-        </div>
-      </article>
-
-      <article class="detail-row card">
-        <div class="detail-image-wrap">
-          <img src="assets/images/categories.png" alt="Make It Personal screenshot">
-        </div>
-        <div class="detail-copy">
-          <h3>Make It Personal</h3>
-          <p>Categorize your spending your way. Use ready-made categories or create custom ones to reflect your unique lifestyle and priorities.</p>
-        </div>
-      </article>
-    </section>
-
-    <section id="testimonials" class="section">
-      <div class="section-head">
-        <p class="eyebrow">Loved by users</p>
-        <h2>What people say about Budget Buddy</h2>
-      </div>
-      <div class="testimonial-grid">
-        <blockquote class="card quote">
-          "Budget Buddy made budgeting less stressful and way more visual. I finally stick to my plan."
-          <cite>- Alex R.</cite>
-        </blockquote>
-        <blockquote class="card quote">
-          "The monthly insights helped me cut wasteful spending within two weeks."
-          <cite>- Priya K.</cite>
-        </blockquote>
-        <blockquote class="card quote">
-          "Simple, clean, and genuinely useful. My favorite budgeting tool by far."
-          <cite>- Jordan M.</cite>
-        </blockquote>
+      <div class="lit__ctrl">
+        <button type="button" data-lit-prev aria-label="Previous screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+        <button type="button" data-lit-next aria-label="Next screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
       </div>
     </section>
 
-    <section id="download" class="section cta">
-      <div class="cta-content">
-        <p class="eyebrow">Ready to level up your money habits?</p>
-        <h2>Start using Budget Buddy today</h2>
-        <div class="store-links">
-          <a class="store-link-image" href="https://apps.apple.com/us/app/budget-buddy-expense-manager/id6758464704" aria-label="Download on the App Store placeholder">
-            <img src="assets/images/ios app store.svg" alt="Download on the App Store">
-          </a>
-          <a class="store-link-image" href="https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy" aria-label="Get it on Google Play placeholder">
-            <img src="assets/images/google play store.png" alt="Get it on Google Play">
-          </a>
+    <section class="fields" aria-labelledby="steps-title">
+      <div class="field fc1">
+        <h2 id="steps-title" data-reveal>One coffee, four steps</h2>
+        <div class="field__card" data-reveal style="--i:1">
+          <div class="tx" data-ui>
+            <div class="tx__lbl">How much?</div>
+            <div class="tx__amt">14.52 $</div>
+            <div class="tx__line tx__lbl"><span>Today</span><span>25 Oct 2025</span></div>
+          </div>
+        </div>
+        <p class="field__clause" data-reveal style="--i:2">First you type the amount.</p>
+      </div>
+      <div class="field fc2">
+        <div class="field__card" data-reveal style="--i:1">
+          <div class="tx" data-ui>
+            <div class="tx__amt">14.52 $</div>
+            <div class="row"><span class="row__ic" style="--tint:rgb(216, 237, 216)"><img src="assets/img/icons/fork_spoon.svg" alt="" width="20" height="20" /></span><span><b>Dining</b><small>Coffee shop</small></span><span class="row__amt neg">-14.52 $</span></div>
+          </div>
+        </div>
+        <p class="field__clause" data-reveal style="--i:2">Then pick its category.</p>
+      </div>
+      <div class="field fc3">
+        <div class="field__card" data-reveal style="--i:1">
+          <div class="tx" data-ui>
+            <div class="tx__line"><b>Coffee shop</b><span class="row__amt neg">-14.52 $</span></div>
+            <div class="tx__line"><span>Dining budget</span><span>146.05 of 200.00 $</span></div>
+            <div class="bar"><i style="width:73%"></i></div>
+            <div class="tx__line tx__lbl"><span>53.95 $ left</span><span>Under budget</span></div>
+          </div>
+        </div>
+        <p class="field__clause" data-reveal style="--i:2">It counts against a budget.</p>
+      </div>
+      <div class="field fc4">
+        <div class="field__card" data-reveal style="--i:1">
+          <div class="tx" data-ui>
+            <div class="tx__line"><b>Oct 2025</b><b>3539.06 $</b></div>
+            <div class="tx__lbl">43 transactions in 10 categories</div>
+            <div class="tx__line"><span class="chip">Top spend: Rent (22%)</span></div>
+            <div class="row"><span class="row__ic" style="--tint:rgb(216, 237, 216)"><img src="assets/img/icons/fork_spoon.svg" alt="" width="20" height="20" /></span><span><b>Dining</b><small>Coffee shop · 25 Oct</small></span><span class="row__amt neg">-14.52 $</span></div>
+          </div>
+        </div>
+        <p class="field__clause" data-reveal style="--i:2">And the month adds up.</p>
+      </div>
+    </section>
+
+    <section class="wrap para" aria-labelledby="more-title">
+      <h2 id="more-title" class="sr-only">What else it does</h2>
+      <div class="grid">
+        <p class="para__text" data-reveal>Scan a bill’s QR code <span class="slot"><img src="assets/img/shots/qr.jpg" alt="" width="720" height="1430" loading="lazy" style="object-position:50% 30%" /></span> and the amount fills in. Give any category a budget <span class="slot"><img src="assets/img/shots/budget.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 12%" /></span>. Every month ends with a recap <span class="slot"><img src="assets/img/shots/recap-2.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 20%" /></span> you can share. And all of it stays on your phone <span class="slot"><img src="assets/img/shots/dark.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 0%" /></span>.</p>
+        <div class="para__foot" data-reveal style="--i:1">
+          <a class="btn btn--ink" href="tracking.html">See how tracking works</a>
+          <p>Recurring payments, reminders, receipts, saved views, CSV import, savings goals and a PIN lock come with it. Each has its own page.</p>
         </div>
       </div>
-      <div class="app-preview-wrap">
-        <img class="app-shot" src="assets/images/homescreen.png" alt="Budget Buddy home screen screenshot">
-        <img class="app-shot" src="assets/images/dark mode.png" alt="Budget Buddy dark mode screenshot">
+    </section>
+
+    <section class="bars" aria-labelledby="bars-title">
+      <div class="bars__head">
+        <p class="bars__fig" data-reveal>36,712<small>$</small></p>
+        <h2 id="bars-title" class="bars__claim" data-reveal style="--i:1">Ten months, 354 purchases</h2>
+        <p class="bars__note" data-reveal style="--i:2">The app’s demo account from March to December 2025, the data in every screen on this site. September, the month you just edited, is the green bar.</p>
       </div>
+      <div class="bars__chart" data-ui role="list" aria-label="Spending per month in 2025">
+        <div class="bars__bar" role="listitem" tabindex="0" style="--h:94.4%;--w:94.4%;--i:0"><span class="bars__val">4093.47 $</span><span class="bars__mon">Mar</span></div>
+        <div class="bars__bar is-labeled" role="listitem" tabindex="0" style="--h:68.2%;--w:68.2%;--i:1"><span class="bars__val">2960.31 $</span><span class="bars__mon">Apr</span></div>
+        <div class="bars__bar" role="listitem" tabindex="0" style="--h:88.9%;--w:88.9%;--i:2"><span class="bars__val">3856.96 $</span><span class="bars__mon">May</span></div>
+        <div class="bars__bar" role="listitem" tabindex="0" style="--h:80.3%;--w:80.3%;--i:3"><span class="bars__val">3483.72 $</span><span class="bars__mon">Jun</span></div>
+        <div class="bars__bar" role="listitem" tabindex="0" style="--h:96.4%;--w:96.4%;--i:4"><span class="bars__val">4181.61 $</span><span class="bars__mon">Jul</span></div>
+        <div class="bars__bar is-labeled" role="listitem" tabindex="0" style="--h:100%;--w:100%;--i:5"><span class="bars__val">4338.33 $</span><span class="bars__mon">Aug</span></div>
+        <div class="bars__bar is-key is-labeled" role="listitem" tabindex="0" style="--h:69.2%;--w:69.2%;--i:6"><span class="bars__val">3000.42 $</span><span class="bars__mon">Sep</span></div>
+        <div class="bars__bar" role="listitem" tabindex="0" style="--h:81.6%;--w:81.6%;--i:7"><span class="bars__val">3539.06 $</span><span class="bars__mon">Oct</span></div>
+        <div class="bars__bar" role="listitem" tabindex="0" style="--h:76.2%;--w:76.2%;--i:8"><span class="bars__val">3306.15 $</span><span class="bars__mon">Nov</span></div>
+        <div class="bars__bar" role="listitem" tabindex="0" style="--h:91.1%;--w:91.1%;--i:9"><span class="bars__val">3952.53 $</span><span class="bars__mon">Dec</span></div>
+      </div>
+    </section>
+
+    <section class="wrap sec" aria-labelledby="parts-title">
+      <h2 id="parts-title" class="display" data-reveal>Every part of it</h2>
+      <div class="tiles">
+        <a class="tile" href="tracking.html" data-reveal><figure><img src="assets/img/shots/transactions.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s1"><div class="tile__vals"><span>Numpad</span><span>QR bills</span><span>Receipts</span><span>CSV</span></div><div class="tile__meta"><span>Tracking</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="budgets.html" data-reveal style="--i:1"><figure><img src="assets/img/shots/budget.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s2"><div class="tile__vals"><span>Day</span><span>Week</span><span>Month</span><span>Year</span></div><div class="tile__meta"><span>Budgets and goals</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="insights.html" data-reveal style="--i:2"><figure><img src="assets/img/shots/analysis.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s3"><div class="tile__vals"><span>Donuts</span><span>Net flow</span><span>Weekdays</span><span>Plan ahead</span></div><div class="tile__meta"><span>Insights</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="insights.html#recap" data-reveal style="--i:3"><figure><img src="assets/img/shots/recap-1.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s4"><div class="tile__vals"><span>Story</span><span>Shifts</span><span>Badges</span><span>Share</span></div><div class="tile__meta"><span>Monthly recap</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="tracking.html#recurring" data-reveal><figure><img src="assets/img/shots/reminders.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s2"><div class="tile__vals"><span>Daily</span><span>Weekly</span><span>Monthly</span><span>Yearly</span></div><div class="tile__meta"><span>Recurring and reminders</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="tracking.html#accounts" data-reveal style="--i:1"><figure><img src="assets/img/shots/account.jpg" width="720" height="1430" alt="" loading="lazy" /></figure><div class="tile__strip s4"><div class="tile__vals"><span>Personal</span><span>Group</span><span>Business</span><span>Savings</span></div><div class="tile__meta"><span>Accounts</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="data.html" data-reveal style="--i:2"><figure><img src="assets/img/shots/dark.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s1"><div class="tile__vals"><span>On device</span><span>No account</span><span>PIN</span><span>Backups</span></div><div class="tile__meta"><span>Your data</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="premium.html" data-reveal style="--i:3"><figure><img src="assets/img/shots/overview.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s3"><div class="tile__vals"><span>No ads</span><span>QR scan</span><span>Insights</span><span>Unlimited</span></div><div class="tile__meta"><span>Free and Premium</span><span aria-hidden="true">→</span></div></div></a>
+      </div>
+    </section>
+
+    <section class="wrap sec" aria-labelledby="faq-title">
+      <div class="faq" data-faq>
+        <div class="faq__list">
+          <h2 id="faq-title" class="faq__title">Questions</h2>
+          <button type="button" aria-expanded="true">Is Budget Buddy free?</button>
+          <div class="faq__inline"><p>Yes. The app is free with ads. Premium is an optional yearly subscription that removes the ads and the free limits.</p></div>
+          <button type="button" aria-expanded="false">What does Premium add?</button>
+          <div class="faq__inline" hidden><p>No ads, QR bill scanning, recurring entries, insight chips, and no limits on accounts, budgets, categories or favourites. <a class="link" href="premium.html">Compare</a></p></div>
+          <button type="button" aria-expanded="false">Where is my data kept?</button>
+          <div class="faq__inline" hidden><p>On your phone. There is no account and no server, and both stores list the app as collecting no data. <a class="link" href="data.html">More</a></p></div>
+          <button type="button" aria-expanded="false">Can I use it on two phones?</button>
+          <div class="faq__inline" hidden><p>Not side by side: there is no sync. To move, share a backup file from one phone and load it on the other.</p></div>
+          <button type="button" aria-expanded="false">Does it connect to my bank?</button>
+          <div class="faq__inline" hidden><p>No. You log purchases yourself, scan the QR code on a bill, or import a CSV file from your bank or a spreadsheet.</p></div>
+          <button type="button" aria-expanded="false">Which currencies can I use?</button>
+          <div class="faq__inline" hidden><p>Any of 121, picked from a searchable list with flags. One currency covers the whole app; it does not convert between them.</p></div>
+          <button type="button" aria-expanded="false">Is it on iPad or Mac?</button>
+          <div class="faq__inline" hidden><p>It is made for iPhone and for Android phones and tablets. Apple also offers the iPhone version on Macs with Apple silicon, marked as not verified for macOS.</p></div>
+        </div>
+        <div class="faq__pane" aria-live="polite">
+          <div class="faq__answer"><p>Yes. The app is free with ads. Premium is an optional yearly subscription that removes the ads and the free limits.</p></div>
+          <div class="faq__answer" hidden><p>No ads, QR bill scanning, recurring entries, insight chips, and no limits on accounts, budgets, categories or favourites. <a class="link" href="premium.html">Compare free and Premium</a></p></div>
+          <div class="faq__answer" hidden><p>On your phone. There is no account and no server, and both stores list the app as collecting no data. <a class="link" href="data.html">How your data is kept</a></p></div>
+          <div class="faq__answer" hidden><p>Not side by side: there is no sync. To move, share a backup file from one phone and load it on the other.</p></div>
+          <div class="faq__answer" hidden><p>No. You log purchases yourself, scan the QR code on a bill, or import a CSV file from your bank or a spreadsheet.</p></div>
+          <div class="faq__answer" hidden><p>Any of 121, picked from a searchable list with flags. One currency covers the whole app; it does not convert between them.</p></div>
+          <div class="faq__answer" hidden><p>It is made for iPhone and for Android phones and tablets. Apple also offers the iPhone version on Macs with Apple silicon, marked as not verified for macOS.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="wrap blank" aria-labelledby="mail-title">
+      <h2 id="mail-title" class="sr-only">Send yourself the links</h2>
+      <form class="blank__form" data-mailme novalidate>
+        <label for="mail">Email the links to</label>
+        <input class="blank__input" id="mail" type="email" name="email" placeholder="you@example.com" autocomplete="email" required aria-describedby="mail-note" />
+        <button class="blank__go" type="submit">Send</button>
+      </form>
+      <p class="blank__note" id="mail-note">This opens your own mail app with both store links filled in. Nothing is sent from this page.</p>
+      <div class="blank__stores"><div class="stores">
+          <a href="https://apps.apple.com/app/id6758464704" aria-label="Download Budget Buddy on the App Store"><img src="assets/img/brand/badge-appstore.png" width="148" height="44" alt="Download on the App Store" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy" aria-label="Get Budget Buddy on Google Play"><img src="assets/img/brand/badge-googleplay.png" width="148" height="44" alt="Get it on Google Play" /></a>
+        </div></div>
     </section>
   </main>
-
-  <footer class="site-footer">
-    <p>&copy; <span id="year"></span> Budget Buddy. All rights reserved.</p>
-    <p>Contact: <a href="mailto:smartlife.utilities@gmail.com">smartlife.utilities@gmail.com</a></p>
-    <p class="footer-links">
-      <a href="https://smartlifeutils.github.io//budgetbuddy/app-ads.txt" target="_blank" rel="noopener noreferrer">App ads</a>
-      <a href="https://doc-hosting.flycricket.io/budget-buddy-privacy-policy/e64ccf5c-a708-4a70-8a73-b9c2a27b9672/privacy" target="_blank" rel="noopener noreferrer">Privacy Policy</a>
-      <a href="https://www.apple.com/legal/internet-services/itunes/dev/stdeula/" target="_blank" rel="noopener noreferrer">Terms of Use (EULA)</a>
-    </p>
+  <footer class="foot">
+    <p class="foot__what">Budget Buddy, an expense tracker by SmartLifeUtils</p>
+    <nav class="foot__links" aria-label="Footer">
+      <a href="tracking.html">Tracking</a>
+      <a href="budgets.html">Budgets</a>
+      <a href="insights.html">Insights</a>
+      <a href="premium.html">Premium</a>
+      <a href="support.html">Support</a>
+    </nav>
+    <p class="foot__end"><span>© <span data-year>2026</span></span><a href="data.html">Your data</a><a href="https://doc-hosting.flycricket.io/budget-buddy-privacy-policy/e64ccf5c-a708-4a70-8a73-b9c2a27b9672/privacy" rel="noopener">Privacy</a></p>
   </footer>
-
-  <script src="script.js"></script>
+  <script src="assets/js/main.js?v=20261026" defer></script>
+  <script src="assets/js/hero.js?v=20261026" defer></script>
 </body>
 </html>
