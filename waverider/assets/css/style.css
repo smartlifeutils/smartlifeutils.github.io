@@ -242,6 +242,7 @@ ol { margin: 0; padding: 0; list-style: none; }
 .plate img { width: auto; height: 26px; flex: none; }
 
 .frame {
+  color: var(--paper);
   border: 22px solid transparent;
   border-image: url("../img/skin/card.webp") 59 fill / 22px / 0 stretch;
 }
