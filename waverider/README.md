@@ -12,7 +12,7 @@ assets or design docs.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/waverider/` | Home: the boot splash, the trailer, a playable live sea, the gallery, tricks, boats, seas, the garage, daily goals, download |
+| `index.html` | `/waverider/` | Home: the WAVE / RIDER poster over the boot splash, the trailer, a playable live sea and how a jump works, the pile of screenshots, the tricks as a poster, the boats as folders, the seas board, the garage, daily goals, the streak, download |
 | `play.html` | `/waverider/play` | **The link to share**: a phone goes straight to its store (Android to Play, iPhone and iPad to the App Store); desktops, Fire tablets and anything unknown see a download card. `?platform=ios\|android\|none` forces a branch for testing |
 | `boats.html` | `/waverider/boats.html` | Every boat in depth, built around the All Boats Showcase YouTube video: role, where it does best, stock vs upgraded meters |
 | `seas.html` | `/waverider/seas.html` | Every sea in depth (water, hazards, view, locals, unlock) and the boat × sea fit table, from the game's `06_WORLD_CATALOG.md` and `07_BOAT_WORLD_MATRIX.md` (launch seas only). Room for a seas video when one exists |
@@ -68,12 +68,15 @@ be announced rather than walked back:
 
 Counts are never printed ("4 boats" reads small next to the genre). Each list ends on a locked
 **?** card, the same reveal-a-window trick the game's own world carousel uses. If the Caribbean
-does not make 1.0, delete its `<article class="world">` and its picker button in `index.html`.
+does not make 1.0, delete its `<article class="tile tile--carib">` and its picker button in `index.html`,
+and re-place the remaining tiles in the `.tile--*` grid rules in `style.css` so the board has no empty cell.
 
 ### Adding a boat or sea when it ships
 
 1. Add it to `BOATS` / `WORLDS` / `ACTORS` in `tools/build-assets.py` and re-run the script.
-2. Add a card to `#boats` or `#seas` in `index.html` (copy a neighbour).
+2. In `index.html`, add a folder to `#boats` (copy a neighbour; each `.folder--*` sets its own `--band`
+   and, as `--prev`, the band above it so its tab rises out of that colour) or a tile to the `#seas`
+   board (copy a neighbour and give it a place in the `.tile--*` grid rules).
 3. Add its picker button under the live sea, and a row to `BOATS` or `SEAS` in `assets/js/sea.js`
    (copy a neighbouring row and take its fields from the game's assets, see *The live sea* below).
 
@@ -138,13 +141,15 @@ no animation frames).
 the store set at `WaveRider/Build/listing/google-play/screenshots_1920x1080/` (framed, with the store captions burned in;
 see `Tools/store-shots/`) and the plain captures at `WaveRider/Build/screenshots/website/`.
 `tools/build-assets.py` exports the ones listed in its `SCREENSHOTS` table to `assets/img/shots/`
-(1600 and 480 wide WebP). They appear in three places:
+(1600 and 480 wide WebP). All of them sit in one pile of prints in `#screenshots`, the section after
+the live sea, in this order:
 
-| Where | Shot |
-|---|---|
-| `#screenshots`, the gallery after the live sea | The store set: JUMP HUGE WAVES, FLIP IT. LAND IT., FROM THE NILE TO THE PACIFIC, MEET THE LOCALS, FROM DINGHY TO RESCUE RIB, UPGRADE ENGINE, HULL AND MORE, DAILY MISSIONS AND BADGES, PLAY OFFLINE, NO ACCOUNT. REAL WATER PHYSICS is left out: the frame is dimmed and the wipeout box already shows a capsize |
-| `#tricks`, the big picture | Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 (`09_speedboat_pacific_flip_hud.png`, 2026-10-19; not the gallery's Jet Ski flip) |
-| `#tricks`, the wipeout box | Motor Dinghy capsized on the Pacific, sinking under the wave (`10_dinghy_pacific_sinking_hud.png`, 2026-10-19) |
+| Shot |
+|---|
+| The store set's JUMP HUGE WAVES (on top), then the Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 (`09_speedboat_pacific_flip_hud.png`, 2026-10-19) |
+| The rest of the store set: FROM THE NILE TO THE PACIFIC, FLIP IT. LAND IT., MEET THE LOCALS |
+| The Motor Dinghy capsized on the Pacific, sinking under the wave (`10_dinghy_pacific_sinking_hud.png`, 2026-10-19) |
+| FROM DINGHY TO RESCUE RIB, UPGRADE ENGINE, HULL AND MORE, DAILY MISSIONS AND BADGES, PLAY OFFLINE, NO ACCOUNT. REAL WATER PHYSICS is left out: the frame is dimmed and the capsize already shows a wipeout |
 
 MEET THE LOCALS is not in the store set. It is the plain Caribbean capture
 (`06_speedboat_caribbean_manta.png`) run through the store caption tool, saved next to it as
@@ -158,16 +163,18 @@ swiftc -O Tools/store-shots/caption.swift -o /tmp/cap/caption
 cp /tmp/cap/out/play/01-caribbean.png WaveRider/Build/screenshots/website/06_speedboat_caribbean_manta_caption.png
 ```
 
-(run from the Unity repo root). The gallery shows 8 thumbnails in a 4-column grid; change
-`.viewer__thumbs` in `style.css` if the count changes.
+(run from the Unity repo root). `main.js` lays the pile out (the top four prints show, tilted), and
+Back / Next shot, a swipe or the arrow keys in the lightbox cycle it; the caption under the buttons is
+the top print's `alt`. Without JS the prints sit in a plain two-column grid.
 
-To change them: recapture, update `SCREENSHOTS` and the matching thumbnails
-(`.viewer__thumb`, whose `data-cap` is the caption under the picture) in `index.html`, and re-run the script.
+To change them: recapture, update `SCREENSHOTS` and the matching `<figure class="print">` in
+`index.html` (its `alt` is the caption), and re-run the script. The count in "1 of 10" follows the
+number of prints.
 Captures must show launch content only.
 
 **Trailer**: `#trailer` is the first thing under the hero ("This is the game."), ahead of the
-live sea ("Now you try") and the gallery ("That was the toy."), because most visitors decide on
-the first screen. The hero's TRAILER pill scrolls to it and starts it. `assets/video/trailer.mp4` is the game repo's
+live sea ("Now you try") and the pile of screenshots ("The real sea is bigger"), because most visitors
+decide on the first screen. The hero's WATCH THE TRAILER pill scrolls to it and starts it. `assets/video/trailer.mp4` is the game repo's
 `WaveRider/Build/listing/youtube/promo-trailer_1920x1080_60fps.mp4` re-encoded for the web (1080p60, about 14 MB):
 
     ffmpeg -i promo-trailer_1920x1080_60fps.mp4 -c:v libx264 -preset slow -crf 23 -maxrate 7M -bufsize 14M \
@@ -187,6 +194,22 @@ end card (store badges, Watch again) when it finishes; with JS off it is a plain
   blue (`aria-pressed="true"` / `.plate--here`) is "you are here", steel is everything else.
 - Flat colour blocks joined by wave edges (`.sec::before`). No glows, no gradients on chrome,
   no outline-only icons. Copy follows the store listing's voice: concrete, warm, no em dashes.
+
+The page layout is set like a poster (the 2026-10-26 redesign):
+
+- **The ink keyline belongs to the type.** Panels, pictures and boxes carry no ink outline and no
+  hard drop shadow; they are flat fields told apart by colour, with one corner radius (`--radius`,
+  28px). The game's own interface pieces (the live sea, the garage lanes, the store card) keep their
+  look and are marked `data-ui`.
+- **Six type sizes**, as tokens: `--fs-mega` (WAVE / RIDER, 6,000, YOUR TURN), `--fs-poster` (the
+  trick names), `--fs-display` (section titles), `--fs-title`, `--fs-lead` and `--fs-body`, plus
+  `--fs-small` for notes. Headings stay on two lines at every width.
+- **Every section has its own composition** (the poster list, the folders, the board, the one big
+  figure), left-aligned on one grid with `--gutter` margins; nothing is a row of identical cards.
+- **Section colour fields** keep white keyline titles readable: the hero and download sit on `--sea`,
+  the screenshots on `--red-field`.
+- **Motion**: WAVE / RIDER rises line by line on load; everything else enters once as it scrolls in
+  (`data-reveal`, in `main.js`), and under *reduce motion* nothing moves.
 
 ## Before launch
 
