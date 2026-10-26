@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get Ink Bounce</title>
-  <meta name="description" content="Download Ink Bounce — free on the App Store and Google Play." />
+  <meta name="description" content="Download Ink Bounce, free on the App Store and Google Play." />
   <meta name="theme-color" content="#080A0D" />
   <!-- A redirector, not a destination: keep it out of the index and point search
        engines at the real page. -->
@@ -12,7 +12,7 @@
   <link rel="canonical" href="https://smartlifeutils.github.io/inkbounce/" />
 
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ink Bounce — Draw. Bounce. Beat the level." />
+  <meta property="og:title" content="Ink Bounce: draw the line, bounce the orb" />
   <meta property="og:description" content="A one-thumb arcade game where every line you draw is the only thing keeping the ball alive. Free on iOS and Android." />
   <meta property="og:image" content="https://smartlifeutils.github.io/inkbounce/assets/images/og-image.jpg" />
   <meta property="og:url" content="https://smartlifeutils.github.io/inkbounce/play" />
@@ -21,9 +21,9 @@
   <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
   <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts/fonts.css" />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preload" href="assets/fonts/rajdhani-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
 
   <!-- Runs in <head>, before the body paints, so a phone jumps straight to its
        store instead of flashing this page first. Everything below still renders
@@ -71,26 +71,23 @@
   </script>
 </head>
 <body>
-  <main id="main" class="section">
-    <div class="container">
-      <div class="get">
-        <img class="get__icon" src="assets/images/icon-180.png" width="88" height="88" alt="" />
-        <p class="eyebrow">Free on iOS &amp; Android</p>
-        <h1 class="display get__title">Get Ink Bounce</h1>
-        <p class="lead get__lead">Ink Bounce is a mobile game. Open this page on your phone and it will take you
-          straight to the right store — or pick one below.</p>
-
-        <div class="store-badges get__badges">
-          <a class="store-badge" href="https://apps.apple.com/app/id6792821983" aria-label="Download Ink Bounce on the App Store">
-            <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
-          </a>
-          <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play">
-            <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
-          </a>
-        </div>
-
-        <p class="get__back"><a href="index.html">More about the game</a></p>
+  <main class="wrap page-hero" id="main">
+    <div class="split">
+      <div class="split__text">
+        <img src="assets/images/icon-180.png" width="120" height="120" alt="" style="border-radius:26px" />
+        <h1 class="head" style="margin-top:1.5rem">Get Ink Bounce</h1>
+        <p class="lead">Ink Bounce is a free game for phones and tablets. Open this page on one and it goes straight to the right store, or pick a store here.</p>
+        <div style="margin-top:2rem"><div class="badges">
+          <a href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store"><img src="assets/images/badge-appstore.png" width="162" height="48" alt="Download on the App Store" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play"><img src="assets/images/badge-googleplay.png" width="162" height="48" alt="Get it on Google Play" /></a>
+        </div></div>
+        <p style="margin-top:1.5rem"><a class="btn" href="./">More about the game</a></p>
       </div>
+      <figure class="split__media inked">
+        <div class="square">
+          <video muted loop playsinline autoplay preload="auto" poster="assets/video/loop-draw.jpg" width="600" height="600" aria-label="Drawing a line under the orb, a silent loop"><source src="assets/video/loop-draw.mp4" type="video/mp4" /></video>
+        </div>
+      </figure>
     </div>
   </main>
 </body>

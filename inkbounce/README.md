@@ -1,203 +1,115 @@
-# Ink Bounce — Website
+# Ink Bounce: website
 
-The marketing + support website for **Ink Bounce**, a 2D hyper-casual mobile game.
-Plain static HTML/CSS/JS — no build step, no dependencies. Designed to be hosted on
-**GitHub Pages** and to satisfy the App Store / Google Play support & privacy URL
-requirements.
+The marketing and support site for **Ink Bounce**, a one-thumb arcade game for iOS and Android.
+Plain static HTML, CSS and JS: no build step, no dependencies. Hosted on GitHub Pages inside the
+`smartlifeutils.github.io` repo, next to `../waverider` and `../budgetbuddy`.
+
+It is built from the game's own material: the world art, the boss sprites, the badge icons, loops
+cut from the trailer, and numbers read out of the Unity project.
 
 ## Pages
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/` | Landing page — hero/trailer, the loop, worlds, endless, gear, stats, screenshots, download |
-| `support.html` | `/support` | **Store-required support URL** — contact, FAQ, bug reports |
-| `privacy.html` | `/privacy` | **Store-required privacy policy** |
-| `terms.html` | `/terms` | Terms of service |
-| `404.html` | (fallback) | Themed not-found page |
+| `index.html` | `/inkbounce/` | Home: the name, a stack of the five worlds as folders with a playable level in the front one, the three modes, how a line works, the worlds, gear switches, the numbers, the daily streak figure, download |
+| `worlds.html` | `/inkbounce/worlds` | Every world: art, what it adds, boss hits, hunt and timed levels, gravity, all 20 level names; then the boss and how stars are won |
+| `endless.html` | `/inkbounce/endless` | Endless: the speed curve, a distance slider showing when hazards and badges arrive, Fever, daily modifiers, challenges, leaderboards |
+| `gear.html` | `/inkbounce/gear` | Gear by rank, the four boosts, all 54 orb skins in a picker, the 104 badges, where gems come from |
+| `support.html` | `/inkbounce/support` | **Store-required support URL**: contact, questions, bug reports |
+| `privacy.html` | `/inkbounce/privacy` | **Store-required privacy policy** |
+| `terms.html` | `/inkbounce/terms` | Terms of service |
+| `play.html` | `/inkbounce/play` | **The link to share**: a phone goes straight to its store; anything else sees both badges. `?platform=ios\|android\|none` forces a branch |
+| `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
+
+Canonical URLs are the clean forms (`/inkbounce/worlds`), which GitHub Pages serves for every
+`.html` file. Internal links use the `.html` names so the site also works from a local server.
 
 ## Local preview
 
-From this folder:
+From the repo root:
 
 ```bash
-python3 -m http.server 8000
-# then open http://localhost:8000
+python3 -m http.server 8010
 ```
 
-(Any static server works — e.g. `npx serve`.)
+Then open <http://localhost:8010/inkbounce/>.
 
-## Deploying to GitHub Pages
+**After changing any CSS or JS, bump `?v=` on its links in every page** (one find-and-replace).
 
-1. Push this folder to a GitHub repository.
-2. In the repo: **Settings → Pages** → set **Source** to *Deploy from a branch*,
-   pick your branch and the folder that contains these files.
-3. Your site will be at `https://<username>.github.io/<repo>/`.
-4. GitHub Pages serves `support.html` at both `/support.html` **and** `/support`, so
-   the clean store URLs work automatically. All asset paths are relative, so the site
-   works on a project page, a user page, or a custom domain without edits.
+## The design
 
-### Store submission URLs
+The site was redesigned with the taste skill (direction "One motif", seed 823048799, notes in
+`.taste-skill/direction.json`) and checked with its inspector at 1440, 768 and 390 pixels.
 
-- **Marketing:** `https://smartlifeutils.github.io/`
-- **Support:** `https://smartlifeutils.github.io/support`
-- **Privacy:** `https://smartlifeutils.github.io/privacy`
+- **The motif is the ink stroke.** The pink line (`--pink: #ff149e`, the colour of the default ink in
+  the trailer and the store art) runs under pictures (`.inked`), is the bullet of every list
+  (`.ink-list`), the underline of the current page, and the shape of every button (round caps).
+- **The worlds lend their colours.** `--w1` to `--w5` are the accent colours from each
+  `world.json`, `--w1-dark` to `--w5-dark` their dark tones. The hero folders, the gear bands, the
+  boss hit row and the footer letters all use them.
+- **Type:** Bebas Neue for display, Rajdhani 500/600/700 for text, self-hosted in `assets/fonts/`.
+- **Rules kept:** no gradients, no resting shadows, no eyebrow labels, headlines of two lines at most.
 
-> These clean URLs require the site to be served at the **root** of a repo named
-> `smartlifeutils.github.io` (a GitHub user page). If you instead put it in a project
-> repo, the site lives at `/<repo>/` and the 404 page's absolute `/assets/...` paths
-> would need to be made relative.
+### The live things
 
-### Custom domain (optional)
+- **The toy** (`assets/js/toy.js`): a small level on a canvas. Draw under the orb and it bounces off
+  your line into the portal. It uses the game's gravity (2.4 times Earth), its cost of 1.5 ink per
+  unit of line, and its 4-second line life. The three levels and their "Draw one for me" lines were
+  solved in a simulation of the same physics; if you change the physics or a level, re-check that
+  the helper line still reaches the portal. Without JavaScript the still `screenshot-1.jpg` shows.
+- **The streak figure** on the home page: coins from the daily reward for N days in a row. Same
+  formula as `Progression/DailyRewardCatalog.cs` (40/60/80/120/150/200/350, plus 10% per completed
+  week, capped at 50%, rounded per day).
+- **The distance slider** on Endless, **the skin picker** on Gear (`assets/js/skins.js`, all 54
+  skins with their core and glow colours), **the gear switches** on the home page.
 
-Add a file named `CNAME` containing just your domain (e.g. `inkbounce.com`), then
-configure the domain's DNS as described in GitHub's docs.
+## Numbers on the page come from the game
 
-## ✅ Before you launch — replace these placeholders
-
-Search the project for each token and swap in the real value:
-
-- [x] Publisher name — **SmartLifeUtils** (indie dev). In footers + both legal pages.
-- [x] Support email — **smartlife.utilities@gmail.com** (all pages + mailto links).
-- [x] Domain — **https://smartlifeutils.github.io/** (`canonical` / `og:url` / `og:image`).
-- [x] "Last updated" date — **July 1, 2026** (privacy + terms).
-- [x] Governing law — **Slovenia** (terms).
-- [ ] **Third-party services** in `privacy.html` — confirm they match what the build
-      actually ships (currently: Google AdMob, Firebase Analytics, Firebase Crashlytics,
-      store billing). Remove/add as needed.
-- [x] **Store badges** — pointed at the live listings: [App Store](https://apps.apple.com/us/app/ink-bounce/id6792821983)
-      and [Google Play](https://play.google.com/store/apps/details?id=com.smartlife.inkbounce).
-
-### Art (in `assets/images/`)
-
-Real game art is in place — all sourced from the Unity project
-(`Docs/Branding/Assets` and `build/screenshots/google/phone`):
-
-- [x] `icon-64.png`, `icon-180.png`, `favicon-32.png` — app icon (brand mark, Apple
-      touch icon, favicon)
-- [x] `og-image.jpg` — 1200×630 social card, built from the Play Store feature graphic
-- [x] `screenshot-1.jpg` … `screenshot-6.jpg` — real gameplay screenshots, 1440×810
-      (16:9, matching the `.phone-frame` aspect ratio)
-- [x] `badge-appstore.png`, `badge-googleplay.png` — official Apple / Google store
-      badges. Both are full-bleed at ~3.37:1, so they line up at a shared CSS height.
-      The Apple badge has an opaque white background, so `.store-badges img` clips it
-      with a `border-radius` — keep that if you ever re-export the badges.
-- [x] `worlds/world-1-ice-valley.jpg` … `world-5-sun-temple.jpg` — the campaign
-      world art, 800×800, straight from the game's own
-      `Assets/_Game/UI/Resources/CampaignWorlds/`. Names, level counts and the accent
-      colour on each card all come from `Assets/_Game/Resources/Campaign/Worlds/
-      World<N>/world.json` — if a world is renamed or re-themed there, update the
-      `.world-card--N { --world-accent }` values in `style.css` to match.
-
-To refresh the screenshots after a new build:
-
-```sh
-cd /path/to/InkBounce/build/screenshots/google/phone
-for i in 1 2 3 4 5 6; do
-  sips -Z 1440 -s format jpeg -s formatOptions 72 "${i}_1920x1080.png" \
-    --out "/path/to/inkbounce/assets/images/screenshot-$i.jpg"
-done
-```
-
-### Beat stills (in `assets/images/beats/`)
-
-The mechanic sections each pair one wide still with the text explaining it. These
-replaced a six-card grid of outline icons — the game reads better in its own frames
-than in glyphs.
-
-Both sources carry a **marketing caption in a black band across the lower third**
-(the store screenshots and the trailer alike), so every still is cropped *above* that
-band rather than scaled down whole. `sips --cropOffset` is silently ignored and always
-crops from the centre, so the crop is done with CoreGraphics instead:
-
-```sh
-# store screenshots are 1440x810, caption band starts around y=600
-# trailer frames are 1280x720, caption band starts around y=520
-swift tools/crop.swift in.jpg out.jpg 0 0 1440 595   # x y w h, origin top-left
-sips -Z 1200 -s format jpeg -s formatOptions 70 out.jpg --out beats/name.jpg
-```
-
-| File | Source |
-|---|---|
-| `loop-draw.jpg`, `loop-portal.jpg`, `loop-ink.jpg` | `screenshot-1`, `-2`, `-5` |
-| `boss.jpg` | `screenshot-3` — The Wall, world 1's boss |
-| `fever.jpg` | trailer ~22s, showing `FEVER · COMBO 12` |
-| `badges.jpg` | trailer ~25s, the badges screen |
-
-### Numbers on the page come from the game, not the store listing
-
-Every figure the homepage states was read out of the Unity project, because the store
-listing has drifted (it still lists the pre-rename worlds, and says 42 skins):
+The store listing has drifted (old world names, 42 skins), so every figure here was read from the
+Unity project. Re-check them after a content update.
 
 | Claim | Source |
 |---|---|
-| 100 levels, 5 worlds, 20 each, 300 stars | `Campaign/Worlds/World<N>/world.json` |
-| Fever: 10-combo, 30% cheaper ink, 8 seconds | `Scoring/ScoreManager.cs` (`feverComboThreshold`, `feverInkCostMultiplier`, `feverDurationSeconds`) |
-| 5 gear pieces, 5 ranks, 2 slots then 3 at 10 ranks | `Progression/GearType.cs`, `GearCatalog.cs` |
-| 54 orb skins | `Resources/Skins/BallTrailSkinCatalog.asset` |
-| 104 badges | `Progression/AchievementService.cs` (`AchievementDefinitions`) |
+| 100 levels, 5 worlds of 20, 300 stars, level names, hunt and timed levels | `Resources/Campaign/Worlds/World<N>/world.json`, `Levels/` |
+| Boss hits 3/3/4/4/5; shield 6 s shut, 1.5 s warning, 3.5 s open | `BossController2D.cs`, the level files |
+| Gravity per world 1.7 / 1.85 / 2.0 / 2.15 / 2.3; zones ×0.35, ×2.9, ×−0.5 | `world.json`, `Zones/Scripts/GravityZone.cs` |
+| Stars: portal, ink left, gold par; on combat levels, deaths | `SessionRuntimeCoordinator.cs` |
+| Fever: combo 10, 2.5 s window, 30% cheaper ink for 8 s, 5 coins, shield charge on combat levels | `Scoring/ScoreManager.cs` |
+| Ink: 1.5 per unit, lines fade after 4 s, ink orbs refill 30% | `InkMeter.cs`, `DrawPathController.cs` and scene values |
+| Gear ranks, gem costs 1/3/5/7/10, slots 2 then 3 at 10 ranks, unlock after level 5 | `Progression/GearType.cs`, `GearCatalog.cs` |
+| Boosts at 80/150/200/280 coins, +50% per copy held up to 3×, stock 9 | `PowerupCatalog.cs`, `CampaignProgressService.cs` |
+| 54 skins, their colours, prices and unlocks | `Resources/Skins/BallTrailSkinCatalog.asset`, `Skins/BallTrailSkinService.cs` |
+| 104 badges (53 campaign, 25 endless, 26 mastery), 36 titles, 18 on the platforms | `Progression/AchievementService.cs`, `PlatformGameIds.cs` |
+| Endless speed 5.3 + 0.12/s up to 15; hazards at 220/420/700/950/1250/1600 m; banners every 250 m | Endless scripts and scene values |
+| Daily modifiers 38/32/30%; daily and weekly boards; 11 milestones; 4 leaderboards | `EndlessChallengeService.cs`, platform setup |
+| Gem sources: 5 to start, boss +4, hunt +2, flawless +1, daily +1, weekly +3 | progression services |
 
-Re-check these after a content update — a stale number on the site is worse than no
-number.
+## Art
 
-To refresh the world art after a re-theme:
+| Folder | What | Source |
+|---|---|---|
+| `assets/images/worlds-lg/` | The five worlds, 1200 px | `Assets/_Game/UI/Resources/CampaignWorlds/World_0N_*.jpg` |
+| `assets/images/worlds/` | The same at 800 px, used as touch thumbnails on the Worlds index | as above |
+| `assets/images/boss/` | The boss at its three damage stages, transparent PNG | `Assets/_Game/Sprites/Boss/BossStage1-3.png` |
+| `assets/images/badges/` | 18 badge icons | `Docs/AchievementIcons/*.png`. Two file names differ from the badge names: "Half Kilometer" is *Half-Kilometer Headspace*, "Long Haul" is *Long Hall* |
+| `assets/images/beats/` | Wide stills cropped above the caption band | the store screenshots and the trailer, cut with `tools/crop.swift` |
+| `assets/video/loop-*.mp4` | Five silent 2–3 s square loops with a poster each | cut from `trailer.mp4` below the HUD and above the captions |
+| `assets/video/trailer.mp4` | The 29 s trailer, opened in a dialog, `preload="none"` | the trailer master |
 
-```sh
-cd /path/to/InkBounce/Assets/_Game/UI/Resources/CampaignWorlds
-sips -Z 800 -s format jpeg -s formatOptions 72 World_01_IceValley.jpg \
-  --out /path/to/inkbounce/assets/images/worlds/world-1-ice-valley.jpg
-# …and the same for worlds 2–5.
+To cut a loop again (ffmpeg is installed with Homebrew):
+
+```bash
+ffmpeg -ss 2.0 -t 3.0 -i trailer.mp4 -an -vf "crop=500:500:390:56,scale=600:600,fps=30" \
+  -c:v libx264 -crf 27 -preset slow -pix_fmt yuv420p -movflags +faststart loop-draw.mp4
 ```
 
-### Trailer (in `assets/video/`)
+The trailer has a caption band burned into its lower third, so every crop stays above it.
 
-The hero's `.phone-frame` holds the gameplay trailer instead of a still.
+## Before you launch
 
-- `trailer.mp4` — 1280×720, H.264 + AAC, ~2 Mbps, 0:29, **7.4 MB**. It is the
-  heaviest file in the repo by far, so it is `preload="none"`: nothing is fetched
-  until a visitor presses play.
-- `trailer-poster.jpg` — a frame lifted from the trailer itself (a caption-free one,
-  so the play button doesn't land on top of burned-in text). This *is* what loads on
-  every visit, so keep it around 100 KB.
-
-Keep the video at 16:9 — the frame it sits in is `aspect-ratio: 16 / 9`, shared with
-the screenshots. To re-encode a new master:
-
-```sh
-ffmpeg -i Trailer.mp4 -vf scale=1280:720 -c:v libx264 -b:v 2M -profile:v high \
-  -c:a aac -b:a 96k -movflags +faststart assets/video/trailer.mp4
-```
-
-Without ffmpeg installed, macOS ships `avconvert -s in.mp4 -p Preset1280x720 -o
-out.mp4`, but it targets ~7 Mbps — roughly 27 MB for this clip, too heavy to ship.
-
-## Structure
-
-```
-inkbounce/
-├── index.html · support.html · privacy.html · terms.html · 404.html
-├── .nojekyll                 # tells GitHub Pages to skip Jekyll processing
-├── README.md
-├── tools/crop.swift          # top-left crop, for cutting caption bands off stills
-└── assets/
-    ├── css/style.css         # design tokens + all components
-    ├── js/main.js            # nav toggle, FAQ, footer year, scroll reveal,
-    │                         # trailer play button, screenshot rail + lightbox
-    ├── fonts/                # self-hosted woff2 (latin) + fonts.css
-    ├── images/               # icons, store badges, screenshots
-    │   ├── beats/            # wide stills for the mechanic sections
-    │   └── worlds/           # the five campaign worlds' key art
-    └── video/                # trailer.mp4 + its poster frame
-```
-
-## Design
-
-Brand values (colors, fonts, component language) are pulled from the game's own UI —
-dark, neon-ink, cinematic. **Bebas Neue** (display) + **Rajdhani** (body). Dark theme
-only. See `assets/css/style.css` `:root` for the full token set.
-
-**Fonts are self-hosted** (`assets/fonts/`, latin subset woff2, ~44 KB total) rather
-than loaded from Google Fonts. This keeps them same-origin and cached, so navigating
-between pages doesn't flash/reflow (no external round-trip), and it's better for
-privacy/GDPR. The two most-used weights are `<link rel="preload">`ed in each page's
-`<head>`. To add another weight, drop the woff2 in `assets/fonts/`, add an
-`@font-face` to `fonts.css`, and (optionally) preload it.
+- [ ] `privacy.html` lists Google AdMob, Firebase Analytics, Firebase Crashlytics and the store
+      billing. The game source shows AdMob, Firebase Analytics, Unity IAP and Play Games / Game
+      Center; confirm Crashlytics ships, or remove it.
+- [ ] The App Store and Google Play descriptions still use the pre-rename world names and say 42
+      skins. The site is right; the listings need updating.
+- [ ] The game's "Third Socket" badge asks for 30 gear ranks while the third slot opens at 10.

@@ -3,391 +3,379 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ink Bounce — Draw. Bounce. Beat the level.</title>
-  <meta name="description" content="Ink Bounce is a one-thumb arcade game where every line you draw is the only thing keeping the ball alive. 100 levels, 5 worlds, endless mode. Free on iOS and Android." />
-  <meta name="theme-color" content="#080A0D" />
+  <title>Ink Bounce: draw the line, bounce the orb</title>
+  <meta name="description" content="Ink Bounce is a free one-thumb game for iPhone, iPad and Android. The orb is already moving: draw the line it bounces off before the ink runs out. 100 levels, 5 worlds, 5 bosses and an endless mode." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#080a0d" />
   <link rel="canonical" href="https://smartlifeutils.github.io/inkbounce/" />
-
-  <!-- Open Graph / Twitter -->
   <meta property="og:type" content="website" />
-  <meta property="og:title" content="Ink Bounce — Draw. Bounce. Beat the level." />
-  <meta property="og:description" content="A one-thumb arcade game where every line you draw is the only thing keeping the ball alive." />
+  <meta property="og:site_name" content="Ink Bounce" />
+  <meta property="og:title" content="Ink Bounce: draw the line, bounce the orb" />
+  <meta property="og:description" content="Ink Bounce is a free one-thumb game for iPhone, iPad and Android. The orb is already moving: draw the line it bounces off before the ink runs out. 100 levels, 5 worlds, 5 bosses and an endless mode." />
   <meta property="og:image" content="https://smartlifeutils.github.io/inkbounce/assets/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta property="og:url" content="https://smartlifeutils.github.io/inkbounce/" />
   <meta name="twitter:card" content="summary_large_image" />
-
   <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
-
-  <!-- Fonts -->
   <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="preload" href="assets/fonts/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/fonts/fonts.css" />
-
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="preload" href="assets/fonts/rajdhani-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <script>document.documentElement.classList.add('js')</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["VideoGame", "MobileApplication"],
+        "@id": "https://smartlifeutils.github.io/inkbounce/#game",
+        "name": "Ink Bounce",
+        "url": "https://smartlifeutils.github.io/inkbounce/",
+        "description": "A one-thumb arcade game for iPhone, iPad and Android: the orb is already moving, you draw the line it bounces off, and the ink runs out. 100 levels in 5 worlds, a boss at the end of each, and an endless mode.",
+        "image": "https://smartlifeutils.github.io/inkbounce/assets/images/og-image.jpg",
+        "applicationCategory": "GameApplication",
+        "gamePlatform": ["iOS", "Android"],
+        "operatingSystem": "iOS 15.0 or later, Android 7.1 or later",
+        "genre": ["Arcade", "Casual", "Physics"],
+        "playMode": "SinglePlayer",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+        "installUrl": ["https://apps.apple.com/us/app/ink-bounce/id6792821983", "https://play.google.com/store/apps/details?id=com.smartlife.inkbounce"],
+        "publisher": { "@id": "https://smartlifeutils.github.io/#org" },
+        "trailer": { "@id": "https://smartlifeutils.github.io/inkbounce/#trailer" }
+      },
+      {
+        "@type": "VideoObject",
+        "@id": "https://smartlifeutils.github.io/inkbounce/#trailer",
+        "name": "Ink Bounce gameplay trailer",
+        "description": "29 seconds of Ink Bounce: drawing lines, gravity fields, the portal, bosses, endless mode, skins and Fever.",
+        "thumbnailUrl": "https://smartlifeutils.github.io/inkbounce/assets/video/trailer-poster.jpg",
+        "contentUrl": "https://smartlifeutils.github.io/inkbounce/assets/video/trailer.mp4",
+        "uploadDate": "2026-08-31",
+        "duration": "PT29S"
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://smartlifeutils.github.io/#org",
+        "name": "SmartLifeUtils",
+        "url": "https://smartlifeutils.github.io/",
+        "email": "smartlife.utilities@gmail.com"
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <!-- ============ NAV ============ -->
+  <a class="skip" href="#main">Skip to content</a>
   <header class="nav">
-    <div class="container nav__inner">
-      <a class="nav__brand" href="index.html">
-        <img src="assets/images/icon-64.png" alt="" width="30" height="30" />
-        Ink Bounce
-      </a>
-      <button class="nav__toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links"><span></span></button>
-      <nav aria-label="Primary">
-        <ul class="nav__links" id="nav-links">
-          <li><a href="#game">The game</a></li>
-          <li><a href="#worlds">Worlds</a></li>
-          <li><a href="#endless">Endless</a></li>
-          <li><a href="#screenshots">Screenshots</a></li>
-          <li><a href="support.html">Support</a></li>
-        </ul>
+    <div class="nav__in">
+      <a class="nav__brand" href="./"><img src="assets/images/icon-64.png" alt="" width="32" height="32" />Ink Bounce</a>
+      <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+      <nav class="nav__menu" id="menu" aria-label="Primary">
+        <a href="worlds.html">Worlds</a>
+        <a href="endless.html">Endless</a>
+        <a href="gear.html">Gear</a>
+        <a href="support.html">Support</a>
+        <a class="btn btn--small" href="play.html">Get the game</a>
       </nav>
     </div>
   </header>
 
   <main id="main">
-    <!-- ============ HERO ============ -->
-    <section class="hero">
-      <div class="container hero__grid">
-        <div class="hero__copy">
-          <p class="eyebrow">One thumb · Landscape · Offline</p>
-          <h1 class="hero-title">Ink Bounce</h1>
-          <p class="hero__tagline">Draw. Bounce. Beat the level.</p>
-          <p class="hero__pitch lead">You get one line of ink. Spend it well. The orb is already moving when a level starts — draw beneath it and it bounces, draw carelessly and the portal is still out of reach with nothing left to draw with.</p>
-
-          <div class="hero__cta">
-            <p class="store-note">Out now on iOS &amp; Android</p>
-            <div class="store-badges">
-              <a class="store-badge" href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store">
-                <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
-              </a>
-              <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play">
-                <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
-              </a>
-            </div>
+    <section class="hero" aria-labelledby="title">
+      <h1 class="hero__title lines" id="title"><span class="line"><span data-line style="--i:0">Ink Bounce</span></span></h1>
+      <p class="hero__lead wrap" data-rise style="--d:380ms">A free one-thumb game for iPhone, iPad and Android. The orb is already moving: draw the line it bounces off, and don&rsquo;t run out of ink.</p>
+      <div class="folders">
+        <div class="folder f5" style="--i:0"><a class="folder__tab" href="worlds.html#sun-temple">Sun Temple</a></div>
+        <div class="folder f4" style="--i:1"><a class="folder__tab" href="worlds.html#ashen-rift">Ashen Rift</a></div>
+        <div class="folder f3" style="--i:2"><a class="folder__tab" href="worlds.html#frost-shrine">Frost Shrine</a></div>
+        <div class="folder f2" style="--i:3"><a class="folder__tab" href="worlds.html#ancient-grove">Ancient Grove</a></div>
+        <div class="folder f1 folder--front" style="--i:4">
+          <a class="folder__tab" href="worlds.html#ice-valley">Ice Valley</a>
+          <div class="front__top">
+            <a class="btn" href="play.html">Get the game</a>
+            <div class="badges">
+          <a href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store"><img src="assets/images/badge-appstore.png" width="162" height="48" alt="Download on the App Store" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play"><img src="assets/images/badge-googleplay.png" width="162" height="48" alt="Get it on Google Play" /></a>
+        </div>
+            <a class="link" href="assets/video/trailer.mp4" data-trailer>Watch the 29-second trailer</a>
           </div>
-
-          <div class="hero__pills">
-            <div class="pill-row">
-              <span class="pill pill--cyan">Free to play</span>
-              <span class="pill">100 levels</span>
-              <span class="pill">5 bosses</span>
-              <span class="pill pill--gold">Plays offline</span>
+          <div class="toy" data-toy>
+            <div class="toy__copy">
+              <h2>Try one line</h2>
+              <p>Draw under the orb with your finger or mouse. It bounces off your ink, so the angle of the line decides where it goes. Get it into the portal before the ink runs out.</p>
+              <div class="toy__hud toy__live">
+                <p class="toy__level" data-toy-level>Draw beneath it</p>
+                <div class="meter" aria-hidden="true"><i data-toy-ink></i></div>
+                <p class="toy__ink" data-toy-ink-text>100% ink</p>
+                <p class="toy__status" data-toy-status aria-live="polite"></p>
+              </div>
+              <div class="toy__actions">
+                <button class="btn btn--dark" type="button" data-toy-assist>Draw one for me</button>
+                <button class="btn btn--light" type="button" data-toy-reset>Start again</button>
+              </div>
+            </div>
+            <div class="toy__stage">
+              <canvas aria-label="A small Ink Bounce level: draw a line under the orb to bounce it into the portal" role="img"></canvas>
+              <img class="toy__still" src="assets/images/screenshot-1.jpg" width="1440" height="810" alt="The orb rebounds off a freshly drawn ink line in Ice Valley" />
             </div>
           </div>
         </div>
+      </div>
+    </section>
 
-        <div class="hero__media">
-          <!-- The trailer is the hero image: nothing loads until it is played
-               (preload="none"), so the poster frame is all a visitor pays for.
-               Native controls stay on, so the video still works with JS off;
-               main.js only un-hides the big play button layered over them. -->
-          <figure class="trailer phone-frame">
-            <video class="trailer__video"
-                   poster="assets/video/trailer-poster.jpg"
-                   width="1280" height="720"
-                   preload="none" playsinline controls
-                   aria-label="Ink Bounce gameplay trailer">
-              <source src="assets/video/trailer.mp4" type="video/mp4" />
-              <p>Your browser can't play this video. <a href="assets/video/trailer.mp4">Download the trailer</a> instead.</p>
-            </video>
-            <button class="trailer__play" type="button" hidden>
-              <span class="trailer__play-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l11-6.5z" fill="currentColor"/></svg>
-              </span>
-              <span class="trailer__play-label">Watch the trailer <span aria-hidden="true">·</span> <span class="trailer__play-time">0:29</span></span>
-            </button>
+    <section class="plate" aria-label="Three ways to play" data-tabs>
+      <div class="plate__in">
+        <div class="plate__media">
+          <figure>
+            <video data-media="campaign" data-loop muted loop playsinline autoplay preload="auto" poster="assets/video/loop-draw.jpg" width="600" height="600" aria-label="Campaign gameplay, a silent loop"><source src="assets/video/loop-draw.mp4" type="video/mp4" /></video>
+            <video data-media="bosses" data-loop muted loop playsinline preload="none" poster="assets/video/loop-boss.jpg" width="600" height="600" aria-label="Bosses gameplay, a silent loop" hidden><source src="assets/video/loop-boss.mp4" type="video/mp4" /></video>
+            <video data-media="endless" data-loop muted loop playsinline preload="none" poster="assets/video/loop-endless.jpg" width="600" height="600" aria-label="Endless gameplay, a silent loop" hidden><source src="assets/video/loop-endless.mp4" type="video/mp4" /></video>
           </figure>
         </div>
-      </div>
-    </section>
-
-    <!-- ============ THE LOOP ============ -->
-    <!-- Three beats, alternating sides. This replaced a six-card icon grid: the
-         game explains itself better in its own screenshots than in glyphs. -->
-    <section class="section section--surface" id="game">
-      <div class="container">
-        <div class="section-head left reveal">
-          <p class="eyebrow">The loop</p>
-          <h2>One line of ink</h2>
-          <p class="lead">Simple to hold, hard to spend well. Physics, reflexes, and a meter that does not refill mid-level.</p>
-        </div>
-
-        <div class="beats">
-          <article class="beat reveal">
-            <div class="beat__media">
-              <img src="assets/images/beats/loop-draw.jpg" width="1200" height="496" loading="lazy" alt="A drawn ink line arcs beneath the orb, which rebounds off it mid-flight" />
+        <div class="plate__copy">
+          <div class="tabs" role="tablist" aria-label="Modes"><button type="button" role="tab" id="tab-campaign" aria-controls="panel-campaign" aria-selected="true" tabindex="0" data-for="campaign">Campaign</button><button type="button" role="tab" id="tab-bosses" aria-controls="panel-bosses" aria-selected="false" tabindex="-1" data-for="bosses">Bosses</button><button type="button" role="tab" id="tab-endless" aria-controls="panel-endless" aria-selected="false" tabindex="-1" data-for="endless">Endless</button></div>
+          <div class="plate__panel" role="tabpanel" id="panel-campaign" aria-labelledby="tab-campaign">
+              <div class="plate__words"><h2>100 levels, 5 worlds</h2>
+              <p>Twenty hand-built levels a world. Each gives three stars: one for reaching the portal, one for the ink you kept, one for beating the par time.</p></div>
+              <div class="cells">
+                <a class="btn" href="worlds.html">See the worlds</a>
+                <a class="btn btn--dark" href="assets/video/trailer.mp4" data-trailer>Watch the trailer</a>
+              </div>
+            </div><div class="plate__panel" role="tabpanel" id="panel-bosses" aria-labelledby="tab-bosses" hidden>
+              <div class="plate__words"><h2>A boss at every level 20</h2>
+              <p>A stone block behind a shield that opens for three and a half seconds at a time. Bounce the orb into its core while it fires tracking arrows.</p></div>
+              <div class="cells">
+                <a class="btn" href="worlds.html#bosses">Meet the boss</a>
+                <a class="btn btn--dark" href="assets/video/trailer.mp4" data-trailer>Watch the trailer</a>
+              </div>
+            </div><div class="plate__panel" role="tabpanel" id="panel-endless" aria-labelledby="tab-endless" hidden>
+              <div class="plate__words"><h2>One corridor, no finish</h2>
+              <p>The corridor speeds up from the first metre, and new hazards join at 220 m, 420 m, 700 m and on. Your score is how far you get.</p></div>
+              <div class="cells">
+                <a class="btn" href="endless.html">See Endless</a>
+                <a class="btn btn--dark" href="assets/video/trailer.mp4" data-trailer>Watch the trailer</a>
+              </div>
             </div>
-            <div class="beat__body">
-              <h3>Draw beneath it</h3>
-              <p>The orb is already moving when the level starts. Every line you draw is a surface — the orb leaves it at the angle you gave it, so the shape of the stroke is the whole decision.</p>
-            </div>
-          </article>
-          <article class="beat reveal">
-            <div class="beat__media">
-              <img src="assets/images/beats/loop-portal.jpg" width="1200" height="496" loading="lazy" alt="The orb streaks through a low-gravity zone toward a glowing portal on the right" />
-            </div>
-            <div class="beat__body">
-              <h3>Reach the portal</h3>
-              <p>The goal never moves. Everything else does. Gravity inverts, zones rewrite the rules the moment the orb crosses them, and hazards stop being things you avoid and start being things you use.</p>
-            </div>
-          </article>
-          <article class="beat reveal">
-            <div class="beat__media">
-              <img src="assets/images/beats/loop-ink.jpg" width="1200" height="496" loading="lazy" alt="The ink meter runs low as the orb crosses a shifting low-gravity corridor" />
-            </div>
-            <div class="beat__body">
-              <h3>Don't run dry</h3>
-              <p>Ink is finite, and a wasted line is not a mistake you fix later — it is ink the portal needed. Clearing a level and clearing it clean are two different problems.</p>
-            </div>
-          </article>
         </div>
       </div>
     </section>
 
-    <!-- ============ WORLDS ============ -->
-    <section class="section section--alt" id="worlds">
-      <div class="container">
-        <div class="section-head reveal">
-          <p class="eyebrow">Campaign</p>
-          <h2>Five worlds, one hundred levels</h2>
-          <p class="lead">Twenty hand-built levels each, and every world breaks a habit the last one taught you.</p>
-        </div>
-        <div class="worlds reveal">
-          <article class="world-card world-card--1">
-            <div class="world-card__art">
-              <img src="assets/images/worlds/world-1-ice-valley.jpg" width="800" height="800" loading="lazy" alt="Ice Valley: a moonlit canyon of blue-lit glaciers and a frozen river running through it" />
-            </div>
-            <div class="world-card__body">
-              <p class="world-card__num">World 01 <span aria-hidden="true">·</span> 20 levels</p>
-              <h3 class="world-card__name">Ice Valley</h3>
-              <p class="world-card__blurb">Frozen switchbacks under a still, starlit sky.</p>
-            </div>
-          </article>
-          <article class="world-card world-card--2">
-            <div class="world-card__art">
-              <img src="assets/images/worlds/world-2-ancient-grove.jpg" width="800" height="800" loading="lazy" alt="Ancient Grove: ivy-swallowed stone ruins and broken steps climbing to a glowing green archway" />
-            </div>
-            <div class="world-card__body">
-              <p class="world-card__num">World 02 <span aria-hidden="true">·</span> 20 levels</p>
-              <h3 class="world-card__name">Ancient Grove</h3>
-              <p class="world-card__blurb">Overgrown ruins swallowed by thick green light.</p>
-            </div>
-          </article>
-          <article class="world-card world-card--3">
-            <div class="world-card__art">
-              <img src="assets/images/worlds/world-3-frost-shrine.jpg" width="800" height="800" loading="lazy" alt="Frost Shrine: a pale crystal shrine on a lone rock platform, deep in a moonlit ravine" />
-            </div>
-            <div class="world-card__body">
-              <p class="world-card__num">World 03 <span aria-hidden="true">·</span> 20 levels</p>
-              <h3 class="world-card__name">Frost Shrine</h3>
-              <p class="world-card__blurb">A crystal shrine at the far end of a moonlit ravine.</p>
-            </div>
-          </article>
-          <article class="world-card world-card--4">
-            <div class="world-card__art">
-              <img src="assets/images/worlds/world-4-ashen-rift.jpg" width="800" height="800" loading="lazy" alt="Ashen Rift: a scorched basin split by rivers of lava beneath a burning monolith" />
-            </div>
-            <div class="world-card__body">
-              <p class="world-card__num">World 04 <span aria-hidden="true">·</span> 20 levels</p>
-              <h3 class="world-card__name">Ashen Rift</h3>
-              <p class="world-card__blurb">Molten channels and falling ember.</p>
-            </div>
-          </article>
-          <article class="world-card world-card--5">
-            <div class="world-card__art">
-              <img src="assets/images/worlds/world-5-sun-temple.jpg" width="800" height="800" loading="lazy" alt="Sun Temple: an obelisk on a stepped pyramid, silhouetted against a low golden sun as rubble floats past" />
-            </div>
-            <div class="world-card__body">
-              <p class="world-card__num">World 05 <span aria-hidden="true">·</span> 20 levels</p>
-              <h3 class="world-card__name">Sun Temple</h3>
-              <p class="world-card__blurb">Golden heat, and the campaign's last stand.</p>
-            </div>
-          </article>
-        </div>
-
-        <div class="beats beats--after">
-          <article class="beat reveal">
-            <div class="beat__media">
-              <img src="assets/images/beats/boss.jpg" width="1200" height="496" loading="lazy" alt="The Wall, a shielded boss block with glowing eyes, takes a hit from the orb" />
-            </div>
-            <div class="beat__body">
-              <h3>At level 20, something is waiting</h3>
-              <p>Five bosses, one at the end of every world. They do not care how fast you are — they punish a lazy line.</p>
-              <p class="beat__note">Three stars a level. Sixty a world. Three hundred across the campaign.</p>
-            </div>
-          </article>
-        </div>
+    <section class="sec wrap" aria-labelledby="loop-title">
+      <div class="grid loop__head">
+        <h2 class="head" id="loop-title" data-reveal>One line of ink</h2>
+        <p data-reveal style="--i:1">The orb launches on its own. You draw what it bounces off, every stroke drains the meter, and each line fades after four seconds.</p>
       </div>
-    </section>
-
-    <!-- ============ ENDLESS ============ -->
-    <section class="section section--surface" id="endless">
-      <div class="container">
-        <div class="section-head left reveal">
-          <p class="eyebrow">Endless</p>
-          <h2>One corridor, no finish line</h2>
-        </div>
-
-        <div class="beats">
-          <article class="beat reveal">
-            <div class="beat__media">
-              <img src="assets/images/beats/fever.jpg" width="1200" height="483" loading="lazy" alt="An endless run at Fever with a combo of 12, the orb trailing cyan light down the corridor" />
+      <div class="acc" data-acc data-reveal>
+          <div class="acc__panel p1 is-open">
+            <button class="acc__btn" type="button" aria-expanded="true" aria-controls="acc-0"><span class="acc__name">Draw beneath it</span></button>
+            <div class="acc__body" id="acc-0">
+              <div class="acc__text"><h3>Draw beneath it</h3><p>Every line is a surface. The orb leaves it at the angle you drew, so the shape of the stroke is the whole decision.</p></div>
+              <figure><img src="assets/images/beats/loop-draw.jpg" width="1200" height="496" loading="lazy" alt="A pink ink line arcs under the orb, which rebounds off it" /></figure>
             </div>
-            <div class="beat__body">
-              <h3>Chain ten and Fever opens</h3>
-              <p>Keep the orb off the ground and the combo climbs. Reach a chain of ten and every line costs <strong>30% less for eight seconds</strong>.</p>
-              <p>The corridor keeps accelerating. Your ink does not get cheaper on its own.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ GEAR ============ -->
-    <section class="section section--alt" id="gear">
-      <div class="container">
-        <div class="section-head left reveal">
-          <p class="eyebrow">Gear</p>
-          <h2>Five pieces, five ranks each</h2>
-          <p class="lead">Permanent upgrades you rank up and equip. Two slots to start with, a third once you have bought ten ranks.</p>
-        </div>
-
-        <dl class="gear reveal">
-          <div class="gear__row"><dt>Ink Regulator</dt><dd>Cuts what every line costs.</dd></div>
-          <div class="gear__row"><dt>Slow-Dry Formula</dt><dd>Lines last longer before they fade.</dd></div>
-          <div class="gear__row"><dt>Broad Nib</dt><dd>Draws thicker.</dd></div>
-          <div class="gear__row"><dt>Rebound Coil</dt><dd>Adds lift off your own ink.</dd></div>
-          <div class="gear__row"><dt>Safety Core</dt><dd>Absorbs one hazard.</dd></div>
-        </dl>
-
-        <p class="gear__note reveal">Ink Refill, Shield and Slow Time go into any attempt. Rocket Start throws an endless run down the corridor before you have drawn a thing.</p>
-      </div>
-    </section>
-
-    <!-- ============ THE LONG GAME ============ -->
-    <section class="section section--surface" id="collection">
-      <div class="container">
-        <div class="section-head left reveal">
-          <p class="eyebrow">The long game</p>
-          <h2>What is left after the hundred</h2>
-        </div>
-
-        <!-- Hairline grid rather than rounded cards: this is a stats panel and it
-             should read like the one in the game. -->
-        <dl class="stats reveal">
-          <div class="stat"><dd class="stat__n">100</dd><dt class="stat__l">Levels</dt></div>
-          <div class="stat"><dd class="stat__n">5</dd><dt class="stat__l">Bosses</dt></div>
-          <div class="stat"><dd class="stat__n">300</dd><dt class="stat__l">Stars</dt></div>
-          <div class="stat"><dd class="stat__n">54</dd><dt class="stat__l">Orb skins</dt></div>
-          <div class="stat"><dd class="stat__n">104</dd><dt class="stat__l">Badges</dt></div>
-        </dl>
-
-        <div class="beats beats--after">
-          <article class="beat reveal">
-            <div class="beat__media">
-              <img src="assets/images/beats/badges.jpg" width="1200" height="483" loading="lazy" alt="The badges screen at 39% overall progress, with campaign, endless and mastery tabs" />
-            </div>
-            <div class="beat__body">
-              <h3>Every run is on the record</h3>
-              <p>54 orb skins, each with its own trail. 104 badges across campaign, endless and mastery. Daily rewards, challenges and leaderboards.</p>
-              <p>Every campaign attempt is recorded — watch the replay back, or skip it. And a statistics screen that remembers every run you would rather it forgot.</p>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ SCREENSHOTS ============ -->
-    <section class="section section--alt" id="screenshots">
-      <div class="container">
-        <div class="section-head left reveal">
-          <h2>Screenshots</h2>
-        </div>
-        <!-- Arrows and dots are added by main.js; without JS this stays a plain
-             swipeable rail. -->
-        <div class="shots-rail reveal">
-          <div class="shots" role="region" aria-label="Screenshots" tabindex="0">
-            <div class="phone-frame"><img src="assets/images/screenshot-1.jpg" width="1440" height="810" loading="lazy" alt="The orb rebounds off a freshly drawn ink line — draw the line and change the path" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-2.jpg" width="1440" height="810" loading="lazy" alt="The orb streaks toward a glowing portal in a low-gravity crimson chamber" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-3.jpg" width="1440" height="810" loading="lazy" alt="A shielded boss block, The Wall, takes a hit from the orb" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-4.jpg" width="1440" height="810" loading="lazy" alt="Gravity flips as the orb drifts through a violet star field" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-5.jpg" width="1440" height="810" loading="lazy" alt="Limited ink and shifting obstacles in a low-gravity endless run" /></div>
-            <div class="phone-frame"><img src="assets/images/screenshot-6.jpg" width="1440" height="810" loading="lazy" alt="The skins menu, where a large collection of unlockable orb skins can be equipped" /></div>
           </div>
-        </div>
+          <div class="acc__panel p2">
+            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-1"><span class="acc__name">Reach the portal</span></button>
+            <div class="acc__body" id="acc-1">
+              <div class="acc__text"><h3>Reach the portal</h3><p>The portal never moves. Gravity zones lighten, triple or flip the pull as the orb crosses them, and spikes swing, spin and drop into the gap.</p></div>
+              <figure><img src="assets/images/beats/loop-portal.jpg" width="1200" height="496" loading="lazy" alt="The orb streaks through a low-gravity zone toward the portal" /></figure>
+            </div>
+          </div>
+          <div class="acc__panel p3">
+            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-2"><span class="acc__name">Keep your ink</span></button>
+            <div class="acc__body" id="acc-2">
+              <div class="acc__text"><h3>Keep your ink</h3><p>Lines cost ink while you draw and while you hold. Finish with enough left and the level pays a second star.</p></div>
+              <figure><img src="assets/images/beats/loop-ink.jpg" width="1200" height="496" loading="lazy" alt="The ink meter runs low as the orb crosses a shifting corridor" /></figure>
+            </div>
+          </div>
+          <div class="acc__panel p4">
+            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-3"><span class="acc__name">Chain a Fever</span></button>
+            <div class="acc__body" id="acc-3">
+              <div class="acc__text"><h3>Chain a Fever</h3><p>Ten bounces or near misses in a row, each within 2.5 seconds of the last, open Fever: 8 seconds of ink at 30% off, and 5 coins.</p></div>
+              <figure><img src="assets/images/beats/fever.jpg" width="1200" height="496" loading="lazy" alt="An endless run in Fever with a combo of 12" /></figure>
+            </div>
+          </div>
+          <div class="acc__panel p5">
+            <button class="acc__btn" type="button" aria-expanded="false" aria-controls="acc-4"><span class="acc__name">Break the boss</span></button>
+            <div class="acc__body" id="acc-4">
+              <div class="acc__text"><h3>Break the boss</h3><p>On boss levels the ink never runs out. Fever there gives you a shield charge that takes a hit instead.</p></div>
+              <figure><img src="assets/images/beats/boss.jpg" width="1200" height="496" loading="lazy" alt="The Wall, the first boss, takes a hit from the orb" /></figure>
+            </div>
+          </div>
       </div>
     </section>
 
-    <!-- ============ DOWNLOAD ============ -->
-    <section class="section section--surface" id="download">
-      <div class="container">
-        <div class="download-cta reveal">
-          <p class="eyebrow">Download</p>
-          <h2>Out now on iOS &amp; Android</h2>
-          <p class="lead">Free, and it plays offline. See how far one line takes you.</p>
-          <div class="store-badges">
-            <a class="store-badge" href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store">
-              <img src="assets/images/badge-appstore.png" width="108" height="32" alt="Download on the App Store" />
-            </a>
-            <a class="store-badge" href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play">
-              <img src="assets/images/badge-googleplay.png" width="108" height="32" alt="Get it on Google Play" />
-            </a>
-          </div>
-          <p class="download-specs">iOS 15+ &middot; Android 7.1+ &middot; Free with ads and optional in-app purchases</p>
+    <section class="sec wrap" aria-labelledby="worlds-title">
+      <div class="stagger">
+        <a class="tile st-a tile--wide" href="worlds.html#ice-valley" data-reveal style="--i:1">
+            <figure><img src="assets/images/worlds-lg/world-1.jpg" width="1200" height="1200" loading="lazy" alt="Ice Valley: a moonlit canyon of blue glaciers and a frozen river" /></figure>
+            <span class="tile__cap"><b>Ice Valley</b><span>20 levels, 3 boss hits</span></span>
+          </a>
+        <div class="stagger__head" data-reveal>
+          <h2 id="worlds-title">Five worlds</h2>
+          <p>Each one adds a new kind of trouble.</p>
         </div>
+        <a class="tile st-b tile--tall" href="worlds.html#ancient-grove" data-reveal style="--i:2">
+            <figure><img src="assets/images/worlds-lg/world-2.jpg" width="1200" height="1200" loading="lazy" alt="Ancient Grove: ivy-covered ruins climbing to a glowing green arch" /></figure>
+            <span class="tile__cap"><b>Ancient Grove</b><span>20 levels, 3 boss hits</span></span>
+          </a>
+        <a class="tile st-c tile--tall" href="worlds.html#frost-shrine" data-reveal style="--i:0">
+            <figure><img src="assets/images/worlds-lg/world-3.jpg" width="1200" height="1200" loading="lazy" alt="Frost Shrine: a pale crystal shrine on a rock in a moonlit ravine" /></figure>
+            <span class="tile__cap"><b>Frost Shrine</b><span>20 levels, 4 boss hits</span></span>
+          </a>
+        <a class="tile st-d tile--tall" href="worlds.html#ashen-rift" data-reveal style="--i:1">
+            <figure><img src="assets/images/worlds-lg/world-4.jpg" width="1200" height="1200" loading="lazy" alt="Ashen Rift: a scorched basin split by rivers of lava" /></figure>
+            <span class="tile__cap"><b>Ashen Rift</b><span>20 levels, 4 boss hits</span></span>
+          </a>
+        <div class="stagger__note" data-reveal>
+          <p>Spikes, then spikes that spin and slide, then spikes that fall and swing, then gravity itself. Sun Temple throws all of it at you.</p>
+          <a class="btn" href="worlds.html">See the worlds</a>
+        </div>
+        <a class="tile st-e tile--wide" href="worlds.html#sun-temple" data-reveal style="--i:2">
+            <figure><img src="assets/images/worlds-lg/world-5.jpg" width="1200" height="1200" loading="lazy" alt="Sun Temple: an obelisk on a stepped pyramid against a low gold sun" /></figure>
+            <span class="tile__cap"><b>Sun Temple</b><span>20 levels, 5 boss hits</span></span>
+          </a>
+      </div>
+    </section>
+
+    <section class="sec" aria-labelledby="gear-title">
+      <div class="switches__head wrap">
+        <h2 class="head" id="gear-title" data-reveal>Gear you rank up</h2>
+        <p data-reveal style="--i:1">Five pieces, five ranks each, bought with gems. Two slots to start, a third once you own ten ranks. Switch one on to see it at rank 5.</p>
+      </div>
+      <div class="band b1 is-on" data-band>
+        <div class="band__in wrap">
+          <div><p class="band__text" id="gear-0">Ink Regulator spends less ink.</p><p class="band__more">Rank 5: every line costs 15% less in the campaign and 10% less in Endless.</p></div>
+          <button class="switch" data-ui type="button" role="switch" aria-checked="true" aria-labelledby="gear-0"></button>
+        </div>
+      </div>
+      <div class="band b2" data-band>
+        <div class="band__in wrap">
+          <div><p class="band__text" id="gear-1">Slow-Dry Formula keeps lines longer.</p><p class="band__more">Rank 5: each line stays 0.75 seconds longer before it fades.</p></div>
+          <button class="switch" data-ui type="button" role="switch" aria-checked="false" aria-labelledby="gear-1"></button>
+        </div>
+      </div>
+      <div class="band b3" data-band>
+        <div class="band__in wrap">
+          <div><p class="band__text" id="gear-2">Broad Nib draws a wider line.</p><p class="band__more">Rank 5: lines and the edge the orb hits are 10% wider.</p></div>
+          <button class="switch" data-ui type="button" role="switch" aria-checked="false" aria-labelledby="gear-2"></button>
+        </div>
+      </div>
+      <div class="band b4 is-on" data-band>
+        <div class="band__in wrap">
+          <div><p class="band__text" id="gear-3">Rebound Coil sends you higher.</p><p class="band__more">Rank 5: 15% more lift off your own ink in the campaign.</p></div>
+          <button class="switch" data-ui type="button" role="switch" aria-checked="true" aria-labelledby="gear-3"></button>
+        </div>
+      </div>
+      <div class="band b5" data-band>
+        <div class="band__in wrap">
+          <div><p class="band__text" id="gear-4">Safety Core takes one hit for you.</p><p class="band__more">It blocks one hit that would end the attempt, with 1.2 seconds to recover at rank 5.</p></div>
+          <button class="switch" data-ui type="button" role="switch" aria-checked="false" aria-labelledby="gear-4"></button>
+        </div>
+      </div>
+      <p class="wrap" style="margin-top:2rem"><a class="link" href="gear.html">Every rank, every skin and every badge</a></p>
+    </section>
+
+    <section class="sec" aria-labelledby="numbers-title">
+      <div class="wall">
+        <div class="cell c-surf"><h2 id="numbers-title">In numbers</h2></div>
+        <div class="cell c-pink"><span class="cell__big">100</span><span class="cell__cap">Levels</span></div>
+        <div class="cell c-blue"><span class="cell__big">5</span><span class="cell__cap">Worlds and bosses</span></div>
+        <div class="cell"><img src="assets/video/loop-portal.jpg" width="600" height="600" loading="lazy" alt="The orb heads for the portal in Ancient Grove" /></div>
+        <div class="cell c-gold"><span class="cell__big">300</span><span class="cell__cap">Stars</span></div>
+        <div class="cell c-surf"><span class="cell__big">54</span><span class="cell__cap">Orb skins</span></div>
+        <div class="cell"><img src="assets/video/loop-boss.jpg" width="600" height="600" loading="lazy" alt="A world boss, a stone block with glowing eyes" /></div>
+        <div class="cell c-mint"><span class="cell__big">104</span><span class="cell__cap">Badges</span></div>
+        <div class="cell c-pink"><span class="cell__big">8</span><span class="cell__cap">Seconds of Fever</span></div>
+        <div class="cell"><img src="assets/video/loop-fever.jpg" width="600" height="600" loading="lazy" alt="Fever at a combo of 11 in Sun Temple" /></div>
+        <div class="cell c-gold"><span class="cell__big">4</span><span class="cell__cap">Leaderboards</span></div>
+        <div class="cell c-blue"><span class="cell__big">0</span><span class="cell__cap">Wi-Fi needed to play</span></div>
+      </div>
+    </section>
+
+    <section class="figure-sec wrap" aria-labelledby="streak-title">
+      <div>
+        <h2 id="streak-title" data-reveal>Play how many days in a row?</h2>
+        <div class="slider" data-ui data-streak>
+          <label for="streak"><span>Daily reward streak</span><span class="nums" data-streak-days>7 days</span></label>
+          <input id="streak" type="range" min="1" max="60" step="1" value="7" />
+        </div>
+      </div>
+      <div class="figure-sec__foot">
+        <p class="big-figure" aria-live="polite"><span data-streak-out>1,000</span><small>coins</small></p>
+        <p>The daily reward runs 40, 60, 80, 120, 150, 200 and 350 coins over seven days. Every full week you keep the streak adds 10% to the next one, up to 50%.</p>
+      </div>
+    </section>
+
+    <section class="sec wrap" aria-labelledby="get-title">
+      <div class="ctarow">
+        <div class="ctarow__side"><img src="assets/images/worlds-lg/world-4.jpg" width="1200" height="1200" loading="lazy" alt="" /></div>
+        <div class="ctarow__main" data-reveal>
+          <h2 id="get-title">Free on iPhone and Android</h2>
+          <p>No account and no connection needed to play. It has ads, and one purchase removes them.</p>
+          <div class="badges">
+          <a href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store"><img src="assets/images/badge-appstore.png" width="162" height="48" alt="Download on the App Store" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play"><img src="assets/images/badge-googleplay.png" width="162" height="48" alt="Get it on Google Play" /></a>
+        </div>
+        </div>
+        <div class="ctarow__side" style="--sc:var(--w1)"></div>
       </div>
     </section>
   </main>
 
-  <!-- ============ FOOTER ============ -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer__grid">
-        <div class="footer__brand">
-          <a class="nav__brand" href="index.html">
-            <img src="assets/images/icon-64.png" alt="" width="30" height="30" />
-            Ink Bounce
-          </a>
-          <p class="muted">A one-thumb arcade game where every line you draw keeps the ball alive.</p>
-          <p class="muted">By <strong>SmartLifeUtils</strong></p>
-        </div>
-        <div class="footer__col">
-          <h4>Game</h4>
-          <ul>
-            <li><a href="#game">The game</a></li>
-            <li><a href="#worlds">Worlds</a></li>
-            <li><a href="#endless">Endless</a></li>
-            <li><a href="#screenshots">Screenshots</a></li>
-            <li><a href="#download">Download</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Help</h4>
-          <ul>
-            <li><a href="support.html">Support</a></li>
-            <li><a href="mailto:smartlife.utilities@gmail.com">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer__col">
-          <h4>Legal</h4>
-          <ul>
-            <li><a href="privacy.html">Privacy Policy</a></li>
-            <li><a href="terms.html">Terms of Service</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer__bottom">
-        <span>© <span data-year>2026</span> SmartLifeUtils. All rights reserved.</span>
-        <span>Ink Bounce™</span>
+  <dialog class="trailer" aria-label="Ink Bounce trailer">
+    <form method="dialog"><button class="btn btn--small btn--light" type="submit">Close</button></form>
+    <video controls playsinline preload="none" poster="assets/video/trailer-poster.jpg" width="1280" height="720">
+      <source src="assets/video/trailer.mp4" type="video/mp4" />
+    </video>
+  </dialog>
+  <footer class="foot">
+    <div class="mark" role="img" aria-label="Ink Bounce"><span style="--c:var(--w1);--h:100%">I</span><span style="--c:var(--w2);--h:80%">N</span><span style="--c:var(--pink);--h:94%">K</span><span class="gap"></span><span style="--c:var(--w3);--h:86%">B</span><span style="--c:var(--w4);--h:100%">O</span><span style="--c:var(--w5);--h:72%">U</span><span style="--c:var(--w1);--h:90%">N</span><span style="--c:var(--pink);--h:80%">C</span><span style="--c:var(--w2);--h:96%">E</span></div>
+    <div class="foot__cols">
+      <nav aria-label="Game">
+        <h2>Game</h2>
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="worlds.html">Worlds</a></li>
+          <li><a href="endless.html">Endless</a></li>
+          <li><a href="gear.html">Gear and skins</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Get it">
+        <h2>Get it</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/us/app/ink-bounce/id6792821983">App Store</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce">Google Play</a></li>
+          <li><a href="play.html">Share link</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Help">
+        <h2>Help</h2>
+        <ul>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="support.html#report">Report a bug</a></li>
+          <li><a href="mailto:smartlife.utilities@gmail.com">Email us</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of service</a></li>
+        </ul>
+      </nav>
+      <div class="foot__contact">
+        <p>Ink Bounce is made by SmartLifeUtils, a one-person studio in Slovenia.</p>
+        <p><a href="mailto:smartlife.utilities@gmail.com">smartlife.utilities@gmail.com</a></p>
       </div>
     </div>
+    <div class="foot__base">
+      <span>&copy; <span data-year>2026</span> SmartLifeUtils. Free on iPhone, iPad and Android.</span>
+      <a class="btn btn--small" href="play.html">Get the game</a>
+    </div>
   </footer>
-
-  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/main.js?v=2" defer></script>
+  <script src="assets/js/toy.js?v=2" defer></script>
 </body>
 </html>

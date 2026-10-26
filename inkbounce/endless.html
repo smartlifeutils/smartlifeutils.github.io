@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ink Bounce Endless: one corridor, no finish</title>
+  <meta name="description" content="Ink Bounce Endless mode: a corridor that speeds up from the first metre, hazards that join by distance, Fever, daily modifiers, challenges and four leaderboards." />
+  <meta name="robots" content="index, follow, max-image-preview:large" />
+  <meta name="theme-color" content="#080a0d" />
+  <link rel="canonical" href="https://smartlifeutils.github.io/inkbounce/endless" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Ink Bounce" />
+  <meta property="og:title" content="Ink Bounce Endless: one corridor, no finish" />
+  <meta property="og:description" content="Ink Bounce Endless mode: a corridor that speeds up from the first metre, hazards that join by distance, Fever, daily modifiers, challenges and four leaderboards." />
+  <meta property="og:image" content="https://smartlifeutils.github.io/inkbounce/assets/images/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:url" content="https://smartlifeutils.github.io/inkbounce/endless" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="assets/images/favicon-32.png" sizes="32x32" type="image/png" />
+  <link rel="apple-touch-icon" href="assets/images/icon-180.png" />
+  <link rel="preload" href="assets/fonts/bebas-neue-400.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href="assets/fonts/rajdhani-500.woff2" as="font" type="font/woff2" crossorigin />
+  <link rel="stylesheet" href="assets/fonts/fonts.css?v=2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=2" />
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="nav">
+    <div class="nav__in">
+      <a class="nav__brand" href="./"><img src="assets/images/icon-64.png" alt="" width="32" height="32" />Ink Bounce</a>
+      <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
+      <nav class="nav__menu" id="menu" aria-label="Primary">
+        <a href="worlds.html">Worlds</a>
+        <a href="endless.html" aria-current="page">Endless</a>
+        <a href="gear.html">Gear</a>
+        <a href="support.html">Support</a>
+        <a class="btn btn--small" href="play.html">Get the game</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="page-hero wrap" aria-labelledby="title">
+      <div class="split">
+        <div class="split__text">
+          <h1 class="lines" id="title"><span class="line"><span data-line>Endless</span></span></h1>
+          <p class="lead" data-rise style="--d:300ms">One corridor that keeps getting faster. There is no portal and no finish line: your score is how far the orb gets.</p>
+          <p data-rise style="--d:380ms">It starts at a speed of 5.3, adds 0.12 every second and tops out at 15, nearly three times as fast, about 81 seconds into a run.</p>
+        </div>
+        <figure class="split__media inked" data-rise style="--d:200ms">
+          <div class="square">
+            <video data-loop muted loop playsinline autoplay preload="auto" poster="assets/video/loop-endless.jpg" width="600" height="600" aria-label="An endless run, a silent loop"><source src="assets/video/loop-endless.mp4" type="video/mp4" /></video>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec wrap" aria-labelledby="ruler-title">
+      <div class="ruler" data-ruler>
+        <div class="ruler__side">
+          <h2 class="head" id="ruler-title" data-reveal>How far did you get?</h2>
+          <p class="lead" data-reveal style="--i:1;margin-top:1.25rem">New hazards join the corridor by distance, and the long runs pay out in badges. Slide to your best run.</p>
+          <div class="slider" data-ui>
+            <label for="dist"><span>Distance</span><span class="nums" data-ruler-out>500 m</span></label>
+            <input id="dist" type="range" min="0" max="2000" step="10" value="500" />
+          </div>
+        </div>
+        <ol class="ruler__marks"><li data-m="220"><b>220 m</b><span>Platform traps join the corridor</span></li><li data-m="250"><b>250 m</b><span>The first distance banner. One every 250 m after it</span></li><li data-m="400" class="is-badge"><b>400 m</b><span>Badge: Long Hall</span></li><li data-m="420"><b>420 m</b><span>Vertical hazards</span></li><li data-m="500" class="is-badge"><b>500 m</b><span>Badge: Half-Kilometer Headspace</span></li><li data-m="700"><b>700 m</b><span>Falling spikes</span></li><li data-m="950"><b>950 m</b><span>Moving spikes</span></li><li data-m="1000" class="is-badge"><b>1,000 m</b><span>Badge: Corridor Scout</span></li><li data-m="1250"><b>1,250 m</b><span>Rotating spike orbs</span></li><li data-m="1600"><b>1,600 m</b><span>Everything at once</span></li><li data-m="2000" class="is-badge"><b>2,000 m</b><span>Badge: Loop Breaker, and with it the Void orb skin</span></li></ol>
+      </div>
+    </section>
+
+    <section class="sec wrap" aria-labelledby="fever-title">
+      <div class="split split--flip">
+        <div class="split__text">
+          <h2 id="fever-title" data-reveal>Fever</h2>
+          <p class="lead" data-reveal style="--i:1">Keep the orb in the air and the combo climbs. Reach ten and the corridor turns gold.</p>
+          <ul class="ink-list" data-reveal style="--i:2">
+            <li>Every bounce off your ink counts, up to three per line, and so does every near miss.</li>
+            <li>Let 2.5 seconds pass without one and the combo resets.</li>
+            <li>At ten, Fever opens for 8 seconds: every line costs 30% less ink, and you get 5 coins.</li>
+            <li>Ink orbs in the corridor refill 30% of the meter. Coins are there for the taking too.</li>
+          </ul>
+        </div>
+        <figure class="split__media inked" data-reveal>
+          <div class="square">
+            <video data-loop muted loop playsinline preload="none" poster="assets/video/loop-fever.jpg" width="600" height="600" aria-label="Fever at a combo of 11, a silent loop"><source src="assets/video/loop-fever.mp4" type="video/mp4" /></video>
+          </div>
+        </figure>
+      </div>
+    </section>
+
+    <section class="sec wrap" aria-labelledby="mods-title">
+      <h2 class="head" id="mods-title" data-reveal>Every day has a modifier</h2>
+      <p class="lead" data-reveal style="--i:1;margin-top:1.25rem">The game picks one for the day. Most days are calm; some stretch your ink or push the speed.</p>
+      <div class="mods" data-reveal>
+        <div style="--mc:var(--w3);flex-grow:38"><h3>Calm Waters</h3><p>No change. The corridor as it is.</p><b>38% of days</b></div>
+        <div style="--mc:var(--w2);flex-grow:32"><h3>Ink Stretch</h3><p>Your ink goes 25% further.</p><b>32% of days</b></div>
+        <div style="--mc:var(--w4);flex-grow:30"><h3>Velocity Surge</h3><p>Everything runs 8% faster.</p><b>30% of days</b></div>
+      </div>
+    </section>
+
+    <section class="sec wrap" aria-labelledby="goals-title">
+      <div class="split">
+        <div class="split__text">
+          <h2 id="goals-title" data-reveal>Challenges and leaderboards</h2>
+          <ul class="ink-list" data-reveal style="--i:1">
+            <li>Three daily objectives, easy to hard, for 30, 50 and 85 coins. Clear the board for a bonus of at least 50 coins and a gem.</li>
+            <li>Two to four weekly objectives at 100 to 110 coins each, and a board bonus of at least 150 coins and 3 gems.</li>
+            <li>Eleven lifetime milestones. Seven of them hand out epic and legendary orb skins.</li>
+            <li>Rocket Start throws a run 60 m down the corridor in 1.5 seconds, if you fire it in the first 5.</li>
+          </ul>
+        </div>
+        <div class="split__media">
+          <figure class="inked" data-reveal><img src="assets/images/beats/loop-ink.jpg" width="1200" height="496" loading="lazy" alt="An endless run at 39 m, the orb trailing fire through a low-gravity zone" /></figure>
+          <p class="lead" style="margin-top:1.25rem">Four leaderboards on Game Center and Google Play Games: best distance, campaign levels cleared, total stars, and the longest run in seconds.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec wrap" aria-labelledby="get-title">
+      <div class="ctarow">
+        <div class="ctarow__side"><img src="assets/images/worlds-lg/world-5.jpg" width="1200" height="1200" loading="lazy" alt="" /></div>
+        <div class="ctarow__main" data-reveal>
+          <h2 id="get-title">Free on iPhone and Android</h2>
+          <p>No account and no connection needed to play. It has ads, and one purchase removes them.</p>
+          <div class="badges">
+          <a href="https://apps.apple.com/us/app/ink-bounce/id6792821983" aria-label="Download Ink Bounce on the App Store"><img src="assets/images/badge-appstore.png" width="162" height="48" alt="Download on the App Store" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce" aria-label="Get Ink Bounce on Google Play"><img src="assets/images/badge-googleplay.png" width="162" height="48" alt="Get it on Google Play" /></a>
+        </div>
+        </div>
+        <div class="ctarow__side" style="--sc:var(--w2)"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot">
+    <div class="mark" role="img" aria-label="Ink Bounce"><span style="--c:var(--w1);--h:100%">I</span><span style="--c:var(--w2);--h:80%">N</span><span style="--c:var(--pink);--h:94%">K</span><span class="gap"></span><span style="--c:var(--w3);--h:86%">B</span><span style="--c:var(--w4);--h:100%">O</span><span style="--c:var(--w5);--h:72%">U</span><span style="--c:var(--w1);--h:90%">N</span><span style="--c:var(--pink);--h:80%">C</span><span style="--c:var(--w2);--h:96%">E</span></div>
+    <div class="foot__cols">
+      <nav aria-label="Game">
+        <h2>Game</h2>
+        <ul>
+          <li><a href="./">Home</a></li>
+          <li><a href="worlds.html">Worlds</a></li>
+          <li><a href="endless.html">Endless</a></li>
+          <li><a href="gear.html">Gear and skins</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Get it">
+        <h2>Get it</h2>
+        <ul>
+          <li><a href="https://apps.apple.com/us/app/ink-bounce/id6792821983">App Store</a></li>
+          <li><a href="https://play.google.com/store/apps/details?id=com.smartlife.inkbounce">Google Play</a></li>
+          <li><a href="play.html">Share link</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Help">
+        <h2>Help</h2>
+        <ul>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="support.html#report">Report a bug</a></li>
+          <li><a href="mailto:smartlife.utilities@gmail.com">Email us</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Legal">
+        <h2>Legal</h2>
+        <ul>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of service</a></li>
+        </ul>
+      </nav>
+      <div class="foot__contact">
+        <p>Ink Bounce is made by SmartLifeUtils, a one-person studio in Slovenia.</p>
+        <p><a href="mailto:smartlife.utilities@gmail.com">smartlife.utilities@gmail.com</a></p>
+      </div>
+    </div>
+    <div class="foot__base">
+      <span>&copy; <span data-year>2026</span> SmartLifeUtils. Free on iPhone, iPad and Android.</span>
+      <a class="btn btn--small" href="play.html">Get the game</a>
+    </div>
+  </footer>
+  <script src="assets/js/main.js?v=2" defer></script>
+</body>
+</html>
