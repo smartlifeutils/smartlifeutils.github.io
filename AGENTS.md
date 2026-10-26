@@ -35,7 +35,7 @@ Do every step that applies before you commit.
      pages go in `waverider/sitemap.xml`.
    - Changed a page's content? Set its `<lastmod>` to today.
    - Added a page? Add a `<url>`. Removed one? Remove it.
-   - Never list `play.html` or `404.html`: they are `noindex`.
+   - Never list `play.html`, `download.html` or `404.html`: they are `noindex`.
    - If a site gets its own sitemap, add a `Sitemap:` line for it to `robots.txt`.
 3. **Keep each page's head complete.** Every indexable page needs `<title>`, a meta description,
    a canonical URL, `og:title`, `og:description`, `og:url` and `og:image`. Use each site's canonical
@@ -151,7 +151,7 @@ App Store Connect and Google Play point at these, so they must keep working at t
 | Ink Bounce | `/inkbounce/privacy` | `/inkbounce/terms` | `/inkbounce/support` |
 | Budget Buddy | flycricket (linked from the site) | flycricket | `/budgetbuddy/` and `/budgetbuddy/support.html` |
 
-Each app's `play.html` is the share link: a phone goes straight to its own store. Don't rename it.
+Each app has a share link that sends a phone straight to its own store: `/waverider/play`, `/inkbounce/play` and `/budgetbuddy/download` (Budget Buddy's old `/budgetbuddy/play` forwards to it). Don't rename them.
 
 ## Commits
 

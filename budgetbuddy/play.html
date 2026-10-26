@@ -4,93 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Get Budget Buddy</title>
-  <meta name="description" content="Download Budget Buddy, free on the App Store and Google Play." />
+  <meta name="description" content="Download Budget Buddy for iPhone or Android." />
   <meta name="robots" content="noindex, follow" />
-  <meta name="theme-color" content="#f7f8fa" />
-  <link rel="canonical" href="https://smartlifeutils.github.io/budgetbuddy/" />
-  <meta property="og:type" content="website" />
-  <meta property="og:site_name" content="Budget Buddy" />
-  <meta property="og:title" content="Get Budget Buddy" />
-  <meta property="og:description" content="Download Budget Buddy, free on the App Store and Google Play." />
-  <meta property="og:image" content="https://smartlifeutils.github.io/budgetbuddy/assets/img/brand/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="586" />
-  <meta property="og:image:alt" content="Budget Buddy on three phones: the monthly overview, expense analysis and category list" />
-  <meta property="og:url" content="https://smartlifeutils.github.io/budgetbuddy/" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <link rel="icon" href="assets/img/brand/favicon-32.png" sizes="32x32" type="image/png" />
-  <link rel="icon" href="assets/img/brand/icon-48.png" sizes="48x48" type="image/png" />
-  <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png" />
-  <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-6" />
-  <script>document.documentElement.classList.add('js')</script>
-  <script>
-    (function (w) {
-      var APP_STORE = "https://apps.apple.com/app/id6758464704";
-      var PLAY_STORE = "https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy";
-      function storeFor(ua, touchPoints) {
-        ua = ua || "";
-        if (/Silk|KFAPWI|Kindle/i.test(ua)) return null;
-        if (/Android/i.test(ua)) return PLAY_STORE;
-        if (/iPhone|iPad|iPod/i.test(ua)) return APP_STORE;
-        if (/Macintosh/.test(ua) && touchPoints > 1) return APP_STORE;
-        return null;
-      }
-      w.__storeFor = storeFor;
-      var forced = (w.location.search.match(/[?&]platform=([a-z]+)/i) || [])[1];
-      var target = forced ? (forced.toLowerCase() === "ios" ? APP_STORE : forced.toLowerCase() === "android" ? PLAY_STORE : null) : storeFor(w.navigator.userAgent, w.navigator.maxTouchPoints);
-      if (target) w.location.replace(target);
-    })(window);
-  </script>
+  <link rel="canonical" href="https://smartlifeutils.github.io/budgetbuddy/download" />
+  <meta http-equiv="refresh" content="0; url=download.html" />
+  <script>location.replace('download.html' + location.search);</script>
 </head>
 <body>
-  <a class="skip" href="#main">Skip to content</a>
-  <header class="nav">
-    <div class="nav__in">
-      <a class="nav__brand" href="./"><img src="assets/img/brand/mark-192.png" width="28" height="28" alt="" />Budget Buddy</a>
-      <nav class="nav__menu" id="menu" aria-label="Primary">
-        <a href="tracking.html">Tracking</a>
-        <a href="budgets.html">Budgets</a>
-        <a href="insights.html">Insights</a>
-        <a href="data.html">Your data</a>
-        <a href="premium.html">Premium</a>
-        <a class="btn" href="play.html">Get the app</a>
-      </nav>
-      <button class="nav__toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="menu"><span></span></button>
-    </div>
-  </header>
-  <main id="main">
-    <section class="notfound" aria-labelledby="page-title">
-      <img src="assets/img/brand/mark-192.png" width="96" height="96" alt="" data-load style="--d:80ms" />
-      <h1 id="page-title" class="display lines"><span class="line"><span data-line>Get Budget Buddy</span></span></h1>
-      <p class="lead" data-load>Free on iPhone and Android. On a phone, this link opens the right store for you.</p>
-      <div class="stores">
-          <a href="https://apps.apple.com/app/id6758464704" aria-label="Download Budget Buddy on the App Store"><img src="assets/img/brand/badge-appstore.png" width="148" height="44" alt="Download on the App Store" /></a>
-          <a href="https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy" aria-label="Get Budget Buddy on Google Play"><img src="assets/img/brand/badge-googleplay.png" width="148" height="44" alt="Get it on Google Play" /></a>
-        </div>
-      <a class="link" data-load style="--d:520ms" href="./">What Budget Buddy does</a>
-    </section>
-    <section class="wrap sec" aria-labelledby="shots-title">
-      <h2 id="shots-title" class="display" data-reveal>What you get</h2>
-      <div class="shot-row">
-        <img data-reveal src="assets/img/shots/overview.jpg" width="720" height="1466" alt="The monthly overview" loading="lazy" />
-        <img data-reveal style="--i:1" src="assets/img/shots/transactions.jpg" width="720" height="1466" alt="The transactions list" loading="lazy" />
-        <img data-reveal style="--i:2" src="assets/img/shots/budget.jpg" width="720" height="1466" alt="A monthly budget" loading="lazy" />
-        <img data-reveal style="--i:3" src="assets/img/shots/recap-1.jpg" width="720" height="1466" alt="A monthly recap" loading="lazy" />
-      </div>
-    </section>
-  </main>
-  <footer class="foot">
-    <p class="foot__what">Budget Buddy, an expense tracker by SmartLifeUtils</p>
-    <nav class="foot__links" aria-label="Footer">
-      <a href="tracking.html">Tracking</a>
-      <a href="budgets.html">Budgets</a>
-      <a href="insights.html">Insights</a>
-      <a href="premium.html">Premium</a>
-      <a href="support.html">Support</a>
-    </nav>
-    <p class="foot__end"><span>© <span data-year>2026</span></span><a href="data.html">Your data</a><a href="https://doc-hosting.flycricket.io/budget-buddy-privacy-policy/e64ccf5c-a708-4a70-8a73-b9c2a27b9672/privacy" rel="noopener">Privacy</a></p>
-  </footer>
-  <script src="assets/js/main.js?v=20261026-6" defer></script>
+  <p><a href="download.html">Get Budget Buddy</a></p>
 </body>
 </html>

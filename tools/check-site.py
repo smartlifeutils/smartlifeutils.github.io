@@ -17,7 +17,7 @@ import sys
 
 ROOT = "https://smartlifeutils.github.io/"
 SITES = ["waverider", "inkbounce", "budgetbuddy"]
-NOT_INDEXED = {"play.html", "404.html"}
+NOT_INDEXED = {"play.html", "download.html", "404.html"}
 problems = []
 
 

@@ -20,7 +20,8 @@ project), the same data shown in the store screenshots.
 | `data.html` | `/budgetbuddy/data.html` | Your data: on-device storage, no account, the store privacy labels, PIN and biometric lock, weekly backups, export and delete, what uses the network, policy links |
 | `premium.html` | `/budgetbuddy/premium.html` | Free against Premium, from the limits the app enforces in code, and what the subscription costs |
 | `support.html` | `/budgetbuddy/support.html` | Contact, FAQ, bug reports, policies |
-| `play.html` | `/budgetbuddy/play` | **The link to share**: a phone goes straight to its store; desktops see a download card. `?platform=ios\|android\|none` forces a branch for testing |
+| `download.html` | `/budgetbuddy/download` | **The link to share**: a phone goes straight to its store; desktops see a download card. `?platform=ios\|android\|none` forces a branch for testing |
+| `play.html` | `/budgetbuddy/play` | The old share link, kept so links already out keep working. It forwards to `download`, query string included |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
 
 `app-ads.txt` here is the AdMob publisher file; leave it alone. The privacy policy and terms are
@@ -83,5 +84,5 @@ the Wave Rider site.
 
 Each page has its own title, description, canonical URL and JSON-LD (`MobileApplication`,
 `FinanceApplication`, free with an optional subscription, both store links; `FAQPage` on the home
-and support pages). `play.html` and `404.html` are `noindex`. Add every new page to the repo-root
+and support pages). `download.html`, `play.html` and `404.html` are `noindex`. Add every new page to the repo-root
 `sitemap.xml`.
