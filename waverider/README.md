@@ -12,7 +12,7 @@ assets or design docs.
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/waverider/` | Home: the WAVE / RIDER poster over the boot splash, the trailer, a playable live sea and how a jump works, the pile of screenshots, the tricks as a poster, the boats as folders, the seas board, the garage, daily goals, the streak, download |
+| `index.html` | `/waverider/` | Home: WAVE / RIDER beside the boot splash, the trailer, a playable live sea, the pile of screenshots, tricks, a short boat line-up (the full story is on `boats.html`), the seas board, the garage, daily goals and the streak, download |
 | `play.html` | `/waverider/play` | **The link to share**: a phone goes straight to its store (Android to Play, iPhone and iPad to the App Store); desktops, Fire tablets and anything unknown see a download card. `?platform=ios\|android\|none` forces a branch for testing |
 | `boats.html` | `/waverider/boats.html` | Every boat in depth, built around the All Boats Showcase YouTube video: role, where it does best, stock vs upgraded meters |
 | `seas.html` | `/waverider/seas.html` | Every sea in depth (water, hazards, view, locals, unlock) and the boat × sea fit table, from the game's `06_WORLD_CATALOG.md` and `07_BOAT_WORLD_MATRIX.md` (launch seas only). Room for a seas video when one exists |
@@ -74,8 +74,8 @@ and re-place the remaining tiles in the `.tile--*` grid rules in `style.css` so 
 ### Adding a boat or sea when it ships
 
 1. Add it to `BOATS` / `WORLDS` / `ACTORS` in `tools/build-assets.py` and re-run the script.
-2. In `index.html`, add a folder to `#boats` (copy a neighbour; each `.folder--*` sets its own `--band`
-   and, as `--prev`, the band above it so its tab rises out of that colour) or a tile to the `#seas`
+2. In `index.html`, add an `<li>` to the `.fleet` line-up in `#boats` (before the **?** item; the
+   grid is five across, so widen `.fleet` too) and a row to `boats.html`, or a tile to the `#seas`
    board (copy a neighbour and give it a place in the `.tile--*` grid rules).
 3. Add its picker button under the live sea, and a row to `BOATS` or `SEAS` in `assets/js/sea.js`
    (copy a neighbouring row and take its fields from the game's assets, see *The live sea* below).
@@ -141,13 +141,17 @@ no animation frames).
 the store set at `WaveRider/Build/listing/google-play/screenshots_1920x1080/` (framed, with the store captions burned in;
 see `Tools/store-shots/`) and the plain captures at `WaveRider/Build/screenshots/website/`.
 `tools/build-assets.py` exports the ones listed in its `SCREENSHOTS` table to `assets/img/shots/`
-(1600 and 480 wide WebP). All of them sit in one pile of prints in `#screenshots`, the section after
-the live sea, in this order:
+(1600 and 480 wide WebP). They appear in two places:
+
+| Where | Shot |
+|---|---|
+| `#tricks`, beside the trick list | The Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 (`09_speedboat_pacific_flip_hud.png`, 2026-10-19) |
+
+Everything else sits in one pile of prints in `#screenshots`, the section after the live sea, in this order:
 
 | Shot |
 |---|
-| The store set's JUMP HUGE WAVES (on top), then the Speedboat tipped past vertical mid-flip over the Pacific, ORBIT +200 (`09_speedboat_pacific_flip_hud.png`, 2026-10-19) |
-| The rest of the store set: FROM THE NILE TO THE PACIFIC, FLIP IT. LAND IT., MEET THE LOCALS |
+| The store set's JUMP HUGE WAVES (on top), FROM THE NILE TO THE PACIFIC, FLIP IT. LAND IT., MEET THE LOCALS |
 | The Motor Dinghy capsized on the Pacific, sinking under the wave (`10_dinghy_pacific_sinking_hud.png`, 2026-10-19) |
 | FROM DINGHY TO RESCUE RIB, UPGRADE ENGINE, HULL AND MORE, DAILY MISSIONS AND BADGES, PLAY OFFLINE, NO ACCOUNT. REAL WATER PHYSICS is left out: the frame is dimmed and the capsize already shows a wipeout |
 
@@ -169,7 +173,7 @@ the top print's `alt`. Without JS the prints sit in a plain two-column grid.
 
 To change them: recapture, update `SCREENSHOTS` and the matching `<figure class="print">` in
 `index.html` (its `alt` is the caption), and re-run the script. The count in "1 of 10" follows the
-number of prints.
+number of prints (9 today).
 Captures must show launch content only.
 
 **Trailer**: `#trailer` is the first thing under the hero ("This is the game."), ahead of the
@@ -195,17 +199,17 @@ end card (store badges, Watch again) when it finishes; with JS off it is a plain
 - Flat colour blocks joined by wave edges (`.sec::before`). No glows, no gradients on chrome,
   no outline-only icons. Copy follows the store listing's voice: concrete, warm, no em dashes.
 
-The page layout is set like a poster (the 2026-10-26 redesign):
+The page layout (the 2026-10-26 redesign):
 
 - **The ink keyline belongs to the type.** Panels, pictures and boxes carry no ink outline and no
   hard drop shadow; they are flat fields told apart by colour, with one corner radius (`--radius`,
   28px). The game's own interface pieces (the live sea, the garage lanes, the store card) keep their
   look and are marked `data-ui`.
-- **Six type sizes**, as tokens: `--fs-mega` (WAVE / RIDER, 6,000, YOUR TURN), `--fs-poster` (the
-  trick names), `--fs-display` (section titles), `--fs-title`, `--fs-lead` and `--fs-body`, plus
-  `--fs-small` for notes. Headings stay on two lines at every width.
-- **Every section has its own composition** (the poster list, the folders, the board, the one big
-  figure), left-aligned on one grid with `--gutter` margins; nothing is a row of identical cards.
+- **A small set of type sizes**, as tokens: `--fs-display` (section titles), `--fs-title`,
+  `--fs-lead`, `--fs-body` and `--fs-small`. Only WAVE / RIDER in the hero is set larger. Headings
+  stay on two lines at every width.
+- **Sections vary their layout** (title beside the trailer, the screenshot pile, the trick list
+  beside its shot, the seas board), left-aligned on one grid with `--gutter` margins.
 - **Section colour fields** keep white keyline titles readable: the hero and download sit on `--sea`,
   the screenshots on `--red-field`.
 - **Motion**: WAVE / RIDER rises line by line on load; everything else enters once as it scrolls in
