@@ -203,6 +203,11 @@ The page layout (the 2026-10-26 redesign):
 - **Sections vary their layout** (title beside the trailer, the gallery, the trick list beside its
   shots, the seas board), left-aligned on one grid with `--gutter` margins. The one exception is
   the hero, which is the game's boot splash as it was before the redesign.
+- **Subpages** open with the same sky intro (`.page-hero`) but their own art: the four boats on
+  Boats, Nessie on Seas, the Rescue RIB on Garage, the skipper on Support and the legal pages.
+  Section titles sit left with their sentence beside them (`.head`), videos carry their notes and
+  chapters beside them (`.watch`), and the legal pages keep an "On this page" list beside the text
+  (`.legal`; each numbered `<h2>` has an `id` of `s` plus its number).
 - **Gold pill** (`.kicker`): the "Now you try" badge over the live sea. Keep it rare so it stays loud.
 - **Section colour fields** keep white keyline titles readable: dark fields for most sections,
   `--sea` for the download section.

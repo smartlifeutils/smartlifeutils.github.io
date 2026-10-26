@@ -79,7 +79,7 @@
   <link rel="preload" href="assets/fonts/lilita-one.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/nunito-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-7" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026-9" />
   <script>document.documentElement.classList.remove("no-js");document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -109,61 +109,65 @@
         <h1 class="h-display">The garage</h1>
         <p class="lede">Upgrades you feel on the very next wave. Spend the coins from every run on five lanes and watch the boat change under you.</p>
       </div>
-      <img class="page-hero__art page-hero__art--stand" src="assets/img/captain/standing.webp" width="401" height="833" alt="" />
+      <img class="page-hero__art page-hero__art--rib" src="assets/img/boats/rescue-rib.webp" width="900" height="279" alt="" />
     </section>
 
     <section class="sec sec--sea">
       <div class="wrap">
-        <header class="head">
+        <header class="head" data-reveal>
           <h2 class="h-display">Stock against upgraded</h2>
         </header>
-        <div class="trailer">
-          <iframe id="garage-video" src="https://www.youtube-nocookie.com/embed/VM2BMeSJLkg?rel=0" data-src="https://www.youtube-nocookie.com/embed/VM2BMeSJLkg?rel=0" title="Wave Rider: Garage and Boat Customization" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <div class="watch" data-reveal>
+          <div class="trailer">
+            <iframe id="garage-video" src="https://www.youtube-nocookie.com/embed/VM2BMeSJLkg?rel=0" data-src="https://www.youtube-nocookie.com/embed/VM2BMeSJLkg?rel=0" title="Wave Rider: Garage and Boat Customization" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+          </div>
+          <div class="watch__side">
+          <nav class="chapters" aria-label="Video chapters">
+            <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=0s" data-seek="0" data-player="garage-video"><time datetime="PT0S">0:00</time>The garage</a>
+            <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=16s" data-seek="16" data-player="garage-video"><time datetime="PT16S">0:16</time>The five upgrades</a>
+            <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=43s" data-seek="43" data-player="garage-video"><time datetime="PT43S">0:43</time>Jet Ski</a>
+            <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=61s" data-seek="61" data-player="garage-video"><time datetime="PT1M1S">1:01</time>Speedboat</a>
+            <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=79s" data-seek="79" data-player="garage-video"><time datetime="PT1M19S">1:19</time>Rescue RIB</a>
+          </nav>
+          <p class="video-note">Each boat runs the same wave twice, stock and fully upgraded: the Jet Ski in the Caribbean, the Speedboat on the Nile and the Rescue RIB on the Pacific. <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg" rel="noopener">Watch on YouTube</a></p>
+          </div>
         </div>
-        <nav class="chapters" aria-label="Video chapters">
-          <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=0s" data-seek="0" data-player="garage-video"><time datetime="PT0S">0:00</time>The garage</a>
-          <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=16s" data-seek="16" data-player="garage-video"><time datetime="PT16S">0:16</time>The five upgrades</a>
-          <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=43s" data-seek="43" data-player="garage-video"><time datetime="PT43S">0:43</time>Jet Ski</a>
-          <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=61s" data-seek="61" data-player="garage-video"><time datetime="PT1M1S">1:01</time>Speedboat</a>
-          <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg&amp;t=79s" data-seek="79" data-player="garage-video"><time datetime="PT1M19S">1:19</time>Rescue RIB</a>
-        </nav>
-        <p class="video-note">Each boat runs the same wave twice, stock and fully upgraded: the Jet Ski in the Caribbean, the Speedboat on the Nile and the Rescue RIB on the Pacific. <a href="https://www.youtube.com/watch?v=VM2BMeSJLkg" rel="noopener">Watch on YouTube</a></p>
       </div>
     </section>
 
     <section class="sec sec--navy">
       <div class="wrap">
-        <header class="head">
+        <header class="head" data-reveal>
           <h2 class="h-display">Five lanes, every boat</h2>
           <p class="lede">All boats tune along the same five lanes, each with 20 levels. Each card shows what the next level actually does.</p>
         </header>
 
         <div class="lanes">
-          <article class="lane frame">
+          <article class="lane frame" data-reveal>
             <div class="lane__icon"><img src="assets/img/ui/engine.webp" width="200" height="180" alt="" loading="lazy" /></div>
             <h3 class="lane__name gt">Engine</h3>
             <p class="lane__fn">Go</p>
             <p class="lane__what">More power. You climb the back of a wave faster and reach the crest with more speed.</p>
           </article>
-          <article class="lane frame">
+          <article class="lane frame" data-reveal>
             <div class="lane__icon"><img src="assets/img/ui/hull.webp" width="200" height="101" alt="" loading="lazy" /></div>
             <h3 class="lane__name gt">Hull</h3>
             <p class="lane__fn">Hull</p>
             <p class="lane__what">Less drag through the water, and the boat leans further before it goes over.</p>
           </article>
-          <article class="lane frame">
+          <article class="lane frame" data-reveal>
             <div class="lane__icon"><img src="assets/img/ui/propeller.webp" width="200" height="183" alt="" loading="lazy" /></div>
             <h3 class="lane__name gt">Propeller</h3>
             <p class="lane__fn">Bite</p>
             <p class="lane__what">More grip, and the push comes back sooner when the prop bites again after a landing.</p>
           </article>
-          <article class="lane frame">
+          <article class="lane frame" data-reveal>
             <div class="lane__icon"><img src="assets/img/ui/trim.webp" width="200" height="174" alt="" loading="lazy" /></div>
             <h3 class="lane__name gt">Trim</h3>
             <p class="lane__fn">Angle</p>
             <p class="lane__what">More control over the boat's angle, so lining up a landing gets easier.</p>
           </article>
-          <article class="lane frame">
+          <article class="lane frame" data-reveal>
             <div class="lane__icon"><img src="assets/img/ui/fuel.webp" width="200" height="227" alt="" loading="lazy" /></div>
             <h3 class="lane__name gt">Fuel</h3>
             <p class="lane__fn">Range</p>
@@ -177,12 +181,12 @@
 
     <section class="sec sec--sky">
       <div class="wrap">
-        <header class="head">
+        <header class="head" data-reveal>
           <h2 class="h-display">What a full upgrade buys</h2>
           <p class="lede">The garage meters for each boat, from 1 to 10. The first number is the boat as it leaves the garage, the second is the same hull with every lane maxed.</p>
         </header>
 
-        <div class="table-card">
+        <div class="table-card" data-reveal>
           <table class="stat-table">
             <caption>Stock → fully upgraded</caption>
             <thead>
@@ -204,7 +208,7 @@
     <section class="sec sec--sun" id="download">
       <span class="sun" aria-hidden="true"></span>
       <div class="wrap get">
-        <div class="get__card">
+        <div class="get__card" data-reveal>
           <div class="get__title">
             <img src="assets/img/brand/icon-256.webp" width="256" height="256" alt="" loading="lazy" />
             <div>
@@ -259,6 +263,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20261026-7" defer></script>
+  <script src="assets/js/main.js?v=20261026-9" defer></script>
 </body>
 </html>

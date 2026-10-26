@@ -55,7 +55,7 @@
   <link rel="preload" href="assets/fonts/lilita-one.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="preload" href="assets/fonts/nunito-700.woff2" as="font" type="font/woff2" crossorigin />
   <link rel="stylesheet" href="assets/fonts/fonts.css" />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-7" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026-9" />
   <script>document.documentElement.classList.remove("no-js");document.documentElement.classList.add("js");</script>
 </head>
 <body>
@@ -85,18 +85,18 @@
         <h1 class="h-display">The seas</h1>
         <p class="lede">From a calm alpine lake to the open Pacific. Each sea has its own waves, its own water and one rule it's named for, and some of the locals get in the way.</p>
       </div>
-      <img class="page-hero__art page-hero__art--stand" src="assets/img/captain/standing.webp" width="401" height="833" alt="" />
+      <img class="page-hero__art page-hero__art--nessie" src="assets/img/actors/nessie.webp" width="560" height="233" alt="" />
     </section>
 
     <section class="sec sec--sky">
       <div class="wrap">
-        <header class="head">
+        <header class="head" data-reveal>
           <h2 class="h-display">Where you'll ride</h2>
           <p class="lede">Every run starts on the Calm Lake. Coins from your runs open the rest, in this order.</p>
         </header>
 
         <div class="sea-rows">
-          <article class="world sea" id="calm-lake">
+          <article class="world data-reveal sea" id="calm-lake">
             <div class="world__art">
               <img src="assets/img/worlds/calm-lake.webp" width="780" height="420" alt="The Calm Lake: turquoise water under alpine forest" />
               <img class="world__actor bob" style="right:9%;bottom:15%;width:30%" src="assets/img/actors/paddleboarder.webp" width="560" height="328" alt="" />
@@ -117,7 +117,7 @@
             </div>
           </article>
 
-          <article class="world sea" id="nile">
+          <article class="world data-reveal sea" id="nile">
             <div class="world__art">
               <img src="assets/img/worlds/nile.webp" width="780" height="420" alt="The Nile: desert escarpment and palms over green water" loading="lazy" />
               <img class="world__actor" style="right:6%;bottom:6%;width:36%" src="assets/img/actors/hippo.webp" width="560" height="222" alt="" loading="lazy" />
@@ -138,7 +138,7 @@
             </div>
           </article>
 
-          <article class="world sea" id="loch-ness">
+          <article class="world data-reveal sea" id="loch-ness">
             <div class="world__art">
               <img src="assets/img/worlds/loch-ness.webp" width="780" height="420" alt="Loch Ness: dark water under a grey haar" loading="lazy" />
               <img class="world__actor" style="right:8%;bottom:8%;width:42%" src="assets/img/actors/nessie.webp" width="560" height="285" alt="" loading="lazy" />
@@ -159,7 +159,7 @@
             </div>
           </article>
 
-          <article class="world sea" id="pacific">
+          <article class="world data-reveal sea" id="pacific">
             <div class="world__art">
               <img src="assets/img/worlds/pacific.webp" width="780" height="420" alt="The Pacific: deep blue swell, islands and a big sky" loading="lazy" />
               <img class="world__actor" style="right:4%;bottom:7%;width:56%" src="assets/img/actors/whale.webp" width="560" height="130" alt="" loading="lazy" />
@@ -180,7 +180,7 @@
             </div>
           </article>
 
-          <article class="world sea" id="caribbean">
+          <article class="world data-reveal sea" id="caribbean">
             <div class="world__art">
               <img src="assets/img/worlds/caribbean.webp" width="780" height="420" alt="The Caribbean: bright turquoise water and low green cays" loading="lazy" />
               <img class="world__actor bob" style="right:7%;bottom:9%;width:36%" src="assets/img/actors/jet-ski-rider.webp" width="560" height="340" alt="" loading="lazy" />
@@ -201,7 +201,7 @@
             </div>
           </article>
 
-          <article class="world world--locked">
+          <article class="world data-reveal world--locked">
             <div class="mystery" aria-hidden="true">?</div>
             <div>
               <h3 class="gt">More seas on the way</h3>
@@ -214,12 +214,12 @@
 
     <section class="sec sec--navy">
       <div class="wrap">
-        <header class="head">
+        <header class="head" data-reveal>
           <h2 class="h-display">Which boat for which sea</h2>
           <p class="lede">The garage shows the same fit on every boat and sea card. A tough fit is still rideable, and daily missions ask for less distance on one.</p>
         </header>
 
-        <div class="table-card">
+        <div class="table-card" data-reveal>
           <table class="stat-table">
             <caption>Fit for each boat on each sea</caption>
             <thead>
@@ -243,7 +243,7 @@
     <section class="sec sec--sun" id="download">
       <span class="sun" aria-hidden="true"></span>
       <div class="wrap get">
-        <div class="get__card">
+        <div class="get__card" data-reveal>
           <div class="get__title">
             <img src="assets/img/brand/icon-256.webp" width="256" height="256" alt="" loading="lazy" />
             <div>
@@ -298,6 +298,6 @@
     </div>
   </footer>
 
-  <script src="assets/js/main.js?v=20261026-7" defer></script>
+  <script src="assets/js/main.js?v=20261026-9" defer></script>
 </body>
 </html>
