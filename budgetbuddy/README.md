@@ -16,7 +16,7 @@ project), the same data shown in the store screenshots.
 | `index.html` | `/budgetbuddy/` | Home: the September 2025 overview built in HTML (balance, donuts, insight chips, the month's top categories), the app's screens in a carousel, one coffee in four steps, the ten-month spending chart, links to every topic page, questions, and a download band |
 | `tracking.html` | `/budgetbuddy/tracking.html` | Logging: the keypad, scanning bills, receipts and warranties, repeating payments and reminders, categories and search, accounts and import |
 | `budgets.html` | `/budgetbuddy/budgets.html` | Budgets: a working "when will it run out" calculator (the circle fills as you spend), how a budget is set up, the track record, savings goals |
-| `insights.html` | `/budgetbuddy/insights.html` | The month on one screen, spending charts, net flow, the day that costs most, a working Plan Ahead projection, smart insights, the monthly recap |
+| `insights.html` | `/budgetbuddy/insights.html` | The month on one screen, spending charts, net flow, the day that costs most, Plan Ahead in a sentence, smart insights, the monthly recap |
 | `data.html` | `/budgetbuddy/data.html` | Your data: on-device storage, no account, the store privacy labels, PIN and biometric lock, weekly backups, export and delete, what uses the network, policy links |
 | `premium.html` | `/budgetbuddy/premium.html` | Free against Premium, from the limits the app enforces in code, and what the subscription costs |
 | `support.html` | `/budgetbuddy/support.html` | Contact, FAQ, bug reports, policies |
@@ -33,7 +33,6 @@ hosted on flycricket and linked from the footer, `data.html` and `support.html`.
 | September 2025: −3000.42, +3982.73, balance +982.31, top spend Rent 28%, top 3 61% | demo JSON, September expenses and incomes |
 | 36,712 spent, 354 purchases, monthly bars March–December, median 64.18 | demo JSON, all expenses |
 | Net flow per month, weekday totals | demo JSON |
-| Plan Ahead baseline 3745.80 / 3661.48 / 2977.17 | median of Jul–Dec 2025 expenses and incomes, all income minus all expenses, as `FutureMe/FutureMeScreen.dart` computes it |
 | Pace, forecast, “Safe this month”, near limit at 85% | `Budgets/Screens/BudgetOverviewScreen.dart` (`_projectionForBudget`), `Budgets/Widgets/CategoryBudgetsListWidget.dart` |
 | Free limits (1 account, under 10 categories per type, 5 favourites, 3 budgets, QR, recurring, insight chips, ads) | `lib/subscription_manager.dart` and its call sites |
 | 11 starter categories, 180 icons, 121 currencies, 5 number formats | onboarding pages, `assets/icons/`, currency_picker, settings |

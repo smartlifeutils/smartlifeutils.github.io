@@ -162,7 +162,7 @@ h3 { font-size: var(--step-lead); line-height: 1.25; letter-spacing: -0.015em; }
 .app__donuts span { display: block; font-variant-numeric: tabular-nums; font-size: 0.9375rem; }
 .donut circle { fill: none; stroke-width: 7; transition: stroke-dasharray 450ms var(--ease-out), stroke-dashoffset 450ms var(--ease-out); }
 .app__chips { display: flex; gap: 0.4rem; overflow: hidden; margin: 0 0.75rem; }
-.chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.7rem; border-radius: var(--pill); background: var(--a-card); color: var(--green-deep); font-weight: 600; font-size: 0.8125rem; white-space: nowrap; }
+.chip { display: inline-flex; align-items: center; gap: 0.3rem; padding: 0.35rem 0.7rem; border-radius: var(--pill); background: var(--a-card, #fff); color: var(--green-deep); font-weight: 600; font-size: 0.8125rem; white-space: nowrap; }
 .chip svg { width: 0.85rem; height: 0.85rem; }
 .app__entry { background: var(--a-card); margin: 0.6rem 0.75rem 0.75rem; border-radius: 14px; padding: 0.75rem; }
 .entry__head { display: flex; justify-content: space-between; align-items: baseline; }
@@ -375,14 +375,6 @@ h3 { font-size: var(--step-lead); line-height: 1.25; letter-spacing: -0.015em; }
 .bad { color: #dc2626; }
 
 
-.plan__chart { margin-top: 0.75rem; }
-.plan__chart svg { width: 100%; height: auto; overflow: visible; }
-.plan__metrics { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-top: 0.75rem; }
-.plan__metrics div { background: #f6f7f9; border-radius: 10px; padding: 0.6rem 0.75rem; }
-.plan__metrics small { display: block; color: #4b5563; font-size: 0.75rem; font-weight: 600; }
-.plan__metrics b { font-variant-numeric: tabular-nums; font-size: 1rem; }
-.plan__legend { display: flex; gap: 1rem; font-size: 0.8125rem; color: #4b5563; margin-top: 0.4rem; }
-.plan__legend i { display: inline-block; width: 0.9rem; height: 3px; vertical-align: middle; margin-right: 0.35rem; border-radius: 2px; }
 
 .chips-wall { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.5rem; }
 .chips-wall .chip { font-size: 0.875rem; padding: 0.45rem 0.85rem; }
@@ -476,7 +468,6 @@ tbody th small { display: block; color: var(--muted); font-weight: 500; font-siz
   .table-wrap th:first-child { width: 44%; }
   .facts-band > div { min-height: 10rem; }
   .contact h2, .contact > div { grid-column: 1 / -1; }
-  .plan__metrics { grid-template-columns: 1fr; }
 }
 
 .lines .line { display: block; overflow: hidden; padding-bottom: 0.08em; margin-bottom: -0.08em; }
