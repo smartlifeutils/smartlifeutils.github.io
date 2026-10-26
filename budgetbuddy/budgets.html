@@ -22,7 +22,7 @@
   <link rel="icon" href="assets/img/brand/icon-48.png" sizes="48x48" type="image/png" />
   <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-2" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261026-4" />
   <script>document.documentElement.classList.add('js')</script>
   <script type="application/ld+json">
 {
@@ -123,7 +123,7 @@
     <section class="page-hero" aria-labelledby="page-title">
       <div class="page-hero__text">
         <h1 id="page-title" class="lines"><span class="line"><span data-line style="--i:0">Budgets that</span></span><span class="line"><span data-line style="--i:1">keep score</span></span></h1>
-        <p class="lead" data-load>Give a budget to one category or several, for a day, a week, a month or a year. Budget Buddy shows what is left, how fast it is going and the day it will run out.</p>
+        <p class="lead" data-load>Give a category a budget and Budget Buddy shows what is left, how fast it is going and the day it will run out.</p>
         <nav class="page-hero__jump" aria-label="On this page" data-load style="--d:480ms">
           <a href="#forecast">Forecast</a><a href="#setup">Setting one up</a><a href="#record">Track record</a><a href="#goals">Savings goals</a>
         </nav>
@@ -134,16 +134,16 @@
     <section class="cap" id="forecast" aria-labelledby="fc-title">
       <div class="cap__text" data-reveal>
         <h2 id="fc-title">When will it run out?</h2>
-        <p class="lead">The budget screen divides what you have spent by the days gone to get your pace, then projects the day you will hit the limit.</p>
-        <p>If that day falls after the period ends, it tells you the budget is safe. At 85% spent the budget is marked near its limit, and past 100% it turns red. Try it on a September budget.</p>
+        <p class="lead">The app watches how fast you spend and tells you the day the money runs out, or that you are safe this month.</p>
+        <p>Move the sliders: the more you spend, the more the circle fills.</p>
       </div>
       <div class="cap__frag" data-reveal style="--i:1">
         <div class="panel" data-ui data-budget>
           <h3>Monthly budget · Groceries</h3>
-          <div class="wave"><div class="wave__fill"></div><div class="wave__txt"><b>Groceries</b><small data-o="state">Remaining</small><strong data-o="left">190.00 $</strong></div></div>
+          <div class="wave" style="--fill:62%"><div class="wave__fill"></div><div class="wave__txt"><b>Groceries</b><small data-o="state">Remaining</small><strong data-o="left">190.00 $</strong></div></div>
           <div class="range"><div><label for="b-amount">Budget</label><output data-o="amount" for="b-amount">500.00 $</output></div><input id="b-amount" name="amount" type="range" min="100" max="1500" step="10" value="500" /></div>
           <div class="range"><div><label for="b-spent">Spent so far</label><output data-o="spent" for="b-spent">310.00 $</output></div><input id="b-spent" name="spent" type="range" min="0" max="1600" step="5" value="310" /></div>
-          <div class="range"><div><label for="b-day">Today</label><output data-o="day" for="b-day">14 Sep</output></div><input id="b-day" name="day" type="range" min="1" max="29" step="1" value="14" /></div>
+          <div class="range"><div><label for="b-day">Today</label><output data-o="day" for="b-day">14 Sep</output></div><input id="b-day" name="day" type="range" min="1" max="30" step="1" value="14" /></div>
           <div class="stats-list" aria-live="polite">
             <div><b>Status</b><span><span class="chip" data-o="chip">Under budget</span></span></div>
             <div><b>Pace</b><span data-o="pace">22.14 $/day</span></div>
@@ -156,14 +156,13 @@
 
     <section class="wrap sec" id="setup" aria-labelledby="setup-title">
       <h2 id="setup-title" class="display" data-reveal>Setting one up</h2>
-      <div class="facts-band" style="margin-top:2.5rem">
-        <div class="fb1" data-reveal><b>Any period</b><p>A day, a week, a month or a year. It starts again on its own when the period ends.</p></div>
-        <div class="fb2" data-reveal style="--i:1"><b>Several categories</b><p>One budget can watch more than one category, such as Groceries and Eating out together.</p></div>
-        <div class="fb3" data-reveal style="--i:2"><b>Two warnings</b><p>Near limit from 85% spent, then Exceeded once you go past it.</p></div>
-        <div class="fb4" data-reveal style="--i:3"><b>Quiet if you like</b><p>Ignore reminders mutes the in-app alerts for a budget you only want to watch.</p></div>
+      <div class="facts-band facts-band--3" style="margin-top:2.5rem">
+        <div class="fb1" data-reveal><b>Any period</b><p>A week, a month or a year. It starts fresh on its own when the period ends.</p></div>
+        <div class="fb2" data-reveal style="--i:1"><b>More than one category</b><p>One budget can cover Groceries and Eating out together.</p></div>
+        <div class="fb3" data-reveal style="--i:2"><b>A heads-up first</b><p>You see it coming before you go over, not after.</p></div>
       </div>
       <div class="split-note" data-reveal>
-        <p class="lead">Free accounts have three budgets. Premium has no limit, and budgets can also be shown on the home Stats tab. It looks the same on Android.</p>
+        <p class="lead">The free version has three budgets. Premium has as many as you want.</p>
         <img class="shot" src="assets/img/shots/budget-android.jpg" width="720" height="1430" alt="A monthly Bills budget on Android: 500 dollars remaining, forecast safe this month" loading="lazy" />
       </div>
     </section>
@@ -171,32 +170,19 @@
     <section class="cap cap--tint" id="record" aria-labelledby="rec-title">
       <div class="cap__text" data-reveal>
         <h2 id="rec-title">Your track record</h2>
-        <p class="lead">Budget Progress counts the past periods you stayed under the limit and gives you a verdict. Streaks count how many in a row, with your longest run beside it.</p>
-        <p>Each budget also has a chart of its money over time and the difference from the previous period, so “+134.00 $ vs prev” means you spent that much more than last time.</p>
+        <p class="lead">See how many months you stayed under budget, and how long your best streak is.</p>
+        <p>Each budget also shows whether you spent more or less than last time.</p>
       </div>
-      <div class="cap__frag" data-reveal style="--i:1">
-        <div style="width:min(100%,30rem)">
-          <img class="shot shot--wide" src="assets/img/shots/budget-stats.jpg" width="720" height="652" alt="Budget Progress, Streaks, Forecast and Pace on a monthly budget" loading="lazy" style="margin-bottom:2rem" />
-          <h3>Periods under budget</h3>
-          <ol class="tiers">
-            <li class="t1"><b>90%+</b><span>Amazing Work!</span></li>
-            <li class="t2"><b>75%+</b><span>You’re on Track!</span></li>
-            <li class="t3"><b>60%+</b><span>Room for Improvement!</span></li>
-            <li class="t4"><b>50%+</b><span>Focus Needed!</span></li>
-            <li class="t5"><b>&lt; 50%</b><span>Time for a Reset!</span></li>
-          </ol>
-        </div>
-      </div>
+      <div class="cap__frag" data-reveal style="--i:1"><img class="shot shot--wide" src="assets/img/shots/budget-stats.jpg" width="720" height="652" alt="Budget progress, streaks, forecast and pace on a monthly budget" loading="lazy" /></div>
     </section>
 
     <section class="cap cap--flip" id="goals" aria-labelledby="goals-title">
       <div class="cap__text" data-reveal>
         <h2 id="goals-title">Savings goals</h2>
-        <p class="lead">Set a target, a start date and, if you want one, a deadline. Then add money by hand, plan an amount each month, or skip a month, each with a note.</p>
+        <p class="lead">Saving for a trip or a new phone? Set a target, add money as you go, and see when you will get there.</p>
         <ul class="ticks">
-          <li>Progress in percent, an estimated finish date and the full history</li>
-          <li>A reminder at the end of each month, and a celebration when you get there</li>
-          <li>Pause, complete or archive a goal</li>
+          <li>A reminder at the end of each month</li>
+          <li>A small celebration when you make it</li>
         </ul>
         <p class="muted">Goals only track progress. The money itself stays in your bank account.</p>
       </div>
@@ -235,7 +221,7 @@
     </nav>
     <p class="foot__end"><span>© <span data-year>2026</span></span><a href="data.html">Your data</a><a href="https://doc-hosting.flycricket.io/budget-buddy-privacy-policy/e64ccf5c-a708-4a70-8a73-b9c2a27b9672/privacy" rel="noopener">Privacy</a></p>
   </footer>
-  <script src="assets/js/main.js?v=20261026-2" defer></script>
-  <script src="assets/js/budget.js?v=20261026-2" defer></script>
+  <script src="assets/js/main.js?v=20261026-4" defer></script>
+  <script src="assets/js/budget.js?v=20261026-4" defer></script>
 </body>
 </html>

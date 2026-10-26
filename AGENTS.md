@@ -100,6 +100,14 @@ Every marketing page was at 0 FAIL when last shipped; keep it there. Legal pages
   | Ink Bounce | `~/Projects/UnityProjects/InkBounce` | `Assets/_Game/Resources/Campaign/Worlds/*/world.json`, `Assets/_Game/Scripts/` (Scoring, Progression, Skins), `Docs/` |
   | Budget Buddy | `~/Projects/Flutter projects/monefy_v3` (the Dart package is still called monefy_v3) | `lib/`, `lib/subscription_manager.dart` for what Premium locks, `assets/BudgetBuddy_demo_en.json` for every figure the site shows |
 
+- **Write for the person deciding to install, not about the code.**
+  - Say what a feature does for them in a sentence or two.
+  - Leave out the internals: file formats, parser lists, thresholds, settings names, version numbers.
+  - Don't list everything an app supports (every icon, every currency format). Show one good example.
+  - The source code is for checking that a claim is true, not for filling the page. When a section
+    starts explaining how the app works inside, cut it.
+  - Interactive pieces earn their place only when they show the product's value (a playable level,
+    a budget that fills as you spend). Don't build demos of internals, like what a scanner reads.
 - **Never invent proof**: no testimonials, ratings, download counts, press quotes or user numbers.
   Neither store shows ratings yet.
 - **Use only shipped features.** An idea in a design doc or an `Ideas.md` is not a feature.

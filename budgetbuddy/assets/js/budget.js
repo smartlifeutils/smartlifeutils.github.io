@@ -13,7 +13,7 @@
     const target = Number(amount.value);
     const s = Number(spent.value);
     const d = Number(day.value);
-    const totalDays = 29;
+    const totalDays = 30;
     const elapsed = Math.min(Math.max(d, 1), totalDays);
     const pace = s / elapsed;
     const remaining = target - s;
@@ -23,7 +23,7 @@
     out('state').textContent = remaining < 0 ? 'Exceeded' : 'Remaining';
     out('left').textContent = `${fmt(Math.abs(remaining))} $`;
     wave.classList.toggle('is-over', remaining < 0);
-    wave.style.setProperty('--fill', `${Math.round(Math.min(1, Math.max(0, remaining) / target) * 100)}%`);
+    wave.style.setProperty('--fill', `${Math.round(Math.min(1, s / target) * 100)}%`);
     out('pace').textContent = `${fmt(pace)} $/day`;
     out('time').textContent = `Time ${Math.round((elapsed / totalDays) * 100)}%`;
     const f = out('forecast');
@@ -35,7 +35,7 @@
       f.textContent = 'No pace yet';
     } else {
       const eta = d + Math.ceil(remaining / pace);
-      if (eta >= 30) {
+      if (eta > totalDays) {
         f.textContent = 'Safe this month';
         f.classList.add('good');
       } else {
