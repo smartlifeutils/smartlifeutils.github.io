@@ -549,12 +549,11 @@ a.badge:active { transform: scale(0.97); }
     position: absolute;
     left: 56.4vw;
     width: 41.8vw;
-    top: calc(0.745 * var(--art-h) - (var(--art-h) - var(--hc)) / 2 + 4px);
+    top: calc(0.69 * var(--art-h) - (var(--art-h) - var(--hc)) / 2 + 4px);
     padding: 0;
     gap: 12px;
   }
   .hero__tag { font-size: clamp(1.6rem, 2.15vw, 2.4rem); }
-  .hero__out { display: none; }
 }
 @media (max-width: 559px) {
   .hero__art img { aspect-ratio: 640 / 558; }
