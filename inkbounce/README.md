@@ -18,6 +18,7 @@ cut from the trailer, and numbers read out of the Unity project.
 | `support.html` | `/inkbounce/support` | **Store-required support URL**: contact, questions, bug reports |
 | `privacy.html` | `/inkbounce/privacy` | **Store-required privacy policy** |
 | `terms.html` | `/inkbounce/terms` | Terms of service |
+| `press.html` | `/inkbounce/press` | Press kit: fact sheet, short and long descriptions to copy, key features, the trailer, gameplay stills, world art, key art and icon with links to the full files, press contact. Linked from every footer |
 | `play.html` | `/inkbounce/play` | **The link to share**: a phone goes straight to its store; anything else sees both badges. `?platform=ios\|android\|none` forces a branch |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
 
@@ -73,6 +74,29 @@ Unity project. Re-check them after a content update.
 | 54 skins, their colours and how to get them | `Resources/Skins/BallTrailSkinCatalog.asset`, `Skins/BallTrailSkinService.cs` |
 | 104 badges (53 campaign, 25 endless, 26 mastery) | `Progression/AchievementService.cs` |
 | 4 leaderboards, Game Center and Google Play Games | platform setup, `PlatformGameIds.cs` |
+| iOS 15 or later, Android 7.1 or later, iPhone and iPad, landscape only | `ProjectSettings.asset`: `iOSTargetOSVersionString`, `AndroidMinSdkVersion: 25`, `targetDevice: 2`, autorotate flags |
+| Free with ads; Remove Ads (non-consumable) turns off banners and interstitials, rewarded ads stay; coin and gem packs are consumables | `Resources/Monetization/monetization_settings.json`, `Monetization/AdPlacementService.cs`, `Progression/UnityIapStoreController.cs`, `CoinPackCatalog.cs`, `GemPackCatalog.cs` |
+| Restore Purchases in Settings (and the coin store) brings back Remove Ads only | `UI/Scripts/SettingsScreen.cs`, `CoinStoreScreen.cs`, `UnityIapStoreController.RestorePurchases` |
+| Progress is saved on the device only, no cloud save | `CampaignProgressService.cs` (PlayerPrefs), the in-game privacy text in `Resources/Legal/legal_content.json` |
+| English only | `Scripts/Localization/` and `Resources/Localization/` are empty |
+| Released on the App Store 24 August 2026, rated 4+ | the App Store listing (id 6792821983) |
+
+## Search
+
+- Every page except `play.html` carries `<meta name="apple-itunes-app" content="app-id=6792821983">`, so
+  Safari on iPhone shows the App Store banner. `play.html` skips it because it redirects phones anyway.
+- Every indexable page has its own title, description (155 characters at most), canonical, Open Graph
+  tags with `og:image:alt`, and JSON-LD:
+  - `index.html`: the game (`VideoGame` + `MobileApplication`: both stores as `installUrl` and `sameAs`,
+    the six store screenshots, `datePublished`, free), the trailer (`VideoObject`: its `duration` and
+    `uploadDate` must follow `trailer.mp4`), the `WebSite` (`/inkbounce/#website`), the home `WebPage`
+    and the publisher (`https://smartlifeutils.github.io/#org`, with logo and both developer pages as `sameAs`).
+  - every other indexable page: a `WebPage` (`isPartOf` the website, `about` the game `#game`) and a
+    two-step `BreadcrumbList`.
+  - `support.html`: the page is a `FAQPage`. **Its questions and answers must match the visible FAQ word
+    for word**; change both together.
+- `play.html` and `404.html` are `noindex`. Every other page goes in the repo-root `sitemap.xml`.
+- Check JSON-LD at <https://search.google.com/test/rich-results> after editing it.
 
 ## Art
 
@@ -84,6 +108,8 @@ Unity project. Re-check them after a content update.
 | `assets/images/badges/` | 18 badge icons | `Docs/AchievementIcons/*.png`. Two file names differ from the badge names: "Half Kilometer" is *Half-Kilometer Headspace*, "Long Haul" is *Long Hall* |
 | `assets/images/beats/` | Wide stills cropped above the caption band | the store screenshots and the trailer, cut with `tools/crop.swift` |
 | `assets/video/loop-*.mp4` | Five silent 2–3 s square loops with a poster each | cut from `trailer.mp4` below the HUD and above the captions |
+| `assets/images/icon-512.png` | The app icon at 512 px, offered on the press kit | `Docs/Branding/Assets/app-icon-512.png` (the Google Play icon master) |
+| `assets/images/screenshot-1..6.jpg` | The six store screenshots, 1440 × 810, caption bands included. Only linked from the press kit and listed in the home JSON-LD; never shown on a page | the store listing |
 | `assets/video/trailer.mp4` | The 29 s trailer, opened in a dialog, `preload="none"` | the trailer master |
 
 To cut a loop again (ffmpeg is installed with Homebrew):
