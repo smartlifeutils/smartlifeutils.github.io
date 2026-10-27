@@ -1,63 +1,174 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://smartlifeutils.github.io/</loc>
-    <lastmod>2026-10-25</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/brand/og-image.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/og-image.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/assets/budget-buddy-banner.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/assets/budget-buddy-180.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/inkbounce/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/loop-draw.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/loop-portal.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/loop-ink.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-5.jpg</image:loc></image:image>
+    <video:video>
+      <video:thumbnail_loc>https://smartlifeutils.github.io/inkbounce/assets/video/trailer-poster.jpg</video:thumbnail_loc>
+      <video:title>Ink Bounce gameplay trailer</video:title>
+      <video:description>29 seconds of Ink Bounce: drawing lines, gravity fields, the portal, bosses, endless mode, skins and Fever.</video:description>
+      <video:content_loc>https://smartlifeutils.github.io/inkbounce/assets/video/trailer.mp4</video:content_loc>
+      <video:duration>29</video:duration>
+      <video:publication_date>2026-08-31</video:publication_date>
+      <video:family_friendly>yes</video:family_friendly>
+    </video:video>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/inkbounce/worlds</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds/world-1-ice-valley.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds/world-2-ancient-grove.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds/world-3-frost-shrine.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds/world-4-ashen-rift.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds/world-5-sun-temple.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-5.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/boss/stage-1.png</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/boss/stage-2.png</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/boss/stage-3.png</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/inkbounce/endless</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/loop-ink.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-5.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/inkbounce/gear</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/skins.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-3.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://smartlifeutils.github.io/inkbounce/press</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/loop-draw.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/loop-portal.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/boss.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/loop-ink.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/fever.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/skins.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-4.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-5.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/inkbounce/support</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/beats/loop-ink.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/inkbounce/assets/images/worlds-lg/world-5.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/inkbounce/privacy</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/inkbounce/terms</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/budgetbuddy/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/overview.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/transactions.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/analysis.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/reminders.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-3.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/account.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/qr.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/dark.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-2.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/budgetbuddy/tracking.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/transactions.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/qr.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/reminders.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/dark.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/account.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/budgetbuddy/budgets.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget-android.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget-stats.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/budgetbuddy/insights.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/analysis.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/overview.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/dark.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-3.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/budgetbuddy/data.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/dark.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/transactions.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-2.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/account.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/overview.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/budgetbuddy/premium.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/qr.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/overview.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/account.jpg</image:loc></image:image>
+  </url>
+  <url>
+    <loc>https://smartlifeutils.github.io/budgetbuddy/press.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/overview.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-1.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/transactions.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/analysis.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/reminders.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/qr.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/dark.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/brand/og-image.jpg</image:loc></image:image>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/budgetbuddy/support.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/reminders.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/transactions.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/analysis.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/dark.jpg</image:loc></image:image>
   </url>
 </urlset>

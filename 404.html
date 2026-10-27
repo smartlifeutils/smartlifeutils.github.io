@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Page not found | SmartLifeUtils</title>
+  <meta name="robots" content="noindex, follow" />
+  <meta name="theme-color" content="#14202e" />
+  <link rel="icon" href="/favicon.ico" sizes="48x48" />
+  <link rel="icon" href="/assets/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png" />
+  <script>
+    // GitHub Pages serves this file for every missing URL on the domain.
+    // Hand a visitor who was inside one app's site to that site's own 404 page.
+    (function () {
+      var site = location.pathname.split("/")[1];
+      if (["waverider", "inkbounce", "budgetbuddy"].indexOf(site) !== -1) {
+        location.replace("/" + site + "/404.html");
+      }
+    })();
+  </script>
+  <style>
+    :root {
+      --bg: #fbfaf7;
+      --text: #1b2430;
+      --muted: #5b6573;
+      --line: #e4e0d8;
+      --link: #0b6bb5;
+      color-scheme: light;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #11161c;
+        --text: #e6e9ed;
+        --muted: #9aa5b1;
+        --line: #26303b;
+        --link: #6cb8f0;
+        color-scheme: dark;
+      }
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    }
+    a { color: var(--link); text-underline-offset: 3px; }
+    a:focus-visible { outline: 2px solid var(--link); outline-offset: 3px; border-radius: 4px; }
+    .wrap { width: 100%; max-width: 640px; margin: 0 auto; padding: 56px 16px; }
+    .brand { display: flex; align-items: center; gap: 14px; }
+    h1 { margin: 0; font-size: 1.6rem; line-height: 1.2; }
+    ul { list-style: none; margin: 28px 0; padding: 0; border-top: 1px solid var(--line); }
+    li { display: flex; align-items: center; gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    li img { border-radius: 8px; }
+    li a { font-weight: 700; }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <div class="brand">
+      <img src="/assets/icon.svg" width="44" height="44" alt="" />
+      <h1>This page does not exist</h1>
+    </div>
+    <p>The link may be old or mistyped. Here is where you can go instead:</p>
+    <ul>
+      <li><img src="/waverider/assets/img/brand/icon-64.png" width="32" height="32" alt="" /><a href="/waverider/">Wave Rider</a> boat stunt racing game</li>
+      <li><img src="/inkbounce/assets/images/icon-64.png" width="32" height="32" alt="" /><a href="/inkbounce/">Ink Bounce</a> one-thumb arcade game</li>
+      <li><img src="/assets/budget-buddy-180.png" width="32" height="32" alt="" /><a href="/budgetbuddy/">Budget Buddy</a> expense tracker</li>
+    </ul>
+    <p><a href="/">SmartLifeUtils home</a> · <a href="mailto:smartlife.utilities@gmail.com">smartlife.utilities@gmail.com</a></p>
+  </main>
+</body>
+</html>

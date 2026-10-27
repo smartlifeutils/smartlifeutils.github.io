@@ -15,6 +15,9 @@ Everything is plain static HTML, CSS and JS. Nothing is compiled, bundled or ins
 | `sitemap.xml` | `/sitemap.xml` | Sitemap for the homepage, Ink Bounce and Budget Buddy |
 | `waverider/sitemap.xml` | `/waverider/sitemap.xml` | Wave Rider's own sitemap, with image and video entries |
 | `robots.txt` | `/robots.txt` | Points crawlers at both sitemaps. Crawlers only read it at the root |
+| `llms.txt` | `/llms.txt` | A plain summary of the studio and all three apps, with links, for AI assistants and AI search. Keep its facts and links in step with the sites |
+| `404.html` | any missing URL | The page GitHub Pages serves for every unknown address. Inside `/<site>/` it forwards to that site's own `404.html` |
+| `*/press.html` | `/<site>/press.html` (Ink Bounce: `/inkbounce/press`) | Each app's press kit: fact sheet, descriptions to copy, art and screenshots. Linked from every footer and the root homepage |
 | `app-ads.txt`, `*/app-ads.txt` | | AdMob publisher files. **Never edit or move them** |
 | `tools/check-site.py` | | The pre-push check (see below) |
 
@@ -46,10 +49,13 @@ Do every step that applies before you commit.
 4. **Update the shared parts everywhere.** Nav, footer and head are copied into every page of a
    site (there is no template engine). Changing the nav means changing every page of that site.
 5. **Update structured data** when facts change: the JSON-LD in each site's home page (price,
-   platforms, store links, trailer `uploadDate` and `duration`) and the `ItemList` in the root
-   `index.html`.
+   platforms, store links, trailer `uploadDate` and `duration`), the `ItemList` in the root
+   `index.html`, the site's press kit fact sheet and `llms.txt`.
+   - Every indexable subpage carries a `WebPage` and a `BreadcrumbList`; support pages carry a
+     `FAQPage` that matches the visible questions and answers word for word.
+   - Every page except `play.html` has the Safari banner tag `apple-itunes-app` with its app's id.
 6. **Update the root homepage** when an app's pitch changes, a new app ships, or an app gets a new
-   og image. Each entry links to the site and both stores.
+   og image. Each entry links to the site, both stores and the press kit.
 7. **Run the checks** (next section) and fix what they report.
 8. **Commit one site per commit**, and push only when asked.
 
@@ -65,7 +71,14 @@ It fails on:
 - missing link targets, images, posters and scripts;
 - a page without a title, description or canonical;
 - sitemap entries with no file, and indexable pages no sitemap lists;
-- mixed `?v=` stamps within a site.
+- mixed `?v=` stamps within a site;
+- JSON-LD that is not valid JSON, and indexable pages without `og:title`, `og:description`,
+  `og:url` or `og:image`;
+- two indexable pages with the same title or description;
+- `llms.txt` links to pages that don't exist.
+
+It also warns (without failing) about titles over 70 and descriptions over 170 characters,
+which Google cuts off.
 
 To preview locally:
 
@@ -74,7 +87,8 @@ python3 -m http.server 8010
 ```
 
 Then open <http://localhost:8010/waverider/> (or `/inkbounce/`, `/budgetbuddy/`). Each site
-handles its own 404, but only for direct hits on `/<site>/404.html`; there is no root 404 page.
+has its own 404 page; GitHub Pages serves the root `404.html` for unknown addresses, and it forwards
+to the site's own page.
 
 For design work, the sites were built and checked with the taste skill's inspector, which
 screenshots a page at 1440, 768 and 390 px and measures it. Run it from the site folder so its
