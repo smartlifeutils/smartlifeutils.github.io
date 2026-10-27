@@ -13,7 +13,7 @@ A physics boat game for iPhone, iPad and Android where every wave is a ramp: jum
 - [Seas](https://smartlifeutils.github.io/waverider/seas.html): each sea, its rule, its locals and which boat fits it
 - [Garage](https://smartlifeutils.github.io/waverider/garage.html): how upgrades change a boat
 - [Support and FAQ](https://smartlifeutils.github.io/waverider/support.html): offline play, ads and purchases, lost progress, contact
-- [Press kit](https://smartlifeutils.github.io/waverider/press.html): fact sheet, descriptions, screenshots, logos and videos
+- [Press kit](https://smartlifeutils.github.io/waverider/press.html): fact sheet, screenshots and videos
 
 ## Ink Bounce
 
@@ -24,7 +24,7 @@ A free one-thumb arcade game for iPhone, iPad and Android, released in August 20
 - [Endless](https://smartlifeutils.github.io/inkbounce/endless): the endless mode, Fever, challenges and leaderboards
 - [Gear and skins](https://smartlifeutils.github.io/inkbounce/gear): gear, boosts, orb skins and badges
 - [Support and FAQ](https://smartlifeutils.github.io/inkbounce/support): devices, offline play, purchases, lost progress, contact
-- [Press kit](https://smartlifeutils.github.io/inkbounce/press): fact sheet, descriptions, trailer, screenshots and logos
+- [Press kit](https://smartlifeutils.github.io/inkbounce/press): fact sheet, trailer, screenshots and world art
 
 ## Budget Buddy
 
@@ -37,7 +37,7 @@ An expense tracker and budget planner for iPhone and Android, first released in 
 - [Your data](https://smartlifeutils.github.io/budgetbuddy/data.html): on-device storage, lock, backups, export and privacy
 - [Free and Premium](https://smartlifeutils.github.io/budgetbuddy/premium.html): what is free, what Premium adds and what it costs
 - [Support and FAQ](https://smartlifeutils.github.io/budgetbuddy/support.html): new phone, backups, Premium, imports, contact
-- [Press kit](https://smartlifeutils.github.io/budgetbuddy/press.html): fact sheet, descriptions, screenshots and logos
+- [Press kit](https://smartlifeutils.github.io/budgetbuddy/press.html): fact sheet and screenshots
 
 ## Optional
 

@@ -17,7 +17,7 @@ Everything is plain static HTML, CSS and JS. Nothing is compiled, bundled or ins
 | `robots.txt` | `/robots.txt` | Points crawlers at both sitemaps. Crawlers only read it at the root |
 | `llms.txt` | `/llms.txt` | A plain summary of the studio and all three apps, with links, for AI assistants and AI search. Keep its facts and links in step with the sites |
 | `404.html` | any missing URL | The page GitHub Pages serves for every unknown address. Inside `/<site>/` it forwards to that site's own `404.html` |
-| `*/press.html` | `/<site>/press.html` (Ink Bounce: `/inkbounce/press`) | Each app's press kit: fact sheet, descriptions to copy, art and screenshots. Linked from every footer and the root homepage |
+| `*/press.html` | `/<site>/press.html` (Ink Bounce: `/inkbounce/press`) | Each app's press kit: fact sheet and screenshots, plus the trailer for the games. Linked from every footer and the root homepage |
 | `app-ads.txt`, `*/app-ads.txt` | | AdMob publisher files. **Never edit or move them** |
 | `tools/check-site.py` | | The pre-push check (see below) |
 
