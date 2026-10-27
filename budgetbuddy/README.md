@@ -20,6 +20,7 @@ project), the same data shown in the store screenshots.
 | `data.html` | `/budgetbuddy/data.html` | Your data: on-device storage, no account, the store privacy labels, PIN and biometric lock, weekly backups, export and delete, what uses the network, policy links |
 | `premium.html` | `/budgetbuddy/premium.html` | Free against Premium, from the limits the app enforces in code, and what the subscription costs |
 | `support.html` | `/budgetbuddy/support.html` | Contact, FAQ, bug reports, policies |
+| `press.html` | `/budgetbuddy/press.html` | Press kit: fact sheet, a one-sentence and a one-paragraph description with copy buttons, key features, screenshots and the icon linked to their full files, about SmartLifeUtils. Linked from every footer |
 | `download.html` | `/budgetbuddy/download` | **The link to share**: a phone goes straight to its store; desktops see a download card. `?platform=ios\|android\|none` forces a branch for testing |
 | `play.html` | `/budgetbuddy/play` | The old share link, kept so links already out keep working. It forwards to `download`, query string included |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
@@ -39,6 +40,9 @@ hosted on flycricket and linked from the footer, `data.html` and `support.html`.
 | 11 starter categories, 180 icons, 121 currencies, 5 number formats | onboarding pages, `assets/icons/`, currency_picker, settings |
 | Premium 9.99 $ (App Store) and 10.99 $ (Google Play) | the US store listings, October 2026 |
 | “Data Not Collected” / “No data collected or shared” | the App Store privacy label and Google Play data safety section |
+| iOS 13 or later, Android 7.0 or later | `ios/Podfile` and the Xcode deployment target; Android `minSdk = flutter.minSdkVersion`, which is 24 in the installed Flutter |
+| First released 17 February 2026, Finance, rated 4+ | the App Store listing (lookup API), October 2026 |
+| No network use besides ads and store purchases | no HTTP calls in `lib/`; `google_mobile_ads` and `in_app_purchase` only |
 
 Receipts, warranties, saved searches and CSV import are in the Android build (2.4.2) before the App
 Store (2.4.1); the Tracking page and the Support answer on importing say so in one line each. Remove
@@ -82,7 +86,20 @@ the Wave Rider site.
 
 ## Search
 
-Each page has its own title, description, canonical URL and JSON-LD (`MobileApplication`,
-`FinanceApplication`, free with an optional subscription, both store links; `FAQPage` on the home
-and support pages). `download.html`, `play.html` and `404.html` are `noindex`. Add every new page to the repo-root
-`sitemap.xml`.
+- Each indexable page has its own title (60 characters or fewer), meta description (155 or fewer),
+  canonical URL, Open Graph tags (`og:site_name`, `og:image:alt`) and `twitter:card`. Keep `og:title`,
+  `og:description` and the JSON-LD `WebPage` name and description equal to the title and description.
+- Every page but `play.html` has `<meta name="apple-itunes-app" content="app-id=6758464704" />`, the
+  Safari smart app banner.
+- JSON-LD on every indexable page: `Organization` (`@id` `https://smartlifeutils.github.io/#org`,
+  country SI, `sameAs` both store developer pages), `MobileApplication` (`FinanceApplication`,
+  `datePublished` 2026-02-17, free `Offer`, `featureList` of shipped features, both store links),
+  `WebPage` and `WebSite`. Subpages add a `BreadcrumbList` (Budget Buddy → the page). No
+  `softwareVersion`, so nothing goes stale with each release.
+- `FAQPage` on the home and support pages is the visible questions and answers word for word (link
+  text left out). Change a question on the page and change the markup with it. The two pages ask
+  different questions, so no question is marked up twice.
+- The first big picture on each page has `fetchpriority="high"` and is never lazy; everything below
+  the fold, including the store badges in the closing band, is `loading="lazy"`.
+- `download.html`, `play.html` and `404.html` are `noindex`. Add every new page to the repo-root
+  `sitemap.xml`.

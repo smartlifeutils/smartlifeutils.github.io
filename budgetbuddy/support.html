@@ -7,6 +7,7 @@
   <meta name="description" content="Help with Budget Buddy: moving to a new phone, backups, Premium, reminders, imports and bug reports. Write to smartlife.utilities@gmail.com." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#f7f8fa" />
+  <meta name="apple-itunes-app" content="app-id=6758464704" />
   <link rel="canonical" href="https://smartlifeutils.github.io/budgetbuddy/support.html" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Budget Buddy" />
@@ -22,7 +23,7 @@
   <link rel="icon" href="assets/img/brand/icon-48.png" sizes="48x48" type="image/png" />
   <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261026-6" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261027-1" />
   <script>document.documentElement.classList.add('js')</script>
   <script type="application/ld+json">
 {
@@ -34,7 +35,15 @@
       "name": "SmartLifeUtils",
       "url": "https://smartlifeutils.github.io/",
       "email": "smartlife.utilities@gmail.com",
-      "logo": "https://smartlifeutils.github.io/assets/icon-192.png"
+      "logo": "https://smartlifeutils.github.io/assets/icon-192.png",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "SI"
+      },
+      "sameAs": [
+        "https://apps.apple.com/us/developer/domen-dolanc/id1873075822",
+        "https://play.google.com/store/apps/developer?id=SmartLifeUtils"
+      ]
     },
     {
       "@type": "MobileApplication",
@@ -57,6 +66,7 @@
       ],
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "iOS 13 or later, Android 7.0 or later",
+      "datePublished": "2026-02-17",
       "inLanguage": "en",
       "offers": {
         "@type": "Offer",
@@ -64,6 +74,21 @@
         "priceCurrency": "USD",
         "description": "Free with ads. Optional yearly Premium subscription."
       },
+      "featureList": [
+        "Log spending and income in a few taps",
+        "Budgets per category for a day, week, month or year",
+        "Savings goals",
+        "Charts and a monthly recap",
+        "Smart insights (Premium)",
+        "Scan the payment QR code on a bill (Premium)",
+        "Repeating payments (Premium) and reminders",
+        "Several accounts (Premium)",
+        "121 currencies",
+        "PIN and biometric lock",
+        "Weekly backups and export",
+        "Light and dark mode",
+        "No account, and the data stays on the phone"
+      ],
       "installUrl": [
         "https://apps.apple.com/app/id6758464704",
         "https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy"
@@ -87,6 +112,9 @@
       },
       "about": {
         "@id": "https://smartlifeutils.github.io/budgetbuddy/#app"
+      },
+      "breadcrumb": {
+        "@id": "https://smartlifeutils.github.io/budgetbuddy/support.html#breadcrumb"
       }
     },
     {
@@ -100,15 +128,65 @@
       }
     },
     {
+      "@type": "BreadcrumbList",
+      "@id": "https://smartlifeutils.github.io/budgetbuddy/support.html#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Budget Buddy",
+          "item": "https://smartlifeutils.github.io/budgetbuddy/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Support",
+          "item": "https://smartlifeutils.github.io/budgetbuddy/support.html"
+        }
+      ]
+    },
+    {
       "@type": "FAQPage",
       "@id": "https://smartlifeutils.github.io/budgetbuddy/support.html#faq",
       "mainEntity": [
         {
           "@type": "Question",
-          "name": "How do I move Budget Buddy to a new phone?",
+          "name": "How do I move to a new phone?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Make a backup and share it to your cloud drive or mail, install Budget Buddy on the new phone and load the backup."
+            "text": "There is no sync between phones, so you move with a backup. On the old phone, make a backup and share it to your cloud drive or your mail. Install Budget Buddy on the new phone, open the personal data settings and load that backup."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "I reinstalled and my data is gone",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Your data lives only on the phone, so removing the app removes it. If you had weekly backups on, load the newest file from the folder you chose."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do I need an account or the internet?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No. There is nothing to sign up for, and the app works offline. The free version goes online only to show ads, and Premium is bought through your store."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which phones does it run on?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "iPhones with iOS 13 or later, and Android phones and tablets with Android 7.0 or later. There is no web version."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does Premium cost?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Budget Buddy is free with ads. Premium is one yearly subscription: 9.99 $ on the App Store and 10.99 $ on Google Play in the US. It removes the ads and the free limits, and adds bill scanning, repeating payments and smart insights."
           }
         },
         {
@@ -116,7 +194,31 @@
           "name": "How do I cancel Premium?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "In your App Store or Google Play subscription settings."
+            "text": "Premium is billed by your store, so you cancel it there: Settings, your name, Subscriptions on iPhone, or Payments and subscriptions in Google Play."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Premium is missing after a reinstall",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "On iPhone, use Restore Purchases on the Premium screen. On Android, sign in to Google Play with the account you bought it with and open the app again."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Can I import from another app?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, as a CSV file: export one from the other app, your bank or a spreadsheet, and the app walks you through the rest. It is in the latest Android version."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "My reminders don’t arrive",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Check that notifications are allowed for Budget Buddy. On Android, also allow alarms and reminders, and keep the app out of battery saving."
           }
         }
       ]
@@ -157,28 +259,34 @@
         <div class="faq__list">
           <h2 id="faq-title" class="faq__title">Questions</h2>
           <button type="button" aria-expanded="true">How do I move to a new phone?</button>
-          <div class="faq__inline"><p>On the old phone, make a backup and share it to your cloud drive or your mail. Install Budget Buddy on the new phone, open the personal data settings and load that backup.</p></div>
+          <div class="faq__inline"><p>There is no sync between phones, so you move with a backup. On the old phone, make a backup and share it to your cloud drive or your mail. Install Budget Buddy on the new phone, open the personal data settings and load that backup.</p></div>
           <button type="button" aria-expanded="false">I reinstalled and my data is gone</button>
           <div class="faq__inline" hidden><p>Your data lives only on the phone, so removing the app removes it. If you had weekly backups on, load the newest file from the folder you chose.</p></div>
+          <button type="button" aria-expanded="false">Do I need an account or the internet?</button>
+          <div class="faq__inline" hidden><p>No. There is nothing to sign up for, and the app works offline. The free version goes online only to show ads, and Premium is bought through your store.</p></div>
+          <button type="button" aria-expanded="false">Which phones does it run on?</button>
+          <div class="faq__inline" hidden><p>iPhones with iOS 13 or later, and Android phones and tablets with Android 7.0 or later. There is no web version.</p></div>
+          <button type="button" aria-expanded="false">What does Premium cost?</button>
+          <div class="faq__inline" hidden><p>Budget Buddy is free with ads. Premium is one yearly subscription: 9.99 $ on the App Store and 10.99 $ on Google Play in the US. It removes the ads and the free limits, and adds bill scanning, repeating payments and smart insights.</p></div>
           <button type="button" aria-expanded="false">How do I cancel Premium?</button>
           <div class="faq__inline" hidden><p>Premium is billed by your store, so you cancel it there: Settings, your name, Subscriptions on iPhone, or Payments and subscriptions in Google Play.</p></div>
           <button type="button" aria-expanded="false">Premium is missing after a reinstall</button>
           <div class="faq__inline" hidden><p>On iPhone, use Restore Purchases on the Premium screen. On Android, sign in to Google Play with the account you bought it with and open the app again.</p></div>
+          <button type="button" aria-expanded="false">Can I import from another app?</button>
+          <div class="faq__inline" hidden><p>Yes, as a CSV file: export one from the other app, your bank or a spreadsheet, and the app walks you through the rest. It is in the latest Android version.</p></div>
           <button type="button" aria-expanded="false">My reminders don’t arrive</button>
           <div class="faq__inline" hidden><p>Check that notifications are allowed for Budget Buddy. On Android, also allow alarms and reminders, and keep the app out of battery saving.</p></div>
-          <button type="button" aria-expanded="false">Can I import from another app?</button>
-          <div class="faq__inline" hidden><p>Yes, as a CSV file: export from the other app or your bank, and the app walks you through the rest. It is in the latest Android version.</p></div>
-          <button type="button" aria-expanded="false">Is there a web or desktop version?</button>
-          <div class="faq__inline" hidden><p>No. Budget Buddy is a phone app for iPhone and Android.</p></div>
         </div>
         <div class="faq__pane" aria-live="polite">
-          <div class="faq__answer"><p>On the old phone, make a backup and share it to your cloud drive or your mail. Install Budget Buddy on the new phone, open the personal data settings and load that backup.</p></div>
+          <div class="faq__answer"><p>There is no sync between phones, so you move with a backup. On the old phone, make a backup and share it to your cloud drive or your mail. Install Budget Buddy on the new phone, open the personal data settings and load that backup.</p></div>
           <div class="faq__answer" hidden><p>Your data lives only on the phone, so removing the app removes it. If you had weekly backups on, load the newest file from the folder you chose.</p></div>
+          <div class="faq__answer" hidden><p>No. There is nothing to sign up for, and the app works offline. The free version goes online only to show ads, and Premium is bought through your store.</p></div>
+          <div class="faq__answer" hidden><p>iPhones with iOS 13 or later, and Android phones and tablets with Android 7.0 or later. There is no web version.</p></div>
+          <div class="faq__answer" hidden><p>Budget Buddy is free with ads. Premium is one yearly subscription: 9.99 $ on the App Store and 10.99 $ on Google Play in the US. It removes the ads and the free limits, and adds bill scanning, repeating payments and smart insights.</p></div>
           <div class="faq__answer" hidden><p>Premium is billed by your store, so you cancel it there: Settings, your name, Subscriptions on iPhone, or Payments and subscriptions in Google Play.</p></div>
           <div class="faq__answer" hidden><p>On iPhone, use Restore Purchases on the Premium screen. On Android, sign in to Google Play with the account you bought it with and open the app again.</p></div>
+          <div class="faq__answer" hidden><p>Yes, as a CSV file: export one from the other app, your bank or a spreadsheet, and the app walks you through the rest. It is in the latest Android version.</p></div>
           <div class="faq__answer" hidden><p>Check that notifications are allowed for Budget Buddy. On Android, also allow alarms and reminders, and keep the app out of battery saving.</p></div>
-          <div class="faq__answer" hidden><p>Yes, as a CSV file: export from the other app or your bank, and the app walks you through the rest. It is in the latest Android version.</p></div>
-          <div class="faq__answer" hidden><p>No. Budget Buddy is a phone app for iPhone and Android.</p></div>
         </div>
       </div>
     </section>
@@ -226,8 +334,8 @@
         <div>
           <p class="lead">No account to make. Install it, pick your currency and log the first purchase.</p>
           <div class="stores">
-          <a href="https://apps.apple.com/app/id6758464704" aria-label="Download Budget Buddy on the App Store"><img src="assets/img/brand/badge-appstore.png" width="148" height="44" alt="Download on the App Store" /></a>
-          <a href="https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy" aria-label="Get Budget Buddy on Google Play"><img src="assets/img/brand/badge-googleplay.png" width="148" height="44" alt="Get it on Google Play" /></a>
+          <a href="https://apps.apple.com/app/id6758464704" aria-label="Download Budget Buddy on the App Store"><img src="assets/img/brand/badge-appstore.png" width="148" height="44" alt="Download on the App Store" loading="lazy" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.smartlife.budgetbuddy" aria-label="Get Budget Buddy on Google Play"><img src="assets/img/brand/badge-googleplay.png" width="148" height="44" alt="Get it on Google Play" loading="lazy" /></a>
         </div>
         </div>
       </div>
@@ -241,9 +349,10 @@
       <a href="insights.html">Insights</a>
       <a href="premium.html">Premium</a>
       <a href="support.html">Support</a>
+      <a href="press.html">Press kit</a>
     </nav>
     <p class="foot__end"><span>© <span data-year>2026</span></span><a href="data.html">Your data</a><a href="https://doc-hosting.flycricket.io/budget-buddy-privacy-policy/e64ccf5c-a708-4a70-8a73-b9c2a27b9672/privacy" rel="noopener">Privacy</a></p>
   </footer>
-  <script src="assets/js/main.js?v=20261026-6" defer></script>
+  <script src="assets/js/main.js?v=20261027-1" defer></script>
 </body>
 </html>
