@@ -18,7 +18,7 @@ assets or design docs.
 | `seas.html` | `/waverider/seas.html` | Every sea in depth (water, hazards, view, locals, unlock) and the boat × sea fit table, from the game's `06_WORLD_CATALOG.md` and `07_BOAT_WORLD_MATRIX.md` (launch seas only). Room for a seas video when one exists |
 | `garage.html` | `/waverider/garage.html` | The upgrade lanes and a stock vs upgraded table, built around the Garage YouTube video, whose chapters seek the player (`data-seek` in `main.js`) |
 | `support.html` | `/waverider/support.html` | **Store-required support URL**: contact, FAQ, bug reports. The FAQ answers what players ask (free? remove ads? offline? iPad? new phone? restore? kids?) and is mirrored word for word in its `FAQPage` JSON-LD |
-| `press.html` | `/waverider/press.html` | Press kit for writers and video makers: fact sheet, descriptions to copy, key features, the trailer (with a download link) and the two YouTube videos, every screenshot, the title screen, logo and icon with links to the full files, press contact. Linked from every footer. No release date, quotes, awards, ratings or download numbers |
+| `press.html` | `/waverider/press.html` | Press kit for writers and video makers: fact sheet, key features, the trailer (with a download link) and the two YouTube videos, every screenshot with links to the full files, press contact. Linked from every footer. No release date, quotes, awards, ratings or download numbers |
 | `privacy.html` | `/waverider/privacy.html` | **Store-required privacy policy** (same text as the in-game one) |
 | `terms.html` | `/waverider/terms.html` | Terms of service (same text as the in-game one) |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
@@ -39,7 +39,7 @@ Then open <http://localhost:8000>. The only absolute URLs are the `canonical`, `
 ## Search
 
 - `sitemap.xml` lists the indexable pages (home, boats, seas, garage, support, privacy, terms,
-  press) plus the home page's screenshots, the Seas cards and the press kit's art. `robots.txt` lives at the repo root (crawlers only read it there) and points to it.
+  press) plus the home page's screenshots and the Seas cards. `robots.txt` lives at the repo root (crawlers only read it there) and points to it.
   **Bump `<lastmod>` on a page whenever its content changes**, and add a `<url>` for any new page.
 - Internal links to the home page use `./`, never `index.html`, so only one home address exists.
 - `index.html` carries JSON-LD: the game (`VideoGame` + `MobileApplication`, free, both store
