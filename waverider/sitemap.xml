@@ -4,7 +4,7 @@
         xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   <url>
     <loc>https://smartlifeutils.github.io/waverider/</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/brand/splash-1792.webp</image:loc></image:image>
     <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/crest-1600.webp</image:loc></image:image>
     <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/flip-1600.webp</image:loc></image:image>
@@ -19,7 +19,7 @@
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/waverider/boats.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/wdXG1DXGzx8/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Wave Rider: All Boats Showcase | Dinghy, Speedboat, Jet Ski &amp; Rescue RIB</video:title>
@@ -32,7 +32,7 @@
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/waverider/seas.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/worlds/calm-lake.webp</image:loc></image:image>
     <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/worlds/nile.webp</image:loc></image:image>
     <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/worlds/loch-ness.webp</image:loc></image:image>
@@ -41,7 +41,7 @@
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/waverider/garage.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
     <video:video>
       <video:thumbnail_loc>https://i.ytimg.com/vi/VM2BMeSJLkg/maxresdefault.jpg</video:thumbnail_loc>
       <video:title>Wave Rider - Garage &amp; Boat Customization | Upgrade Your Boat</video:title>
@@ -54,14 +54,33 @@
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/waverider/support.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/waverider/privacy.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
   </url>
   <url>
     <loc>https://smartlifeutils.github.io/waverider/terms.html</loc>
-    <lastmod>2026-10-26</lastmod>
+    <lastmod>2026-10-27</lastmod>
+  </url>
+  <url>
+    <loc>https://smartlifeutils.github.io/waverider/press.html</loc>
+    <lastmod>2026-10-27</lastmod>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/brand/logo.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/brand/icon-256.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/brand/splash-1792.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/brand/og-image.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/video/trailer-poster.jpg</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/crest-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/flip-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/jetski-backflip-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/nile-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/caribbean-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/dinghy-capsize-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/boats-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/upgrades-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/missions-1600.webp</image:loc></image:image>
+    <image:image><image:loc>https://smartlifeutils.github.io/waverider/assets/img/shots/offline-1600.webp</image:loc></image:image>
   </url>
 </urlset>

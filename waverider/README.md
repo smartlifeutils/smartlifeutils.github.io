@@ -17,7 +17,8 @@ assets or design docs.
 | `boats.html` | `/waverider/boats.html` | Every boat in depth, built around the All Boats Showcase YouTube video: role, where it does best, stock vs upgraded meters |
 | `seas.html` | `/waverider/seas.html` | Every sea in depth (water, hazards, view, locals, unlock) and the boat × sea fit table, from the game's `06_WORLD_CATALOG.md` and `07_BOAT_WORLD_MATRIX.md` (launch seas only). Room for a seas video when one exists |
 | `garage.html` | `/waverider/garage.html` | The upgrade lanes and a stock vs upgraded table, built around the Garage YouTube video, whose chapters seek the player (`data-seek` in `main.js`) |
-| `support.html` | `/waverider/support.html` | **Store-required support URL**: contact, FAQ, bug reports |
+| `support.html` | `/waverider/support.html` | **Store-required support URL**: contact, FAQ, bug reports. The FAQ answers what players ask (free? remove ads? offline? iPad? new phone? restore? kids?) and is mirrored word for word in its `FAQPage` JSON-LD |
+| `press.html` | `/waverider/press.html` | Press kit for writers and video makers: fact sheet, descriptions to copy, key features, the trailer (with a download link) and the two YouTube videos, every screenshot, the title screen, logo and icon with links to the full files, press contact. Linked from every footer. No release date, quotes, awards, ratings or download numbers |
 | `privacy.html` | `/waverider/privacy.html` | **Store-required privacy policy** (same text as the in-game one) |
 | `terms.html` | `/waverider/terms.html` | Terms of service (same text as the in-game one) |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
@@ -37,20 +38,36 @@ Then open <http://localhost:8000>. The only absolute URLs are the `canonical`, `
 
 ## Search
 
-- `sitemap.xml` lists the indexable pages (home, support, privacy, terms) plus the home page's
-  screenshots. `robots.txt` lives at the repo root (crawlers only read it there) and points to it.
+- `sitemap.xml` lists the indexable pages (home, boats, seas, garage, support, privacy, terms,
+  press) plus the home page's screenshots, the Seas cards and the press kit's art. `robots.txt` lives at the repo root (crawlers only read it there) and points to it.
   **Bump `<lastmod>` on a page whenever its content changes**, and add a `<url>` for any new page.
 - Internal links to the home page use `./`, never `index.html`, so only one home address exists.
 - `index.html` carries JSON-LD: the game (`VideoGame` + `MobileApplication`, free, both store
-  links), the publisher and the trailer (`VideoObject`, its `duration` and `uploadDate` must follow
-  `trailer.mp4`). Check it at <https://search.google.com/test/rich-results> after editing.
+  links), the publisher (`Organization` `https://smartlifeutils.github.io/#org`, the same `@id`,
+  description, country and `sameAs` developer pages as the root homepage's) and the trailer
+  (`VideoObject`, its `duration` and `uploadDate` must follow `trailer.mp4`). Every other indexable
+  page has a `WebPage` + `BreadcrumbList` pointing back at the game and the site; `support.html`
+  adds a `FAQPage` whose questions and answers are its visible FAQ text, word for word (change both
+  together). Check them at <https://search.google.com/test/rich-results> after editing.
+- Every indexable page has `<meta name="apple-itunes-app" content="app-id=6819839167">`, Safari's
+  smart app banner for the App Store listing (it shows nothing while the listing isn't live).
+  Not on `play.html` or `404.html`.
+- Share images: `og:image` is a JPEG or the YouTube thumbnail on every page, because Facebook,
+  LinkedIn and iMessage handle JPEG best. Seas uses `assets/img/shots/nile-1600.jpg`, made from the
+  WebP with `sips -s format jpeg -s formatOptions 82 nile-1600.webp --out nile-1600.jpg`
+  (`build-assets.py` doesn't write it, so redo it when the shot changes). Every page also sets
+  `og:image:alt`, `og:site_name`, `og:locale` and `twitter:card`.
+- The first section's pictures load eagerly; everything below it has `loading="lazy"`.
 - `play.html` and `404.html` are `noindex` on purpose.
 - Topic pages (`boats.html`, `seas.html`, `garage.html`) each carry one YouTube video, embedded from
   `youtube-nocookie.com`, described by a `VideoObject` (plus `Clip`s for chapters) and by a
   `<video:video>` entry in the sitemap. Their stats repeat the home page's, so change both together.
   A new video gets its own topic page the same way: one video per page, plenty of text around it.
-- Google Search Console: a URL-prefix property for `https://smartlifeutils.github.io/waverider/`,
-  verified by the HTML file Google issues, dropped into this folder. Don't delete that file.
+- Google Search Console: meant to be a URL-prefix property for
+  `https://smartlifeutils.github.io/waverider/`, but **the verification file is not in the repo**
+  (no `google*.html` here or in the git history). Verify it again from Search Console (the HTML
+  file into this folder, or a `google-site-verification` meta tag on `index.html`), commit what
+  Google issues, and never delete it. Then submit `sitemap.xml` there.
 
 **After changing any CSS or JS, bump `?v=` on its links in every page** (one find-and-replace).
 GitHub Pages lets browsers keep assets for 10 minutes, so without a new version a fresh page can
@@ -100,8 +117,8 @@ Re-check these against the game before each release; the game wins any disagreem
 
 ## Art: `tools/build-assets.py`
 
-Every file under `assets/img/` (except `badges/`) and `assets/fonts/` is generated from the Unity
-repo. Re-run it whenever the game's art changes:
+Every file under `assets/img/` (except `badges/` and `shots/nile-1600.jpg`, see *Search*) and
+`assets/fonts/` is generated from the Unity repo. Re-run it whenever the game's art changes:
 
 ```bash
 pip install pillow fonttools brotli
@@ -160,7 +177,7 @@ swiftc -O Tools/store-shots/caption.swift -o /tmp/cap/caption
 cp /tmp/cap/out/play/01-caribbean.png WaveRider/Build/screenshots/website/06_speedboat_caribbean_manta_caption.png
 ```
 
-(run from the Unity repo root). The gallery is one big shot with all eight thumbnails beside it (two
+(run from the Unity repo root). `press.html` lists all ten, linked to their 1600 files. The gallery is one big shot with all eight thumbnails beside it (two
 columns on desktop, a row of four on phones); change `.viewer__thumbs` in `style.css` if the count
 changes. Clicking a thumbnail swaps the big shot, and clicking the big shot opens it full screen.
 
@@ -204,7 +221,7 @@ The page layout (the 2026-10-26 redesign):
   shots, the seas board), left-aligned on one grid with `--gutter` margins. The one exception is
   the hero, which is the game's boot splash as it was before the redesign.
 - **Subpages** open with the same sky intro (`.page-hero`) but their own art: the four boats on
-  Boats, Nessie on Seas, the Rescue RIB on Garage, the skipper on Support and the legal pages.
+  Boats, Nessie on Seas, the Rescue RIB on Garage, the skipper on Support and the legal pages, the logo on the press kit.
   Section titles sit left with their sentence beside them (`.head`), videos carry their notes and
   chapters beside them (`.watch`), and the legal pages keep an "On this page" list beside the text
   (`.legal`; each numbered `<h2>` has an `id` of `s` plus its number).
@@ -218,7 +235,8 @@ The page layout (the 2026-10-26 redesign):
 
 - [x] **Store links.** The hero and `#download` badges link to the App Store
       (`id6819839167`) and Google Play (`com.smartlife.waverider`); the copy says "Out now", and
-      `play.html` is the one link to share.
+      `play.html` is the one link to share. On 2026-10-27 both listing URLs still answered 404 to
+      the public, so check them before sharing anything. The site gives no release date until they work.
 - [ ] **Leaderboards.** The Captain rank tile mentions leaderboards; `STORE_LISTING.md` says to cut
       them if the Play Games ids are still `REPLACE_ME` at 1.0.
 - [ ] **Firebase.** The privacy policy (here and in `legal_content.json`) names Firebase Analytics
