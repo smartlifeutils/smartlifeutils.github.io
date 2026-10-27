@@ -18,7 +18,7 @@ cut from the trailer, and numbers read out of the Unity project.
 | `support.html` | `/inkbounce/support` | **Store-required support URL**: contact, questions, bug reports |
 | `privacy.html` | `/inkbounce/privacy` | **Store-required privacy policy** |
 | `terms.html` | `/inkbounce/terms` | Terms of service |
-| `press.html` | `/inkbounce/press` | Press kit: fact sheet, short and long descriptions to copy, key features, the trailer, gameplay stills, world art, key art and icon with links to the full files, press contact. Linked from every footer |
+| `press.html` | `/inkbounce/press` | Press kit: fact sheet, key features, the trailer, gameplay stills and world art with links to the full files, press contact. Linked from every footer |
 | `play.html` | `/inkbounce/play` | **The link to share**: a phone goes straight to its store; anything else sees both badges. `?platform=ios\|android\|none` forces a branch |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
 
@@ -108,7 +108,6 @@ Unity project. Re-check them after a content update.
 | `assets/images/badges/` | 18 badge icons | `Docs/AchievementIcons/*.png`. Two file names differ from the badge names: "Half Kilometer" is *Half-Kilometer Headspace*, "Long Haul" is *Long Hall* |
 | `assets/images/beats/` | Wide stills cropped above the caption band | the store screenshots and the trailer, cut with `tools/crop.swift` |
 | `assets/video/loop-*.mp4` | Five silent 2–3 s square loops with a poster each | cut from `trailer.mp4` below the HUD and above the captions |
-| `assets/images/icon-512.png` | The app icon at 512 px, offered on the press kit | `Docs/Branding/Assets/app-icon-512.png` (the Google Play icon master) |
 | `assets/images/screenshot-1..6.jpg` | The six store screenshots, 1440 × 810, caption bands included. Only linked from the press kit and listed in the home JSON-LD; never shown on a page | the store listing |
 | `assets/video/trailer.mp4` | The 29 s trailer, opened in a dialog, `preload="none"` | the trailer master |
 

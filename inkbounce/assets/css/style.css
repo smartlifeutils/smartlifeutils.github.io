@@ -434,12 +434,8 @@ dialog.trailer form { position: absolute; top: 0.5rem; right: 0.5rem; z-index: 2
 .contact--calm { background: var(--surface); color: var(--ink); }
 .press-film video { width: 100%; aspect-ratio: 16 / 9; background: #000; }
 .press-note { margin-top: 0.75rem; }
-.press-copy { margin-top: 2.5rem; }
-.press-copy h3, .press-sub { font-size: var(--step-sub); }
-.press-copy p { margin-top: 1rem; }
-.press-copy .split__text p { font-size: var(--step-lead); line-height: 1.4; }
 .press-intro { margin-top: 1.5rem; }
-.press-sub { margin-top: 5.5rem; }
+.press-sub { margin-top: 5.5rem; font-size: var(--step-sub); }
 .press-pics { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 22rem), 1fr)); gap: 2.5rem var(--gutter); margin-top: 1.5rem; padding: 0; list-style: none; }
 .press-pics img { aspect-ratio: 1; }
 .press-pics--wide img { aspect-ratio: 12 / 5; }
