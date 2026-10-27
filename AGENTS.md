@@ -17,7 +17,7 @@ Everything is plain static HTML, CSS and JS. Nothing is compiled, bundled or ins
 | `robots.txt` | `/robots.txt` | Points crawlers at both sitemaps. Crawlers only read it at the root |
 | `llms.txt` | `/llms.txt` | A plain summary of the studio and all three apps, with links, for AI assistants and AI search. Keep its facts and links in step with the sites |
 | `404.html` | any missing URL | The page GitHub Pages serves for every unknown address. Inside `/<site>/` it forwards to that site's own `404.html` |
-| `*/press.html` | `/<site>/press.html` (Ink Bounce: `/inkbounce/press`) | Each app's press kit: fact sheet and screenshots, plus the trailer for the games. Linked from every footer and the root homepage |
+| `*/press.html` | `/<site>/press.html` (Ink Bounce: `/inkbounce/press`) | Each app's press kit: fact sheet and screenshots, plus the trailer for the games. Linked only from each site's footer, not from the root homepage |
 | `app-ads.txt`, `*/app-ads.txt` | | AdMob publisher files. **Never edit or move them** |
 | `tools/check-site.py` | | The pre-push check (see below) |
 
@@ -55,7 +55,7 @@ Do every step that applies before you commit.
      `FAQPage` that matches the visible questions and answers word for word.
    - Every page except `play.html` has the Safari banner tag `apple-itunes-app` with its app's id.
 6. **Update the root homepage** when an app's pitch changes, a new app ships, or an app gets a new
-   og image. Each entry links to the site, both stores and the press kit.
+   og image. Each entry links to the site and both stores.
 7. **Run the checks** (next section) and fix what they report.
 8. **Commit one site per commit**, and push only when asked.
 
