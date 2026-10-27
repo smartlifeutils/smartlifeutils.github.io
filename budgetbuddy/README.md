@@ -20,7 +20,7 @@ project), the same data shown in the store screenshots.
 | `data.html` | `/budgetbuddy/data.html` | Your data: on-device storage, no account, the store privacy labels, PIN and biometric lock, weekly backups, export and delete, what uses the network, policy links |
 | `premium.html` | `/budgetbuddy/premium.html` | Free against Premium, from the limits the app enforces in code, and what the subscription costs |
 | `support.html` | `/budgetbuddy/support.html` | Contact, FAQ, bug reports, policies |
-| `press.html` | `/budgetbuddy/press.html` | Press kit: fact sheet, a one-sentence and a one-paragraph description with copy buttons, key features, screenshots and the icon linked to their full files, about SmartLifeUtils. Linked from every footer |
+| `press.html` | `/budgetbuddy/press.html` | Press kit: fact sheet, key features, screenshots linked to their full files, about SmartLifeUtils. Linked from every footer |
 | `download.html` | `/budgetbuddy/download` | **The link to share**: a phone goes straight to its store; desktops see a download card. `?platform=ios\|android\|none` forces a branch for testing |
 | `play.html` | `/budgetbuddy/play` | The old share link, kept so links already out keep working. It forwards to `download`, query string included |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
