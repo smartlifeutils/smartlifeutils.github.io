@@ -29,6 +29,29 @@
     reveal.forEach((el) => el.classList.add('is-in'));
   }
 
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+  const auto = document.querySelectorAll('video[data-autoplay]');
+  if (auto.length && 'IntersectionObserver' in window) {
+    const vo = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        const v = e.target;
+        if (e.isIntersecting && !reduce.matches) { v.play().catch(() => {}); } else { v.pause(); }
+      }
+    }, { threshold: 0.35 });
+    auto.forEach((v) => vo.observe(v));
+  }
+
+  document.querySelectorAll('.reel').forEach((sec) => {
+    const row = sec.querySelector('.reel__row');
+    const step = () => {
+      const f = row.querySelector('figure');
+      return f ? f.getBoundingClientRect().width + parseFloat(getComputedStyle(row).columnGap || 0) : row.clientWidth;
+    };
+    const go = (dir) => row.scrollBy({ left: dir * step(), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+    sec.querySelector('[data-reel-prev]')?.addEventListener('click', () => go(-1));
+    sec.querySelector('[data-reel-next]')?.addEventListener('click', () => go(1));
+  });
+
   document.querySelectorAll('[data-faq]').forEach((faq) => {
     const buttons = [...faq.querySelectorAll('.faq__list button')];
     const answers = [...faq.querySelectorAll('.faq__pane .faq__answer')];

@@ -3,27 +3,31 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Budget Buddy: expense tracker for iPhone and Android</title>
-  <meta name="description" content="Log spending in a few taps, give each category a budget and see where your money went. Free on iPhone and Android, and your data stays on your phone." />
+  <title>Budget Buddy: expense tracker with no bank login</title>
+  <meta name="description" content="A free expense tracker and budget planner for iPhone and Android. It needs no account or bank login, works offline and speaks 26 languages." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#f7f8fa" />
   <meta name="apple-itunes-app" content="app-id=6758464704" />
   <link rel="canonical" href="https://smartlifeutils.github.io/budgetbuddy/" />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Budget Buddy" />
-  <meta property="og:title" content="Budget Buddy: expense tracker for iPhone and Android" />
-  <meta property="og:description" content="Log spending in a few taps, give each category a budget and see where your money went. Free on iPhone and Android, and your data stays on your phone." />
+  <meta property="og:title" content="Budget Buddy: expense tracker with no bank login" />
+  <meta property="og:description" content="A free expense tracker and budget planner for iPhone and Android. It needs no account or bank login, works offline and speaks 26 languages." />
   <meta property="og:image" content="https://smartlifeutils.github.io/budgetbuddy/assets/img/brand/og-image.jpg" />
-  <meta property="og:image:width" content="1200" />
-  <meta property="og:image:height" content="586" />
-  <meta property="og:image:alt" content="Budget Buddy on three phones: the monthly overview, expense analysis and category list" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="500" />
+  <meta property="og:image:alt" content="Budget Buddy: know what you can spend today. The Home screen with a balance of +$2,394.00 and $49.76 left to spend today" />
   <meta property="og:url" content="https://smartlifeutils.github.io/budgetbuddy/" />
+  <meta property="og:video" content="https://smartlifeutils.github.io/budgetbuddy/assets/video/trailer-720.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
+  <meta property="og:video:width" content="1280" />
+  <meta property="og:video:height" content="720" />
   <meta name="twitter:card" content="summary_large_image" />
   <link rel="icon" href="assets/img/brand/favicon-32.png" sizes="32x32" type="image/png" />
   <link rel="icon" href="assets/img/brand/icon-48.png" sizes="48x48" type="image/png" />
   <link rel="apple-touch-icon" href="assets/img/brand/apple-touch-icon.png" />
   <link rel="preload" href="assets/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin />
-  <link rel="stylesheet" href="assets/css/style.css?v=20261027-3" />
+  <link rel="stylesheet" href="assets/css/style.css?v=20261102-2" />
   <script>document.documentElement.classList.add('js')</script>
   <script type="application/ld+json">
 {
@@ -50,24 +54,27 @@
       "@id": "https://smartlifeutils.github.io/budgetbuddy/#app",
       "name": "Budget Buddy",
       "alternateName": [
-        "Budget Buddy: Expense Manager",
-        "Budget Buddy: Expense Tracker"
+        "Budget Buddy: Expense Tracker",
+        "Budget Buddy: Expense Manager"
       ],
-      "description": "Budget Buddy is an expense tracker and budget planner for iPhone and Android. Log spending and income, set budgets per category, scan bills and see your month in charts. Your data stays on your phone.",
+      "description": "Budget Buddy is an expense tracker and budget planner for iPhone and Android that needs no account and no bank login. Log spending and income, set budgets per category, catch subscription price rises and see your balance a year ahead. Your entries stay on your phone.",
       "url": "https://smartlifeutils.github.io/budgetbuddy/",
       "image": "https://smartlifeutils.github.io/budgetbuddy/assets/img/brand/og-image.jpg",
       "screenshot": [
-        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/overview.jpg",
-        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/transactions.jpg",
-        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budget.jpg",
-        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/analysis.jpg",
-        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/recap-1.jpg",
-        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/dark.jpg"
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/home.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/add.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/budgets.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/price-rise.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/plan-ahead.jpg",
+        "https://smartlifeutils.github.io/budgetbuddy/assets/img/shots/receipt.jpg"
       ],
+      "video": {
+        "@id": "https://smartlifeutils.github.io/budgetbuddy/#trailer"
+      },
       "applicationCategory": "FinanceApplication",
-      "operatingSystem": "iOS 13 or later, Android 7.0 or later",
+      "operatingSystem": "iOS 15 or later, Android 7.0 or later",
       "datePublished": "2026-02-17",
-      "inLanguage": "en",
+      "inLanguage": ["en", "cs", "da", "de", "el", "es", "fi", "fr", "id", "it", "ja", "ko", "nb", "nl", "pl", "pt", "ru", "sl", "sv", "th", "tr", "uk", "vi", "zh"],
       "offers": {
         "@type": "Offer",
         "price": "0",
@@ -75,19 +82,23 @@
         "description": "Free with ads. Optional yearly Premium subscription."
       },
       "featureList": [
-        "Log spending and income in a few taps",
+        "No account and no bank login; entries stay on the phone",
+        "Works offline",
+        "Left to spend today",
         "Budgets per category for a day, week, month or year",
-        "Savings goals",
+        "Spending alerts, a daily summary and a weekly check-in",
+        "Recurring payments and subscriptions with price rise alerts",
+        "Plan ahead: balance forecast for up to 24 months",
+        "Receipt photos and warranty reminders",
+        "Savings goals with a monthly plan",
         "Charts and a monthly recap",
-        "Smart insights (Premium)",
         "Scan the payment QR code on a bill (Premium)",
-        "Repeating payments (Premium) and reminders",
         "Several accounts (Premium)",
-        "121 currencies",
-        "PIN and biometric lock",
-        "Weekly backups and export",
-        "Light and dark mode",
-        "No account, and the data stays on the phone"
+        "CSV import",
+        "26 languages and 121 currencies",
+        "PIN, Face ID and fingerprint lock",
+        "Local backups and a weekly automatic backup",
+        "Light and dark mode"
       ],
       "installUrl": [
         "https://apps.apple.com/app/id6758464704",
@@ -102,16 +113,35 @@
       }
     },
     {
+      "@type": "VideoObject",
+      "@id": "https://smartlifeutils.github.io/budgetbuddy/#trailer",
+      "name": "Budget Buddy trailer",
+      "description": "Half a minute of Budget Buddy: what you can spend today, budgets, subscription price rises, the balance forecast, receipts and the app lock.",
+      "thumbnailUrl": "https://smartlifeutils.github.io/budgetbuddy/assets/video/trailer-poster.jpg",
+      "contentUrl": "https://smartlifeutils.github.io/budgetbuddy/assets/video/trailer-720.mp4",
+      "uploadDate": "2026-11-02",
+      "duration": "PT30S",
+      "width": 1280,
+      "height": 720,
+      "inLanguage": "en",
+      "publisher": {
+        "@id": "https://smartlifeutils.github.io/#org"
+      }
+    },
+    {
       "@type": "WebPage",
       "@id": "https://smartlifeutils.github.io/budgetbuddy/#page",
       "url": "https://smartlifeutils.github.io/budgetbuddy/",
-      "name": "Budget Buddy: expense tracker for iPhone and Android",
-      "description": "Log spending in a few taps, give each category a budget and see where your money went. Free on iPhone and Android, and your data stays on your phone.",
+      "name": "Budget Buddy: expense tracker with no bank login",
+      "description": "A free expense tracker and budget planner for iPhone and Android. It needs no account or bank login, works offline and speaks 26 languages.",
       "isPartOf": {
         "@id": "https://smartlifeutils.github.io/budgetbuddy/#website"
       },
       "about": {
         "@id": "https://smartlifeutils.github.io/budgetbuddy/#app"
+      },
+      "video": {
+        "@id": "https://smartlifeutils.github.io/budgetbuddy/#trailer"
       }
     },
     {
@@ -149,7 +179,23 @@
           "name": "Where is my data kept?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "On your phone. There is no account and no server, and both stores list the app as collecting no data."
+            "text": "On your phone. There is no account and no server of ours, so your entries never reach us. The free version shows Google ads, and Google receives some device data to show them."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it connect to my bank?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No, and it never asks for a bank login. You log purchases yourself, scan the QR code on a bill, or import a CSV file from your bank or a spreadsheet."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which languages and currencies does it support?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "26 languages, from English, Spanish and German to Japanese, Thai and Slovenian, and 121 currencies. The app uses one currency at a time. When you switch, it can convert your amounts at today's rate."
           }
         },
         {
@@ -158,22 +204,6 @@
           "acceptedAnswer": {
             "@type": "Answer",
             "text": "Not side by side: there is no sync. To move, share a backup file from one phone and load it on the other."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Does it connect to my bank?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "No. You log purchases yourself, scan the QR code on a bill, or import a CSV file from your bank or a spreadsheet. Import is in the latest Android version."
-          }
-        },
-        {
-          "@type": "Question",
-          "name": "Which currencies can I use?",
-          "acceptedAnswer": {
-            "@type": "Answer",
-            "text": "Any of 121, picked from a searchable list with flags. One currency covers the whole app; it does not convert between them."
           }
         },
         {
@@ -210,8 +240,8 @@
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero__left">
         <div class="hero__sticky">
-        <h1 id="hero-title" class="lines"><span class="line"><span data-line style="--i:0">See where your</span></span><span class="line"><span data-line style="--i:1">money goes</span></span></h1>
-        <p class="lead" data-load style="--d:420ms">Budget Buddy is a free expense tracker for iPhone and Android. Log a purchase in a few taps, give each category a budget, and read your month in charts.</p>
+        <h1 id="hero-title" class="lines"><span class="line"><span data-line style="--i:0">Know what you</span></span><span class="line"><span data-line style="--i:1">can spend today</span></span></h1>
+        <p class="lead" data-load style="--d:420ms">Budget Buddy is a free expense tracker and budget planner for iPhone and Android. It needs no account and no bank login, works offline, and keeps your entries on your phone.</p>
         <div class="hero__actions" data-load style="--d:500ms">
           <a class="btn" href="download.html">Get the app</a>
           <div class="stores">
@@ -223,54 +253,105 @@
       </div>
       <div class="hero__right">
         <div>
-          <div class="app" data-ui role="img" aria-label="The Budget Buddy overview for September 2025: balance +982.31 dollars, 3000.42 spent, 3982.73 earned, Rent the top spend at 28%">
+          <div class="app" data-ui role="img" aria-label="The Budget Buddy Home screen for October: monthly balance +$2,394.00, $49.76 left to spend today, goals at $10,650 of $24,200 saved, expenses −$5,019.43 with Rent the top spend at 37%, income +$7,413.43">
             <div class="app__bar">
               <span class="app__avatar" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 4-6 8-6s8 2 8 6z"/></svg></span>
-              <span class="app__tabs"><b>Overview</b><span>Expenses</span><span>Incomes</span></span>
+              <span class="app__tabs"><b>Overview</b><span>Expenses</span><span>Income</span></span>
             </div>
-            <div class="app__month"><span aria-hidden="true">‹</span><span>Sep 2025</span><span aria-hidden="true">›</span></div>
+            <div class="app__nav">
+              <span class="app__round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2zm-2 7v10h14V9zm2 2h2v2H7zm4 0h2v2h-2zm4 0h2v2h-2zm-8 4h2v2H7zm4 0h2v2h-2z"/></svg></span>
+              <div class="app__month"><span aria-hidden="true">‹</span><span>Oct</span><span aria-hidden="true">›</span></div>
+              <span class="app__round" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 5c5 0 9 4.5 10 7-1 2.5-5 7-10 7S3 14.5 2 12c1-2.5 5-7 10-7zm0 3.2a3.8 3.8 0 1 0 0 7.6 3.8 3.8 0 0 0 0-7.6z"/></svg></span>
+            </div>
+            <div class="app__card app__balance"><small>Monthly balance</small><strong>+$2,394.00</strong></div>
+            <div class="app__card app__today">
+              <span class="app__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v13a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2zm-2 7v10h14V9zm5.6 8.2-3-3 1.4-1.4 1.6 1.6 4-4 1.4 1.4z"/></svg></span>
+              <span><small>Left to spend today</small><b>$49.76</b></span>
+              <span class="app__chev" aria-hidden="true">⌄</span>
+            </div>
+            <div class="app__card app__goals">
+              <div class="app__goalrow">
+                <span class="app__ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 9.5c-.3-1-1-2-1.8-2.7L18 4h-1.5c-.9 0-1.7.4-2.3 1H11C7.1 5 4 8 4 11.6c0 1.9.9 3.7 2.3 4.9L7 20h3l.5-1.8h2.9L14 20h3l.9-3.2c.9-.6 1.6-1.4 2-2.3H21V9.5zM15.5 11a1 1 0 1 1 0-2 1 1 0 0 1 0 2z"/></svg></span>
+                <span><small>Goals</small><b>$10,650 of $24,200 saved</b></span>
+              </div>
+              <div class="bar" aria-hidden="true"><i style="width:44%"></i></div>
+              <p class="app__due"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7 2h2v2h6V2h2v2h2a2 2 0 0 1 2 2v6h-2V9H5v10h6v2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2zm11 12a4 4 0 1 1-4 4h1.6a2.4 2.4 0 1 0 .7-1.7l1.2 1.2H14v-3.5l1.2 1.2A4 4 0 0 1 18 14z"/></svg>2 goals to save for this month</p>
+            </div>
             <div class="app__card">
-              <div class="app__balance"><small>Monthly Balance</small><strong data-balance>+982.31 $</strong></div>
               <div class="app__donuts">
-                <div><span>Expenses</span><svg class="donut" viewBox="0 0 100 100" aria-hidden="true"><g data-donut transform="rotate(-90 50 50)"><circle cx="50" cy="50" r="40" stroke="#9C27B0" stroke-dasharray="70.11 251.33" stroke-dashoffset="0.00"></circle><circle cx="50" cy="50" r="40" stroke="#795548" stroke-dasharray="43.60 251.33" stroke-dashoffset="-71.31"></circle><circle cx="50" cy="50" r="40" stroke="#FF6E40" stroke-dasharray="36.62 251.33" stroke-dashoffset="-116.11"></circle><circle cx="50" cy="50" r="40" stroke="#E91E63" stroke-dasharray="28.49 251.33" stroke-dashoffset="-153.93"></circle><circle cx="50" cy="50" r="40" stroke="#673AB7" stroke-dasharray="23.04 251.33" stroke-dashoffset="-183.63"></circle><circle cx="50" cy="50" r="40" stroke="#CDDC39" stroke-dasharray="12.22 251.33" stroke-dashoffset="-207.87"></circle><circle cx="50" cy="50" r="40" stroke="#E91E63" stroke-dasharray="11.56 251.33" stroke-dashoffset="-221.30"></circle><circle cx="50" cy="50" r="40" stroke="#4CAF50" stroke-dasharray="8.85 251.33" stroke-dashoffset="-234.06"></circle><circle cx="50" cy="50" r="40" stroke="#66BB6A" stroke-dasharray="6.03 251.33" stroke-dashoffset="-244.10"></circle></g></svg><span data-exp>-3000.42 $</span></div>
-                <div><span>Incomes</span><svg class="donut" viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="40" stroke="#F4511E"></circle></svg><span>+3982.73 $</span></div>
+                <div><span>Expenses</span><svg class="donut" viewBox="0 0 100 100" aria-hidden="true"><g transform="rotate(-90 50 50)"><circle cx="50" cy="50" r="40" stroke="#3F51B5" stroke-dasharray="92.65 251.33" stroke-dashoffset="0.00"></circle><circle cx="50" cy="50" r="40" stroke="#4CAF50" stroke-dasharray="40.54 251.33" stroke-dashoffset="-93.25"></circle><circle cx="50" cy="50" r="40" stroke="#607D8B" stroke-dasharray="18.83 251.33" stroke-dashoffset="-134.40"></circle><circle cx="50" cy="50" r="40" stroke="#FF9800" stroke-dasharray="15.80 251.33" stroke-dashoffset="-153.83"></circle><circle cx="50" cy="50" r="40" stroke="#9E9E9E" stroke-dasharray="13.60 251.33" stroke-dashoffset="-170.23"></circle><circle cx="50" cy="50" r="40" stroke="#00BCD4" stroke-dasharray="9.89 251.33" stroke-dashoffset="-184.44"></circle><circle cx="50" cy="50" r="40" stroke="#9C27B0" stroke-dasharray="8.50 251.33" stroke-dashoffset="-194.92"></circle><circle cx="50" cy="50" r="40" stroke="#448AFF" stroke-dasharray="7.41 251.33" stroke-dashoffset="-204.02"></circle><circle cx="50" cy="50" r="40" stroke="#2196F3" stroke-dasharray="6.80 251.33" stroke-dashoffset="-212.03"></circle><circle cx="50" cy="50" r="40" stroke="#FFC107" stroke-dasharray="6.10 251.33" stroke-dashoffset="-219.44"></circle><circle cx="50" cy="50" r="40" stroke="#673AB7" stroke-dasharray="4.93 251.33" stroke-dashoffset="-226.13"></circle><circle cx="50" cy="50" r="40" stroke="#FF5722" stroke-dasharray="4.35 251.33" stroke-dashoffset="-231.67"></circle><circle cx="50" cy="50" r="40" stroke="#E91E63" stroke-dasharray="3.75 251.33" stroke-dashoffset="-236.62"></circle><circle cx="50" cy="50" r="40" stroke="#795548" stroke-dasharray="2.48 251.33" stroke-dashoffset="-240.97"></circle><circle cx="50" cy="50" r="40" stroke="#FF6E40" stroke-dasharray="2.21 251.33" stroke-dashoffset="-244.05"></circle><circle cx="50" cy="50" r="40" stroke="#F44336" stroke-dasharray="1.47 251.33" stroke-dashoffset="-246.86"></circle><circle cx="50" cy="50" r="40" stroke="#009688" stroke-dasharray="0.51 251.33" stroke-dashoffset="-248.93"></circle><circle cx="50" cy="50" r="40" stroke="#8BC34A" stroke-dasharray="0.69 251.33" stroke-dashoffset="-250.04"></circle></g></svg><span>−$5,019.43</span></div>
+                <div><span>Income</span><svg class="donut" viewBox="0 0 100 100" aria-hidden="true"><g transform="rotate(-90 50 50)"><circle cx="50" cy="50" r="40" stroke="#4CAF50" stroke-dasharray="249.4 251.33" stroke-dashoffset="-1.33"></circle><circle cx="50" cy="50" r="40" stroke="#009688" stroke-dasharray="0.9 251.33" stroke-dashoffset="0"></circle></g></svg><span>+$7,413.43</span></div>
               </div>
             </div>
-            <div class="app__chips" aria-label="Overview insights">
-              <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><span data-chip-top>Top spend: Rent (28%)</span></span>
-              <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg><span data-chip-three>Spend top 3: 61%</span></span>
+            <div class="app__insights" aria-label="Overview insights">
+              <p><b>Overview insights</b><small>Last month</small></p>
+              <div class="app__chips">
+                <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg>Top spend: Rent (37%)</span>
+                <span class="chip"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l3 7h7l-5.5 4.5L18.5 21 12 16.8 5.5 21l2-7.5L2 9h7z"/></svg>Top 3 spend: 61%</span>
+              </div>
             </div>
             <div class="app__list">
-              <div class="row"><span class="row__ic" style="--tint:rgb(253, 217, 206)"><img src="assets/img/icons/paycheck.svg" alt="" width="20" height="20" /></span><span><b>Salary</b><small>1 transaction</small></span><span class="row__amt pos">+3982.73 $</span></div>
-              <div class="row"><span class="row__ic" style="--tint:rgb(233, 207, 238)"><img src="assets/img/icons/house.svg" alt="" width="20" height="20" /></span><span><b>Rent</b><small>1 transaction</small></span><span class="row__amt neg">-851.31 $</span></div>
-              <div class="row"><span class="row__ic" style="--tint:rgb(226, 218, 215)"><img src="assets/img/icons/heart_rate.svg" alt="" width="20" height="20" /></span><span><b>Health</b><small>4 transactions</small></span><span class="row__amt neg">-534.89 $</span></div>
-              <div class="row"><span class="row__ic" style="--tint:rgb(255, 223, 213)"><img src="assets/img/icons/shopping.svg" alt="" width="20" height="20" /></span><span><b>Shopping</b><small>4 transactions</small></span><span class="row__amt neg">-451.51 $</span></div>
+              <div class="row"><span class="row__ic" style="--tint:#4CAF50"><img src="assets/img/icons/paycheck.svg" alt="" width="20" height="20" /></span><span><b>Paycheck</b><small>3 transactions</small></span><span class="row__amt pos">+$7,373.96</span></div>
+              <div class="row"><span class="row__ic" style="--tint:#3F51B5"><img src="assets/img/icons/house.svg" alt="" width="20" height="20" /></span><span><b>Rent</b><small>1 transaction</small></span><span class="row__amt neg">−$1,850.00</span></div>
+              <div class="row"><span class="row__ic" style="--tint:#4CAF50"><img src="assets/img/icons/cart.svg" alt="" width="20" height="20" /></span><span><b>Groceries</b><small>11 transactions</small></span><span class="row__amt neg">−$825.32</span></div>
             </div>
           </div>
-          <p class="hero__note">The overview screen with the app’s demo month, September 2025.</p>
         </div>
       </div>
+    </section>
+
+    <section class="reel" aria-labelledby="reel-title">
+      <div class="reel__head">
+        <h2 id="reel-title" data-reveal>Made for the money questions you have every day</h2>
+        <div class="reel__ctrl">
+          <button type="button" data-reel-prev aria-label="Previous pictures"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button type="button" data-reel-next aria-label="Next pictures"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+        </div>
+      </div>
+      <div class="reel__row" tabindex="0" aria-label="Budget Buddy features in pictures, scroll sideways">
+        <figure><img src="assets/img/store/store-01.jpg" width="660" height="1434" alt="Know what you can spend today: the Home screen with $49.76 left to spend today. Works offline, no bank login" loading="lazy" /></figure>
+        <figure><img src="assets/img/store/store-02.jpg" width="660" height="1434" alt="See what's left in your budget before you buy: a $24.90 grocery expense with $533.44 left this month after it" loading="lazy" /></figure>
+        <figure><img src="assets/img/store/store-03.jpg" width="660" height="1434" alt="Catch subscription price hikes: Streaming marked up $2.50 since last time" loading="lazy" /></figure>
+        <figure><img src="assets/img/store/store-04.jpg" width="660" height="1434" alt="See your balance a year from now: the Plan ahead forecast chart" loading="lazy" /></figure>
+        <figure><img src="assets/img/store/store-05.jpg" width="660" height="1434" alt="Keep every receipt and warranty with the purchase: a washing machine with its receipt photo and warranty date" loading="lazy" /></figure>
+        <figure><img src="assets/img/store/store-06.jpg" width="660" height="1434" alt="Get warned before you overspend: the budgets screen with 4 on track" loading="lazy" /></figure>
+        <figure><img src="assets/img/store/store-07.jpg" width="660" height="1434" alt="Available in 26 languages, over 120 currencies: the Home screen in several languages" loading="lazy" /></figure>
+        <figure><img src="assets/img/store/store-08.jpg" width="660" height="1434" alt="Your money data stays on your phone: the PIN lock screen. No sign-up, PIN and Face ID lock" loading="lazy" /></figure>
+      </div>
+    </section>
+
+    <section class="dark film" aria-labelledby="film-title">
+      <div class="film__head">
+        <h2 id="film-title" data-reveal>Half a minute of the app</h2>
+        <p data-reveal style="--i:1">Know what you can spend today, check a budget before you pay and catch a subscription when its price goes up.</p>
+      </div>
+      <figure class="film__frame" data-reveal style="--i:2">
+        <video controls preload="none" playsinline width="1280" height="720" poster="assets/video/trailer-poster.jpg" aria-label="Budget Buddy trailer, 30 seconds, with music">
+          <source src="assets/video/trailer-720.mp4" type="video/mp4" />
+        </video>
+      </figure>
     </section>
 
     <section class="dark lit" data-lit="0" aria-labelledby="lit-title">
       <div class="lit__head">
         <h2 id="lit-title">Inside the app</h2>
-        <p>Screens from the current version, with the demo account loaded.</p>
+        <p>Swipe through the screens you’ll use every day.</p>
       </div>
       <div class="lit__stage">
         <div class="lit__row" tabindex="0" aria-label="App screens, use the arrow keys to move">
-          <figure class="lit__panel" data-name="Overview" data-text="The month at a glance: balance, an expense and an income donut, and quick insights."><img src="assets/img/shots/overview.jpg" width="720" height="1466" alt="Budget Buddy overview for September 2025: monthly balance +982.31 dollars, expense and income donuts" loading="lazy" /></figure>
-          <figure class="lit__panel" data-name="Transactions" data-text="Every purchase with its category, note and date. Search, filter and group them any way you like."><img src="assets/img/shots/transactions.jpg" width="720" height="1466" alt="The October 2025 transactions list: Health, Transport, Dining, Entertainment, Groceries and Gifts" loading="lazy" /></figure>
-          <figure class="lit__panel" data-name="Budget" data-text="What is left, in a wave that empties as you spend, with pace, forecast and streaks underneath."><img src="assets/img/shots/budget.jpg" width="720" height="1466" alt="A monthly Bills budget with 500 dollars remaining, budget progress, streaks, forecast and pace" loading="lazy" /></figure>
-          <figure class="lit__panel" data-name="Expense analysis" data-text="Ten months of spending stacked by category, with the median, the monthly average and the best and worst month."><img src="assets/img/shots/analysis.jpg" width="720" height="1466" alt="Expense analysis: stacked monthly bars from March to December 2025 and last year insights" loading="lazy" /></figure>
-          <figure class="lit__panel" data-name="Reminders" data-text="Recurring payments and the categories you log regularly, sorted into waiting and on time."><img src="assets/img/shots/reminders.jpg" width="720" height="1466" alt="The Reminders screen with recurring payments and categories waiting to be logged" loading="lazy" /></figure>
-          <figure class="lit__panel" data-name="Monthly recap" data-text="A story you swipe through when the month ends, opening with a headline about how it went."><img src="assets/img/shots/recap-1.jpg" width="720" height="1466" alt="Monthly recap for December 2025 opening with the headline Spending went overboard" loading="lazy" /></figure>
-          <figure class="lit__panel" data-name="Category shifts" data-text="What moved the most since last month, and what showed up for the first time."><img src="assets/img/shots/recap-3.jpg" width="720" height="1466" alt="Recap slide listing the three categories that moved most: Rent, Health and Travel" loading="lazy" /></figure>
-          <figure class="lit__panel" data-name="Account overview" data-text="One account’s balance, income and spending, and its balance over time."><img src="assets/img/shots/account.jpg" width="720" height="1430" alt="Account overview for a Personal account with its balance over time chart" loading="lazy" /></figure>
-          <figure class="lit__panel" data-name="Scan a bill" data-text="Point the camera at the payment QR code on a bill and the amount and payee fill in."><img src="assets/img/shots/qr.jpg" width="720" height="1430" alt="The Scan bill QR code screen framing the QR code on a paper bill" loading="lazy" /></figure>
-          <figure class="lit__panel" data-dark data-name="Dark mode" data-text="Light, dark, or whatever your phone is set to."><img src="assets/img/shots/dark.jpg" width="720" height="1466" alt="The September 2025 category list in dark mode" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Home" data-text="Your balance, what you can still spend today and this month’s goals. Swipe the card to see a day, a week or the whole year."><img src="assets/img/shots/home.jpg" width="720" height="1466" alt="Budget Buddy Home for October: monthly balance +$2,394.00, $49.76 left to spend today, goals and expense and income donuts" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Add an expense" data-text="Type the amount and pick a category. Before you save, the budget line shows what will be left this month."><img src="assets/img/shots/add.jpg" width="720" height="1466" alt="A new $24.90 expense in Groceries for a farmers market, with $533.44 left this month after it" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Budgets" data-text="Every budget on one screen, with this month’s total and how many are on track. Weekly ones sit apart from monthly ones."><img src="assets/img/shots/budgets.jpg" width="720" height="1466" alt="Expense budgets: $236.93 of $1,680.00 this month, 4 on track, Weekly coffee at $16.39 of $25" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Subscriptions" data-text="Repeating payments with what they cost a year. When one gets more expensive, the app says by how much."><img src="assets/img/shots/price-rise.jpg" width="720" height="1466" alt="Recurring and subscriptions list, with Streaming marked up $2.50 since last time" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Plan ahead" data-text="Your balance up to two years out. Try spending a little less or earning a little more and watch the line move."><img src="assets/img/shots/plan-ahead.jpg" width="720" height="1466" alt="Plan ahead for 12 months with monthly spend lowered by 9% and the projected balance rising" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Receipts and warranties" data-text="Keep a photo of the receipt and the warranty end date with the purchase. A reminder comes before the warranty runs out."><img src="assets/img/shots/receipt.jpg" width="720" height="1466" alt="A $749 washing machine expense with a receipt photo attached and a warranty that expires in 1 month" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Goals" data-text="Each goal gets a monthly amount. Add it or skip it, and the app tells you when you’ll get there at your current pace."><img src="assets/img/shots/goals.jpg" width="720" height="1466" alt="Goals: Japan trip and New laptop planned this month with Skip and Add, Emergency fund at 35%" loading="lazy" /></figure>
+          <figure class="lit__panel" data-dark data-name="Monthly recap" data-text="A short story you swipe through when the month ends: how the balance moved, what you earned and what you spent."><img src="assets/img/shots/recap.jpg" width="720" height="1466" alt="Monthly recap for October 2026: Busy month of transactions, balance grew by $2.39K" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Accounts" data-text="Each account with its balance, income, spending and a chart of the balance over time."><img src="assets/img/shots/account-overview.jpg" width="720" height="1466" alt="Account overview for the Personal account with its balance over time chart" loading="lazy" /></figure>
+          <figure class="lit__panel" data-name="Your language" data-text="The whole app in 26 languages, with 121 currencies and the number format you’re used to."><img src="assets/img/shots/home-de.jpg" width="720" height="1466" alt="The Home screen in German, with Heute noch verfügbar $49.76" loading="lazy" /></figure>
+          <figure class="lit__panel" data-dark data-name="App lock" data-text="A PIN, Face ID or your fingerprint keeps the app closed to anyone else holding your phone."><img src="assets/img/shots/pin.jpg" width="720" height="1466" alt="The Create PIN screen with a number pad" loading="lazy" /></figure>
         </div>
-        <div class="lit__text" aria-live="polite"><h3 data-lit-name>Overview</h3><p data-lit-text>The month at a glance: balance, an expense and an income donut, and quick insights.</p></div>
+        <div class="lit__text" aria-live="polite"><h3 data-lit-name>Home</h3><p data-lit-text>Your balance, what you can still spend today and this month’s goals. Swipe the card to see a day, a week or the whole year.</p></div>
       </div>
       <div class="lit__ctrl">
         <button type="button" data-lit-prev aria-label="Previous screen"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
@@ -280,91 +361,83 @@
 
     <section class="fields" aria-labelledby="steps-title">
       <div class="field fc1">
-        <h2 id="steps-title" data-reveal>One coffee, four steps</h2>
+        <h2 id="steps-title" data-reveal>One purchase, four steps</h2>
         <div class="field__card" data-reveal style="--i:1">
           <div class="tx" data-ui>
             <div class="tx__lbl">How much?</div>
-            <div class="tx__amt">14.52 $</div>
-            <div class="tx__line tx__lbl"><span>Today</span><span>25 Oct 2025</span></div>
+            <div class="tx__amt">$24.90</div>
+            <div class="tx__line tx__lbl"><span>Today</span><span>Sun, 01 Nov 2026</span></div>
           </div>
         </div>
-        <p class="field__clause" data-reveal style="--i:2">First you type the amount.</p>
+        <p class="field__clause" data-reveal style="--i:2">Type the amount.</p>
       </div>
       <div class="field fc2">
         <div class="field__card" data-reveal style="--i:1">
           <div class="tx" data-ui>
-            <div class="tx__amt">14.52 $</div>
-            <div class="row"><span class="row__ic" style="--tint:rgb(216, 237, 216)"><img src="assets/img/icons/fork_spoon.svg" alt="" width="20" height="20" /></span><span><b>Dining</b><small>Coffee shop</small></span><span class="row__amt neg">-14.52 $</span></div>
+            <div class="tx__amt">$24.90</div>
+            <div class="row"><span class="row__ic" style="--tint:rgb(216, 237, 216)"><img src="assets/img/icons/cart.svg" alt="" width="20" height="20" /></span><span><b>Groceries</b><small>Farmers market</small></span><span class="row__amt neg">−$24.90</span></div>
           </div>
         </div>
-        <p class="field__clause" data-reveal style="--i:2">Then pick its category.</p>
+        <p class="field__clause" data-reveal style="--i:2">Pick its category.</p>
       </div>
       <div class="field fc3">
         <div class="field__card" data-reveal style="--i:1">
           <div class="tx" data-ui>
-            <div class="tx__line"><b>Coffee shop</b><span class="row__amt neg">-14.52 $</span></div>
-            <div class="tx__line"><span>Dining budget</span><span>146.05 of 200.00 $</span></div>
-            <div class="bar"><i style="width:73%"></i></div>
-            <div class="tx__line tx__lbl"><span>53.95 $ left</span><span>Under budget</span></div>
+            <div class="tx__line"><b>Groceries</b><span>$750.00 a month</span></div>
+            <div class="bar"><i style="width:28.9%"></i></div>
+            <div class="tx__line tx__lbl"><span>$533.44 left this month after this</span></div>
           </div>
         </div>
-        <p class="field__clause" data-reveal style="--i:2">It counts against a budget.</p>
+        <p class="field__clause" data-reveal style="--i:2">See what’s left before you save.</p>
       </div>
       <div class="field fc4">
         <div class="field__card" data-reveal style="--i:1">
           <div class="tx" data-ui>
-            <div class="tx__line"><b>Oct 2025</b><b>3539.06 $</b></div>
-            <div class="tx__lbl">43 transactions in 10 categories</div>
-            <div class="tx__line"><span class="chip">Top spend: Rent (22%)</span></div>
-            <div class="row"><span class="row__ic" style="--tint:rgb(216, 237, 216)"><img src="assets/img/icons/fork_spoon.svg" alt="" width="20" height="20" /></span><span><b>Dining</b><small>Coffee shop · 25 Oct</small></span><span class="row__amt neg">-14.52 $</span></div>
+            <div class="tx__lbl">This month</div>
+            <div class="tx__line"><b>$261.83 / $1,680.00</b><span class="tx__lbl">4 budgets</span></div>
+            <div class="bar"><i style="width:15.6%"></i></div>
+            <div class="tx__line tx__lbl"><span>4 on track</span><span>30 days left</span></div>
           </div>
         </div>
-        <p class="field__clause" data-reveal style="--i:2">And the month adds up.</p>
+        <p class="field__clause" data-reveal style="--i:2">And every budget keeps up.</p>
       </div>
     </section>
 
     <section class="wrap para" aria-labelledby="more-title">
       <h2 id="more-title" class="sr-only">What else it does</h2>
       <div class="grid">
-        <p class="para__text" data-reveal>Scan a bill’s QR code <span class="slot"><img src="assets/img/shots/qr.jpg" alt="" width="720" height="1430" loading="lazy" style="object-position:50% 30%" /></span> and the amount fills in. Give any category a budget <span class="slot"><img src="assets/img/shots/budget.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 12%" /></span>. Every month ends with a recap <span class="slot"><img src="assets/img/shots/recap-2.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 20%" /></span> you can share. And all of it stays on your phone <span class="slot"><img src="assets/img/shots/dark.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 0%" /></span>.</p>
+        <p class="para__text" data-reveal>When a subscription costs more than last time <span class="slot"><img src="assets/img/shots/price-rise.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 52%" /></span>, you see it. The receipt and the warranty stay with the purchase <span class="slot"><img src="assets/img/shots/receipt.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 20%" /></span>, Plan ahead shows your balance a year from now <span class="slot"><img src="assets/img/shots/plan-ahead.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 80%" /></span>, and the app opens only for you <span class="slot"><img src="assets/img/shots/pin.jpg" alt="" width="720" height="1466" loading="lazy" style="object-position:50% 20%" /></span>.</p>
         <div class="para__foot" data-reveal style="--i:1">
           <a class="btn btn--ink" href="tracking.html">See how tracking works</a>
-          <p>Recurring payments, reminders, receipts, saved views, CSV import, savings goals and a PIN lock come with it. Each has its own page.</p>
+          <p>Bill QR scanning, CSV import, spending alerts, savings goals, several accounts and weekly backups come with it. Each has its own page.</p>
         </div>
       </div>
     </section>
 
-    <section class="bars" aria-labelledby="bars-title">
-      <div class="bars__head">
-        <p class="bars__fig" data-reveal>36,712<small>$</small></p>
-        <h2 id="bars-title" class="bars__claim" data-reveal style="--i:1">Ten months, 354 purchases</h2>
-        <p class="bars__note" data-reveal style="--i:2">The app’s demo account from March to December 2025, the data in every screen on this site. September, the month on the overview at the top, is the green bar.</p>
+    <section class="langs" aria-labelledby="langs-title">
+      <div class="langs__head">
+        <p class="bars__fig" data-reveal>26</p>
+        <h2 id="langs-title" class="bars__claim" data-reveal style="--i:1">languages, one app</h2>
+        <p class="bars__note" data-reveal style="--i:2">Budget Buddy follows your phone’s language, or you pick one in Settings. Choose from 121 currencies and the number format you’re used to. Here is the same Home screen in German, Spanish and Japanese.</p>
       </div>
-      <div class="bars__chart" data-ui role="list" aria-label="Spending per month in 2025">
-        <div class="bars__bar" role="listitem" tabindex="0" style="--h:94.4%;--w:94.4%;--i:0"><span class="bars__val">4093.47 $</span><span class="bars__mon">Mar</span></div>
-        <div class="bars__bar is-labeled" role="listitem" tabindex="0" style="--h:68.2%;--w:68.2%;--i:1"><span class="bars__val">2960.31 $</span><span class="bars__mon">Apr</span></div>
-        <div class="bars__bar" role="listitem" tabindex="0" style="--h:88.9%;--w:88.9%;--i:2"><span class="bars__val">3856.96 $</span><span class="bars__mon">May</span></div>
-        <div class="bars__bar" role="listitem" tabindex="0" style="--h:80.3%;--w:80.3%;--i:3"><span class="bars__val">3483.72 $</span><span class="bars__mon">Jun</span></div>
-        <div class="bars__bar" role="listitem" tabindex="0" style="--h:96.4%;--w:96.4%;--i:4"><span class="bars__val">4181.61 $</span><span class="bars__mon">Jul</span></div>
-        <div class="bars__bar is-labeled" role="listitem" tabindex="0" style="--h:100%;--w:100%;--i:5"><span class="bars__val">4338.33 $</span><span class="bars__mon">Aug</span></div>
-        <div class="bars__bar is-key is-labeled" role="listitem" tabindex="0" style="--h:69.2%;--w:69.2%;--i:6"><span class="bars__val">3000.42 $</span><span class="bars__mon">Sep</span></div>
-        <div class="bars__bar" role="listitem" tabindex="0" style="--h:81.6%;--w:81.6%;--i:7"><span class="bars__val">3539.06 $</span><span class="bars__mon">Oct</span></div>
-        <div class="bars__bar" role="listitem" tabindex="0" style="--h:76.2%;--w:76.2%;--i:8"><span class="bars__val">3306.15 $</span><span class="bars__mon">Nov</span></div>
-        <div class="bars__bar" role="listitem" tabindex="0" style="--h:91.1%;--w:91.1%;--i:9"><span class="bars__val">3952.53 $</span><span class="bars__mon">Dec</span></div>
+      <div class="langs__shots">
+        <figure data-reveal><img src="assets/img/shots/home-de.jpg" width="720" height="1466" alt="The Home screen in German" loading="lazy" /><figcaption>Deutsch</figcaption></figure>
+        <figure data-reveal style="--i:1"><img src="assets/img/shots/home-es.jpg" width="720" height="1466" alt="The Home screen in Spanish" loading="lazy" /><figcaption>Español</figcaption></figure>
+        <figure data-reveal style="--i:2"><img src="assets/img/shots/home-ja.jpg" width="720" height="1466" alt="The Home screen in Japanese" loading="lazy" /><figcaption>日本語</figcaption></figure>
       </div>
     </section>
 
     <section class="wrap sec" aria-labelledby="parts-title">
-      <h2 id="parts-title" class="display" data-reveal>Every part of it</h2>
-      <div class="tiles">
-        <a class="tile" href="tracking.html" data-reveal><figure><img src="assets/img/shots/transactions.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s1"><div class="tile__vals"><span>Numpad</span><span>QR bills</span><span>Receipts</span><span>CSV</span></div><div class="tile__meta"><span>Tracking</span><span aria-hidden="true">→</span></div></div></a>
-        <a class="tile" href="budgets.html" data-reveal style="--i:1"><figure><img src="assets/img/shots/budget.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s2"><div class="tile__vals"><span>Day</span><span>Week</span><span>Month</span><span>Year</span></div><div class="tile__meta"><span>Budgets and goals</span><span aria-hidden="true">→</span></div></div></a>
-        <a class="tile" href="insights.html" data-reveal style="--i:2"><figure><img src="assets/img/shots/analysis.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s3"><div class="tile__vals"><span>Donuts</span><span>Net flow</span><span>Weekdays</span><span>Plan ahead</span></div><div class="tile__meta"><span>Insights</span><span aria-hidden="true">→</span></div></div></a>
-        <a class="tile" href="insights.html#recap" data-reveal style="--i:3"><figure><img src="assets/img/shots/recap-1.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s4"><div class="tile__vals"><span>Story</span><span>Shifts</span><span>Badges</span><span>Share</span></div><div class="tile__meta"><span>Monthly recap</span><span aria-hidden="true">→</span></div></div></a>
-        <a class="tile" href="tracking.html#recurring" data-reveal><figure><img src="assets/img/shots/reminders.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s2"><div class="tile__vals"><span>Daily</span><span>Weekly</span><span>Monthly</span><span>Yearly</span></div><div class="tile__meta"><span>Recurring and reminders</span><span aria-hidden="true">→</span></div></div></a>
-        <a class="tile" href="tracking.html#accounts" data-reveal style="--i:1"><figure><img src="assets/img/shots/account.jpg" width="720" height="1430" alt="" loading="lazy" /></figure><div class="tile__strip s4"><div class="tile__vals"><span>Personal</span><span>Group</span><span>Business</span><span>Savings</span></div><div class="tile__meta"><span>Accounts</span><span aria-hidden="true">→</span></div></div></a>
-        <a class="tile" href="data.html" data-reveal style="--i:2"><figure><img src="assets/img/shots/dark.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s1"><div class="tile__vals"><span>On device</span><span>No account</span><span>PIN</span><span>Backups</span></div><div class="tile__meta"><span>Your data</span><span aria-hidden="true">→</span></div></div></a>
-        <a class="tile" href="premium.html" data-reveal style="--i:3"><figure><img src="assets/img/shots/overview.jpg" width="720" height="1466" alt="" loading="lazy" /></figure><div class="tile__strip s3"><div class="tile__vals"><span>No ads</span><span>QR scan</span><span>Insights</span><span>Unlimited</span></div><div class="tile__meta"><span>Free and Premium</span><span aria-hidden="true">→</span></div></div></a>
+      <h2 id="parts-title" class="display" data-reveal>More about each part</h2>
+      <div class="tiles tiles--links">
+        <a class="tile" href="tracking.html" data-reveal><div class="tile__strip s1"><div class="tile__vals"><span>Numpad</span><span>QR bills</span><span>Receipts</span><span>CSV</span></div><div class="tile__meta"><span>Tracking</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="budgets.html" data-reveal style="--i:1"><div class="tile__strip s2"><div class="tile__vals"><span>Today</span><span>Week</span><span>Month</span><span>Year</span></div><div class="tile__meta"><span>Budgets and goals</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="insights.html" data-reveal style="--i:2"><div class="tile__strip s3"><div class="tile__vals"><span>Donuts</span><span>Net flow</span><span>Weekdays</span><span>Plan ahead</span></div><div class="tile__meta"><span>Insights</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="insights.html#recap" data-reveal style="--i:3"><div class="tile__strip s4"><div class="tile__vals"><span>Story</span><span>Shifts</span><span>Active days</span><span>Share</span></div><div class="tile__meta"><span>Monthly recap</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="tracking.html#recurring" data-reveal><div class="tile__strip s2"><div class="tile__vals"><span>Totals</span><span>Price rises</span><span>Reminders</span><span>Suggestions</span></div><div class="tile__meta"><span>Subscriptions</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="tracking.html#accounts" data-reveal style="--i:1"><div class="tile__strip s4"><div class="tile__vals"><span>Personal</span><span>Group</span><span>Business</span><span>Savings</span></div><div class="tile__meta"><span>Accounts</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="data.html" data-reveal style="--i:2"><div class="tile__strip s1"><div class="tile__vals"><span>On device</span><span>No account</span><span>PIN</span><span>Backups</span></div><div class="tile__meta"><span>Your data</span><span aria-hidden="true">→</span></div></div></a>
+        <a class="tile" href="premium.html" data-reveal style="--i:3"><div class="tile__strip s3"><div class="tile__vals"><span>No ads</span><span>QR scan</span><span>Insights</span><span>Unlimited</span></div><div class="tile__meta"><span>Free and Premium</span><span aria-hidden="true">→</span></div></div></a>
       </div>
     </section>
 
@@ -377,23 +450,23 @@
           <button type="button" aria-expanded="false">What does Premium add?</button>
           <div class="faq__inline" hidden><p>No ads, bill scanning, repeating payments, smart insights, and no limits on accounts, budgets or categories. <a class="link" href="premium.html">Compare</a></p></div>
           <button type="button" aria-expanded="false">Where is my data kept?</button>
-          <div class="faq__inline" hidden><p>On your phone. There is no account and no server, and both stores list the app as collecting no data. <a class="link" href="data.html">More</a></p></div>
+          <div class="faq__inline" hidden><p>On your phone. There is no account and no server of ours, so your entries never reach us. The free version shows Google ads, and Google receives some device data to show them. <a class="link" href="privacy.html">Privacy policy</a></p></div>
+          <button type="button" aria-expanded="false">Does it connect to my bank?</button>
+          <div class="faq__inline" hidden><p>No, and it never asks for a bank login. You log purchases yourself, scan the QR code on a bill, or import a CSV file from your bank or a spreadsheet.</p></div>
+          <button type="button" aria-expanded="false">Which languages and currencies does it support?</button>
+          <div class="faq__inline" hidden><p>26 languages, from English, Spanish and German to Japanese, Thai and Slovenian, and 121 currencies. The app uses one currency at a time. When you switch, it can convert your amounts at today's rate.</p></div>
           <button type="button" aria-expanded="false">Can I use it on two phones?</button>
           <div class="faq__inline" hidden><p>Not side by side: there is no sync. To move, share a backup file from one phone and load it on the other.</p></div>
-          <button type="button" aria-expanded="false">Does it connect to my bank?</button>
-          <div class="faq__inline" hidden><p>No. You log purchases yourself, scan the QR code on a bill, or import a CSV file from your bank or a spreadsheet. Import is in the latest Android version.</p></div>
-          <button type="button" aria-expanded="false">Which currencies can I use?</button>
-          <div class="faq__inline" hidden><p>Any of 121, picked from a searchable list with flags. One currency covers the whole app; it does not convert between them.</p></div>
           <button type="button" aria-expanded="false">Is it on iPad or Mac?</button>
           <div class="faq__inline" hidden><p>It is made for iPhone and for Android phones and tablets. Apple also offers the iPhone version on Macs with Apple silicon, marked as not verified for macOS.</p></div>
         </div>
         <div class="faq__pane" aria-live="polite">
           <div class="faq__answer"><p>Yes, it is free with ads. Premium is an optional yearly subscription, 9.99 $ on the App Store or 10.99 $ on Google Play in the US, that removes the ads and the free limits.</p></div>
           <div class="faq__answer" hidden><p>No ads, bill scanning, repeating payments, smart insights, and no limits on accounts, budgets or categories. <a class="link" href="premium.html">Compare free and Premium</a></p></div>
-          <div class="faq__answer" hidden><p>On your phone. There is no account and no server, and both stores list the app as collecting no data. <a class="link" href="data.html">How your data is kept</a></p></div>
+          <div class="faq__answer" hidden><p>On your phone. There is no account and no server of ours, so your entries never reach us. The free version shows Google ads, and Google receives some device data to show them. <a class="link" href="privacy.html">Read the privacy policy</a></p></div>
+          <div class="faq__answer" hidden><p>No, and it never asks for a bank login. You log purchases yourself, scan the QR code on a bill, or import a CSV file from your bank or a spreadsheet.</p></div>
+          <div class="faq__answer" hidden><p>26 languages, from English, Spanish and German to Japanese, Thai and Slovenian, and 121 currencies. The app uses one currency at a time. When you switch, it can convert your amounts at today's rate.</p></div>
           <div class="faq__answer" hidden><p>Not side by side: there is no sync. To move, share a backup file from one phone and load it on the other.</p></div>
-          <div class="faq__answer" hidden><p>No. You log purchases yourself, scan the QR code on a bill, or import a CSV file from your bank or a spreadsheet. Import is in the latest Android version.</p></div>
-          <div class="faq__answer" hidden><p>Any of 121, picked from a searchable list with flags. One currency covers the whole app; it does not convert between them.</p></div>
           <div class="faq__answer" hidden><p>It is made for iPhone and for Android phones and tablets. Apple also offers the iPhone version on Macs with Apple silicon, marked as not verified for macOS.</p></div>
         </div>
       </div>
@@ -402,7 +475,7 @@
     <section class="get" aria-labelledby="get-title">
       <div class="get__text">
         <h2 id="get-title" data-reveal>Free on iPhone and Android</h2>
-        <p class="lead" data-reveal style="--i:1">No account to make and nothing to connect. Premium is an optional yearly subscription that removes the ads and the free limits.</p>
+        <p class="lead" data-reveal style="--i:1">There is nothing to sign up for and no bank to connect. Premium is an optional yearly subscription that removes the ads and the free limits.</p>
         <div class="hero__actions" data-reveal style="--i:2">
           <a class="btn btn--ink" href="download.html">Get the app</a>
           <div class="stores">
@@ -411,7 +484,7 @@
           </div>
         </div>
       </div>
-      <figure class="get__shot" data-reveal style="--i:1"><img src="assets/img/shots/budget.jpg" width="720" height="1466" alt="A monthly Bills budget in the app with 500 dollars remaining" loading="lazy" /></figure>
+      <figure class="get__shot get__shot--video" data-reveal style="--i:1"><video muted loop playsinline preload="none" width="540" height="1170" poster="assets/video/preview-poster.jpg" data-autoplay aria-label="The App Store preview video, without sound"><source src="assets/video/preview-portrait.mp4" type="video/mp4" /></video></figure>
     </section>
   </main>
   <footer class="foot">
@@ -424,8 +497,8 @@
       <a href="support.html">Support</a>
       <a href="press.html">Press kit</a>
     </nav>
-    <p class="foot__end"><span>© <span data-year>2026</span></span><a href="data.html">Your data</a><a href="https://doc-hosting.flycricket.io/budget-buddy-privacy-policy/e64ccf5c-a708-4a70-8a73-b9c2a27b9672/privacy" rel="noopener">Privacy</a></p>
+    <p class="foot__end"><span>© <span data-year>2026</span></span><a href="data.html">Your data</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></p>
   </footer>
-  <script src="assets/js/main.js?v=20261027-3" defer></script>
+  <script src="assets/js/main.js?v=20261102-2" defer></script>
 </body>
 </html>

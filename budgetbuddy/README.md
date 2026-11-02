@@ -5,48 +5,57 @@ iPhone and Android (`com.smartlife.budgetbuddy`). Plain static HTML, CSS and JS,
 runtime, hosted on GitHub Pages inside the `smartlifeutils.github.io` repo next to `../waverider`
 and `../inkbounce`.
 
-The page does not describe the app so much as run small, working pieces of it. Every number on the
-site comes from the app's own demo account (`assets/BudgetBuddy_demo_en.json` in the Flutter
-project), the same data shown in the store screenshots.
+Every screenshot and most numbers come from the store captures of November 2026: the "Emily" test
+persona (USD, October 2026) from `test_driver/seed/demo_seed.dart`, captured into
+`images/store/2026-11/raw/ios/` in the Flutter project. The same captures make the store
+screenshots and trailer. A few older HTML panels on the Insights and Tracking pages (net flow,
+weekdays, smart insights, keypad) still show the 2025 demo dataset (`assets/BudgetBuddy_demo_en.json`).
 
 ## Pages
 
 | File | URL | Purpose |
 |---|---|---|
-| `index.html` | `/budgetbuddy/` | Home: the September 2025 overview built in HTML (balance, donuts, insight chips, the month's top categories), the app's screens in a carousel, one coffee in four steps, the ten-month spending chart, links to every topic page, questions, and a download band |
+| `index.html` | `/budgetbuddy/` | Home: the October Home screen built in HTML (balance, Left to spend today, goals, donuts, insight chips), the 8 App Store screenshots in a sideways strip, the trailer, the app's screens in a carousel, one purchase in four steps, a sentence with screenshot slots, the 26 languages band, links to every topic page, questions, and a download band with the App Store preview video looping |
 | `tracking.html` | `/budgetbuddy/tracking.html` | Logging: the keypad, scanning bills, receipts and warranties, repeating payments and reminders, categories and search, accounts and import |
 | `budgets.html` | `/budgetbuddy/budgets.html` | Budgets: a working "when will it run out" calculator (the circle fills as you spend), how a budget is set up, the track record, savings goals |
 | `insights.html` | `/budgetbuddy/insights.html` | The month on one screen, spending charts, net flow, the day that costs most, Plan Ahead in a sentence, smart insights, the monthly recap |
-| `data.html` | `/budgetbuddy/data.html` | Your data: on-device storage, no account, the store privacy labels, PIN and biometric lock, weekly backups, export and delete, what uses the network, policy links |
+| `data.html` | `/budgetbuddy/data.html` | Your data: on-device storage, no account, what ads collect, PIN and biometric lock, weekly backups, export and delete, everything that uses the network, policy links |
+| `privacy.html` | `/budgetbuddy/privacy.html` | Privacy policy (GDPR): what stays on the phone, ads and consent, purchases, currency rates, permissions, backups, rights. **The app and both stores link here** |
+| `terms.html` | `/budgetbuddy/terms.html` | Terms of use and EULA: licence, Premium subscription terms, Apple's minimum EULA terms, liability, Slovenian law |
 | `premium.html` | `/budgetbuddy/premium.html` | Free against Premium, from the limits the app enforces in code, and what the subscription costs |
 | `support.html` | `/budgetbuddy/support.html` | Contact, FAQ, bug reports, policies |
-| `press.html` | `/budgetbuddy/press.html` | Press kit: fact sheet, key features, screenshots linked to their full files, about SmartLifeUtils. Linked from every footer |
+| `press.html` | `/budgetbuddy/press.html` | Press kit: fact sheet, key features, trailer, store screenshots and raw screens linked to their full files, app icon, about SmartLifeUtils. Linked from every footer |
 | `download.html` | `/budgetbuddy/download` | **The link to share**: a phone goes straight to its store; desktops see a download card. `?platform=ios\|android\|none` forces a branch for testing |
 | `play.html` | `/budgetbuddy/play` | The old share link, kept so links already out keep working. It forwards to `download`, query string included |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
 
-`app-ads.txt` here is the AdMob publisher file; leave it alone. The privacy policy and terms are
-hosted on flycricket and linked from the footer, `data.html` and `support.html`.
+`app-ads.txt` here is the AdMob publisher file; leave it alone. The privacy policy and terms live on
+this site (`privacy.html`, `terms.html`, effective 2 November 2026) and are linked from every footer,
+`data.html` and `support.html`. They replace the old flycricket pages; the app's Settings and paywall
+links and the store listings must point here too. Change them together with the app when ads,
+permissions or network use change.
 
 ## Where the numbers come from
 
 | Claim | Source |
 |---|---|
-| September 2025: −3000.42, +3982.73, balance +982.31, top spend Rent 28%, top 3 61% | demo JSON, September expenses and incomes |
-| 36,712 spent, 354 purchases, monthly bars March–December, median 64.18 | demo JSON, all expenses |
-| Net flow per month, weekday totals | demo JSON |
-| Pace, forecast, “Safe this month”, near limit at 85% | `Budgets/Screens/BudgetOverviewScreen.dart` (`_projectionForBudget`), `Budgets/Widgets/CategoryBudgetsListWidget.dart` |
-| Free limits (1 account, under 10 categories per type, 5 favourites, 3 budgets, QR, recurring, insight chips, ads) | `lib/subscription_manager.dart` and its call sites |
-| 11 starter categories, 180 icons, 121 currencies, 5 number formats | onboarding pages, `assets/icons/`, currency_picker, settings |
-| Premium 9.99 $ (App Store) and 10.99 $ (Google Play) | the US store listings, October 2026 |
-| “Data Not Collected” / “No data collected or shared” | the App Store privacy label and Google Play data safety section |
-| iOS 13 or later, Android 7.0 or later | `ios/Podfile` and the Xcode deployment target; Android `minSdk = flutter.minSdkVersion`, which is 24 in the installed Flutter |
-| First released 17 February 2026, Finance, rated 4+ | the App Store listing (lookup API), October 2026 |
-| No network use besides ads and store purchases | no HTTP calls in `lib/`; `google_mobile_ads` and `in_app_purchase` only |
+| Home: +$2,394.00 balance, $49.76 left today, goals $10,650 of $24,200, −$5,019.43 / +$7,413.43, Rent 37%, top 3 61% | `raw/ios/01_home_left_today.png` and `01_home.png`; the donut segments were measured from that capture |
+| $24.90 Groceries, $533.44 left after it; budgets $236.93 of $1,680.00, 4 on track, Groceries $191.66 of $750 | `02b_add_filled.png`, `03_budgets.png` (the four steps add $24.90 to those) |
+| Subscriptions $2,790.97 a month, "Up $2.50 since last time" | `04a_subscriptions_detect.png`, `04c_price_rise.png` |
+| Plan ahead −9%, recap 28 of 31 active days, washing machine warranty in 1 month | `05_plan_ahead.png`, `06b_recap_heatmap.png`, `11_receipt_warranty.png` |
+| Pace, forecast, "Safe this month", near limit at 85% | `Budgets/Screens/BudgetOverviewScreen.dart` (`_projectionForBudget`), `Budgets/Widgets/CategoryBudgetsListWidget.dart` |
+| Free limits (1 account, fewer than 10 categories per type, 5 favourites, 3 budgets, QR, recurring, insight chips, ads) | `lib/subscription_manager.dart` and its call sites |
+| 26 languages, 121 currencies, 180 icons, 5 number formats | `lib/l10n/`, currency_picker, `assets/icons/`, settings |
+| Premium yearly subscription, 9.99 $ (App Store) and 10.99 $ (Google Play) | the US store listings, October 2026; the owner confirmed in Nov 2026 that Premium stays a yearly subscription |
+| Ads: AdMob with Google's consent form (EEA, UK, Switzerland), no ATT prompt on iPhone | `lib/ads_manager.dart` |
+| Network: ads, store purchases, and the ECB rate from `api.frankfurter.dev` (two currency codes) when converting | `lib/Settings/CurrencyConversion.dart`; nothing else calls out |
+| iOS 15 or later, Android 7.0 or later | `ios/Podfile`; Android `minSdk = flutter.minSdkVersion` (24) |
+| First released 17 February 2026, Finance, rated 4+ | the App Store listing |
 
-Receipts, warranties, saved searches and CSV import are in the Android build (2.4.2) before the App
-Store (2.4.1); the Tracking page and the Support answer on importing say so in one line each. Remove
-those lines once iOS catches up.
+The old claim "Data Not Collected" / "No data collected or shared" is gone everywhere: AdMob collects
+device and ad data, and the store privacy labels are being corrected (STORE_LISTING.md §5 P0).
+
+The site describes app version 2.5.0. Publish it when 2.5.0 is live on both stores.
 
 ## Copy
 
@@ -54,23 +63,35 @@ Write for the person deciding whether to install: what a feature does for them, 
 two. Leave out how the app works inside (formats a parser reads, file names, thresholds, settings
 names) and lists of everything it supports. The site was trimmed once for exactly this.
 
-Sample content, not from the demo data: the Dining budget of 200.00 in the four steps, the
-Groceries budget in the calculator, the headphones with a warranty, and the Summer trip goal.
+Keep visible copy free of version numbers, "demo data" notes and remarks on where a picture came
+from (the owner's rule, Nov 2026). Facts like that belong in this README.
+
+Sample content, not from the captures: the Groceries budget in the budgets calculator.
 
 ## Assets
 
-- `assets/img/shots/` — raw app captures from `images/play store/phone/2026 ios/screenshot*.{jpeg,PNG}`
-  and `2026/new_screenshot{4,6,7}.png`, status bar cropped, 720 px wide JPEG. No device frames.
+- `assets/img/shots/` — raw iPhone captures from `images/store/2026-11/raw/ios/*.png` in the Flutter
+  project, status bar cropped, 720 px wide JPEG, no device frames. `qr.jpg` and `budget-stats.jpg`
+  are older captures kept because no new one shows the bill scanner or the streaks.
+- `assets/img/store/` — the 8 App Store screenshots with captions
+  (`fastlane/screenshots/ios/en-US/1_iphone69_0*.png`), 660 px wide JPEG. Home strip and press kit.
+- `assets/video/` — `trailer-720.mp4` (from `images/store/2026-11/video/out/trailer_1920x1080.mp4`,
+  1280×720, with music) and `preview-portrait.mp4` (from `app_preview_886x1920.mp4`, 540 px wide, no
+  sound, plays muted in the closing band when in view and reduced motion is off), each with a poster.
 - `assets/img/icons/` — 41 of the app's 180 category icons, copied from `assets/icons/`.
-- `assets/img/brand/` — the logo (`images/logo.png`, `logo_foreground_layer.png`), store badges,
-  and `og-image.jpg` from `images/play store/featured_graphic/google featured 2026.png`.
+- `assets/img/brand/` — the Progress B icon (from the iOS 1024 px app icon, rounded corners cut for
+  favicon, nav mark and `icon-512.png`; `apple-touch-icon.png` stays square), store badges, and
+  `og-image.jpg` from `fastlane/metadata/android/en-US/images/featureGraphic.png` (1024×500). The
+  root homepage's `assets/budget-buddy-banner.jpg` and `budget-buddy-180.png` are the same files.
 - `assets/fonts/inter-latin.woff2` — Inter, variable 400–800, latin subset (SIL OFL). The app itself
   uses Helvetica Neue, which cannot be served on the web; Inter is the closest open face.
 
-To refresh a screenshot after a new build, take the raw capture, then:
+To refresh after a new capture or render (run from the Flutter project, `W` = this folder):
 
 ```bash
-ffmpeg -i screenshot5.PNG -vf "crop=iw:ih-150:0:150,scale=720:-2" -q:v 3 assets/img/shots/budget.jpg
+ffmpeg -i images/store/2026-11/raw/ios/03_budgets.png -vf "crop=iw:ih-180:0:180,scale=720:-2:flags=lanczos" -q:v 4 "$W/assets/img/shots/budgets.jpg"
+ffmpeg -i fastlane/screenshots/ios/en-US/1_iphone69_01.png -vf "scale=660:-2:flags=lanczos" -q:v 4 "$W/assets/img/store/store-01.jpg"
+ffmpeg -i images/store/2026-11/video/out/trailer_1920x1080.mp4 -vf scale=1280:720 -c:v libx264 -preset slow -crf 26 -pix_fmt yuv420p -c:a aac -b:a 128k -movflags +faststart "$W/assets/video/trailer-720.mp4"
 ```
 
 ## Local preview
