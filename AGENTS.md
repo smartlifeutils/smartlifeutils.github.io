@@ -112,7 +112,7 @@ Every marketing page was at 0 FAIL when last shipped; keep it there. Legal pages
   |---|---|---|
   | Wave Rider | `~/Projects/UnityProjects/WaveRider` | `Docs/` design docs; art via `waverider/tools/build-assets.py` |
   | Ink Bounce | `~/Projects/UnityProjects/InkBounce` | `Assets/_Game/Resources/Campaign/Worlds/*/world.json`, `Assets/_Game/Scripts/` (Scoring, Progression, Skins), `Docs/` |
-  | Budget Buddy | `~/Projects/Flutter projects/monefy_v3` (the Dart package is still called monefy_v3) | `lib/`, `lib/subscription_manager.dart` for what Premium locks, `assets/BudgetBuddy_demo_en.json` for every figure the site shows |
+  | Budget Buddy | `~/Projects/Flutter projects/monefy_v3` (the Dart package is still called monefy_v3) | `lib/`, `lib/subscription_manager.dart` for what Premium locks, `test_driver/seed/demo_seed.dart` (persona "Emily") and `images/store/2026-11/raw/` for the figures and screenshots the site shows |
 
 - **Write for the person deciding to install, not about the code.**
   - Say what a feature does for them in a sentence or two.
@@ -126,12 +126,13 @@ Every marketing page was at 0 FAIL when last shipped; keep it there. Legal pages
 - **Never invent proof**: no testimonials, ratings, download counts, press quotes or user numbers.
   Neither store shows ratings yet.
 - **Use only shipped features.** An idea in a design doc or an `Ideas.md` is not a feature.
-  Budget Buddy: no encryption, cloud sync, bank linking, widgets, currency conversion or languages
-  other than English. Its Premium page lists only what the code locks.
+  Budget Buddy: no encryption, cloud sync, bank linking or widgets. It does have 26 languages and
+  currency conversion at the ECB rate. Its Premium page lists only what the code locks.
 - **Mark sample content** in the site's README when a page shows example data the app does not
   contain.
 - **Pictures** are the app's own: art exported from the project, screenshots, trailer loops. Crop
-  store screenshots above their caption bands.
+  store screenshots above their caption bands, except Budget Buddy's home strip and press kit, which
+  show the whole store screenshots with captions (the owner's choice, Nov 2026).
 - English, sentence case, plain words. One or two em dashes per page at most.
 
 ## Design rules
@@ -163,7 +164,7 @@ App Store Connect and Google Play point at these, so they must keep working at t
 |---|---|---|---|
 | Wave Rider | `/waverider/privacy.html` | `/waverider/terms.html` | `/waverider/support.html` |
 | Ink Bounce | `/inkbounce/privacy` | `/inkbounce/terms` | `/inkbounce/support` |
-| Budget Buddy | flycricket (linked from the site) | flycricket | `/budgetbuddy/` and `/budgetbuddy/support.html` |
+| Budget Buddy | `/budgetbuddy/privacy.html` | `/budgetbuddy/terms.html` | `/budgetbuddy/` and `/budgetbuddy/support.html` |
 
 Each app has a share link that sends a phone straight to its own store: `/waverider/play`, `/inkbounce/play` and `/budgetbuddy/download` (Budget Buddy's old `/budgetbuddy/play` forwards to it). Don't rename them.
 

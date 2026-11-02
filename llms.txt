@@ -28,16 +28,18 @@ A free one-thumb arcade game for iPhone, iPad and Android, released in August 20
 
 ## Budget Buddy
 
-An expense tracker and budget planner for iPhone and Android, first released in February 2026. Log spending and income in a few taps, give categories a budget for a day, week, month or year and see when the money will run out, set savings goals, and see the month in charts, net flow and a monthly recap. There is no account and no server: data stays on the phone, with a PIN or Face ID lock, weekly backups and export. Both app stores list it as collecting no data. No bank linking and no cloud sync. Free with ads; Premium is an optional yearly subscription (9.99 USD on the App Store, 10.99 USD on Google Play in the US) that removes ads and adds bill scanning, repeating payments, smart insights and unlimited accounts, categories and budgets.
+An expense tracker and budget planner for iPhone and Android, first released in February 2026, in 26 languages with 121 currencies. It needs no account and no bank login and works offline. Log spending and income in a few taps, see how much is left to spend today, give categories a weekly, monthly or yearly budget, get a daily summary and a weekly check-in, see recurring payments and subscription price rises, keep receipt photos and warranty dates, plan savings goals month by month, and look at the balance up to 24 months ahead with Plan Ahead. There is no server: entries stay on the phone, with a PIN, Face ID or fingerprint lock, weekly backups and export. The free version shows Google AdMob ads, and Google receives device and ad data to serve them; a currency rate lookup sends only two currency codes. No cloud sync. Premium is an optional yearly subscription (9.99 USD on the App Store, 10.99 USD on Google Play in the US) that removes ads and adds bill scanning, repeating payments, smart insights and unlimited accounts, categories and budgets.
 
-- [Budget Buddy home](https://smartlifeutils.github.io/budgetbuddy/): the app's overview, screens and common questions
+- [Budget Buddy home](https://smartlifeutils.github.io/budgetbuddy/): the app's overview, trailer, screens and common questions
 - [Tracking](https://smartlifeutils.github.io/budgetbuddy/tracking.html): logging, bill scanning, receipts, repeating payments, categories and accounts
 - [Budgets and savings goals](https://smartlifeutils.github.io/budgetbuddy/budgets.html): budgets, pace and forecast, track record, savings goals
 - [Insights](https://smartlifeutils.github.io/budgetbuddy/insights.html): charts, net flow, Plan Ahead and monthly recaps
 - [Your data](https://smartlifeutils.github.io/budgetbuddy/data.html): on-device storage, lock, backups, export and privacy
 - [Free and Premium](https://smartlifeutils.github.io/budgetbuddy/premium.html): what is free, what Premium adds and what it costs
 - [Support and FAQ](https://smartlifeutils.github.io/budgetbuddy/support.html): new phone, backups, Premium, imports, contact
-- [Press kit](https://smartlifeutils.github.io/budgetbuddy/press.html): fact sheet and screenshots
+- [Press kit](https://smartlifeutils.github.io/budgetbuddy/press.html): fact sheet, screenshots and trailer
+- [Privacy policy](https://smartlifeutils.github.io/budgetbuddy/privacy.html): what stays on the phone, ads, purchases and your rights
+- [Terms of use](https://smartlifeutils.github.io/budgetbuddy/terms.html): licence, Premium subscription terms and liability
 
 ## Optional
 
