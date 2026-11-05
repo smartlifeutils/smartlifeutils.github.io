@@ -19,8 +19,8 @@ weekdays, smart insights, keypad) still show the 2025 demo dataset (`assets/Budg
 | `tracking.html` | `/budgetbuddy/tracking.html` | Logging: the keypad, scanning bills, receipts and warranties, repeating payments and reminders, categories and search, accounts and import |
 | `budgets.html` | `/budgetbuddy/budgets.html` | Budgets: a working "when will it run out" calculator (the circle fills as you spend), how a budget is set up, the track record, savings goals |
 | `insights.html` | `/budgetbuddy/insights.html` | The month on one screen, spending charts, net flow, the day that costs most, Plan Ahead in a sentence, smart insights, the monthly recap |
-| `data.html` | `/budgetbuddy/data.html` | Your data: on-device storage, no account, what ads collect, PIN and biometric lock, weekly backups, export and delete, everything that uses the network, policy links |
-| `privacy.html` | `/budgetbuddy/privacy.html` | Privacy policy (GDPR): what stays on the phone, ads and consent, purchases, currency rates, permissions, backups, rights. **The app and both stores link here** |
+| `data.html` | `/budgetbuddy/data.html` | Your data: on-device storage, no account, what ads and usage statistics collect, PIN and biometric lock, cloud and weekly backups, export and delete, everything that uses the network, policy links |
+| `privacy.html` | `/budgetbuddy/privacy.html` | Privacy policy (GDPR): what stays on the phone, usage statistics, ads and consent, purchases, currency rates, permissions, backups incl. Google Drive / iCloud, rights. **The app and both stores link here** |
 | `terms.html` | `/budgetbuddy/terms.html` | Terms of use and EULA: licence, Premium subscription terms, Apple's minimum EULA terms, liability, Slovenian law |
 | `premium.html` | `/budgetbuddy/premium.html` | Free against Premium, from the limits the app enforces in code, and what the subscription costs |
 | `support.html` | `/budgetbuddy/support.html` | Contact, FAQ, bug reports, policies |
@@ -30,7 +30,7 @@ weekdays, smart insights, keypad) still show the 2025 demo dataset (`assets/Budg
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
 
 `app-ads.txt` here is the AdMob publisher file; leave it alone. The privacy policy and terms live on
-this site (`privacy.html`, `terms.html`, effective 2 November 2026) and are linked from every footer,
+this site (`privacy.html`, `terms.html`, effective 2 November 2026; privacy updated 5 November 2026 for Google Analytics and cloud backup) and are linked from every footer,
 `data.html` and `support.html`. They replace the old flycricket pages; the app's Settings and paywall
 links and the store listings must point here too. Change them together with the app when ads,
 permissions or network use change.
@@ -48,7 +48,8 @@ permissions or network use change.
 | 26 languages, 121 currencies, 180 icons, 5 number formats | `lib/l10n/`, currency_picker, `assets/icons/`, settings |
 | Premium yearly subscription, 9.99 $ (App Store) and 10.99 $ (Google Play) | the US store listings, October 2026; the owner confirmed in Nov 2026 that Premium stays a yearly subscription |
 | Ads: AdMob with Google's consent form (EEA, UK, Switzerland), no ATT prompt on iPhone | `lib/ads_manager.dart` |
-| Network: ads, store purchases, and the ECB rate from `api.frankfurter.dev` (two currency codes) when converting | `lib/Settings/CurrencyConversion.dart`; nothing else calls out |
+| Network: ads, store purchases, the ECB rate from `api.frankfurter.dev` (two currency codes) when converting, Google Analytics usage events (no entries, no ad ID, no user ID), and the optional daily cloud backup to the user's own Drive `appDataFolder` / iCloud container | `lib/Settings/CurrencyConversion.dart`, `lib/analytics.dart` + `docs/ANALYTICS.md`, `lib/Settings/Cloud/`; nothing else calls out |
+| Usage statistics kept 14 months, Google signals off | GA4 settings recommended in `docs/ANALYTICS.md`; the privacy policy promises them, so keep GA4 set that way |
 | iOS 15 or later, Android 7.0 or later | `ios/Podfile`; Android `minSdk = flutter.minSdkVersion` (24) |
 | First released 17 February 2026, Finance, rated 4+ | the App Store listing |
 

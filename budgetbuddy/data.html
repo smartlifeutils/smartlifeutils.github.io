@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your data stays on your phone | Budget Buddy</title>
-  <meta name="description" content="No account and no server: Budget Buddy keeps your money data on your phone, with a PIN or Face ID lock and weekly backups. Here is what does go online." />
+  <meta name="description" content="No account and no server: Budget Buddy keeps your money data on your phone, with a PIN or Face ID lock and cloud backup. Here is what does go online." />
   <meta name="robots" content="index, follow, max-image-preview:large" />
   <meta name="theme-color" content="#f7f8fa" />
   <meta name="apple-itunes-app" content="app-id=6758464704" />
@@ -12,7 +12,7 @@
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Budget Buddy" />
   <meta property="og:title" content="Your data stays on your phone | Budget Buddy" />
-  <meta property="og:description" content="No account and no server: Budget Buddy keeps your money data on your phone, with a PIN or Face ID lock and weekly backups. Here is what does go online." />
+  <meta property="og:description" content="No account and no server: Budget Buddy keeps your money data on your phone, with a PIN or Face ID lock and cloud backup. Here is what does go online." />
   <meta property="og:image" content="https://smartlifeutils.github.io/budgetbuddy/assets/img/brand/og-image.jpg" />
   <meta property="og:image:width" content="1024" />
   <meta property="og:image:height" content="500" />
@@ -90,7 +90,7 @@
         "CSV import",
         "26 languages and 121 currencies",
         "PIN, Face ID and fingerprint lock",
-        "Local backups and a weekly automatic backup",
+        "Daily backup to your own Google Drive or iCloud, and local backups",
         "Light and dark mode"
       ],
       "installUrl": [
@@ -110,7 +110,7 @@
       "@id": "https://smartlifeutils.github.io/budgetbuddy/data.html#page",
       "url": "https://smartlifeutils.github.io/budgetbuddy/data.html",
       "name": "Your data stays on your phone | Budget Buddy",
-      "description": "No account and no server: Budget Buddy keeps your money data on your phone, with a PIN or Face ID lock and weekly backups. Here is what does go online.",
+      "description": "No account and no server: Budget Buddy keeps your money data on your phone, with a PIN or Face ID lock and cloud backup. Here is what does go online.",
       "isPartOf": {
         "@id": "https://smartlifeutils.github.io/budgetbuddy/#website"
       },
@@ -184,10 +184,10 @@
     <section class="wrap sec" aria-labelledby="four-title">
       <h2 id="four-title" class="display" data-reveal>Four facts</h2>
       <div class="facts-band" style="margin-top:2.5rem">
-        <div class="fb1" data-reveal><b>On the device</b><p>Transactions, budgets, goals and settings are stored on your phone only.</p></div>
+        <div class="fb1" data-reveal><b>On the device</b><p>Transactions, budgets, goals and settings are stored on your phone, and in your own Google Drive or iCloud if you turn on cloud backup.</p></div>
         <div class="fb2" data-reveal style="--i:1"><b>No account</b><p>Nothing to sign up for and no email address to give. Open it and start.</p></div>
         <div class="fb3" data-reveal style="--i:2"><b>Ads from AdMob</b><p>The free version shows Google ads, and Google collects some device and ad data for them. Premium has no ads.</p></div>
-        <div class="fb4" data-reveal style="--i:3"><b>No analytics</b><p>No analytics or crash reporting service is built in, so nobody watches how you use the app.</p></div>
+        <div class="fb4" data-reveal style="--i:3"><b>Anonymous stats</b><p>Google Analytics counts which features get used, never your amounts, notes or names. It tells us what to improve.</p></div>
       </div>
     </section>
 
@@ -220,17 +220,17 @@
 
     <section class="cap cap--flip" id="backup" aria-labelledby="backup-title">
       <div class="cap__text" data-reveal>
-        <h2 id="backup-title">Back it up, weekly</h2>
-        <p class="lead">Choose a folder and the app saves a backup there every week. Make one by hand whenever you want, or share it to your cloud drive or your mail.</p>
-        <p>On a new phone, install Budget Buddy and load the backup. That is also how you move between phones, since there is no sync. Your phone’s own iCloud or Google backup may include the app’s data too, depending on your phone’s settings.</p>
+        <h2 id="backup-title">Back it up, every day</h2>
+        <p class="lead">Turn on cloud backup and the app saves a copy to your own Google Drive or iCloud once a day. On a new phone, restore it in a couple of taps.</p>
+        <p>Only Budget Buddy can read that copy, and it goes from your phone straight to your account, never through us. You can also have a backup saved to a folder every week, or send a copy to your mail. Your phone’s own iCloud or Google backup may include the app’s data too, depending on your phone’s settings.</p>
       </div>
       <div class="cap__frag" data-reveal style="--i:1">
         <div class="tx" data-ui style="width:min(100%,21rem)" aria-hidden="true">
           <div class="tx__lbl">Personal data</div>
-          <div class="tx__line"><span>Automatic backup</span><b>Weekly</b></div>
-          <div class="tx__line"><span>Backup now</span><span>›</span></div>
-          <div class="tx__line"><span>Share backup</span><span>›</span></div>
-          <div class="tx__line"><span>Load data backup</span><span>›</span></div>
+          <div class="tx__line"><span>Back up to Google Drive</span><b class="good">Daily</b></div>
+          <div class="tx__line"><span>Back up every week</span><b>Folder</b></div>
+          <div class="tx__line"><span>Send a copy</span><span>›</span></div>
+          <div class="tx__line"><span>Restore</span><span>›</span></div>
         </div>
       </div>
     </section>
@@ -254,17 +254,20 @@
     <section class="cap cap--dark cap--flip" id="network" aria-labelledby="net-title">
       <div class="cap__text" data-reveal>
         <h2 id="net-title">What does use the internet</h2>
-        <p class="lead">The app works offline. It goes online for ads, for Premium and for exchange rates, and none of these carries your entries.</p>
+        <p class="lead">The app works offline. It goes online for ads, anonymous usage statistics, Premium, exchange rates and cloud backup. Only the backup carries your entries, and it goes to your own Google Drive or iCloud.</p>
         <p>The free version shows ads from Google AdMob. Google collects device and advertising identifiers, an approximate location from your IP address, ad interactions and diagnostics to serve them. In the EEA, the UK and Switzerland, Google’s consent form asks first, and Ad privacy choices in Settings lets you change your answer later. The iPhone app never shows Apple’s tracking prompt, so it never reads your advertising identifier.</p>
+        <p>Google Analytics records which screens and features are used, rough counts such as how many budgets you have, and your device type, language and country. It never gets your amounts, notes, names or receipt photos, and it isn’t linked to you or used for ads.</p>
         <p>Premium is bought and restored through the App Store or Google Play. When you convert your amounts to another currency, the app asks for today’s European Central Bank rate and sends only the two currency codes. Offline, you type the rate yourself.</p>
-        <p class="muted">Premium removes the ads. Your transactions, categories and budgets are never sent anywhere by the app; a backup only leaves the phone when you share it.</p>
+        <p class="muted">Premium removes the ads. Your transactions, categories and budgets never reach us; a backup leaves the phone only when you share it or turn on cloud backup.</p>
       </div>
       <div class="cap__frag" data-reveal style="--i:1">
         <ul class="formats" style="width:min(100%,30rem)">
           <li>Ads<small>Google AdMob, free version only</small></li>
           <li>Ad consent<small>Google’s form, in the EEA, UK and Switzerland</small></li>
+          <li>Usage statistics<small>Google Analytics, never your entries</small></li>
           <li>Premium<small>App Store or Google Play</small></li>
           <li>Exchange rate<small>Only when you convert amounts</small></li>
+          <li>Cloud backup<small>Your own Google Drive or iCloud, when on</small></li>
         </ul>
       </div>
     </section>
