@@ -13,7 +13,7 @@ assets or design docs.
 | File | URL | Purpose |
 |---|---|---|
 | `index.html` | `/waverider/` | Home: the boot splash, the trailer, a playable live sea, the screenshot gallery, tricks, a short boat line-up (the full story is on `boats.html`), the seas board, the garage, daily goals and the streak, download |
-| `play.html` | `/waverider/play` | **The link to share**: a phone goes straight to its store (Android to Play, iPhone and iPad to the App Store); desktops, Fire tablets and anything unknown see a download card. `?platform=ios\|android\|none` forces a branch for testing |
+| `play.html` | `/waverider/play` | **The link to share**: a phone goes straight to its store (Android to Play, iPhone and iPad to the App Store); desktops, Fire tablets and anything unknown see a download card. `?platform=ios\|android\|none` forces a branch for testing. `?s=tiktok` (or `instagram`, `youtube`) tags the store link: App Store `ct=<s>`, Play `referrer=utm_source=<s>&utm_medium=social`. Without `s` the links stay plain |
 | `boats.html` | `/waverider/boats.html` | Every boat in depth, built around the All Boats Showcase YouTube video: role, where it does best, stock vs upgraded meters |
 | `seas.html` | `/waverider/seas.html` | Every sea in depth (water, hazards, view, locals, unlock) and the boat × sea fit table, from the game's `06_WORLD_CATALOG.md` and `07_BOAT_WORLD_MATRIX.md` (launch seas only). Room for a seas video when one exists |
 | `garage.html` | `/waverider/garage.html` | The upgrade lanes and a stock vs upgraded table, built around the Garage YouTube video, whose chapters seek the player (`data-seek` in `main.js`) |
@@ -180,6 +180,10 @@ cp /tmp/cap/out/play/01-caribbean.png WaveRider/Build/screenshots/website/06_spe
 (run from the Unity repo root). `press.html` lists all ten, linked to their 1600 files. The gallery is one big shot with all eight thumbnails beside it (two
 columns on desktop, a row of four on phones); change `.viewer__thumbs` in `style.css` if the count
 changes. Clicking a thumbnail swaps the big shot, and clicking the big shot opens it full screen.
+
+The store frames (all but MEET THE LOCALS and the two `#tricks` shots) were re-exported on 2026-11-08 from the game repo's
+`fastlane/metadata/android/en-US/images/phoneScreenshots/` (01 crest, 02 flip, 03 garage, 05 Nile, 06 tune, 07 missions, 08 calm; the new
+big-caption composer with the pedals shown) as 1600/480 WebP, `nile-1600.jpg` included. MEET THE LOCALS is still the old Caribbean frame.
 
 To change them: recapture, update `SCREENSHOTS` and the matching thumbnails
 (`.viewer__thumb`, whose `data-cap` is the caption under the picture) in `index.html`, and re-run the script.
