@@ -49,7 +49,7 @@ SCREENSHOTS = {
     "crest": STORE / "01-crest",
     "flip": STORE / "02-flip",
     "nile": STORE / "05-nile",
-    "caribbean": SHOTS / "06_speedboat_caribbean_manta_caption",
+    "capsize": STORE / "04-capsize",
     "boats": STORE / "03-garage",
     "upgrades": STORE / "06-tune",
     "missions": STORE / "07-missions",

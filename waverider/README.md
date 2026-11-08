@@ -181,9 +181,9 @@ cp /tmp/cap/out/play/01-caribbean.png WaveRider/Build/screenshots/website/06_spe
 columns on desktop, a row of four on phones); change `.viewer__thumbs` in `style.css` if the count
 changes. Clicking a thumbnail swaps the big shot, and clicking the big shot opens it full screen.
 
-The store frames (all but MEET THE LOCALS and the two `#tricks` shots) were re-exported on 2026-11-08 from the game repo's
+The store frames (all but the two `#tricks` shots) were re-exported on 2026-11-08 from the game repo's
 `fastlane/metadata/android/en-US/images/phoneScreenshots/` (01 crest, 02 flip, 03 garage, 05 Nile, 06 tune, 07 missions, 08 calm; the new
-big-caption composer with the pedals shown) as 1600/480 WebP, `nile-1600.jpg` included. MEET THE LOCALS is still the old Caribbean frame.
+big-caption composer with the pedals shown) as 1600/480 WebP, `nile-1600.jpg` included.  The Caribbean slot became `capsize` (04, REAL WATER PHYSICS); thumbnail URLs carry `?v=20261108` to beat cached copies.
 
 To change them: recapture, update `SCREENSHOTS` and the matching thumbnails
 (`.viewer__thumb`, whose `data-cap` is the caption under the picture) in `index.html`, and re-run the script.
