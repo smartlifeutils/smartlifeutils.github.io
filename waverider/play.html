@@ -41,6 +41,24 @@
       }
       w.__storeFor = storeFor;
 
+      // Optional source tag, e.g. /play?s=tiktok. Shows up as the campaign in
+      // App Store Connect (ct) and as the referrer in Play Console.
+      var src = ((w.location.search.match(/[?&]s=([a-z0-9_-]{1,30})/i) || [])[1] || "").toLowerCase();
+      function tag(url) {
+        if (!src) return url;
+        if (url === APP_STORE) return APP_STORE + "?pt=128500296&ct=" + src + "&mt=8";
+        return PLAY_STORE + "&referrer=" + encodeURIComponent("utm_source=" + src + "&utm_medium=social");
+      }
+      // Desktop and Kindle visitors see the badges: tag those links too.
+      document.addEventListener("DOMContentLoaded", function () {
+        if (!src) return;
+        var links = document.querySelectorAll('a[href*="apps.apple.com"], a[href*="play.google.com/store"]');
+        for (var i = 0; i < links.length; i++) {
+          var h = links[i].getAttribute("href");
+          links[i].setAttribute("href", tag(h.indexOf("apple.com") > -1 ? APP_STORE : PLAY_STORE));
+        }
+      });
+
       var target;
       var forced = (w.location.search.match(/[?&]platform=([a-z]+)/i) || [])[1];
       if (forced) {
@@ -51,7 +69,7 @@
       }
 
       if (!target) return;
-      w.location.replace(target);
+      w.location.replace(tag(target));
     })(window);
   </script>
 
