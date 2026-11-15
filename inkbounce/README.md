@@ -19,7 +19,7 @@ cut from the trailer, and numbers read out of the Unity project.
 | `privacy.html` | `/inkbounce/privacy` | **Store-required privacy policy** |
 | `terms.html` | `/inkbounce/terms` | Terms of service |
 | `press.html` | `/inkbounce/press` | Press kit: fact sheet, key features, the trailer, gameplay stills and world art with links to the full files, press contact. Linked from every footer |
-| `play.html` | `/inkbounce/play` | **The link to share**: a phone goes straight to its store; anything else sees both badges. `?platform=ios\|android\|none` forces a branch |
+| `play.html` | `/inkbounce/play` | **The link to share**: a phone goes straight to its store; anything else sees both badges. `?platform=ios\|android\|none` forces a branch. `?s=tiktok` (or `insta`, `youtube`, `reddit`) tags the store link: App Store `pt=128500296&ct=<s>&mt=8`, Play `referrer=utm_source=<s>&utm_medium=social`. Without `s` the links stay plain |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
 
 Canonical URLs are the clean forms (`/inkbounce/worlds`), which GitHub Pages serves for every

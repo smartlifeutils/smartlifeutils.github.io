@@ -25,7 +25,7 @@ weekdays, smart insights, keypad) still show the 2025 demo dataset (`assets/Budg
 | `premium.html` | `/budgetbuddy/premium.html` | Free against Premium, from the limits the app enforces in code, and what the subscription costs |
 | `support.html` | `/budgetbuddy/support.html` | Contact, FAQ, bug reports, policies |
 | `press.html` | `/budgetbuddy/press.html` | Press kit: fact sheet, key features, trailer, store screenshots and raw screens linked to their full files, app icon, about SmartLifeUtils. Linked from every footer |
-| `download.html` | `/budgetbuddy/download` | **The link to share**: a phone goes straight to its store; desktops see a download card. `?platform=ios\|android\|none` forces a branch for testing |
+| `download.html` | `/budgetbuddy/download` | **The link to share**: a phone goes straight to its store; desktops see a download card. `?platform=ios\|android\|none` forces a branch for testing. `?s=tiktok` (or `insta`, `youtube`, `reddit`) tags the store link: App Store `pt=128500296&ct=<s>&mt=8` campaign, Play `referrer=utm_source=<s>&utm_medium=social`. Without `s` the links stay plain |
 | `play.html` | `/budgetbuddy/play` | The old share link, kept so links already out keep working. It forwards to `download`, query string included |
 | `404.html` | direct hits only | GitHub Pages serves the repo-root 404 for unknown paths |
 
